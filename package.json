@@ -4,11 +4,18 @@
   "description": "Córas is the design system for University of Limerick.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rm -r dist",
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
   },
-  "author": "",
+  "author": "David Matthew",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-navigation": "^0.3.5",
+    "@11ty/eleventy-plugin-vite": "^4.0.0",
+    "@tailwindcss/typography": "^0.5.13",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
   }
 }
