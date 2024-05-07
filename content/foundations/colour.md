@@ -3,71 +3,99 @@ title: Colour
 tags: foundations
 layout: layout.html
 eleventyNavigation:
-  key: Colour
+    key: Colour
 ---
-
-<h1>{{ title }}</h1>
 
 <h2>Primary Colours</h2>
 
-<div style="display: flex; min-height: 150px">
+{% include 'components/swatch.html', name: 'Default', hex: '#005335', colour: 'green', shade: '700' %}
 
-  <div style="color: #fff; background-color: #003726">
-    <p>UL Heritage Green</p>
-    <p>Hex: <code>#003726</code></p>
-  </div>
+<h3>UL Green</h3>
 
-  <div style="color: #fff; background-color: #005335">
-    <p>UL Green</p>
-    <p>Hex: <code>#005335</code></p>
-  </div>
-  
-  <div style="color: #fff; background-color: #00B140">
-    <p>UL Modern Green</p>
-    <p>Hex: <code>#00B140</code></p>
-  </div>
-
+<div class="flex gap-2">
+    <div class="flex flex-col">
+        <div class="w-20 h-12 bg-green-700 rounded"></div>
+        <div>
+            <div class="font-bold">Default</div>
+            <div>#005335</div>
+        </div>
+    </div>
+    <div class="h-24 border-r mx-3 border-slate-200"></div>
+    <div class="flex flex-col">
+        <div class="w-20 h-12 bg-green-50 rounded"></div>
+        <div>
+            <div class="font-bold">50</div>
+            <div>#E0FFF4</div>
+        </div>
+    </div>
+    <div class="flex flex-col">
+        <div class="w-20 h-12 bg-green-100 rounded"></div>
+        <div>
+            <div class="font-bold">100</div>
+            <div>#E0FFF4</div>
+        </div>
+    </div>
+    <div class="flex flex-col">
+        <div class="w-20 h-12 bg-green-200 rounded"></div>
+        <div>
+            <div class="font-bold">200</div>
+            <div>#E0FFF4</div>
+        </div>
+    </div>
+    <div class="flex flex-col">
+        <div class="w-20 h-12 bg-green-300 rounded"></div>
+        <div>
+            <div class="font-bold">300</div>
+            <div>#E0FFF4</div>
+        </div>
+    </div>
+    <div class="flex flex-col">
+        <div class="w-20 h-12 bg-green-400 rounded"></div>
+        <div>
+            <div class="font-bold">400</div>
+            <div>#E0FFF4</div>
+        </div>
+    </div>
+    <div class="flex flex-col">
+        <div class="w-20 h-12 bg-green-500 rounded"></div>
+        <div>
+            <div class="font-bold">500</div>
+            <div>#E0FFF4</div>
+        </div>
+    </div>
+    <div class="flex flex-col">
+        <div class="w-20 h-12 bg-green-600 rounded"></div>
+        <div>
+            <div class="font-bold">600</div>
+            <div>#E0FFF4</div>
+        </div>
+    </div>
+    <div class="flex flex-col">
+        <div class="w-20 h-12 bg-green-700 rounded"></div>
+        <div>
+            <div class="font-bold">700</div>
+            <div>#E0FFF4</div>
+        </div>
+    </div>
+    <div class="flex flex-col">
+        <div class="w-20 h-12 bg-green-800 rounded"></div>
+        <div>
+            <div class="font-bold">800</div>
+            <div>#E0FFF4</div>
+        </div>
+    </div>
+    <div class="flex flex-col">
+        <div class="w-20 h-12 bg-green-900 rounded"></div>
+        <div>
+            <div class="font-bold">900</div>
+            <div>#E0FFF4</div>
+        </div>
+    </div>
+    <div class="flex flex-col">
+        <div class="w-20 h-12 bg-green-950 rounded"></div>
+        <div>
+            <div class="font-bold">950</div>
+            <div>#E0FFF4</div>
+        </div>
+    </div>
 </div>
-
-## Secondary Colours
-
-Shannon `#00A3E0`
-
-Sky `#007DBA`
-
-Stone `#2D5980`
-
-Marine `#13294B`
-
-Marigold `#FFC72C`
-
-Golden Leaf `#FFA300`
-
-Pumpkin `#D45D00`
-
-Munster `#CB333B`
-
-Salmon `#E31C79`
-
-Autumnal Leaf `#6F263D`
-
-Copper `#89532F`
-
-Bronze `#8B634B`
-
-<h2>Mono Colours</h2>
-
-White `#FFFFFF`
-
-Limestone `#919D9D`
-
-Pebble `#707372`
-
-Granite `#505759`
-
-Slate `#373A36`
-
-
-
-
-

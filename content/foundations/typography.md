@@ -8,10 +8,6 @@ eleventyNavigation:
 
 {% assign lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' %}
 
-<!-- Todo: discuss optimal line-lengths (50 - 75 characters) -->
-
-<h1>{{ title }}</h1>
-
 Our typography plays an important role in expressing the University's many needs - from sophisticated to more expressive applications.
 
 <h2 class="dh1">DH1: Display Heading 1</h2>

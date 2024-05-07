@@ -6,8 +6,6 @@ eleventyNavigation:
     key: Layout
 ---
 
-<h1>{{ title }}</h1>
-
 Page layouts are based on a 12-column responsive grid.
 
 Different layouts can be set per breakpoint (i.e. a pre-defined device width). For a example, a layout could start out as single-column on mobile, two-column on tablet-sized devices, and three-column on desktop-sized devices.
