@@ -1,4 +1,4 @@
-//Alpine
+import pageNav from './js/pageNav.js'
 import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;
@@ -6,6 +6,10 @@ window.Alpine = Alpine;
 Alpine.start();
 
 document.addEventListener('DOMContentLoaded', function () {
+
+  //Create the dynamic sidebar links.
+  pageNav();
+
   // Light switcher
   const lightSwitches = document.querySelectorAll('.light-switch');
   if (lightSwitches.length > 0) {

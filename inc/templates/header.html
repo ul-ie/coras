@@ -1,0 +1,29 @@
+<header class="sticky top-0 w-full h-24 z-10">
+
+    <div class="
+        absolute inset-0 bg-white bg-opacity-70 border-b border-slate-l5 backdrop-blur -z-10
+        dark:bg-slate-d2 dark:border-slate dark:bg-opacity-70" 
+        aria-hidden="true">
+    </div>
+    
+    <div class="container h-full flex items-center justify-between px-4 sm:px-6">
+        
+        <a href="/">{% include '../assets/img/logo.svg' %}</a>
+        
+        <!-- Dark mode toggle -->
+
+        <input type="checkbox" name="light-switch" id="light-switch" class="light-switch sr-only" />
+        
+        <label class="relative cursor-pointer p-2" for="light-switch">
+            
+            {% include '../assets/img/icons/day.svg' %}
+
+            {% include '../assets/img/icons/night.svg' %}
+            
+            <span class="sr-only">Switch between dark and light modes</span>
+        
+        </label>
+
+    </div>
+
+</header>

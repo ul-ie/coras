@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en" class="scroll-smooth">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/index.css">
+
+    <script>
+        if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
+            document.querySelector('html').classList.remove('dark');
+        } else {
+            document.querySelector('html').classList.add('dark');
+        }
+    </script>
+    
+    <title>{{ title }}</title>
+
+</head>
+
+<body class="antialiased bg-white dark:bg-slate-d2 dark:text-slate-l5">
+
+    {% include 'header.html' %}
+
+    <div class="flex container min-h-screen">
+
+        <nav class="
+            grow basis-1/6 py-20 border-r border-slate-l5
+            dark:border-slate">
+
+        <ul>
+
+            {% for link in links %}
+
+            <li>
+                
+                <span class="text-lg font-bold">{{ link.section }}</span>
+
+                <ul class="mb-3">
+
+                {% for entry in link.entries %}
+
+                    <li><a href="{{ entry.url }}">{{ entry.text }}</a></li>
+
+                {% endfor %}
+            
+                </ul>
+
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+        </nav>
+
+        <main class="basis-4/6"> 
+
+            <article>
+
+                {{ content }}
+
+            </article>            
+                
+        </main>
+
+        <nav id="page-nav" class="basis-1/6 py-20"></nav>
+        
+    </div>
+
+    {% include 'footer.html' %}
+
+    <script type="module" src="/index.js"></script>
+
+</body>
+
+</html>
