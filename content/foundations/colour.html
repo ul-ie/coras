@@ -1,0 +1,521 @@
+---
+title: Colour
+tags: foundations
+layout: templates/page.html
+---
+
+<div class="prose dark:prose-invert mx-auto py-20 md:prose-lg lg:prose-x">
+
+    <h1>{{ title }}</h1>
+
+    <h2>Primary Colours</h2>
+
+    <div class="flex flex-col">
+
+        <h3>UL Green</h3>
+
+        <div class="flex">
+
+            <div class="basis-1/3 grow">
+
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-green', label: 'green' } %}
+            
+            </div>
+
+            <div class="flex flex-col justify-between basis-2/3">
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-green-l1', label: 'l1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-green-l2', label: 'l2' } %}
+                </div>
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-green-d1', label: 'd1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-green-d2', label: 'd2' } %}
+                </div>
+
+            </div>
+
+        </div>
+
+        <h3>Modern Green</h3>
+
+        <div class="flex">
+
+            <div class="basis-1/3 grow">
+
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-modern', label: 'modern' } %}
+            
+            </div>
+
+            <div class="flex flex-col justify-between basis-2/3">
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-modern-l1', label: 'l1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-modern-l2', label: 'l2' } %}
+                </div>
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-modern-d1', label: 'd1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-modern-d2', label: 'd2' } %}
+                </div>
+
+            </div>
+
+        </div>
+
+        <h3>Heritage Green</h3>
+
+        <div class="flex">
+
+            <div class="basis-1/3 grow">
+
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-heritage', label: 'heritage' } %}
+            
+            </div>
+
+            <div class="flex flex-col justify-between basis-2/3">
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-heritage-l1', label: 'l1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-heritage-l2', label: 'l2' } %}
+                </div>
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-heritage-d1', label: 'd1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-heritage-d2', label: 'd2' } %}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h2>Secondary Colours</h2>
+
+    <div class="flex flex-col">
+
+        <h3>Shannon</h3>
+
+        <div class="flex">
+
+            <div class="basis-1/3 grow">
+
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-shannon', label: 'shannon' } %}
+            
+            </div>
+
+            <div class="flex flex-col justify-between basis-2/3">
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-shannon-l1', label: 'l1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-shannon-l2', label: 'l2' } %}
+                </div>
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-shannon-d1', label: 'd1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-shannon-d2', label: 'd2' } %}
+                </div>
+
+            </div>
+
+        </div>
+
+        <h3>Sky</h3>
+
+        <div class="flex">
+
+            <div class="basis-1/3 grow">
+
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-sky', label: 'sky' } %}
+            
+            </div>
+
+            <div class="flex flex-col justify-between basis-2/3">
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-sky-l1', label: 'l1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-sky-l2', label: 'l2' } %}
+                </div>
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-sky-d1', label: 'd1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-sky-d2', label: 'd2' } %}
+                </div>
+
+            </div>
+
+        </div>
+
+        <h3>Stone</h3>
+
+        <div class="flex">
+
+            <div class="basis-1/3 grow">
+
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-stone', label: 'stone' } %}
+            
+            </div>
+
+            <div class="flex flex-col justify-between basis-2/3">
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-stone-l1', label: 'l1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-stone-l2', label: 'l2' } %}
+                </div>
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-stone-d1', label: 'd1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-stone-d2', label: 'd2' } %}
+                </div>
+
+            </div>
+
+        </div>
+
+        <h3>Marine</h3>
+
+        <div class="flex">
+
+            <div class="basis-1/3 grow">
+
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-marine', label: 'marine' } %}
+            
+            </div>
+
+            <div class="flex flex-col justify-between basis-2/3">
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marine-l1', label: 'l1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marine-l2', label: 'l2' } %}
+                </div>
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marine-d1', label: 'd1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marine-d2', label: 'd2' } %}
+                </div>
+
+            </div>
+
+        </div>
+
+        <h3>Marigold</h3>
+
+        <div class="flex">
+
+            <div class="basis-1/3 grow">
+
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-marigold', label: 'marigold' } %}
+            
+            </div>
+
+            <div class="flex flex-col justify-between basis-2/3">
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marigold-l1', label: 'l1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marigold-l2', label: 'l2' } %}
+                </div>
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marigold-d1', label: 'd1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marigold-d2', label: 'd2' } %}
+                </div>
+
+            </div>
+
+        </div>
+
+        <h3>Golden Leaf</h3>
+
+        <div class="flex">
+
+            <div class="basis-1/3 grow">
+
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-golden', label: 'golden' } %}
+            
+            </div>
+
+            <div class="flex flex-col justify-between basis-2/3">
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-golden-l1', label: 'l1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-golden-l2', label: 'l2' } %}
+                </div>
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-golden-d1', label: 'd1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-golden-d2', label: 'd2' } %}
+                </div>
+
+            </div>
+
+        </div>
+
+        <h3>Pumpkin</h3>
+
+        <div class="flex">
+
+            <div class="basis-1/3 grow">
+
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-pumpkin', label: 'pumpkin' } %}
+            
+            </div>
+
+            <div class="flex flex-col justify-between basis-2/3">
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pumpkin-l1', label: 'l1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pumpkin-l2', label: 'l2' } %}
+                </div>
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pumpkin-d1', label: 'd1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pumpkin-d2', label: 'd2' } %}
+                </div>
+
+            </div>
+
+        </div>
+
+        <h3>Munster</h3>
+
+        <div class="flex">
+
+            <div class="basis-1/3 grow">
+
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-munster', label: 'munster' } %}
+            
+            </div>
+
+            <div class="flex flex-col justify-between basis-2/3">
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-munster-l1', label: 'l1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-munster-l2', label: 'l2' } %}
+                </div>
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-munster-d1', label: 'd1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-munster-d2', label: 'd2' } %}
+                </div>
+
+            </div>
+
+        </div>
+
+        <h3>Salmon</h3>
+
+        <div class="flex">
+
+            <div class="basis-1/3 grow">
+
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-salmon', label: 'salmon' } %}
+            
+            </div>
+
+            <div class="flex flex-col justify-between basis-2/3">
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-salmon-l1', label: 'l1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-salmon-l2', label: 'l2' } %}
+                </div>
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-salmon-d1', label: 'd1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-salmon-d2', label: 'd2' } %}
+                </div>
+
+            </div>
+
+        </div>
+
+        <h3>Autumnal Leaf</h3>
+
+        <div class="flex">
+
+            <div class="basis-1/3 grow">
+
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-autumnal', label: 'autumnal' } %}
+            
+            </div>
+
+            <div class="flex flex-col justify-between basis-2/3">
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-autumnal-l1', label: 'l1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-autumnal-l2', label: 'l2' } %}
+                </div>
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-autumnal-d1', label: 'd1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-autumnal-d2', label: 'd2' } %}
+                </div>
+
+            </div>
+
+        </div>
+
+        <h3>Copper</h3>
+
+        <div class="flex">
+
+            <div class="basis-1/3 grow">
+
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-copper', label: 'copper' } %}
+            
+            </div>
+
+            <div class="flex flex-col justify-between basis-2/3">
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-copper-l1', label: 'l1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-copper-l2', label: 'l2' } %}
+                </div>
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-copper-d1', label: 'd1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-copper-d2', label: 'd2' } %}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h2>Monotone Colours</h2>
+
+    <div class="flex flex-col">
+
+        <h3>Limestone</h3>
+
+        <div class="flex">
+
+            <div class="basis-1/4 grow">
+
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-limestone', label: 'limestone' } %}
+            
+            </div>
+
+            <div class="flex flex-col justify-between basis-3/4">
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l1', label: 'l1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l2', label: 'l2' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l3', label: 'l3' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l4', label: 'l4' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l5', label: 'l5' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l6', label: 'l6' } %}
+                </div>
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d1', label: 'd1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d2', label: 'd2' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d3', label: 'd3' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d4', label: 'd4' } %}
+                </div>
+
+            </div>
+
+        </div>
+
+        <h3>Pebble</h3>
+
+        <div class="flex">
+
+            <div class="basis-1/4 grow">
+
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-pebble', label: 'pebble' } %}
+            
+            </div>
+
+            <div class="flex flex-col justify-between basis-3/4">
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l1', label: 'l1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l2', label: 'l2' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l3', label: 'l3' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l4', label: 'l4' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l5', label: 'l5' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l6', label: 'l6' } %}
+                </div>
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d1', label: 'd1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d2', label: 'd2' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d3', label: 'd3' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d4', label: 'd4' } %}
+                </div>
+
+            </div>
+
+        </div>
+
+        <h3>Granite</h3>
+
+        <div class="flex">
+
+            <div class="basis-1/4 grow">
+
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-granite', label: 'granite' } %}
+            
+            </div>
+
+            <div class="flex flex-col justify-between basis-3/4">
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l1', label: 'l1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l2', label: 'l2' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l3', label: 'l3' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l4', label: 'l4' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l5', label: 'l5' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l6', label: 'l6' } %}
+                </div>
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d1', label: 'd1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d2', label: 'd2' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d3', label: 'd3' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d4', label: 'd4' } %}
+                </div>
+
+            </div>
+
+        </div>
+
+        <h3>Slate</h3>
+
+        <div class="flex">
+
+            <div class="basis-1/4 grow">
+
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-slate', label: 'slate' } %}
+            
+            </div>
+
+            <div class="flex flex-col justify-between basis-3/4">
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l1', label: 'l1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l2', label: 'l2' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l3', label: 'l3' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l4', label: 'l4' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l5', label: 'l5' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l6', label: 'l6' } %}
+                </div>
+
+                <div class="flex">
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d1', label: 'd1' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d2', label: 'd2' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d3', label: 'd3' } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d4', label: 'd4' } %}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
