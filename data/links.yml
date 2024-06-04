@@ -1,0 +1,12 @@
+-
+  section: Foundations
+  entries:
+    - text: Colour
+      url: /foundations/colour/
+    - text: Typography
+      url: /foundations/typography/
+-
+  section: Components
+  entries:
+  - text: Button
+    url: /components/button/
