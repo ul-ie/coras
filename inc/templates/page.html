@@ -22,13 +22,20 @@
 
 </head>
 
-<body class="antialiased bg-white dark:bg-slate-d2 dark:text-slate-l5">
+<body class="antialiased bg-white dark:bg-granite-d2 dark:text-granite-l5">
+
+    <div 
+        class="absolute top-0 left-0 w-full h-96 -z-10"
+        style="background-image: radial-gradient(ellipse farthest-side at right top, #00B14020 0%, transparent 100%)">
+    </div>
 
     {% include 'header.html' %}
 
     <div class="flex container min-h-screen">
 
-        <div class="grow basis-1/6 py-20 px-8 border-r border-slate-l5 dark:border-slate">
+        <div 
+            class="grow basis-1/6 py-20 px-4 border-r border-granite-l5 dark:border-granite"
+            style="background-image: linear-gradient(90deg, transparent, #00553508)">
 
             {% include 'site-nav.html' %}
 
@@ -44,7 +51,7 @@
                 
         </main>
 
-        <div class="basis-1/6 py-20">
+        <div class="basis-1/6 py-20 px-4">
 
             {% include 'page-nav.html' %}
 

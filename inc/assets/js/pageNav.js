@@ -35,7 +35,7 @@ export default function pageNav() {
 
         // Get the heading text and style it appropriately.
         link.innerText = heading.innerText;
-        listItem.classList.add('border-l', 'border-slate-l5', 'dark:border-slate');
+        listItem.classList.add('border-l', 'border-granite-l5', 'dark:border-granite');
         if (heading.tagName.toLowerCase() === 'h2') {
           listItem.classList.add('pl-3');
         } else {
