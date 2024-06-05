@@ -1,0 +1,27 @@
+<nav class="fixed">
+
+    <ul>
+
+        {% for link in links %}
+
+        <li>
+            
+            <span class="text-lg font-bold">{{ link.section }}</span>
+
+            <ul class="mb-3 ml-1">
+
+            {% for entry in link.entries %}
+
+                <li class="pl-3 border-l border-slate-l5 dark:border-slate"><a href="{{ entry.url }}">{{ entry.text }}</a></li>
+
+            {% endfor %}
+        
+            </ul>
+
+        </li>
+
+        {% endfor %}
+
+    </ul>
+
+</nav>

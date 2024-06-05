@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
+    <link rel="stylesheet" href="/index.css">
 
     <script>
         if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
@@ -20,8 +20,6 @@
     
     <title>Córas | The UL Design System</title>
 
-  <script type="module" crossorigin src="/assets/index-e4785848.js"></script>
-  <link rel="stylesheet" href="/assets/index-c692b50d.css">
 </head>
 
 <body class="antialiased bg-white dark:bg-slate-d2 dark:text-slate-l5">
@@ -106,49 +104,50 @@
 </header>
     <div class="flex container min-h-screen">
 
-        <nav class="
-            grow basis-1/6 py-20 border-r border-slate-l5
-            dark:border-slate">
+        <div class="grow basis-1/6 py-20 border-r border-slate-l5 dark:border-slate">
 
-        <ul>
+            <nav class="fixed">
+
+    <ul>
+
+        
+        <li>
+            
+            <span class="text-lg font-bold">Foundations</span>
+
+            <ul class="mb-3 ml-1">
 
             
-            <li>
-                
-                <span class="text-lg font-bold">Foundations</span>
-
-                <ul class="mb-3">
-
-                
-                    <li><a href="/foundations/colour/">Colour</a></li>
-
-                
-                    <li><a href="/foundations/typography/">Typography</a></li>
-
-                            
-                </ul>
-
-            </li>
+                <li class="pl-3 border-l border-slate-l5 dark:border-slate"><a href="/foundations/colour/">Colour</a></li>
 
             
-            <li>
-                
-                <span class="text-lg font-bold">Components</span>
+                <li class="pl-3 border-l border-slate-l5 dark:border-slate"><a href="/foundations/typography/">Typography</a></li>
 
-                <ul class="mb-3">
+                    
+            </ul>
 
-                
-                    <li><a href="/components/button/">Button</a></li>
+        </li>
 
-                            
-                </ul>
+        
+        <li>
+            
+            <span class="text-lg font-bold">Components</span>
 
-            </li>
+            <ul class="mb-3 ml-1">
 
             
-        </ul>
+                <li class="pl-3 border-l border-slate-l5 dark:border-slate"><a href="/components/button/">Button</a></li>
 
-        </nav>
+                    
+            </ul>
+
+        </li>
+
+        
+    </ul>
+
+</nav>
+        </div>
 
         <main class="basis-4/6"> 
 
@@ -160,7 +159,10 @@
                 
         </main>
 
-        <nav id="page-nav" class="basis-1/6 py-20"></nav>
+        <div class="basis-1/6 py-20">
+
+            <nav id="page-nav" class="fixed no-scrollbar"></nav>
+        </div>
         
     </div>
 
@@ -171,7 +173,7 @@
     Copyright © University of Limerick 2024
 
 </footer>
-    
+    <script type="module" src="/index.js"></script>
 
 </body>
 

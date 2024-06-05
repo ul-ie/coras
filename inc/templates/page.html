@@ -28,35 +28,11 @@
 
     <div class="flex container min-h-screen">
 
-        <nav class="
-            grow basis-1/6 py-20 border-r border-slate-l5
-            dark:border-slate">
+        <div class="grow basis-1/6 py-20 border-r border-slate-l5 dark:border-slate">
 
-        <ul>
+            {% include 'site-nav.html' %}
 
-            {% for link in links %}
-
-            <li>
-                
-                <span class="text-lg font-bold">{{ link.section }}</span>
-
-                <ul class="mb-3">
-
-                {% for entry in link.entries %}
-
-                    <li><a href="{{ entry.url }}">{{ entry.text }}</a></li>
-
-                {% endfor %}
-            
-                </ul>
-
-            </li>
-
-            {% endfor %}
-
-        </ul>
-
-        </nav>
+        </div>
 
         <main class="basis-4/6"> 
 
@@ -68,7 +44,11 @@
                 
         </main>
 
-        <nav id="page-nav" class="basis-1/6 py-20"></nav>
+        <div class="basis-1/6 py-20">
+
+            {% include 'page-nav.html' %}
+
+        </div>
         
     </div>
 
