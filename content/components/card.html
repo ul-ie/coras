@@ -1,0 +1,30 @@
+---
+title: Card
+layout: templates/page.html
+---
+
+<div class="prose dark:prose-invert mx-auto py-20 md:prose-lg lg:prose-x">
+
+    <div class="columns-3">
+
+        {% include '@components/card/card.twig' with {
+            title: 'Professor',
+            name: 'Colin Fitzpatrick',
+            img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/scieng/dr-colin-fitzpatrick--o8zfr99je0fpmai66lk3p4zmfsm8vyk99bcx3msvo8.jpg'
+        } %}
+
+        {% include '@components/card/card.twig' with {
+            title: 'Dr',
+            name: 'Abhishek Kumar Awasthi',
+            img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/2024-01/Dr%20Abhishek%20Kumar%20Awasthi%20abhishek.awasthi%40ul.ie%20D2-020.jpeg'
+        } %}
+
+        {% include '@components/card/card.twig' with {
+            title: 'Dr',
+            name: 'John Kelly',
+            img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/scieng/john-kelly-john.m.kellyul.ie-a2-011-ext-2100-oqpk2mzoh1pwexy9acyxcprwcy7skunsc0b9awn87s.jpg'
+        } %}
+
+    </div>
+
+</div>

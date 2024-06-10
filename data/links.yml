@@ -10,3 +10,5 @@
   entries:
   - text: Button
     url: /components/button/
+  - text: Card
+    url: /components/card/

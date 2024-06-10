@@ -12,7 +12,10 @@ module.exports = function(eleventyConfig) {
       const template = twig.twig({
         data: inputContent,
         path: `./${inputPath}`,
-        namespaces: { components: './inc/components' },
+        namespaces: {
+          assets: './inc/assets',
+          components: './inc/components'
+        },
       });
       return async (data) => {
         return template.render(data);
