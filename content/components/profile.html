@@ -1,0 +1,60 @@
+---
+title: profile
+layout: templates/page.html
+---
+
+<div class="prose dark:prose-invert mx-auto mw-none py-20 md:prose-lg lg:prose-x">
+
+    <div class="grid grid-cols-1 gap-x-3 gap-y-5 justify-items-center md:grid-cols-2 lg:grid-cols-3">
+
+        {% include '@components/profile/profile.twig' with {
+            title: 'Associate Professor',
+            name: 'Jacqueline Walker',
+            img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/scieng/dr-jacqueline-walker-jacqueline.walkerul.ie-d2-041-ext-2780-o8zfra7dkugzxwgt13yq9mr316hm3nnzlg0ekwrhi0.jpg'
+        } %}
+
+        {% include '@components/profile/profile.twig' with {
+            title: 'Professor Doctor Assoc Prof Awesome Man',
+            name: 'Colin Fitzpatrick',
+            img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/scieng/dr-colin-fitzpatrick--o8zfr99je0fpmai66lk3p4zmfsm8vyk99bcx3msvo8.jpg'
+        } %}
+    
+        {% include '@components/profile/profile.twig' with {
+            title: 'Who is Homer',
+            name: 'Guy Incognito',
+            img_src: '/img/profile-no-img.svg'
+        } %}
+    
+        {% include '@components/profile/profile.twig' with {
+            title: 'Doctor',
+            name: 'Edin Omerdic',
+            img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/scieng/Dr%20Edin%20Omerdic%20edin.omerdic%40ul.ie%20C0-045%20Ext%202104.JPG'
+        } %}
+    
+        {% include '@components/profile/profile.twig' with {
+            title: 'Doctor',
+            name: 'Sanober Farheen Memon',
+            img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/2023-11/Dr%20Sanober%20Farheen%20Sanober.Farheen%20%40ul.ie%20C2-051.jpg'
+        } %}
+    
+        {% include '@components/profile/profile.twig' with {
+            title: 'Doctor',
+            name: 'John Kelly',
+            img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/scieng/john-kelly-john.m.kellyul.ie-a2-011-ext-2100-oqpk2mzoh1pwexy9acyxcprwcy7skunsc0b9awn87s.jpg'
+        } %}
+    
+        {% include '@components/profile/profile.twig' with {
+            title: 'Adjunct Professor',
+            name: 'Olga  Korostynska',
+            img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/2022-10/Prof%20Olga%20Korostynska_0.jpg?h=f1e147e9&itok=CoJHGx8I'
+        } %}
+    
+        {% include '@components/profile/profile.twig' with {
+            title: 'Doctor',
+            name: 'Abhishek Kumar Awasthi',
+            img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/2024-01/Dr%20Abhishek%20Kumar%20Awasthi%20abhishek.awasthi%40ul.ie%20D2-020.jpeg'
+        } %}
+
+    </div>
+
+</div>
