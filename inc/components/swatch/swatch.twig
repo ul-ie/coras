@@ -1,15 +1,58 @@
-<div class="
-    group flex grow flex-col wrap m-1 p-1.5
+{#
+    The Swatch Colour Component
+    ---
+    Available variables:
+    - height
+    - bgColor
+    - label
+    - hex
+ #}
+
+<div 
+    x-data="{
+        copyToClipboard() {
+            navigator.clipboard.writeText('{{ hex }}');
+        }
+    }"
+
+    @click="copyToClipboard()"
+
+    class="group flex grow flex-col wrap m-1 p-1.5
     border border-slate-l5 rounded cursor-pointer
     dark:border-slate
-    hover:border-slate-l4 hover:dark:border-slate-l1">
+    hover:border-slate-l4 hover:dark:border-slate-l1
+    active:border-slate-l3 active:dark:border-slate"
+    >
 
-    <div class="flex flex-col justify-end {{ height }} {{ bgColor }}">
+    <div 
+        class="relative flex flex-col justify-end {{ height }} {{ bgColor }} p-[.2rem] overflow-hidden"
+        title="Click or tap to copy the hex code"
+        >
     
-        <div class="
-            w-fit px-1 py-0.25 m-1 bg-slate-d3 bg-opacity-70 text-slate-l5 text-sm">
+        <div
+            class="absolute left-1 bottom-1 w-fit px-1 py-0.25 
+            bg-slate-d3 bg-opacity-70 text-slate-l5 text-sm opacity-100
+            group-hover:opacity-0 transition"
+            >
 
             <span>{{ label }}</span>
+
+        </div>
+
+        <div
+            class="relative w-full h-full flex grow items-center justify-center
+            opacity-0 bg-slate-d3 bg-opacity-50 text-slate-l5 text-sm
+            group-hover:opacity-100 transition
+            group-active:bg-slate-d4"
+            >
+
+            <div class="w-6">
+                
+                {% include '@assets/img/icons/copy.svg' with { classes: 'fill-white' } %}
+            
+            </div>
+            
+            <div>{{ hex }}</div>
 
         </div>
 
