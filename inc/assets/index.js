@@ -1,4 +1,4 @@
-import pageNav from './js/pageNav.js'
+import pageNav from './js/pageNav.js';
 import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;
