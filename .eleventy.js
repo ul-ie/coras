@@ -1,6 +1,7 @@
-const vitePlugin = require('@11ty/eleventy-plugin-vite');
+const vite = require('@11ty/eleventy-plugin-vite');
 const twig = require('twig');
 const yaml = require('js-yaml');
+const path = require('path');
 const fs = require('fs');
 
 module.exports = function(eleventyConfig) {
@@ -31,14 +32,21 @@ module.exports = function(eleventyConfig) {
   });
 
   twig.extendFunction('getFile', (filePath) => {
-    return fs.readFileSync(filePath, 'utf8');
+    return fs.readFileSync(path.resolve(__dirname, filePath), 'utf8');
   });
+
+  twig.extendFunction('html', (str) => {
+    return str.replace(/[&<>"']/g, ($0) => {
+      let chars = { "&":"amp", "<":"lt", ">":"gt", '"':"quot", "'":"#39" }[$0];
+      return `&${chars};`;
+    });
+  })
 
   eleventyConfig.addDataExtension('yml', (contents) => {
     return yaml.load(contents);
   });
 
-  eleventyConfig.addPlugin(vitePlugin);
+  eleventyConfig.addPlugin(vite);
 
   eleventyConfig.addPassthroughCopy({ 'inc/assets': '/' });
 
