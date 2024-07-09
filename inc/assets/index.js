@@ -1,5 +1,8 @@
 import pageNav from './js/pageNav.js';
 import Alpine from 'alpinejs';
+import hljs from 'highlight.js/lib/core';
+import xml from 'highlight.js/lib/languages/xml';
+import twig from 'highlight.js/lib/languages/twig';
 
 window.Alpine = Alpine;
 
@@ -7,6 +10,11 @@ Alpine.start();
 
 document.addEventListener('DOMContentLoaded', function () {
 
+  // Get highlight.js started.
+  hljs.registerLanguage('xml', xml);
+  hljs.registerLanguage('twig', twig);
+  hljs.highlightAll();
+  
   //Create the dynamic sidebar links.
   pageNav();
 
@@ -15,14 +23,12 @@ document.addEventListener('DOMContentLoaded', function () {
   if (lightSwitches.length > 0) {
     lightSwitches.forEach((lightSwitch, i) => {
       if (localStorage.getItem('dark-mode') === 'true') {
-        // eslint-disable-next-line no-param-reassign
         lightSwitch.checked = true;
       }
       lightSwitch.addEventListener('change', () => {
         const { checked } = lightSwitch;
         lightSwitches.forEach((el, n) => {
           if (n !== i) {
-            // eslint-disable-next-line no-param-reassign
             el.checked = checked;
           }
         });
