@@ -3,66 +3,72 @@ title: Profile Component
 layout: templates/page.html
 ---
 
-<div class="prose dark:prose-invert mx-auto mw-none py-20 md:prose-lg lg:prose-x">
+<div class="prose dark:prose-invert mx-auto mw-none py-20 md:prose-lg">
+
+    <h1>Profile Component</h1>
 
     <div class="grid grid-cols-1 gap-x-3 gap-y-5 justify-items-center md:grid-cols-2 lg:grid-cols-3">
+     
+    {% include '@components/profile/profile.twig' with {
+        title: 'Dr., Associate Professor',
+        name: 'Gerard Coffey',
+        profile_url: '#',
+        img_src: 'https://www.ul.ie/sites/default/files/styles/portrait/public/media/images/profile_images/1005977.jpeg'
+    } %}
 
-        {% include '@components/profile/profile.twig' with {
-            title: 'Dr., Associate Professor',
-            name: 'Gerard Coffey',
-            profile_url: '#',
-            img_src: 'https://www.ul.ie/sites/default/files/styles/portrait/public/media/images/profile_images/1005977.jpeg'
-        } %}
+    {% include '@components/profile/profile.twig' with {
+        title: 'Guy Incognito',
+        name: 'Placeholder',
+        profile_url: '#',
+        img_src: '/img/profile-no-img.svg'
+    } %}
 
-        {% include '@components/profile/profile.twig' with {
-            title: 'Guy Incognito',
-            name: 'Placeholder',
-            profile_url: '#',
-            img_src: '/img/profile-no-img.svg'
-        } %}
+    {% include '@components/profile/profile.twig' with {
+        title: 'Dr., Professor',
+        name: 'Colin Fitzpatrick',
+        profile_url: '#',
+        img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/scieng/dr-colin-fitzpatrick--o8zfr99je0fpmai66lk3p4zmfsm8vyk99bcx3msvo8.jpg'
+    } %}
 
-        {% include '@components/profile/profile.twig' with {
-            title: 'Dr., Professor',
-            name: 'Colin Fitzpatrick',
-            profile_url: '#',
-            img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/scieng/dr-colin-fitzpatrick--o8zfr99je0fpmai66lk3p4zmfsm8vyk99bcx3msvo8.jpg'
-        } %}
+    {% include '@components/profile/profile.twig' with {
+        title: 'Dr., Associate Professor',
+        name: 'Regina Kelly',
+        profile_url: '#',
+        img_src: 'https://www.ul.ie/sites/default/files/styles/portrait/public/media/images/profile_images/1617348.jpeg?itok=ukiE2_W7'
+    } %}
 
-        {% include '@components/profile/profile.twig' with {
-            title: 'Dr., Associate Professor',
-            name: 'Regina Kelly',
-            profile_url: '#',
-            img_src: 'https://www.ul.ie/sites/default/files/styles/portrait/public/media/images/profile_images/1617348.jpeg?itok=ukiE2_W7'
-        } %}
-    
-        {% include '@components/profile/profile.twig' with {
-            title: 'Dr.',
-            name: 'Edin Omerdic',
-            profile_url: '#',
-            img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/scieng/Dr%20Edin%20Omerdic%20edin.omerdic%40ul.ie%20C0-045%20Ext%202104.JPG'
-        } %}
-    
-        {% include '@components/profile/profile.twig' with {
-            title: 'Dr.',
-            name: 'Sanober Farheen Memon',
-            profile_url: '#',
-            img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/2023-11/Dr%20Sanober%20Farheen%20Sanober.Farheen%20%40ul.ie%20C2-051.jpg'
-        } %}
-    
-        {% include '@components/profile/profile.twig' with {
-            title: 'Dr., Adjunct Professor',
-            name: 'Olga  Korostynska',
-            profile_url: '#',
-            img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/2022-10/Prof%20Olga%20Korostynska_0.jpg?h=f1e147e9&itok=CoJHGx8I'
-        } %}
-    
-        {% include '@components/profile/profile.twig' with {
-            title: 'Dr.',
-            name: 'Abhishek Kumar Awasthi',
-            profile_url: '#',
-            img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/2024-01/Dr%20Abhishek%20Kumar%20Awasthi%20abhishek.awasthi%40ul.ie%20D2-020.jpeg'
-        } %}
+    {% include '@components/profile/profile.twig' with {
+        title: 'Dr.',
+        name: 'Edin Omerdic',
+        profile_url: '#',
+        img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/scieng/Dr%20Edin%20Omerdic%20edin.omerdic%40ul.ie%20C0-045%20Ext%202104.JPG'
+    } %}
+
+    {% include '@components/profile/profile.twig' with {
+        title: 'Dr.',
+        name: 'Sanober Farheen Memon',
+        profile_url: '#',
+        img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/2023-11/Dr%20Sanober%20Farheen%20Sanober.Farheen%20%40ul.ie%20C2-051.jpg'
+    } %}
+
+    {% include '@components/profile/profile.twig' with {
+        title: 'Dr., Adjunct Professor',
+        name: 'Olga  Korostynska',
+        profile_url: '#',
+        img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/2022-10/Prof%20Olga%20Korostynska_0.jpg?h=f1e147e9&itok=CoJHGx8I'
+    } %}
+
+    {% include '@components/profile/profile.twig' with {
+        title: 'Dr.',
+        name: 'Abhishek Kumar Awasthi',
+        profile_url: '#',
+        img_src: 'https://www.ul.ie/sites/default/files/styles/person_portrait/public/2024-01/Dr%20Abhishek%20Kumar%20Awasthi%20abhishek.awasthi%40ul.ie%20D2-020.jpeg'
+    } %}
 
     </div>
 
+    <pre><code class="language-twig">{{ html(getFile("inc/components/profile/profile.twig")) }}</code></pre>
+
 </div>
+
+
