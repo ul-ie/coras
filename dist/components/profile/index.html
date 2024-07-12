@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
+    <link rel="stylesheet" href="/index.css">
 
     <script>
         if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
@@ -20,17 +20,15 @@
     
     <title>Profile Component</title>
 
-  <script type="module" crossorigin src="/assets/index-bf9b602c.js"></script>
-  <link rel="stylesheet" href="/assets/index-f7dea61a.css">
 </head>
 
-<body class="antialiased bg-white dark:bg-slate-d2 dark:text-slate-l5">
+<body class="antialiased bg-white dark:bg-granite-d3 text-granite-d3 dark:text-granite-l3">
 
     <header class="sticky top-0 w-full h-24 z-10">
 
     <div class="
-        absolute inset-0 bg-white bg-opacity-60 border-b border-slate-l5 backdrop-blur -z-10
-        dark:bg-slate-d2 dark:border-slate dark:bg-opacity-70" 
+        absolute inset-0 bg-white bg-opacity-60 border-b border-granite-l3 backdrop-blur -z-10
+        dark:bg-granite-d3 dark:border-granite-d1 dark:bg-opacity-70" 
         aria-hidden="true">
     </div>
     
@@ -106,24 +104,24 @@
 </header>
     <div class="flex container min-h-screen">
 
-        <div class="grow basis-1/6 py-20 px-4 border-r border-slate-l5 dark:border-slate">
+        <div class="grow basis-1/6 py-20 px-4 border-r border-granite-l3 dark:border-granite-d1">
 
             <nav class="fixed">
 
-    <ul class="ml-2">
+    <ul class="ml-2 text-green dark:text-modern-l1">
 
         
         <li>
             
             <span class="text-lg font-bold">Foundations</span>
 
-            <ul class="mb-3 ml-1">
+            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
 
             
-                <li class="pl-3 border-l border-granite-l5 dark:border-granite"><a href="/foundations/colour/">Colour</a></li>
+                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/colour/">Colour</a></li>
 
             
-                <li class="pl-3 border-l border-granite-l5 dark:border-granite"><a href="/foundations/typography/">Typography</a></li>
+                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/typography/">Typography</a></li>
 
                     
             </ul>
@@ -135,13 +133,13 @@
             
             <span class="text-lg font-bold">Components</span>
 
-            <ul class="mb-3 ml-1">
+            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
 
             
-                <li class="pl-3 border-l border-granite-l5 dark:border-granite"><a href="/components/button/">Button</a></li>
+                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/button/">Button</a></li>
 
             
-                <li class="pl-3 border-l border-granite-l5 dark:border-granite"><a href="/components/profile/">Profile</a></li>
+                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/profile/">Profile</a></li>
 
                     
             </ul>
@@ -236,7 +234,7 @@
 
     <section class="relative overflow-hidden rounded-t">
         
-        <img class="block w-full h-72 object-cover object-top group-hover:scale-105 transition duration-300" src="/assets/profile-no-img-469c0be4.svg" alt="Placeholder"/>
+        <img class="block w-full h-72 object-cover object-top group-hover:scale-105 transition duration-300" src="/img/profile-no-img.svg" alt="Placeholder"/>
 
         <div class="opacity-0 group-hover:opacity-100 bg-granite-d4 bg-opacity-30 transition duration-300 absolute w-full h-full top-0 flex items-center justify-center">
 
@@ -749,13 +747,13 @@
     </div>
 
     <footer class="
-    basis-full p-4 border-t border-slate-l5 text-center
-    dark:border-slate">
+    basis-full p-4 border-t border-granite-l3 text-center
+    dark:border-granite-d1">
 
     Copyright © University of Limerick 2024
 
 </footer>
-    
+    <script type="module" src="/index.js"></script>
 
 </body>
 
