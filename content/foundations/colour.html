@@ -4,9 +4,70 @@ tags: foundations
 layout: templates/page.html
 ---
 
-<div class="prose dark:prose-invert mx-auto py-20 md:prose-lg lg:prose-x">
+<div class="is-prose py-20 mx-auto">
 
-    <h1>{{ title }}</h1>
+    <h1 class="after:block after:w-12 after:h-1.5 after:my-1.5 after:bg-modern">{{ title }}</h1>
+
+    <p>UL's brand palette is composed of primary, secondary and monotone colours.</p>
+
+    <div class="flex gap-1 mb-1 items-center">
+        <span class="text-sm w-20">Primary:</span>
+        <a href="#h3-5" title="UL Green"><div class="w-8 h-6 rounded bg-green"></div></a>
+        <a href="#h3-6" title="Modern Green"><div class="w-8 h-6 rounded bg-modern"></div></a>
+        <a href="#h3-7" title="Heritage Green"><div class="w-8 h-6 rounded bg-heritage"></div></a>
+    </div>
+    <div class="flex gap-1 mb-1">
+        <span class="text-sm w-20">Secondary:</span>
+        <a href="#h3-9" title="Shannon"><div class="w-8 h-6 rounded bg-shannon"></div></a>
+        <a href="#h3-10" title="Sky"><div class="w-8 h-6 rounded bg-sky"></div></a>
+        <a href="#h3-11" title="Stone"><div class="w-8 h-6 rounded bg-stone"></div></a>
+        <a href="#h3-12" title="Marine"><div class="w-8 h-6 rounded bg-marine"></div></a>
+        <a href="#h3-13" title="Marigold"><div class="w-8 h-6 rounded bg-marigold"></div></a>
+        <a href="#h3-14" title="Golden Leaf"><div class="w-8 h-6 rounded bg-golden"></div></a>
+        <a href="#h3-15" title="Pumpkin"><div class="w-8 h-6 rounded bg-pumpkin"></div></a>
+        <a href="#h3-16" title="Munster"><div class="w-8 h-6 rounded bg-munster"></div></a>
+        <a href="#h3-17" title="Salmon"><div class="w-8 h-6 rounded bg-salmon"></div></a>
+        <a href="#h3-18" title="Autumnal Leaf"><div class="w-8 h-6 rounded bg-autumnal"></div></a>
+        <a href="#h3-19" title="Copper"><div class="w-8 h-6 rounded bg-copper"></div></a>
+    </div>
+    <div class="flex gap-1 mb-1">
+        <span class="text-sm w-20">Monotone:</span>
+        <a href="#h3-21" title="Limestone"><div class="w-8 h-6 rounded bg-limestone"></div></a>
+        <a href="#h3-22" title="Pebble"><div class="w-8 h-6 rounded bg-pebble"></div></a>
+        <a href="#h3-23" title="Granite"><div class="w-8 h-6 rounded bg-granite"></div></a>
+        <a href="#h3-24" title="Slate"><div class="w-8 h-6 rounded bg-slate"></div></a>
+    </div>
+
+    <small>Quick links to each colour.</small>
+
+    <p><a href="#h2-2">Primary</a> and <a href="#h2-6">secondary</a> colours have five shades each: the main shade, and two lighter and darker shades. <a href="#h2-18">Monotone</a> colours have five lighter and five darker shades.</p>
+
+    <h2>Usage</h2>
+
+    <p>The lighter and darker shades of the primary and secondary colours should only be used to complement the main shade or emphasise a transition state (e.g. hover or active state on a button). They <em>should not</em> be used in isolation.</p>
+
+    <h3>Setting Colours</h3>
+
+    <p>To set the colour of an element, use the colour name (as defined in the swatches below) pre-fixed by the appropriate modifier. Common modifiers include 
+        <ul>
+            <li><code>text-</code></li>
+            <li><code>bg-</code></li>
+            <li><code>border-</code></li>
+            <li><code>outline-</code></li>
+            <li><code>shadow-</code></li>
+            <li><code>fill-</code></li>
+            <li><code>stroke-</code></li>
+        </ul>
+
+    <pre><code>{{ html('
+        <!-- Setting the background of a div to UL Green. -->
+        <div class="bg-green"></div>
+
+        <!-- Setting heading text colour to Heritage Green. -->
+        <h3 class="text-heritage"></h3>
+    ') }}</code></pre>
+
+    <h3>State Changes</h3>
 
     <h2>Primary Colours</h2>
 
@@ -394,26 +455,26 @@ layout: templates/page.html
 
             <div class="flex basis-1/4">
 
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-limestone', label: 'limestone', hex: '#919D9D' } %}
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-limestone', label: 'limestone', hex: '#78716C' } %}
             
             </div>
 
             <div class="flex flex-col justify-between basis-3/4">
 
                 <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l1', label: 'l1', hex: '#A6B0B0', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l2', label: 'l2', hex: '#BEC5C5', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l3', label: 'l3', hex: '#D4D9D9', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l4', label: 'l4', hex: '#E9ECEC', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l5', label: 'l5', hex: '#F4F5F5', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l1', label: 'l1', hex: '#A8A29E', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l2', label: 'l2', hex: '#D6D3D1', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l3', label: 'l3', hex: '#E7E5E4', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l4', label: 'l4', hex: '#F5F5F4', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l5', label: 'l5', hex: '#FAFAF9', noIcon: true } %}
                 </div>
 
                 <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d1', label: 'd1', hex: '#717F7F', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d2', label: 'd2', hex: '#566161', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d3', label: 'd3', hex: '#3A4141', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d4', label: 'd4', hex: '#1D2020', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d5', label: 'd5', hex: '#0E1010', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d1', label: 'd1', hex: '#57534E', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d2', label: 'd2', hex: '#44403C', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d3', label: 'd3', hex: '#292524', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d4', label: 'd4', hex: '#1C1917', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d5', label: 'd5', hex: '#0C0A09', noIcon: true } %}
                 </div>
 
             </div>
@@ -426,24 +487,24 @@ layout: templates/page.html
 
             <div class="flex basis-1/4">
 
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-pebble', label: 'pebble', hex: '#707372' } %}
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-pebble', label: 'pebble', hex: '#737373' } %}
             
             </div>
 
             <div class="flex flex-col justify-between basis-3/4">
 
                 <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l1', label: 'l1', hex: '#8D908F', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l2', label: 'l2', hex: '#AAACAB', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l3', label: 'l3', hex: '#C6C8C7', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l4', label: 'l4', hex: '#E3E3E3', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l5', label: 'l5', hex: '#F0F0F0', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l1', label: 'l1', hex: '#A3A3A3', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l2', label: 'l2', hex: '#D4D4D4', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l3', label: 'l3', hex: '#E5E5E5', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l4', label: 'l4', hex: '#F5F5F5', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l5', label: 'l5', hex: '#FAFAFA', noIcon: true } %}
                 </div>
 
                 <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d1', label: 'd1', hex: '#5B5D5C', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d2', label: 'd2', hex: '#444645', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d3', label: 'd3', hex: '#2D2E2E', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d1', label: 'd1', hex: '#525252', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d2', label: 'd2', hex: '#404040', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d3', label: 'd3', hex: '#262626', noIcon: true } %}
                     {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d4', label: 'd4', hex: '#171717', noIcon: true } %}
                     {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d5', label: 'd5', hex: '#0A0A0A', noIcon: true } %}
                 </div>
@@ -458,26 +519,26 @@ layout: templates/page.html
 
             <div class="flex basis-1/4">
 
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-granite', label: 'granite', hex: '#505759' } %}
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-granite', label: 'granite', hex: '#71717A' } %}
             
             </div>
 
             <div class="flex flex-col justify-between basis-3/4">
 
                 <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l1', label: 'l1', hex: '#6F797C', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l2', label: 'l2', hex: '#949C9E', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l3', label: 'l3', hex: '#B7BCBE', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l4', label: 'l4', hex: '#DCDFE0', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l5', label: 'l5', hex: '#ECEEEE', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l1', label: 'l1', hex: '#A1A1AA', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l2', label: 'l2', hex: '#D4D4D8', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l3', label: 'l3', hex: '#E4E4E7', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l4', label: 'l4', hex: '#F4F4F5', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l5', label: 'l5', hex: '#FAFAFB', noIcon: true } %}
                 </div>
 
                 <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d1', label: 'd1', hex: '#3F4446', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d2', label: 'd2', hex: '#303536', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d3', label: 'd3', hex: '#1F2223', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d4', label: 'd4', hex: '#111213', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d5', label: 'd5', hex: '#070808', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d1', label: 'd1', hex: '#52525B', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d2', label: 'd2', hex: '#3F3F46', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d3', label: 'd3', hex: '#27272A', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d4', label: 'd4', hex: '#18181B', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d5', label: 'd5', hex: '#09090B', noIcon: true } %}
                 </div>
 
             </div>
@@ -490,26 +551,26 @@ layout: templates/page.html
 
             <div class="flex basis-1/4">
 
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-slate', label: 'slate', hex: '#373A36' } %}
+                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-slate', label: 'slate', hex: '#6B7280' } %}
             
             </div>
 
             <div class="flex flex-col justify-between basis-3/4">
 
                 <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l1', label: 'l1', hex: '#5F645D', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l2', label: 'l2', hex: '#858B83', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l3', label: 'l3', hex: '#AFB3AD', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l4', label: 'l4', hex: '#D5D8D5', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l5', label: 'l5', hex: '#EAEBEA', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l1', label: 'l1', hex: '#9CA3AF', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l2', label: 'l2', hex: '#D1D5DB', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l3', label: 'l3', hex: '#E5E7EB', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l4', label: 'l4', hex: '#F3F4F6', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l5', label: 'l5', hex: '#F9FAFB', noIcon: true } %}
                 </div>
 
                 <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d1', label: 'd1', hex: '#2D302C', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d2', label: 'd2', hex: '#212220', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d3', label: 'd3', hex: '#171816', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d4', label: 'd4', hex: '#0A0B0A', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d5', label: 'd5', hex: '#050505', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d1', label: 'd1', hex: '#4B5563', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d2', label: 'd2', hex: '#374151', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d3', label: 'd3', hex: '#1F2937', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d4', label: 'd4', hex: '#111827', noIcon: true } %}
+                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d5', label: 'd5', hex: '#030712', noIcon: true } %}
                 </div>
 
             </div>

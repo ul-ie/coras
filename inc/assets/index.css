@@ -59,4 +59,10 @@
     .font-display {
         @apply tracking-wide;
     }
+    .is-prose {
+        @apply prose prose-granite dark:prose-invert md:prose-lg;
+    }
+    .is-prose a {
+        @apply font-bold;
+    }
 }

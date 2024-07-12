@@ -1,6 +1,6 @@
 <nav class="fixed">
 
-    <ul class="ml-2">
+    <ul class="ml-2 text-green dark:text-modern-l1">
 
         {% for link in links %}
 
@@ -8,11 +8,11 @@
             
             <span class="text-lg font-bold">{{ link.section }}</span>
 
-            <ul class="mb-3 ml-1">
+            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
 
             {% for entry in link.entries %}
 
-                <li class="pl-3 border-l border-granite-l5 dark:border-granite"><a href="{{ entry.url }}">{{ entry.text }}</a></li>
+                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="{{ entry.url }}">{{ entry.text }}</a></li>
 
             {% endfor %}
         
