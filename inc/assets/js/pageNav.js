@@ -49,11 +49,11 @@ export default function pageNav() {
 
         // Get the heading text and style it appropriately.
         link.innerText = heading.innerText;
-        listItem.classList.add('pb-1', 'border-l', 'border-granite-l3', 'dark:border-granite-d1');
+        listItem.classList.add('pb-1', 'text-sm', 'border-l', 'border-granite-l3', 'dark:border-granite-d1');
         if (heading.tagName.toLowerCase() === 'h2') {
           listItem.classList.add('pl-3');
         } else {
-          listItem.classList.add('pl-5', 'text-sm', 'text-granite-d1', 'dark:text-granite-l1');
+          listItem.classList.add('pl-5', 'text-xs', 'text-granite-d1', 'dark:text-granite-l1');
         }
 
         // Append the elements.

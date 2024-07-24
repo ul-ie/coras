@@ -192,6 +192,7 @@ module.exports = {
             '--tw-prose-invert-body': theme('colors.granite[l2]'),
             '--tw-prose-invert-headings': theme('colors.granite[l3]'),
             '--tw-prose-invert-lead': theme('colors.granite[l1]'),
+            '--tw-prose-invert-links': theme('colors.granite[l4]'),
             '--tw-prose-invert-counters': theme('colors.granite[l1]'),
             '--tw-prose-invert-bullets': theme('colors.granite[d1]'),
             '--tw-prose-invert-hr': theme('colors.granite[d2]'),
