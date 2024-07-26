@@ -16,8 +16,8 @@ export default function pageNav() {
     const listHeadingLink = document.createElement('a');
 
     // Create a link to the main page heading.
-    pageHeading.id = 'h1';
-    listHeadingLink.href = '#h1';
+    pageHeading.id = pageHeading.innerText.toLowerCase();
+    listHeadingLink.href = `#${pageHeading.id}`;
 
     // Add styling and text.
     pageNav.classList.add('text-granite-d3', 'dark:text-granite-l2');
@@ -44,7 +44,7 @@ export default function pageNav() {
         const link = document.createElement('a');
 
         // Apply ids to the headings and link to them.
-        heading.id = `${heading.tagName.toLowerCase()}-${index + 1}`;
+        heading.id = heading.innerText.replace(/\s+/g, '-').toLowerCase();
         link.href = `#${heading.id}`;
 
         // Get the heading text and style it appropriately.
