@@ -56,8 +56,8 @@
     h1 {
         @apply font-serif;
     }
-    h1.is-decorated {
-        @apply after:block after:w-10 after:h-1.5 after:m-2 after:bg-modern
+    .is-decorated {
+        @apply after:block after:w-8 after:h-1.5 after:mt-1.5 after:bg-modern
     }
     .font-display {
         @apply tracking-wide;

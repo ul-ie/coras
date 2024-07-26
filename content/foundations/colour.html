@@ -14,66 +14,86 @@ layout: templates/page.html
 
     <div class="flex gap-1 mb-1 items-center">
         <span class="text-sm w-20">Primary:</span>
-        <a href="#h3-5" title="UL Green"><div class="w-8 h-6 rounded bg-green"></div></a>
-        <a href="#h3-6" title="Modern Green"><div class="w-8 h-6 rounded bg-modern"></div></a>
-        <a href="#h3-7" title="Heritage Green"><div class="w-8 h-6 rounded bg-heritage"></div></a>
+        <a href="#ul-green" title="UL Green"><div class="w-8 h-6 rounded bg-green"></div></a>
+        <a href="#modern-green" title="Modern Green"><div class="w-8 h-6 rounded bg-modern"></div></a>
+        <a href="#heritage-green" title="Heritage Green"><div class="w-8 h-6 rounded bg-heritage"></div></a>
     </div>
     <div class="flex gap-1 mb-1">
         <span class="text-sm w-20">Secondary:</span>
-        <a href="#h3-9" title="Shannon"><div class="w-8 h-6 rounded bg-shannon"></div></a>
-        <a href="#h3-10" title="Sky"><div class="w-8 h-6 rounded bg-sky"></div></a>
-        <a href="#h3-11" title="Stone"><div class="w-8 h-6 rounded bg-stone"></div></a>
-        <a href="#h3-12" title="Marine"><div class="w-8 h-6 rounded bg-marine"></div></a>
-        <a href="#h3-13" title="Marigold"><div class="w-8 h-6 rounded bg-marigold"></div></a>
-        <a href="#h3-14" title="Golden Leaf"><div class="w-8 h-6 rounded bg-golden"></div></a>
-        <a href="#h3-15" title="Pumpkin"><div class="w-8 h-6 rounded bg-pumpkin"></div></a>
-        <a href="#h3-16" title="Munster"><div class="w-8 h-6 rounded bg-munster"></div></a>
-        <a href="#h3-17" title="Salmon"><div class="w-8 h-6 rounded bg-salmon"></div></a>
-        <a href="#h3-18" title="Autumnal Leaf"><div class="w-8 h-6 rounded bg-autumnal"></div></a>
-        <a href="#h3-19" title="Copper"><div class="w-8 h-6 rounded bg-copper"></div></a>
+        <a href="#shannon" title="Shannon"><div class="w-8 h-6 rounded bg-shannon"></div></a>
+        <a href="#sky" title="Sky"><div class="w-8 h-6 rounded bg-sky"></div></a>
+        <a href="#stone" title="Stone"><div class="w-8 h-6 rounded bg-stone"></div></a>
+        <a href="#marine" title="Marine"><div class="w-8 h-6 rounded bg-marine"></div></a>
+        <a href="#marigold" title="Marigold"><div class="w-8 h-6 rounded bg-marigold"></div></a>
+        <a href="#golden-leaf" title="Golden Leaf"><div class="w-8 h-6 rounded bg-golden"></div></a>
+        <a href="#pumpkin" title="Pumpkin"><div class="w-8 h-6 rounded bg-pumpkin"></div></a>
+        <a href="#munster" title="Munster"><div class="w-8 h-6 rounded bg-munster"></div></a>
+        <a href="#salmon" title="Salmon"><div class="w-8 h-6 rounded bg-salmon"></div></a>
+        <a href="#autumnal-leaf" title="Autumnal Leaf"><div class="w-8 h-6 rounded bg-autumnal"></div></a>
+        <a href="#coppper" title="Copper"><div class="w-8 h-6 rounded bg-copper"></div></a>
     </div>
     <div class="flex gap-1 mb-1">
         <span class="text-sm w-20">Monotone:</span>
-        <a href="#h3-21" title="Limestone"><div class="w-8 h-6 rounded bg-limestone"></div></a>
-        <a href="#h3-22" title="Pebble"><div class="w-8 h-6 rounded bg-pebble"></div></a>
-        <a href="#h3-23" title="Granite"><div class="w-8 h-6 rounded bg-granite"></div></a>
-        <a href="#h3-24" title="Slate"><div class="w-8 h-6 rounded bg-slate"></div></a>
+        <a href="#limestone" title="Limestone"><div class="w-8 h-6 rounded bg-limestone"></div></a>
+        <a href="#pebble" title="Pebble"><div class="w-8 h-6 rounded bg-pebble"></div></a>
+        <a href="#granite" title="Granite"><div class="w-8 h-6 rounded bg-granite"></div></a>
+        <a href="#slate" title="Slate"><div class="w-8 h-6 rounded bg-slate"></div></a>
     </div>
 
     </div>
 
     <small class="pl-2 border-l border-l-2 border-granite-l2 dark:border-granite-d1"><em>Quick links to each colour.</em></small>
 
-    <p><a href="#h2-4">Primary</a> and <a href="#h2-8">secondary</a> colours have five shades each: the main shade, and two lighter and darker shades. <a href="#h2-20">Monotone</a> colours have five lighter and five darker shades.</p>
+    <p><a href="#primary-colours">Primary</a> and <a href="#secondary-colours">secondary</a> colours have five shades each: the main shade, and two lighter and darker shades. <a href="#monotone-colours">Monotone</a> colours have five lighter and five darker shades.</p>
 
     <h2>Usage</h2>
 
-    <p>The lighter and darker shades of the primary and secondary colours should only be used to complement the main shade or emphasise a transition state (e.g. hover or active state on a button). They <em>should not</em> be used in isolation.</p>
+    <p>The lighter and darker shades of the primary and secondary colours should only be used to complement the main shade or emphasise a transition state (e.g. a hover or active state on a button). They <strong>should not</strong> be used in isolation.</p>
 
-    <h3>Setting Colours</h3>
+    <h3>Syntax</h3>
 
-    <p>To set the colour of an element, use the colour name (as defined in the swatches below) pre-fixed by the appropriate modifier. Common modifiers include 
-        <ul>
-            <li><code>text-</code></li>
-            <li><code>bg-</code></li>
-            <li><code>border-</code></li>
-            <li><code>outline-</code></li>
-            <li><code>shadow-</code></li>
-            <li><code>fill-</code></li>
-            <li><code>stroke-</code></li>
-        </ul>
+    <p>To set the colour of an element, construct a class name using the following structure:</p>
+        
+    <pre><code>property-colourName[-shadeName]</code></pre>
+    
+    <p>The shade name is optional (without it, the main colour will be used), and the property may be one of the following:</p>
+    
+    <ul>
+        <li><code>text-</code></li>
+        <li><code>bg-</code></li>
+        <li><code>border-</code></li>
+        <li><code>outline-</code></li>
+        <li><code>decoration-</code></li>
+        <li><code>shadow-</code></li>
+        <li><code>fill-</code> (SVG)</li>
+        <li><code>stroke-</code> (SVG)</li>
+    </ul>
 
-    <pre><code>{{ html('
-        <!-- Setting the background of a div to UL Green. -->
-        <div class="bg-green"></div>
+    <p>In practice, <code>text</code>, <code>bg</code>, and <code>border</code> will be the most commonly used, and some properties such as <code>border</code> allow for further specificity, e.g. <code>border-l</code> can be used to target an element's left border only.</p>
 
-        <!-- Setting heading text colour to Heritage Green. -->
-        <h3 class="text-heritage"></h3>
-    ') }}</code></pre>
+    <h3>Examples</h3>
 
-    <h3>State Changes</h3>
+    <p>(i) Setting the background of a <code>div</code> element to UL Green.</p>
+
+    <pre><code>{{ html('<div class="bg-green"></div>') }}</code></pre>
+
+    <p>(ii) Setting a <code>h3</code> element's text colour to Heritage Green.</p>
+
+    <pre><code>{{ html('<h3 class="text-heritage">Heading</h3>') }}</code></pre>
+
+    <p>(iii) Changing the background colour when the user hovers over a <code>div</code> element.</p>
+
+    <pre><code>{{ html('<div class="bg-sky hover:bg-sky-d1"></div>') }}</code></pre>
+
+    <p>(iv) Specifying a different colour for dark mode.</p>
+
+    <pre><code>{{ html('<p class="text-granite-d2 dark:text-granite-l2">Some text.</p>') }}</code></pre>
 
     <h2>Primary Colours</h2>
+
+    <p>It is particularly important to stick with the default colour (rather than using lighter or darker shades) when applying the primary colours, so as not to dilute brand identity.</p>
+
+    <p>Shades should only be used if accessibility is compromised (as can be the case with Modern Green) or when using state changes.</p>
 
     <div class="flex flex-col">
 
@@ -158,6 +178,8 @@ layout: templates/page.html
     </div>
 
     <h2>Secondary Colours</h2>
+
+    <p>Secondary colours are more flexible than primary colours but shades should ideally be confined to state changes.</p>
 
     <div class="flex flex-col">
 
@@ -450,6 +472,10 @@ layout: templates/page.html
     </div>
 
     <h2>Monotone Colours</h2>
+
+    <p>Monotone colours are the most flexible and different shades may be freely used.</p>
+
+    <p><strong>Note:</strong> the below monotone palette is optimised for UI and web design, so deviates from the monotone colours specified in the brand guidelines.</p>
 
     <div class="flex flex-col">
 
