@@ -1,14 +1,23 @@
+# -
+#   section: Getting Started
+#   entries:
+#     - text: Developers
+#       url: /
+#     - text: Designers
+#       url: /
+#     - text: Content Creators
+#       url: /
 -
   section: Foundations
   entries:
     - text: Colour
       url: /foundations/colour/
-    - text: Typography
-      url: /foundations/typography/
+#   - text: Typography
+#     url: /foundations/typography/
 -
   section: Components
   entries:
-  - text: Button
-    url: /components/button/
   - text: Profile
     url: /components/profile/
+  - text: Well
+    url: /components/well/
