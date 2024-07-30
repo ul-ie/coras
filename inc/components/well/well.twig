@@ -1,0 +1,16 @@
+{# 
+    The Well Component
+    ---
+    Available variables:
+    - padding (placeholder) [optional]
+    - inner_html (block)
+#}
+
+<div 
+    class="{{ padding ?? 'p-6' }} border border-granite-l3 bg-granite-l5 rounded-lg 
+    dark:bg-granite-d4 dark:bg-opacity-70 dark:border-granite-d1"
+>
+
+    {% block inner_html %}{% endblock %}
+
+</div>
