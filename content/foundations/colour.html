@@ -10,39 +10,43 @@ layout: templates/page.html
 
     <p>UL's brand palette is composed of primary, secondary and monotone colours.</p>
 
-    <div class="p-6 border border-granite-l3 bg-granite-l5 rounded-lg dark:bg-granite-d4 dark:bg-opacity-70 dark:border-granite-d1">
+    {% embed '@components/well/well.twig' %}
 
-    <div class="flex gap-1 mb-1 items-center">
-        <span class="text-sm w-20">Primary:</span>
-        <a href="#ul-green" title="UL Green"><div class="w-8 h-6 rounded bg-green"></div></a>
-        <a href="#modern-green" title="Modern Green"><div class="w-8 h-6 rounded bg-modern"></div></a>
-        <a href="#heritage-green" title="Heritage Green"><div class="w-8 h-6 rounded bg-heritage"></div></a>
-    </div>
-    <div class="flex gap-1 mb-1">
-        <span class="text-sm w-20">Secondary:</span>
-        <a href="#shannon" title="Shannon"><div class="w-8 h-6 rounded bg-shannon"></div></a>
-        <a href="#sky" title="Sky"><div class="w-8 h-6 rounded bg-sky"></div></a>
-        <a href="#stone" title="Stone"><div class="w-8 h-6 rounded bg-stone"></div></a>
-        <a href="#marine" title="Marine"><div class="w-8 h-6 rounded bg-marine"></div></a>
-        <a href="#marigold" title="Marigold"><div class="w-8 h-6 rounded bg-marigold"></div></a>
-        <a href="#golden-leaf" title="Golden Leaf"><div class="w-8 h-6 rounded bg-golden"></div></a>
-        <a href="#pumpkin" title="Pumpkin"><div class="w-8 h-6 rounded bg-pumpkin"></div></a>
-        <a href="#munster" title="Munster"><div class="w-8 h-6 rounded bg-munster"></div></a>
-        <a href="#salmon" title="Salmon"><div class="w-8 h-6 rounded bg-salmon"></div></a>
-        <a href="#autumnal-leaf" title="Autumnal Leaf"><div class="w-8 h-6 rounded bg-autumnal"></div></a>
-        <a href="#coppper" title="Copper"><div class="w-8 h-6 rounded bg-copper"></div></a>
-    </div>
-    <div class="flex gap-1 mb-1">
-        <span class="text-sm w-20">Monotone:</span>
-        <a href="#limestone" title="Limestone"><div class="w-8 h-6 rounded bg-limestone"></div></a>
-        <a href="#pebble" title="Pebble"><div class="w-8 h-6 rounded bg-pebble"></div></a>
-        <a href="#granite" title="Granite"><div class="w-8 h-6 rounded bg-granite"></div></a>
-        <a href="#slate" title="Slate"><div class="w-8 h-6 rounded bg-slate"></div></a>
-    </div>
+        {% block inner_html %}
 
-    </div>
+        <div class="flex gap-1 mb-1 items-center">
+            <span class="text-sm w-20">Primary:</span>
+            <a href="#ul-green" title="UL Green"><div class="w-8 h-6 rounded bg-green"></div></a>
+            <a href="#modern-green" title="Modern Green"><div class="w-8 h-6 rounded bg-modern"></div></a>
+            <a href="#heritage-green" title="Heritage Green"><div class="w-8 h-6 rounded bg-heritage"></div></a>
+        </div>
+        <div class="flex gap-1 mb-1">
+            <span class="text-sm w-20">Secondary:</span>
+            <a href="#shannon" title="Shannon"><div class="w-8 h-6 rounded bg-shannon"></div></a>
+            <a href="#sky" title="Sky"><div class="w-8 h-6 rounded bg-sky"></div></a>
+            <a href="#stone" title="Stone"><div class="w-8 h-6 rounded bg-stone"></div></a>
+            <a href="#marine" title="Marine"><div class="w-8 h-6 rounded bg-marine"></div></a>
+            <a href="#marigold" title="Marigold"><div class="w-8 h-6 rounded bg-marigold"></div></a>
+            <a href="#golden-leaf" title="Golden Leaf"><div class="w-8 h-6 rounded bg-golden"></div></a>
+            <a href="#pumpkin" title="Pumpkin"><div class="w-8 h-6 rounded bg-pumpkin"></div></a>
+            <a href="#munster" title="Munster"><div class="w-8 h-6 rounded bg-munster"></div></a>
+            <a href="#salmon" title="Salmon"><div class="w-8 h-6 rounded bg-salmon"></div></a>
+            <a href="#autumnal-leaf" title="Autumnal Leaf"><div class="w-8 h-6 rounded bg-autumnal"></div></a>
+            <a href="#copper" title="Copper"><div class="w-8 h-6 rounded bg-copper"></div></a>
+        </div>
+        <div class="flex gap-1 mb-1">
+            <span class="text-sm w-20">Monotone:</span>
+            <a href="#limestone" title="Limestone"><div class="w-8 h-6 rounded bg-limestone"></div></a>
+            <a href="#pebble" title="Pebble"><div class="w-8 h-6 rounded bg-pebble"></div></a>
+            <a href="#granite" title="Granite"><div class="w-8 h-6 rounded bg-granite"></div></a>
+            <a href="#slate" title="Slate"><div class="w-8 h-6 rounded bg-slate"></div></a>
+        </div>
 
-    <small class="pl-2 border-l border-l-2 border-granite-l2 dark:border-granite-d1"><em>Quick links to each colour.</em></small>
+        {% endblock %}
+
+    {% endembed %}
+
+    <small class="pl-2 border-l-2 border-granite-l2 dark:border-granite-d1"><em>Quick links to each colour.</em></small>
 
     <p><a href="#primary-colours">Primary</a> and <a href="#secondary-colours">secondary</a> colours have five shades each: the main shade, and two lighter and darker shades. <a href="#monotone-colours">Monotone</a> colours have five lighter and five darker shades.</p>
 
