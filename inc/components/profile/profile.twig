@@ -14,7 +14,7 @@
 
     <section class="relative overflow-hidden rounded-t">
         
-        <img class="block w-full h-72 object-cover object-top group-hover:scale-105 transition duration-300" src="{{ img_src }}" alt="{{ name }}"/>
+        <img class="block w-full h-72 object-cover object-top group-hover:scale-105 transition duration-300" src="{{ img_src ?? '/img/profile-no-img.svg' }}" alt="{{ name }}"/>
 
         <div class="opacity-0 group-hover:opacity-100 bg-granite-d4 bg-opacity-30 transition duration-300 absolute w-full h-full top-0 flex items-center justify-center">
 

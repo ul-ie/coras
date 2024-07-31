@@ -3,11 +3,11 @@ layout: templates/home.html
 title: Córas | UL Design System
 ---
 
-<div class="is-prose max-w-6xl flex px-10 py-20 mx-auto gap-6">
+<div class="is-prose max-w-6xl flex flex-wrap px-10 py-20 mx-auto">
 
     <div class="basis-1/4">
 
-        {% include '@assets/img/pattern-01a.svg' %}
+        <div class="pr-6">{% include '@assets/img/pattern-01a.svg' %}</div>
 
     </div>
 
@@ -23,41 +23,48 @@ title: Córas | UL Design System
             should offer its users: a single source of truth (the hymn sheet) to help harmonise their efforts.
         </p>
 
-        <div class="flex gap-4">
-            <div class="basis-1/3">
-                {% embed "@components/well/well.twig" %}
+    </div>
 
-                    {% block inner_html %}
+    <div class="flex gap-4 basis-full">
 
-                        <div class="text-sm">For Developers</div>
+        <div class="basis-1/3">
 
-                    {% endblock %}
+            {% embed "@components/well/well.twig" %}
 
-                {% endembed %}
-            </div>
-            <div class="basis-1/3">
-                {% embed "@components/well/well.twig" %}
+                {% block inner_html %}
 
-                    {% block inner_html %}
+                    <div class="text-sm">For Developers</div>
 
-                        <div class="text-sm">For Designers</div>
+                {% endblock %}
 
-                    {% endblock %}
+            {% endembed %}
+        </div>
 
-                {% endembed %}
-            </div>
-            <div class="basis-1/3">
-                {% embed "@components/well/well.twig" %}
+        <div class="basis-1/3">
 
-                    {% block inner_html %}
+            {% embed "@components/well/well.twig" %}
 
-                        <div class="text-sm">For Content Creators</div>
+                {% block inner_html %}
 
-                    {% endblock %}
+                    <div class="text-sm">For Designers</div>
 
-                {% endembed %}
-            </div>
+                {% endblock %}
 
+            {% endembed %}
+        </div>
+
+        <div class="basis-1/3">
+
+            {% embed "@components/well/well.twig" %}
+
+                {% block inner_html %}
+
+                    <div class="text-sm">For Content Creators</div>
+
+                {% endblock %}
+
+            {% endembed %}
+            
         </div>
 
     </div>

@@ -170,6 +170,16 @@ module.exports = {
     },
     extend: { 
       typography: ({ theme }) => ({
+        DEFAULT: {
+          css: {
+            'code::before' : {
+              content: 'none'
+            },
+            'code::after' : {
+              content: 'none'
+            }
+          }
+        },
         granite: {
           css: {
             '--tw-prose-body': theme('colors.granite[d2]'),
@@ -184,7 +194,7 @@ module.exports = {
             '--tw-prose-quote-borders': theme('colors.granite[l3]'),
             '--tw-prose-captions': theme('colors.granite[DEFAULT]'),
             '--tw-prose-kbd': theme('colors.granite[d4]'),
-            '--tw-prose-code': theme('colors.granite[d2]'),
+            '--tw-prose-code': theme('colors.granite[d3]'),
             '--tw-prose-pre-code': theme('colors.granite[l3]'),
             '--tw-prose-pre-bg': theme('colors.granite[d3]'),
             '--tw-prose-th-borders': theme('colors.granite[l2]'),
@@ -200,6 +210,7 @@ module.exports = {
             '--tw-prose-invert-quote-borders': theme('colors.granite[d2]'),
             '--tw-prose-invert-captions': theme('colors.granite[l1]'),
             '--tw-prose-invert-pre-code': theme('colors.granite[l2]'),
+            '--tw-prose-invert-pre-bg': theme('colors.granite[d4]'),
             '--tw-prose-invert-th-borders': theme('colors.granite[d1]'),
             '--tw-prose-invert-td-borders': theme('colors.granite[d2]')
           }
