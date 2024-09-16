@@ -20,8 +20,8 @@
 
     <title>Well Component</title>
 
-  <script type="module" crossorigin src="/assets/index-bfee8e43.js"></script>
-  <link rel="stylesheet" href="/assets/index-7d9f3cbf.css">
+  <script type="module" crossorigin src="/assets/index-bead0593.js"></script>
+  <link rel="stylesheet" href="/assets/index-5136654a.css">
 </head>
 <body class="antialiased bg-white dark:bg-granite-d3 text-granite-d3 dark:text-granite-l3">
 
@@ -117,6 +117,9 @@
             <span class="text-lg font-bold">Foundations</span>
 
             <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+
+            
+                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/breakpoints/">Breakpoints</a></li>
 
             
                 <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/colour/">Colour</a></li>
@@ -231,7 +234,7 @@
 
         {% block inner_html %}
 
-            &lt;!-- Your content or components here --&gt;
+          &lt;!-- Your content or components here --&gt;
 
         {% endblock %}
 
@@ -261,17 +264,17 @@
     </p>
 
     <pre><code>
-        {% embed &quot;@components/well/well.twig&quot; with { 
-            &quot;padding&quot;: &quot;p-3 md:p-5 lg:p-8&quot; 
-        } %}
-    
-            {% block inner_html %}
-    
-                &lt;!-- Your content or components here --&gt;
-    
-            {% endblock %}
-    
-        {% endembed %}
+    {% embed &quot;@components/well/well.twig&quot; with { 
+        &quot;padding&quot;: &quot;p-3 md:p-5 lg:p-8&quot; 
+    } %}
+
+        {% block inner_html %}
+
+            &lt;!-- Your content or components here --&gt;
+
+        {% endblock %}
+
+    {% endembed %}
     </code></pre>
 
     
