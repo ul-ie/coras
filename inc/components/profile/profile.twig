@@ -1,59 +1,62 @@
 {# 
-    The Profile Card Component
-    ---
-    Available variables:
-    - name
-    - title
-    - img_src
-    - profile_url
+  The Profile Card Component
+  ---
+  Available variables:
+  - name
+  - title
+  - img_src
+  - profile_url
 #}
 
-<article class="profile-card relative group grow not-prose w-64 max-w-full overflow-hidden transition duration-300">
+<article class="relative w-64 max-w-full overflow-hidden group not-prose transition duration-300">
 
-    <a class="absolute top-0 left-0 w-full h-full z-10" href="{{ profile_url }}" target="_blank"></a>
+  <a class="absolute top-0 left-0 w-full h-full z-10" href="{{ profile_url }}" target="_blank"></a>
 
-    <section class="relative overflow-hidden rounded-t">
-        
-        <img class="block w-full h-72 object-cover object-top group-hover:scale-105 transition duration-300" src="{{ img_src ?? '/img/profile-no-img.svg' }}" alt="{{ name }}"/>
-
-        <div class="opacity-0 group-hover:opacity-100 bg-granite-d4 bg-opacity-30 transition duration-300 absolute w-full h-full top-0 flex items-center justify-center">
-
-            <div class="opacity-50 absolute right-4 top-4">
-
-                <div class="w-10">{% include '@assets/img/icons/external-link.svg' with { classes: 'fill-white stroke-white' } %}</div>
-            
-            </div>
-            
-            <div class="absolute bottom-0 bg-autumnal bg-opacity-80 w-full flex items-center justify-center py-3 border-t-2 border-white text-center transition-all translate-y-8 group-hover:translate-y-0">
-                
-                <div class="w-4 mr-2">{% include '@assets/img/icons/book-open.svg' with { classes: 'fill-white stroke-white' } %}</div>
-                
-                <div class="text-sm text-white">Research Profile</div>
-
-            </div>
-        
-        </div>
-
-    </section>
-
-    <section class="py-3 text-green leading-6 border-t-4 border-t-modern group-hover:border-t-modern-l2 dark:text-granite-l5">
-            
-        <div class="flex items-center mb-1">
-            
-            <div class="w-5 shrink-0 mr-2">{% include '@assets/img/icons/user.svg' with { classes: 'fill-green stroke-green dark:fill-modern dark:stroke-modern' } %}</div>
-            
-            <span class="font-bold">{{ name }}</span>
-        
-        </div>
-
-        <div class="flex items-center">
-            
-            <div class="w-5 shrink-0 mr-2">{% include '@assets/img/icons/academic-cap.svg' with { classes: 'fill-green stroke-green dark:fill-modern dark:stroke-modern' } %}</div>
-            
-            <div class="text-sm">{{ title }}</div>
-        
-        </div>
-        
-    </section>
+  <section class="relative overflow-hidden rounded-t">
     
+    <img 
+      class="bl w-full h-72 object-cover object-top group-hover:scale-105 transition duration-300"
+      src="{{ img_src ?? '/img/profiles/profile-no-img.svg' }}" alt="{{ name }}"
+    />
+
+    <div class="opacity-0 group-hover:opacity-100 bg-granite-d4 bg-opacity-30 transition duration-300 absolute w-full h-full top-0 flex items-center justify-center">
+
+      <div class="opacity-50 absolute right-4 top-4">
+
+        <div class="w-10">{% include '@assets/icons/external-link.svg' with { classes: 'fill-white stroke-white' } %}</div>
+
+      </div>
+
+      <div class="absolute bottom-0 bg-autumnal bg-opacity-80 w-full flex items-center justify-center py-3 border-t-2 border-white text-center transition-all translate-y-8 group-hover:translate-y-0">
+
+        <div class="w-4 mr-2">{% include '@assets/icons/book-open.svg' with { classes: 'fill-white stroke-white' } %}</div>
+
+        <div class="text-sm text-white">Research Profile</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="py-3 text-green leading-6 border-t-4 border-t-modern group-hover:border-t-modern-l2 dark:text-granite-l5">
+
+    <div class="flex items-center mb-1">
+
+      <div class="w-5 p-0.5 shrink-0 mr-2">{% include '@assets/icons/user-2.svg' with { classes: 'fill-green stroke-green dark:fill-modern dark:stroke-modern' } %}</div>
+
+      <span class="font-bold">{{ name }}</span>
+
+    </div>
+
+    <div class="flex items-center">
+
+      <div class="w-5 shrink-0 mr-2">{% include '@assets/icons/academic-cap-2.svg' with { classes: 'fill-green stroke-green dark:fill-modern dark:stroke-modern' } %}</div>
+
+      <div class="text-sm">{{ title }}</div>
+
+    </div>
+
+  </section>
+
 </article>

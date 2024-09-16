@@ -75,7 +75,7 @@ layout: templates/page.html
 
         {% block inner_html %}
 
-            <!-- Your content or components here -->
+          <!-- Your content or components here -->
 
         {% endblock %}
 
@@ -103,17 +103,17 @@ layout: templates/page.html
     </p>
 
     <pre><code>{{ html('
-        {% embed "@components/well/well.twig" with { 
-            "padding": "p-3 md:p-5 lg:p-8" 
-        } %}
-    
-            {% block inner_html %}
-    
-                <!-- Your content or components here -->
-    
-            {% endblock %}
-    
-        {% endembed %}
+    {% embed "@components/well/well.twig" with { 
+        "padding": "p-3 md:p-5 lg:p-8" 
+    } %}
+
+        {% block inner_html %}
+
+            <!-- Your content or components here -->
+
+        {% endblock %}
+
+    {% endembed %}
     ')}}</code></pre>
 
     {% embed "@components/well/well.twig" with { 
