@@ -43,8 +43,12 @@ export default function pageNav() {
         const listItem = document.createElement('li');
         const link = document.createElement('a');
 
-        // Apply ids to the headings and link to them.
-        heading.id = heading.innerText.replace(/\s+/g, '-').toLowerCase();
+        // Apply an id to the heading if one doesn't already exist.
+        if (!heading.hasAttribute('id')) {
+          heading.id = heading.innerText.replace(/\s+/g, '-').toLowerCase();
+        }
+
+        // Create the internal link to the heading.
         link.href = `#${heading.id}`;
 
         // Get the heading text and style it appropriately.
