@@ -10,26 +10,31 @@ layout: templates/page.html
 
   <p>
     Our spacing is based on <code>rem</code> units (a measurement relative to 
-    the root element font size), where a single spacing unit is equal to 
-    <code>0.25 rem</code>. Because the root element font size is 16px (unless 
-    explicitly modified) this translates to 4px.
+    the root element font size), where <code>1</code> spacing unit is equal to 
+    <code>0.25 rem</code>. Because the root element font size in standard web 
+    browsers is <code>16px</code> this translates to <code>4px</code>.
   </p>
+
+  <ul>
+    <li><code>1 unit = 0.25rem</code></li>
+    <li><code>0.25rem = 4px</code></li>
+  </ul>
 
   <h2>Spacing Scale</h2>
 
   <p>
-    The spacing scale below is utilised across all spacing utility classes (e.g.
-    margin, padding, borders, grid gaps etc) to ensure consistency.
+    The spacing scale below is utilised across all padding and margin utility
+    classes to ensure consistency.
   </p>
 
   <table class="text-left">
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Unit</th>
         <th>Size</th>
         <th>Pixels</th>
         <th class="hidden sm:table-cell">
-          <span class="sr-only">Preview</span>
+          <span>Preview</span>
         </th>
       </tr>
     </thead>
@@ -313,5 +318,269 @@ layout: templates/page.html
       </tr>
     </tbody>
   </table>
+
+  <h2>Padding</h2>
+
+  <p>
+    Padding can be set for all sides of an element at once, for just a single 
+    axis (horizontal or vertical), or individually for each side.
+  </p>
+
+  <h3>Syntax</h3>
+
+  <pre><code>{{ html('<element class="p[modifier]-unit">') }}</code></pre>
+
+  <table class="text-left">
+    <thead>
+      <tr>
+        <th>Padding Class</th>
+        <th>CSS Property</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>p-</td>
+        <td>padding</td>
+      </tr>
+      <tr>
+        <td>pt-</td>
+        <td>padding-top</td>
+      </tr>
+      <tr>
+        <td>pb-</td>
+        <td>padding-bottom</td>
+      </tr>
+      <tr>
+        <td>pl-</td>
+        <td>padding-left</td>
+      </tr>
+      <tr>
+        <td>pr-</td>
+        <td>padding-right</td>
+      </tr>
+      <tr>
+        <td>px-</td>
+        <td>padding-left; padding-right</td>
+      </tr>
+      <tr>
+        <td>py-</td>
+        <td>padding-top; padding-bottom</td>
+      </tr>
+      <tr>
+        <td>ps-</td>
+        <td>padding-inline-start</td>
+      </tr>
+      <tr>
+        <td>pe-</td>
+        <td>padding-inline-end</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Examples</h3>
+
+  <p>
+    <strong>(i)</strong> Setting the padding of a <code>div</code> to <code>1rem</code> on all
+    sides.
+  </p>
+
+  <pre><code>{{ html('<div class="p-4">...</div>') }}</code></pre>
+
+  <p>Result:</p>
+
+  {% embed "@components/well/well.twig" with { 
+    "padding": "p-4" 
+  } %}
+
+    {% block inner_html %}
+
+        <div class="text-center block w-full border border-dashed border-modern"><code>p-4</code></div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  <p class="mt-10">
+    <strong>(ii)</strong> Setting the horizontal padding (i.e. x-axis only) of 
+    a <code>div</code> to <code>2rem</code>.
+  </p>
+
+  <pre><code>{{ html('<div class="px-8">...</div>') }}</code></pre>
+
+  <p>Result:</p>
+
+  {% embed "@components/well/well.twig" with { 
+    "padding": "px-8" 
+  } %}
+
+    {% block inner_html %}
+
+        <div class="text-center block w-full border border-dashed border-modern"><code>px-8</code></div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  <p class="mt-10">
+    <strong>(iii)</strong> Setting the vertical padding (i.e. y-axis only) of 
+    a <code>div</code> to <code>2rem</code>.
+  </p>
+
+  <pre><code>{{ html('<div class="py-8">...</div>') }}</code></pre>
+
+  <p>Result:</p>
+
+  {% embed "@components/well/well.twig" with { 
+    "padding": "py-8" 
+  } %}
+
+    {% block inner_html %}
+
+        <div class="text-center block w-full border border-dashed border-modern"><code>py-8</code></div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  <p class="mt-10"></p>
+    <strong>(iv)</strong> Setting different padding values for each side of a 
+    <code>div</code>.
+  </p>
+
+  <pre><code>{{ html('<div class="pt-0.5 pr-1 pb-1.5 pl-2">...</div>') }}</code></pre>
+
+  <p>Result:</p>
+
+  {% embed "@components/well/well.twig" with { 
+    "padding": "pt-0.5 pr-1 pb-1.5 pl-2" 
+  } %}
+
+    {% block inner_html %}
+
+        <div class="text-center block w-full border border-dashed border-modern"><code>pt-0.5 pr-1 pb-1.5 pl-2</code></div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  <h2>Margins</h2>
+
+  <p>
+    As with padding, margins can be set for all sides of an element at once, 
+    for just a single axis (horizontal or vertical), or individually for each side.
+  </p>
+
+  <h3 id="margin-syntax">Syntax</h3>
+
+  <pre><code>{{ html('<element class="m[modifier]-unit">') }}</code></pre>
+
+  <table class="text-left">
+    <thead>
+      <tr>
+        <th>Margin Class</th>
+        <th>CSS Property</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>m-</td>
+        <td>margin</td>
+      </tr>
+      <tr>
+        <td>mt-</td>
+        <td>margin-top</td>
+      </tr>
+      <tr>
+        <td>mb-</td>
+        <td>margin-bottom</td>
+      </tr>
+      <tr>
+        <td>ml-</td>
+        <td>margin-left</td>
+      </tr>
+      <tr>
+        <td>mr-</td>
+        <td>margin-right</td>
+      </tr>
+      <tr>
+        <td>mx-</td>
+        <td>margin-left; margin-right</td>
+      </tr>
+      <tr>
+        <td>my-</td>
+        <td>margin-top; margin-bottom</td>
+      </tr>
+      <tr>
+        <td>ms-</td>
+        <td>margin-inline-start</td>
+      </tr>
+      <tr>
+        <td>me-</td>
+        <td>margin-inline-end</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id="margin-examples">Examples</h3>
+
+  <p>
+    <strong>(i)</strong> Setting the margin of a paragraph to <code>1rem</code> 
+    on all sides.
+  </p>
+
+  <pre><code>{{ html('<p class="m-4">...</p>') }}</code></pre>
+
+  <p>Result:</p>
+
+  <div class="border-[16px] border-solid border-modern border-opacity-20">
+    
+    <p class="m-0">Sample text with a margin of <code>m-4</code>.</p>
+  
+  </div>
+
+  <p class="mt-10">
+    <strong>(ii)</strong> Setting the horizontal margin (i.e. x-axis only) of 
+    a paragraph to <code>3rem</code>.
+  </p>
+
+  <pre><code>{{ html('<p class="mx-12">...</p>') }}</code></pre>
+
+  <p>Result:</p>
+
+  <div class="border-[48px] border-solid border-modern border-opacity-20 border-t-0 border-b-0">
+    
+    <p class="m-0">Sample text with a margin of <code>mx-12</code>.</p>
+  
+  </div>
+
+  <p class="mt-10">
+    <strong>(iii)</strong> Setting the vertical margin (i.e. y-axis only) of 
+    a paragraph to <code>2rem</code>.
+  </p>
+
+  <pre><code>{{ html('<div class="my-8">...</div>') }}</code></pre>
+
+  <p>Result:</p>
+
+  <div class="border-[32px] border-solid border-modern border-opacity-20 border-l-0 border-r-0">
+    
+    <p class="m-0">Sample text with a margin of <code>my-8</code>.</p>
+  
+  </div>
+
+  <p class="mt-10"></p>
+    <strong>(iv)</strong> Setting different margin values for each side of a 
+    paragraph.
+  </p>
+
+  <pre><code>{{ html('<p class="mt-0.5 mr-1 mb-1.5 ml-2">...</p>') }}</code></pre>
+
+  <p>Result:</p>
+
+  <div class="border-t-2 border-r-4 border-b-[6px] border-l-8 border-solid border-modern border-opacity-20">
+    
+    <p class="m-0">Sample text with a margins of <code>mt-0.5 mr-1 mb-1.5 ml-2</code>.</p>
+  
+  </div>
 
 </div>

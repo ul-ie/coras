@@ -69,10 +69,10 @@
         @apply font-bold;
     }
     pre {
-        @apply rounded-lg dark:bg-granite-d4 dark:border dark:border-granite-d1
+        @apply rounded-lg dark:bg-granite-d4 border border-granite-d4 dark:border-granite-d1;
     }
     code {
-        @apply px-2 py-0.5 mx-0.5 bg-granite-l4 rounded-sm dark:bg-granite-d4
+        @apply px-2 py-0.5 mx-0.5 bg-granite-l4 rounded-sm dark:bg-granite-d4;
     }
 }
 
