@@ -3,27 +3,56 @@ title: Button
 layout: templates/page.html
 ---
 
-{% set btnText = 'Click Me!' %}
+<div class="py-20">
+
+  <h1 class="is-decorated">{{ title }}</h1>
+
+  <h2>Description</h2>
+
+  <p>Buttons represent an action to be performed (such as visiting a link, downloading a document or submitting/resetting form data). The button's text, and optional icon, should also convey its semantic intent.</p>
+
+  {% include '@components/button/button.twig' with {
+    btn_text: 'Primary Button',
+    icon_name: 'user',
+    icon_pos: 'right'
+  } %}
 
 
-<div class="is-prose mx-auto py-20">
+  <h2>Properties</h2>
 
-    <h1 class="is-decorated">{{ title }}</h1>
+  {% include '@templates/partials/component-props.html' %}
 
-    <div class="h-40 bg-green-d1 w-96 flex align-center justify-center">
-        
-        <button class="
-        text-green bg-white border-2 border-green px-4 py-2 h-16
-        hover:bg-green hover:text-white transition
-        dark:bg-green dark:text-white dark:border-limestone-l5
-        active:bg-green-d2">
-        
-        {{ btnText }}
+  <h2>Variants</h2>
 
-        </button>
+  <h3>Function</h3>
 
-    </div>
+  <h3>Type</h3>
 
-    <h2>Unbreak page</h2>
+  <h3>Text</h3>
+
+  <h3>Colour</h3>
+
+  <h3>Size and Width</h3>
+
+  <h3>Icons</h3>
+
+  <h3>Other Attributes</h3>
+
+  <h2>Usage</h2>
+
+  <h3>Syntax</h3>
+
+  <h3>Code Examples</h3>
+
+  <h3>Source Code</h3>
+
+  <hr>
+
+  {% include '@components/button/button.twig' with {
+    text: 'Secondary Button',
+    function: 'secondary'
+  } %}
+
+  
 
 </div>
