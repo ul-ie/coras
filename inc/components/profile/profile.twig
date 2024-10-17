@@ -10,10 +10,12 @@
 
 <article class="relative w-64 max-w-full overflow-hidden group not-prose transition duration-300">
 
-  <a class="absolute top-0 left-0 w-full h-full z-10" href="{{ profile_url }}" target="_blank"></a>
+  <a class="absolute top-0 left-0 w-full h-full z-10" href="{{ profile_url }}" title="{{ name }}" target="_blank">
+    <span class="sr-only">{{ name }}</span>
+  </a>
 
   <section class="relative overflow-hidden rounded-t">
-    
+
     <img 
       class="bl w-full h-72 object-cover object-top group-hover:scale-105 transition duration-300"
       src="{{ img_src ?? '/img/profiles/profile-no-img.svg' }}" alt="{{ name }}"

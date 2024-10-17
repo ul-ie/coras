@@ -1,16 +1,16 @@
 {# 
-    The Well Component
-    ---
-    Available variables:
-    - padding (placeholder) [optional]
-    - inner_html (block)
+  The Well Component
+  ---
+  Available variables:
+  - padding (placeholder) [optional]
+  - inner_html (block)
 #}
 
 <div 
-    class="{{ padding ?? 'p-6' }} box-border border border-granite-l3 bg-granite-l5 rounded-lg 
-    dark:bg-granite-d4 dark:border-granite-d1"
+  class="{{ padding ?? 'p-6' }} box-border border border-granite-l3 bg-granite-l5 rounded-lg 
+  dark:bg-granite-d4 dark:border-granite-d1"
 >
 
-    {% block inner_html %}{% endblock %}
+  {% block inner_html %}{% endblock %}
 
 </div>
