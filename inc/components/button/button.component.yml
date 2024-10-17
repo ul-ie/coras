@@ -1,0 +1,113 @@
+name: Button
+status: experimental
+version: 1.0
+props:
+  type: object
+  required:
+    - btn_text
+  properties:
+    btn_size:
+      title: btn_size
+      type: string
+      description: The size of the button.
+      enum:
+        - small
+        - medium
+        - large
+      default: medium
+    btn_text:
+      title: btn_text
+      type: string
+      description: The text for the button. Required, even if it is an icon-only button (in which case it will be used to describe the button's action).
+    btn_theme:
+      title: btn_theme
+      type: string
+      description: The theme to apply to the button. This should be consistent with the button's purpose and/or function.
+      enum:
+        - primary-green
+        - primary-green-alt
+        - primary-blue
+        - primary-blue-alt
+        - secondary-green
+        - secondary-green-alt
+        - secondary-blue
+        - secondary-blue-alt
+        - danger
+      default: primary-green
+    btn_type:
+      title: btn_type
+      type: string
+      description: The button type.
+      enum:
+        - button
+        - link
+        - submit
+        - reset
+      default: link
+    btn_url:
+      title: btn_url
+      type: string
+      description: The url for buttons of type link.
+      default: '#'
+    btn_width:
+      title: btn_width
+      type: string
+      description: The button width. Should it stretch to the full width of the container, or fit the content.
+      enum:
+        - fit
+        - full
+      default: fit
+    icon_name:
+      title: icon_name
+      type: string
+      description: The name of the svg icon, if any.
+    icon_only:
+      title: icon_only
+      type: boolean
+      description: Is the button just an icon or is it an icon with text.
+      enum:
+        - true
+        - false
+      default: false
+    icon_pos:
+      title: icon_pos
+      type: string
+      description: The icon's position.
+      enum:
+        - left
+        - right
+      default: left
+    icon_type:
+      title: icon_type
+      type: string
+      description: The type (or style) of the chosen icon. This must be correct as it determines the file path.
+      enum:
+        - brand
+        - duotone
+        - regular
+        - solid
+      default: solid
+    is_disabled:
+      title: is_disabled
+      type: boolean
+      description: Is the button disabled.
+      enum:
+        - true
+        - false
+      default: false
+    is_download:
+      title: is_download
+      type: boolean
+      description: If the button is a link, does this link contain a download.
+      enum:
+        - true
+        - false
+      default: false
+    is_new_tab:
+      title: is_new_tab
+      type: boolean
+      description: If the button is a link, should the link open up a new tab.
+      enum:
+        - true
+        - false
+      default: false

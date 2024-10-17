@@ -1,0 +1,102 @@
+{#
+/**
+ * @file
+ * Button component.
+ * 
+ * @see https://coras.ul.ie/components/button/#properties for full documentation.
+ */
+#}
+
+{#
+  The following variables draw upon but are not necessarily equivalent to the
+  publicly available variables defined in the .yml file. The latter is what 
+  defines the component API.
+#}
+{% set btn_size = btn_size in ['small', 'medium', 'large'] ? btn_size : 'medium' %}
+{% set btn_theme = btn_theme is not empty ? btn_theme : 'primary-green' %}
+{% set btn_type = btn_type in ['button', 'link', 'submit', 'reset'] ? btn_type : 'link' %}
+{% set btn_url = btn_url is not empty ? btn_url : '#' %}
+{% set btn_width = btn_width in ['fit', 'full'] ? btn_width : 'fit' %}
+{% set icon_pos = icon_pos in ['left', 'right'] ? icon_pos : 'left' %}
+
+{# Define our utility classes, breaking them up logically before re-combining them. #}
+{% set core_classes = 'not-prose font-medium no-underline flex items-center justify-center rounded-md border-2 transition' %}
+
+{# Define the button width classes. #}
+{% set width_classes = btn_width == 'full' ? 'w-full' : 'w-fit' %}
+
+{# Define the button size classes. #}
+{% set size_classes %}
+  {%- if btn_size == 'small' -%}
+    {{ 'px-3 py-1 text-sm' }}
+  {%- elseif btn_size == 'medium' -%}
+    {{ 'px-6 py-2 text-md' }}
+  {%- elseif btn_size == 'large' -%}
+    {{ 'px-9 py-3 text-xl' }}
+  {% endif %}
+{% endset %}
+
+{# Set up button theme classes as an object, to handle all the different permutations. #}
+{% set theme_classes = {
+
+  'primary-green': 'bg-green border-green text-white fill-white hover:bg-green-d1 hover:border-green-d1 active:bg-green-d2 active:border-green-d2',
+
+  'primary-green-alt': 'bg-white border-white text-green fill-green hover:bg-green hover:text-white hover:fill-white active:bg-green-d1',
+
+  'primary-blue': 'bg-stone border-stone text-white fill-white hover:bg-stone-d1 hover:border-stone-d1 active:bg-stone-d2 active:border-green-d2',
+
+  'primary-blue-alt': 'bg-white border-white text-stone fill-stone hover:bg-stone hover:text-white hover:fill-white active:bg-stone-d1',
+
+  'secondary-green': 'bg-white border-green text-green fill-green hover:bg-green hover:text-white hover:fill-white active:bg-green-d1',
+
+  'secondary-green-alt': 'bg-transparent border-white text-white fill-white hover:bg-green-d1 active:bg-green-d2',
+
+  'secondary-blue': 'bg-white border-stone text-stone fill-stone hover:bg-stone hover:text-white hover:fill-white active:bg-stone-d1',
+
+  'secondary-blue-alt': 'bg-transparent border-white text-white fill-white hover:bg-stone-d1 active:bg-stone-d2',
+
+  'danger': 'bg-munster border-munster text-white fill-white hover:bg-munster-d1 hover:border-munster-d1 active:bg-munster-d2 active:border-munster-d2'
+
+} %}
+
+{# Re-combine our classes into a single string to pass to the component. #}
+{% set btn_classes = [
+  core_classes,
+  width_classes,
+  size_classes,
+  theme_classes[btn_theme],
+  is_disabled ? 'cursor-not-allowed opacity-80' : ''
+]|join(' ') %}
+
+{# Set up the icon markup in advance, to avoid repeating it. #}
+{% set icon %}
+  {% if icon_name is not empty %}
+    {% include '@components/icon/icon.twig' with {
+      icon_name,
+      icon_type,
+      icon_margin: icon_pos == 'left' ? 'mr-3' : 'ml-3'
+    } %}
+  {% endif %}
+{% endset %}
+
+{# The component markup #}
+{% if btn_type == 'link' %}
+  <a
+    href="{{ is_disabled ? '#' : url }}"
+    class="{{- btn_classes -}}"
+    {{ is_download ? 'download' : '' }}
+    {{ is_new_tab ? 'target="_blank"' : '' }}
+    >
+    {{ icon_name is not empty and icon_pos == 'left' ? icon : '' }}
+    <span>{{ btn_text }}</span>
+    {{ icon_name is not empty and icon_pos == 'right' ? icon : '' }}
+  </a>
+{% else %}
+  <button
+    type="{{ btn_type }}"
+    class="{{- btn_classes -}}"
+    {{ is_disabled ? 'disabled' : '' }}
+    >
+    {{ btn_text }}
+  </button>
+{% endif %}
