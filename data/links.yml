@@ -1,3 +1,9 @@
+- section: Guides
+  entries:
+  
+  - text: For Developers
+    url: /guides/for-developers/
+
 - section: Foundations
   entries:
 
@@ -19,8 +25,11 @@
 - section: Components
   entries:
 
-  # - text: Button
-  #   url: /components/button/
+  - text: Button
+    url: /components/button/
+
+  - text: Icon
+    url: /components/icon/
 
   - text: Profile
     url: /components/profile/
