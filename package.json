@@ -6,7 +6,9 @@
   "scripts": {
     "clean": "rm -r dist",
     "start": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy"
+    "build": "npx @11ty/eleventy",
+    "npmrc" : "npx npmrc-replace-env",
+    "icons": "npm update '@awesome.me/kit-0dc973fac8'"
   },
   "author": "David Matthew",
   "license": "ISC",
@@ -20,6 +22,7 @@
     "twig": "^1.17.1"
   },
   "dependencies": {
+    "@awesome.me/kit-0dc973fac8": "^1.0.4",
     "alpinejs": "^3.13.10",
     "highlight.js": "^11.10.0"
   }
