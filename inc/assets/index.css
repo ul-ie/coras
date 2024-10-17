@@ -21,6 +21,20 @@
     }
     @font-face {
         font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url('./fonts/inter-variable.woff2') format('woff2');
+    }
+    @font-face {
+        font-family: Inter;
+        font-style: italic;
+        font-weight: 500;
+        font-display: swap;
+        src: url('./fonts/inter-variable-italic.woff2') format('woff2');
+    }
+    @font-face {
+        font-family: Inter;
         font-style: bold;
         font-weight: 700;
         font-display: swap;
@@ -62,22 +76,19 @@
     .font-display {
         @apply tracking-wide;
     }
-    .is-prose {
-        @apply prose prose-granite dark:prose-invert md:prose-lg;
-    }
-    .is-prose a {
-        @apply font-bold;
-    }
     pre {
         @apply rounded-lg dark:bg-granite-d4 border border-granite-d4 dark:border-granite-d1;
     }
     code {
         @apply px-2 py-0.5 mx-0.5 bg-granite-l4 rounded-sm dark:bg-granite-d4;
     }
+    svg {
+        @apply w-full
+    }
 }
 
 @layer utilities {
-    .bl {
+    .d-block {
         @apply block
     }
 }

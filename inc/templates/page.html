@@ -10,7 +10,7 @@
 
     <div class="flex container min-h-screen">
 
-        <div class="grow basis-1/6 py-20 px-4 border-r border-granite-l3 dark:border-granite-d1">
+        <div class="hidden lg:block grow basis-1/6 py-20 px-4 border-r border-granite-l3 dark:border-granite-d1">
 
             {% include 'partials/site-nav.html' %}
 
@@ -18,12 +18,12 @@
 
         <main class="basis-4/6"> 
 
-            <article>
+            <article class="prose prose-granite dark:prose-invert md:prose-lg mx-auto">
 
                 {{ content }}
 
-            </article>            
-                
+            </article>
+
         </main>
 
         <div class="basis-1/6 py-20 px-4">
