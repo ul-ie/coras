@@ -20,8 +20,8 @@
 
     <title>Button</title>
 
-  <script type="module" crossorigin src="/assets/index-b1a239cf.js"></script>
-  <link rel="stylesheet" href="/assets/index-1d23859c.css">
+  <script type="module" crossorigin src="/assets/index-a5d3c1f1.js"></script>
+  <link rel="stylesheet" href="/assets/index-6274bfa7.css">
 </head>
 <body class="antialiased bg-white dark:bg-granite-d3 text-granite-d3 dark:text-granite-l3">
 
@@ -105,11 +105,26 @@
 </header>
     <div class="flex container min-h-screen">
 
-        <div class="grow basis-1/6 py-20 px-4 border-r border-granite-l3 dark:border-granite-d1">
+        <div class="hidden lg:block grow basis-1/6 py-20 px-4 border-r border-granite-l3 dark:border-granite-d1">
 
             <nav class="fixed">
 
     <ul class="ml-2 text-green dark:text-modern-l1">
+
+        
+        <li>
+            
+            <span class="text-lg font-bold">Guides</span>
+
+            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+
+            
+                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/guides/for-developers/">For Developers</a></li>
+
+                    
+            </ul>
+
+        </li>
 
         
         <li>
@@ -140,6 +155,12 @@
             <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
 
             
+                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/button/">Button</a></li>
+
+            
+                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/icon/">Icon</a></li>
+
+            
                 <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/profile/">Profile</a></li>
 
             
@@ -158,35 +179,256 @@
 
         <main class="basis-4/6"> 
 
-            <article>
+            <article class="prose prose-granite dark:prose-invert md:prose-lg mx-auto">
 
                 
+<div class="py-20">
+
+  <h1 class="is-decorated">Button</h1>
+
+  <h2>Description</h2>
+
+  <p>Buttons represent an action to be performed (such as visiting a link, downloading a document or submitting/resetting form data). The button's text, and optional icon, should also convey its semantic intent.</p>
+
+  
 
 
-<div class="is-prose mx-auto py-20">
 
-    <h1 class="is-decorated">Button</h1>
 
-    <div class="h-40 bg-green-d1 w-96 flex align-center justify-center">
-        
-        <button class="
-        text-green bg-white border-2 border-green px-4 py-2 h-16
-        hover:bg-green hover:text-white transition
-        dark:bg-green dark:text-white dark:border-limestone-l5
-        active:bg-green-d2">
-        
-        Click Me!
 
-        </button>
 
-    </div>
 
-    <h2>Unbreak page</h2>
+
+
+
+
+
+
+
+  <a
+    href=""
+    class="not-prose font-medium no-underline flex items-center justify-center rounded-md border-2 transition w-fit px-6 py-2 text-md bg-green border-green text-white fill-white hover:bg-green-d1 hover:border-green-d1 active:bg-green-d2 active:border-green-d2 "
+    
+    
+    >
+    
+    <span>Primary Button</span>
+          
+
+
+
+  <span class="inline-block  ml-3 w-4 ">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></svg>
+  </span>
+
+  
+  </a>
+
+
+  <h2>Properties</h2>
+
+  
+
+<table class="text-left">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>        <tr>
+      <td><code>btn_size</code></td>
+      <td>string</td>
+      <td>
+        The size of the button.
+        <em>[Default:
+                  medium]</em>
+      </td>
+      <td>small, medium, large</td>
+    </tr>
+          <tr>
+      <td><code>btn_text*</code></td>
+      <td>string</td>
+      <td>
+        The text for the button. Required, even if it is an icon-only button (in which case it will be used to describe the button's action).
+        <em>[Default:
+        none]</em>
+      </td>
+      <td>n/a</td>
+    </tr>
+          <tr>
+      <td><code>btn_theme</code></td>
+      <td>string</td>
+      <td>
+        The theme to apply to the button. This should be consistent with the button's purpose and/or function.
+        <em>[Default:
+                  primary-green]</em>
+      </td>
+      <td>primary-green, primary-green-alt, primary-blue, primary-blue-alt, secondary-green, secondary-green-alt, secondary-blue, secondary-blue-alt, danger</td>
+    </tr>
+          <tr>
+      <td><code>btn_type</code></td>
+      <td>string</td>
+      <td>
+        The button type.
+        <em>[Default:
+                  link]</em>
+      </td>
+      <td>button, link, submit, reset</td>
+    </tr>
+          <tr>
+      <td><code>btn_url</code></td>
+      <td>string</td>
+      <td>
+        The url for buttons of type link.
+        <em>[Default:
+                  #]</em>
+      </td>
+      <td>n/a</td>
+    </tr>
+          <tr>
+      <td><code>btn_width</code></td>
+      <td>string</td>
+      <td>
+        The button width. Should it stretch to the full width of the container, or fit the content.
+        <em>[Default:
+                  fit]</em>
+      </td>
+      <td>fit, full</td>
+    </tr>
+          <tr>
+      <td><code>icon_name</code></td>
+      <td>string</td>
+      <td>
+        The name of the svg icon, if any.
+        <em>[Default:
+        none]</em>
+      </td>
+      <td>n/a</td>
+    </tr>
+          <tr>
+      <td><code>icon_only</code></td>
+      <td>boolean</td>
+      <td>
+        Is the button just an icon or is it an icon with text.
+        <em>[Default:
+        false]</em>
+      </td>
+      <td>true, false</td>
+    </tr>
+          <tr>
+      <td><code>icon_pos</code></td>
+      <td>string</td>
+      <td>
+        The icon's position.
+        <em>[Default:
+                  left]</em>
+      </td>
+      <td>left, right</td>
+    </tr>
+          <tr>
+      <td><code>icon_type</code></td>
+      <td>string</td>
+      <td>
+        The type (or style) of the chosen icon. This must be correct as it determines the file path.
+        <em>[Default:
+                  solid]</em>
+      </td>
+      <td>brand, duotone, regular, solid</td>
+    </tr>
+          <tr>
+      <td><code>is_disabled</code></td>
+      <td>boolean</td>
+      <td>
+        Is the button disabled.
+        <em>[Default:
+        false]</em>
+      </td>
+      <td>true, false</td>
+    </tr>
+          <tr>
+      <td><code>is_download</code></td>
+      <td>boolean</td>
+      <td>
+        If the button is a link, does this link contain a download.
+        <em>[Default:
+        false]</em>
+      </td>
+      <td>true, false</td>
+    </tr>
+          <tr>
+      <td><code>is_new_tab</code></td>
+      <td>boolean</td>
+      <td>
+        If the button is a link, should the link open up a new tab.
+        <em>[Default:
+        false]</em>
+      </td>
+      <td>true, false</td>
+    </tr>
+    </tbody>
+</table>
+<small class="before:d-block before:h-px before:w-10 before:bg-granite-l3 before:mb-2">* Denotes a required property.</small>
+  <h2>Variants</h2>
+
+  <h3>Function</h3>
+
+  <h3>Type</h3>
+
+  <h3>Text</h3>
+
+  <h3>Colour</h3>
+
+  <h3>Size and Width</h3>
+
+  <h3>Icons</h3>
+
+  <h3>Other Attributes</h3>
+
+  <h2>Usage</h2>
+
+  <h3>Syntax</h3>
+
+  <h3>Code Examples</h3>
+
+  <h3>Source Code</h3>
+
+  <hr>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a
+    href=""
+    class="not-prose font-medium no-underline flex items-center justify-center rounded-md border-2 transition w-fit px-6 py-2 text-md bg-green border-green text-white fill-white hover:bg-green-d1 hover:border-green-d1 active:bg-green-d2 active:border-green-d2 "
+    
+    
+    >
+    
+    <span></span>
+    
+  </a>
+
+  
 
 </div>
 
-            </article>            
-                
+            </article>
+
         </main>
 
         <div class="basis-1/6 py-20 px-4">
