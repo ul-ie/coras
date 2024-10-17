@@ -6,6 +6,14 @@ const fs = require('fs');
 
 module.exports = function(eleventyConfig) {
 
+  eleventyConfig.addPlugin(vite);
+
+  eleventyConfig.addPassthroughCopy({ 'inc/assets': '/' });
+
+  eleventyConfig.addDataExtension('yml', (contents) => {
+    return yaml.load(contents);
+  });
+
   eleventyConfig.addTemplateFormats('twig');
 
   eleventyConfig.addExtension('twig', {
@@ -15,7 +23,9 @@ module.exports = function(eleventyConfig) {
         path: `./${inputPath}`,
         namespaces: {
           assets: './inc/assets',
-          components: './inc/components'
+          templates: './inc/templates',
+          components: './inc/components',
+          icons: './node_modules/@awesome.me/kit-0dc973fac8/icons/svgs'
         },
       });
       return async (data) => {
@@ -40,15 +50,16 @@ module.exports = function(eleventyConfig) {
       let chars = { "&":"amp", "<":"lt", ">":"gt", '"':"quot", "'":"#39" }[$0];
       return `&${chars};`;
     });
-  })
-
-  eleventyConfig.addDataExtension('yml', (contents) => {
-    return yaml.load(contents);
   });
 
-  eleventyConfig.addPlugin(vite);
+  twig.extendFunction('getYML', (filePath) => {
+    let file = fs.readFileSync(path.resolve(__dirname, filePath), 'utf8');
+    return yaml.load(file);
+  });
 
-  eleventyConfig.addPassthroughCopy({ 'inc/assets': '/' });
+  twig.extendFunction('getObjectKey', (obj, key) => {
+    return Object.keys(obj)[key];
+  });
 
   return {
     markdownTemplateEngine: 'twig',
