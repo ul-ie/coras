@@ -1,0 +1,39 @@
+
+{% set componentPath = title|lower ~ '/' ~ title|lower %}
+{% set ymlFile = './inc/components/' ~ componentPath ~ '.component.yml' %}
+{% set component = getYML(ymlFile) %}
+{% set properties = component.props.properties %}
+
+<table class="text-left">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for property in properties %}
+    {% set key = properties[getObjectKey(properties, loop.index0)] %}
+    <tr>
+      <td><code>{{ key.title }}{{ key.title in component.props.required ? '*' : '' }}</code></td>
+      <td>{{ key.type }}</td>
+      <td>
+        {{ key.description }}
+        <em>[Default:
+        {% if key.default %}
+          {{ key.default }}
+        {%- elseif key.default == false -%}
+          false
+        {%- else -%}
+          none
+        {%- endif -%}
+        ]</em>
+      </td>
+      <td>{{ key.enum|join(', ') ?? 'n/a' }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<small class="before:d-block before:h-px before:w-10 before:bg-granite-l3 before:mb-2">* Denotes a required property.</small>
