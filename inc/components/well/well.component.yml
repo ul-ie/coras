@@ -1,0 +1,21 @@
+name: Well
+status: stable
+version: 1.0
+props:
+  type: object
+  required:
+    - icon_name
+  properties:
+    well_html:
+      title: well_html
+      type: object
+      description: The content with which to populate the well.
+    well_modifiers:
+      title: well_modifiers
+      type: string
+      description: Optional utility classes to apply to the well to further modify its appearance.
+    well_padding:
+      title: well_padding
+      type: string
+      description: The padding to apply to the well.
+      default: p-6

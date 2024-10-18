@@ -1,16 +1,27 @@
-{# 
-  The Well Component
-  ---
-  Available variables:
-  - padding (placeholder) [optional]
-  - inner_html (block)
+{#
+/**
+ * @file
+ * Well component.
+ * 
+ * @see https://coras.ul.ie/components/well/#properties for full documentation.
+ */
 #}
+{% set well_padding = well_padding is not empty ? well_padding : 'p-6' %}
+{% set well_modifiers = well_modifiers is not empty ? well_modifiers : '' %}
 
-<div 
-  class="{{ padding ?? 'p-6' }} box-border border border-granite-l3 bg-granite-l5 rounded-lg 
-  dark:bg-granite-d4 dark:border-granite-d1"
->
+{# Define the core component styling. #}
+{% set core_classes = 'border border-granite-l3 bg-granite-l5 rounded-lg dark:bg-granite-d4 dark:border-granite-d1' %}
 
-  {% block inner_html %}{% endblock %}
+{# Combine our classes. #}
+{% set classes = [
+  core_classes,
+  well_padding,
+  well_modifiers
+]|join(' ') %}
+
+{# The component markup. #}
+<div class="{{ classes }}">
+
+  {% block well_html %}{% endblock %}
 
 </div>
