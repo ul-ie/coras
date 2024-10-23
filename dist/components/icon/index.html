@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
+    <link rel="stylesheet" href="/index.css">
 
     <script>
         if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
@@ -20,8 +20,6 @@
 
     <title>Icon</title>
 
-  <script type="module" crossorigin src="/assets/index-a5d3c1f1.js"></script>
-  <link rel="stylesheet" href="/assets/index-6274bfa7.css">
 </head>
 <body class="antialiased bg-white dark:bg-granite-d3 text-granite-d3 dark:text-granite-l3">
 
@@ -137,6 +135,9 @@
                 <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/breakpoints/">Breakpoints</a></li>
 
             
+                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/iconography/">Iconography</a></li>
+
+            
                 <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/spacing/">Spacing</a></li>
 
             
@@ -188,7 +189,45 @@
 
   <h2>Description</h2>
 
-  <h2>Properties</h2>
+  <p>The icon component can be used standalone or nested inside another component, such as a button or, in the below example, a well.</p>
+
+  
+
+
+
+
+
+
+<div class="border border-granite-l3 bg-granite-l5 rounded-lg dark:bg-granite-d4 dark:border-granite-d1 p-6 inline-block leading-none">
+
+  
+      
+
+
+  <svg
+    class="fill-green dark:fill-modern w-10"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 448 512"
+    >
+          <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/>
+      </svg>
+
+    
+</div>
+  <h3>Syntax</h3>
+
+  <p>Use the <code>include</code> tag to inject an icon. The icon must exist in the UL custom icon kit for it to be added to the icon bank (see <a href="/foundations/iconography/">Iconography</a>).</p>
+
+  <pre><code>
+  {% include &#39;@components/icon/icon.twig&#39; with {
+    property: &#39;value&#39;
+    ...
+  } %}
+  </code></pre>
+
+  <h3>Properties</h3>
+
+  <p>An icon has one mandatory and three optional properties.</p>
 
   
 
@@ -206,16 +245,6 @@
       <td>string</td>
       <td>
         The icon's fill colour. Inherits by default, so can be applied via a container element.
-        <em>[Default:
-                  none]</em>
-      </td>
-      <td>n/a</td>
-    </tr>
-          <tr>
-      <td><code>icon_margin</code></td>
-      <td>string</td>
-      <td>
-        The margin surrounding the icon, defined by a margin utility class.
         <em>[Default:
                   none]</em>
       </td>
@@ -242,20 +271,10 @@
       <td>n/a</td>
     </tr>
           <tr>
-      <td><code>icon_stroke</code></td>
-      <td>string</td>
-      <td>
-        The icon's stoke colour. Like the fill, it inherits by default.
-        <em>[Default:
-                  none]</em>
-      </td>
-      <td>n/a</td>
-    </tr>
-          <tr>
       <td><code>icon_type</code></td>
       <td>string</td>
       <td>
-        The type (or style) of the chosen icon. This must be correct as it determines the file path.
+        The type (or style) of the chosen icon. This must be correct as it determines part of the file path.
         <em>[Default:
                   solid]</em>
       </td>
@@ -263,7 +282,18 @@
     </tr>
     </tbody>
 </table>
-<small class="before:d-block before:h-px before:w-10 before:bg-granite-l3 before:mb-2">* Denotes a required property.</small>
+  <small class="before:d-block before:h-px before:w-10 before:bg-granite-l3 before:mb-2">* Denotes a required property.</small>
+
+  <h2>Variants</h2>
+
+  <p></p>
+
+  <h3>Colour</h3>
+
+  <h3>Size</h3>
+
+  <h3>Type</h3>
+
 </div>
 
             </article>
@@ -284,7 +314,7 @@
     Copyright © University of Limerick 2024
 
 </footer>
-    
+    <script type="module" src="/index.js"></script>
 
 </body>
 

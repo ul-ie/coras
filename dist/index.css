@@ -1,0 +1,94 @@
+@import url('/node_modules/highlight.js/styles/atom-one-dark.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    @font-face {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('./fonts/inter-variable.woff2') format('woff2');
+    }
+    @font-face {
+        font-family: Inter;
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url('./fonts/inter-variable-italic.woff2') format('woff2');
+    }
+    @font-face {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url('./fonts/inter-variable.woff2') format('woff2');
+    }
+    @font-face {
+        font-family: Inter;
+        font-style: italic;
+        font-weight: 500;
+        font-display: swap;
+        src: url('./fonts/inter-variable-italic.woff2') format('woff2');
+    }
+    @font-face {
+        font-family: Inter;
+        font-style: bold;
+        font-weight: 700;
+        font-display: swap;
+        src: url('./fonts/inter-variable.woff2') format('woff2');
+    }
+    @font-face {
+        font-family: Inter;
+        font-style: italic;
+        font-weight: 700;
+        font-display: swap;
+        src: url('./fonts/inter-variable-italic.woff2') format('woff2');
+    }
+    @font-face {
+        font-family: Saol;
+        font-style: bold;
+        font-weight: 600;
+        font-display: swap;
+        src: url('./fonts/saol-standard-600.woff2') format('woff2');
+    }
+    @font-face {
+        font-family: 'Formula Condensed';
+        font-style: bold;
+        font-weight: 700;
+        font-display: swap;
+        src: url('./fonts/formula-condensed-700.woff2') format('woff2');
+    }
+}
+
+@layer components {
+    :target {
+        @apply scroll-mt-28;
+    }
+    h1 {
+        @apply font-serif;
+    }
+    .is-decorated {
+        @apply after:block after:w-8 after:h-1.5 after:mt-1.5 after:bg-modern
+    }
+    .font-display {
+        @apply tracking-wide;
+    }
+    pre {
+        @apply rounded-lg dark:bg-granite-d4 border border-granite-d4 dark:border-granite-d1;
+    }
+    code {
+        @apply px-2 py-0.5 mx-0.5 bg-granite-l4 rounded-sm dark:bg-granite-d4;
+    }
+    svg {
+        @apply w-full
+    }
+}
+
+@layer utilities {
+    .d-block {
+        @apply block
+    }
+}

@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
+    <link rel="stylesheet" href="/index.css">
 
     <script>
         if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
@@ -20,8 +20,6 @@
 
     <title>Button</title>
 
-  <script type="module" crossorigin src="/assets/index-a5d3c1f1.js"></script>
-  <link rel="stylesheet" href="/assets/index-6274bfa7.css">
 </head>
 <body class="antialiased bg-white dark:bg-granite-d3 text-granite-d3 dark:text-granite-l3">
 
@@ -137,6 +135,9 @@
                 <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/breakpoints/">Breakpoints</a></li>
 
             
+                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/iconography/">Iconography</a></li>
+
+            
                 <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/spacing/">Spacing</a></li>
 
             
@@ -188,9 +189,11 @@
 
   <h2>Description</h2>
 
-  <p>Buttons represent an action to be performed (such as visiting a link, downloading a document or submitting/resetting form data). The button's text, and optional icon, should also convey its semantic intent.</p>
+  <p>Buttons represent an action to be performed (such as visiting a link, downloading a document or submitting/resetting form data). The button's text and optional icon should clearly convey its semantic intent.</p>
 
   
+
+
 
 
 
@@ -206,22 +209,27 @@
 
 
   <a
-    href=""
+    href="#properties"
     class="not-prose font-medium no-underline flex items-center justify-center rounded-md border-2 transition w-fit px-6 py-2 text-md bg-green border-green text-white fill-white hover:bg-green-d1 hover:border-green-d1 active:bg-green-d2 active:border-green-d2 "
     
     
     >
-    
-    <span>Primary Button</span>
-          
-
-
-
-  <span class="inline-block  ml-3 w-4 ">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></svg>
+      
+  <span class="mr-3">
+    Jump To Next Heading
   </span>
+        
 
+
+  <svg
+    class=" w-5"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 512 512"
+    >
+          <path d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM244.7 395.3l-112-112c-4.6-4.6-5.9-11.5-3.5-17.4s8.3-9.9 14.8-9.9l64 0 0-96c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 96 64 0c6.5 0 12.3 3.9 14.8 9.9s1.1 12.9-3.5 17.4l-112 112c-6.2 6.2-16.4 6.2-22.6 0z"/>
+      </svg>
   
+
   </a>
 
 
@@ -329,6 +337,16 @@
       <td>left, right</td>
     </tr>
           <tr>
+      <td><code>icon_size</code></td>
+      <td>string</td>
+      <td>
+        The size of the icon, which is defined by a width utility class.
+        <em>[Default:
+                  w-4]</em>
+      </td>
+      <td>n/a</td>
+    </tr>
+          <tr>
       <td><code>icon_type</code></td>
       <td>string</td>
       <td>
@@ -370,7 +388,8 @@
     </tr>
     </tbody>
 </table>
-<small class="before:d-block before:h-px before:w-10 before:bg-granite-l3 before:mb-2">* Denotes a required property.</small>
+  <small class="before:d-block before:h-px before:w-10 before:bg-granite-l3 before:mb-2">* Denotes a required property.</small>
+
   <h2>Variants</h2>
 
   <h3>Function</h3>
@@ -412,15 +431,20 @@
 
 
 
+
+
   <a
-    href=""
+    href="#"
     class="not-prose font-medium no-underline flex items-center justify-center rounded-md border-2 transition w-fit px-6 py-2 text-md bg-green border-green text-white fill-white hover:bg-green-d1 hover:border-green-d1 active:bg-green-d2 active:border-green-d2 "
     
     
     >
+      
+  <span class="ml-3">
     
-    <span></span>
-    
+  </span>
+  
+
   </a>
 
   
@@ -445,7 +469,7 @@
     Copyright © University of Limerick 2024
 
 </footer>
-    
+    <script type="module" src="/index.js"></script>
 
 </body>
 

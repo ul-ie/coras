@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
+    <link rel="stylesheet" href="/index.css">
 
     <script>
         if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
@@ -18,10 +18,8 @@
         }
     </script>
 
-    <title>Well Component</title>
+    <title>Well</title>
 
-  <script type="module" crossorigin src="/assets/index-a5d3c1f1.js"></script>
-  <link rel="stylesheet" href="/assets/index-6274bfa7.css">
 </head>
 <body class="antialiased bg-white dark:bg-granite-d3 text-granite-d3 dark:text-granite-l3">
 
@@ -137,6 +135,9 @@
                 <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/breakpoints/">Breakpoints</a></li>
 
             
+                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/iconography/">Iconography</a></li>
+
+            
                 <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/spacing/">Spacing</a></li>
 
             
@@ -184,153 +185,213 @@
                 
 <div class="is-prose py-20 mx-auto">
 
-    <h1 class="is-decorated">Well Component</h1>
+  <h1 class="is-decorated">Well</h1>
 
-    <h2>Description</h2>
+  <h2>Description</h2>
 
-    <p>
-        A well is a very simple component designed to nest other content or components. It consists 
-        of a border with a slightly rounded radius, some padding and a subtle background colour to 
-        distinguish it from surrounding content.
-    </p>
-
-    
-
-<div 
-  class="p-6 box-border border border-granite-l3 bg-granite-l5 rounded-lg 
-  dark:bg-granite-d4 dark:border-granite-d1"
->
+  <p>A well is a very simple component designed to nest other content or components. It consists of a border with a slightly rounded radius, some padding and a subtle background colour to distinguish it from surrounding content.</p>
 
   
-            <div class="text-center"><code>div</code> content inside a well.</div>
 
-        
-</div>
-    <h2>Syntax</h2>
 
-    <p>
-        A well is to be used with the <code>embed</code> tag, as it is a container for other content. 
-        To place content inside the well, use the <code>block</code> placeholder named <code>inner_html</code> 
-        as follows:
-    </p>
 
-    <pre><code>
-    {% embed &quot;@components/well/well.twig&quot; %}
 
-        {% block inner_html %}
 
-            &lt;!-- Your content or components here --&gt;
 
-        {% endblock %}
-
-    {% endembed %}
-    </code></pre>
-
-    <h2>Variations</h2>
-    
-    <p>
-        The padding can be customized per instance using the optional <code>padding</code> parameter. 
-        In the following examples the padding is indicated with a dashed outline.
-    </p>
-    
-    <h3>Default Padding</h3>
-
-    <p>If no padding is specified, the default padding <code>p-6</code> (1.5rem) is applied:</p>
-
-    
-
-<div 
-  class="p-6 box-border border border-granite-l3 bg-granite-l5 rounded-lg 
-  dark:bg-granite-d4 dark:border-granite-d1"
->
+<div class="border border-granite-l3 bg-granite-l5 rounded-lg dark:bg-granite-d4 dark:border-granite-d1 p-6 ">
 
   
-            <div class="text-center outline-1 outline-modern outline-dashed dark:outline-modern-d2">A well with default padding.</div>
+      <div class="text-center"><code>div</code> content inside a well.</div>
 
-        
+    
 </div>
-    <h3>Modified Padding</h3>
+  <h3>Syntax</h3>
 
-    <p>To decrease or increase the padding, use a different value for the utility padding class, e.g. <code>p-3</code> to make it smaller:</p>
-    
-    <pre><code>
-    {% embed &quot;@components/well/well.twig&quot; with { &quot;padding&quot;: &quot;p-3&quot; } %}
+  <p>A well is to be used with the <code>embed</code> tag, as it is a container for other content. To place content inside the well, use the <code>block</code> placeholder named <code>well_html</code> as follows:</p>
 
-        {% block inner_html %}
+  <pre><code>
+  {% embed &#39;@components/well/well.twig&#39; with {
+    property: &#39;value&#39; } %}
 
-          &lt;!-- Your content or components here --&gt;
+    {% block well_html %}
 
-        {% endblock %}
+      &lt;!-- Your content or components here --&gt;
 
-    {% endembed %}
-    </code></pre>
+    {% endblock %}
 
-    <p>This would result in the following output:</p>
+  {% endembed %}
+  </code></pre>
 
-    
+  <h3>Properties</h3>
 
-<div 
-  class="p-3 box-border border border-granite-l3 bg-granite-l5 rounded-lg 
-  dark:bg-granite-d4 dark:border-granite-d1"
->
+  <p>In addition to the <code>well_html</code> block a well has two properties, both optional.</p>
 
   
-            <div class="text-center outline-1 outline-modern outline-dashed dark:outline-modern-d2">A well with less padding.</div>
 
-        
-</div>
-    <h3>Conditional Padding</h3>
+<table class="text-left">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>        <tr>
+      <td><code>well_modifiers</code></td>
+      <td>string</td>
+      <td>
+        Optional utility classes to apply to the well to further modify its appearance.
+        <em>[Default:
+        none]</em>
+      </td>
+      <td>n/a</td>
+    </tr>
+          <tr>
+      <td><code>well_padding</code></td>
+      <td>string</td>
+      <td>
+        The padding to apply to the well.
+        <em>[Default:
+                  p-6]</em>
+      </td>
+      <td>n/a</td>
+    </tr>
+    </tbody>
+</table>
 
-    <p>
-        You could also have the padding adapt to different screen sizes, via the use of modifiers. 
-        For example, in the following code the padding will change depending on the size of the 
-        user's screen:
-    </p>
+  <h2>Variants</h2>
 
-    <pre><code>
-    {% embed &quot;@components/well/well.twig&quot; with { 
-        &quot;padding&quot;: &quot;p-3 md:p-5 lg:p-8&quot; 
-    } %}
+  <p>The padding can be customized per instance using the optional <code>well_padding</code> variable. In the following examples the padding is indicated with a dashed outline.</p>
 
-        {% block inner_html %}
+  <h3>Custom Padding</h3>
 
-            &lt;!-- Your content or components here --&gt;
+  <p>To decrease or increase the padding, use a different value for the utility padding class, e.g. <code>p-2</code> to
+    make it smaller:</p>
 
-        {% endblock %}
+  <pre><code>
+  {% embed &#39;@components/well/well.twig&#39; with { well_padding: &#39;p-2&#39; } %}
 
-    {% endembed %}
-    </code></pre>
+    {% block well_html %}
 
-    
+      &lt;!-- Your content or components here --&gt;
 
-<div 
-  class="p-3 md:p-5 lg:p-8 box-border border border-granite-l3 bg-granite-l5 rounded-lg 
-  dark:bg-granite-d4 dark:border-granite-d1"
->
+    {% endblock %}
+
+  {% endembed %}
+  </code></pre>
+
+  <p>This would result in the following output:</p>
 
   
-            <div class="text-center outline-1 outline-modern outline-dashed dark:outline-modern-d2">Responsive padding.</div>
 
-        
+
+
+
+
+
+<div class="border border-granite-l3 bg-granite-l5 rounded-lg dark:bg-granite-d4 dark:border-granite-d1 p-2 ">
+
+  
+      <div class="text-center outline-1 outline-modern outline-dashed dark:outline-modern-d2">A well with less padding.</div>
+
+    
 </div>
-    <h2>Source Code</h2>
+  <h3>Conditional Padding</h3>
 
-    <p>The source code below can be found at <code>inc/components/well/well.twig</code>.</p>
+  <p>You could also have the padding adapt to different screen sizes. For example, in the following code the padding
+    will change depending on the size of the user's screen:</p>
 
-    <pre><code class="language-twig">{# 
-  The Well Component
-  ---
-  Available variables:
-  - padding (placeholder) [optional]
-  - inner_html (block)
+  <pre><code>
+  {% embed &#39;@components/well/well.twig&#39; with { 
+    well_padding: &#39;p-3 md:p-5 lg:p-8&#39; 
+  } %}
+
+    {% block well_html %}
+
+      &lt;!-- Your content or components here --&gt;
+
+    {% endblock %}
+
+  {% endembed %}
+  </code></pre>
+
+  
+
+
+
+
+
+
+<div class="border border-granite-l3 bg-granite-l5 rounded-lg dark:bg-granite-d4 dark:border-granite-d1 p-3 md:p-5 lg:p-8 ">
+
+  
+    <div class="text-center outline-1 outline-modern outline-dashed dark:outline-modern-d2">Responsive padding.</div>
+
+    
+</div>
+  <h3>Modifier Classes</h3>
+
+  <p>Using the <code>well_modifiers</code> property, you can further adjust the appearance of the well. For example, if
+    you wanted it to appear as an inline block rather than the default block, you could use the following code:</p>
+
+  <pre><code>
+  {% embed &#39;@components/well/well.twig&#39; with { 
+    well_modifiers: &#39;inline-block&#39; 
+  } %}
+
+    {% block well_html %}
+
+      &lt;!-- Your content or components here --&gt;
+
+    {% endblock %}
+
+  {% endembed %}
+  </code></pre>
+
+  
+
+
+
+
+
+
+<div class="border border-granite-l3 bg-granite-l5 rounded-lg dark:bg-granite-d4 dark:border-granite-d1 p-6 inline-block">
+
+  
+      <div class="text-center">A well styled as an inline block.</div>
+
+    
+</div>
+  <h2>Source Code</h2>
+
+  <p>The source code below can be found at <code>inc/components/well/well.twig</code>.</p>
+
+  <pre><code class="language-twig">{#
+/**
+ * @file
+ * Well component.
+ * 
+ * @see https://coras.ul.ie/components/well/#properties for full documentation.
+ */
 #}
+{% set well_padding = well_padding is not empty ? well_padding : &#39;p-6&#39; %}
+{% set well_modifiers = well_modifiers ?? &#39;&#39; %}
 
-&lt;div 
-  class=&quot;{{ padding ?? &#39;p-6&#39; }} box-border border border-granite-l3 bg-granite-l5 rounded-lg 
-  dark:bg-granite-d4 dark:border-granite-d1&quot;
-&gt;
+{# Define the core component styling. #}
+{% set core_classes = &#39;border border-granite-l3 bg-granite-l5 rounded-lg dark:bg-granite-d4 dark:border-granite-d1&#39; %}
 
-  {% block inner_html %}{% endblock %}
+{# Combine our classes. #}
+{% set classes = [
+  core_classes,
+  well_padding,
+  well_modifiers
+]|join(&#39; &#39;) %}
+
+{# The component markup. #}
+&lt;div class=&quot;{{ classes }}&quot;&gt;
+
+  {% block well_html %}{% endblock %}
 
 &lt;/div&gt;</code></pre>
 
@@ -354,7 +415,7 @@
     Copyright © University of Limerick 2024
 
 </footer>
-    
+    <script type="module" src="/index.js"></script>
 
 </body>
 
