@@ -19,7 +19,7 @@
 {% set btn_width = btn_width in ['fit', 'full'] ? btn_width : 'fit' %}
 {% set icon_pos = icon_pos in ['left', 'right'] ? icon_pos : 'left' %}
 
-{# Define our utility classes, breaking them up logically before re-combining them. #}
+{# Define the core component styling. #}
 {% set core_classes = 'not-prose font-medium no-underline flex items-center justify-center rounded-md border-2 transition' %}
 
 {# Define the button width classes. #}
@@ -73,23 +73,29 @@
   {% if icon_name is not empty %}
     {% include '@components/icon/icon.twig' with {
       icon_name,
-      icon_type,
-      icon_margin: icon_pos == 'left' ? 'mr-3' : 'ml-3'
+      icon_type
     } %}
   {% endif %}
+{% endset %}
+
+{# Define the button content. #}
+{% set btn_content %}
+  {{ icon_name is not empty and icon_pos == 'left' ? icon : '' }}
+  <span class="{{ icon_pos == 'left' ? 'ml-3' : icon_pos == 'right' ? 'mr-3' : '' }}">
+    {{ btn_text }}
+  </span>
+  {{ icon_name is not empty and icon_pos == 'right' ? icon : '' }}
 {% endset %}
 
 {# The component markup #}
 {% if btn_type == 'link' %}
   <a
-    href="{{ is_disabled ? '#' : url }}"
+    href="{{ is_disabled ? '#' : btn_url }}"
     class="{{- btn_classes -}}"
     {{ is_download ? 'download' : '' }}
     {{ is_new_tab ? 'target="_blank"' : '' }}
     >
-    {{ icon_name is not empty and icon_pos == 'left' ? icon : '' }}
-    <span>{{ btn_text }}</span>
-    {{ icon_name is not empty and icon_pos == 'right' ? icon : '' }}
+    {{ btn_content }}
   </a>
 {% else %}
   <button
@@ -97,6 +103,6 @@
     class="{{- btn_classes -}}"
     {{ is_disabled ? 'disabled' : '' }}
     >
-    {{ btn_text }}
+    {{ btn_content }}
   </button>
 {% endif %}

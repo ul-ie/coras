@@ -77,6 +77,11 @@ props:
         - left
         - right
       default: left
+    icon_size:
+      title: icon_size
+      type: string
+      description: The size of the icon, which is defined by a width utility class. 
+      default: w-4
     icon_type:
       title: icon_type
       type: string
