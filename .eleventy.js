@@ -25,7 +25,7 @@ module.exports = function(eleventyConfig) {
           assets: './inc/assets',
           templates: './inc/templates',
           components: './inc/components',
-          icons: './node_modules/@awesome.me/kit-0dc973fac8/icons/svgs'
+          icons: './node_modules/@awesome.me/kit-0dc973fac8/icons'
         },
       });
       return async (data) => {
@@ -36,13 +36,26 @@ module.exports = function(eleventyConfig) {
 
   twig.cache(false);
 
-  twig.extendFunction('getYear', () => {
+  twig.extendFunction('get_year', () => {
     let date = new Date();
     return date.getFullYear();
   });
 
-  twig.extendFunction('getFile', (filePath) => {
+  twig.extendFunction('get_file', (filePath) => {
     return fs.readFileSync(path.resolve(__dirname, filePath), 'utf8');
+  });
+
+  twig.extendFunction('get_object_key', (obj, key) => {
+    return Object.keys(obj)[key];
+  });
+
+  twig.extendFunction('get_yml', (filePath) => {
+    let file = fs.readFileSync(path.resolve(__dirname, filePath), 'utf8');
+    return yaml.load(file);
+  });
+
+  twig.extendFunction('json_decode', (json) => {
+    return JSON.parse(json);
   });
 
   twig.extendFunction('html', (str) => {
@@ -50,15 +63,6 @@ module.exports = function(eleventyConfig) {
       let chars = { "&":"amp", "<":"lt", ">":"gt", '"':"quot", "'":"#39" }[$0];
       return `&${chars};`;
     });
-  });
-
-  twig.extendFunction('getYML', (filePath) => {
-    let file = fs.readFileSync(path.resolve(__dirname, filePath), 'utf8');
-    return yaml.load(file);
-  });
-
-  twig.extendFunction('getObjectKey', (obj, key) => {
-    return Object.keys(obj)[key];
   });
 
   return {
@@ -76,5 +80,4 @@ module.exports = function(eleventyConfig) {
       data: '../data'
     }
   };
-  
 };
