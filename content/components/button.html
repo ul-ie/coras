@@ -9,12 +9,15 @@ layout: templates/page.html
 
   <h2>Description</h2>
 
-  <p>Buttons represent an action to be performed (such as visiting a link, downloading a document or submitting/resetting form data). The button's text, and optional icon, should also convey its semantic intent.</p>
+  <p>Buttons represent an action to be performed (such as visiting a link, downloading a document or submitting/resetting form data). The button's text and optional icon should clearly convey its semantic intent.</p>
 
   {% include '@components/button/button.twig' with {
-    btn_text: 'Primary Button',
-    icon_name: 'user',
-    icon_pos: 'right'
+    btn_text: 'Jump To Next Heading',
+    icon_name: 'circle-down',
+    icon_pos: 'right',
+    icon_size: 'w-5',
+    btn_type: 'link',
+    btn_url: '#properties'
   } %}
 
 

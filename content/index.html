@@ -3,7 +3,7 @@ layout: templates/home.html
 title: Córas | UL Design System
 ---
 
-<div class="is-prose max-w-6xl flex flex-wrap px-10 py-20 mx-auto">
+<div class="prose prose-granite max-w-6xl flex flex-wrap px-10 py-20 mx-auto md:prose-lg dark:prose-invert">
 
     <div class="basis-1/4">
 
@@ -13,9 +13,9 @@ title: Córas | UL Design System
 
     <div class="basis-3/4">
 
-        <h1 class="font-display mb-0 text-8xl is-decorated after:origin-left after:scale-150">Córas</h1>
+        <h1 class="font-display mb-0 is-decorated after:origin-left after:scale-150 md:text-8xl md:mb-0">Córas</h1>
 
-        <h2 class="font-serif mt-5 text-5xl">UL Design System</h2>
+        <h2 class="font-serif mt-4 md:mt-5 md:text-5xl">UL Design System</h2>
 
         <p>
             <strong>Córas</strong> means <em>system</em> in Irish, and is also suggestive of a chorus, where 
@@ -31,7 +31,7 @@ title: Córas | UL Design System
 
             {% embed "@components/well/well.twig" %}
 
-                {% block inner_html %}
+                {% block well_html %}
 
                     <div class="text-sm">For Developers</div>
 
@@ -44,7 +44,7 @@ title: Córas | UL Design System
 
             {% embed "@components/well/well.twig" %}
 
-                {% block inner_html %}
+                {% block well_html %}
 
                     <div class="text-sm">For Designers</div>
 
@@ -57,7 +57,7 @@ title: Córas | UL Design System
 
             {% embed "@components/well/well.twig" %}
 
-                {% block inner_html %}
+                {% block well_html %}
 
                     <div class="text-sm">For Content Creators</div>
 

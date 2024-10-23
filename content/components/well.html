@@ -21,12 +21,13 @@ layout: templates/page.html
 
   {% endembed %}
 
-  <h2>Syntax</h2>
+  <h3>Syntax</h3>
 
   <p>A well is to be used with the <code>embed</code> tag, as it is a container for other content. To place content inside the well, use the <code>block</code> placeholder named <code>well_html</code> as follows:</p>
 
   <pre><code>{{ html("
-  {% embed '@components/well/well.twig' %}
+  {% embed '@components/well/well.twig' with {
+    property: 'value' } %}
 
     {% block well_html %}
 
@@ -37,16 +38,15 @@ layout: templates/page.html
   {% endembed %}
   ")}}</code></pre>
 
-  <h2>Properties</h2>
+  <h3>Properties</h3>
+
+  <p>In addition to the <code>well_html</code> block a well has two properties, both optional.</p>
 
   {% include '@templates/partials/component-props.html' %}
 
   <h2>Variants</h2>
 
-  <p>
-    The padding can be customized per instance using the optional <code>padding</code> parameter.
-    In the following examples the padding is indicated with a dashed outline.
-  </p>
+  <p>The padding can be customized per instance using the optional <code>well_padding</code> variable. In the following examples the padding is indicated with a dashed outline.</p>
 
   <h3>Custom Padding</h3>
 
@@ -143,6 +143,6 @@ layout: templates/page.html
 
   <p>The source code below can be found at <code>inc/components/well/well.twig</code>.</p>
 
-  <pre><code class="language-twig">{{ html(getFile("inc/components/well/well.twig")) }}</code></pre>
+  <pre><code class="language-twig">{{ html(get_file("inc/components/well/well.twig")) }}</code></pre>
 
 </div>

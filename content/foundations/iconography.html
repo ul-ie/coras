@@ -1,0 +1,73 @@
+---
+title: Iconography
+tags: foundations
+layout: templates/page.html
+---
+
+{% set icons_json = get_file('./node_modules/@awesome.me/kit-0dc973fac8/icons/metadata/icons.json') %}
+{% set icons = json_decode(icons_json) %}
+
+<div class="is-prose mx-auto py-20">
+
+  <h1 class="is-decorated">{{ title }}</h1>
+
+  <h2>Icon Bank</h2>
+
+  <div class="flex flex-wrap gap-4">
+
+    {% for icon in icons %}
+
+      {% set icon_name =  get_object_key(icons, loop.index0) %}
+      {% set icon_fill = 'fill-green dark:fill-modern' %}
+      {% set icon_size = 'w-8' %}
+
+      {% for style in icon.styles %}
+
+        {% set icon_type = icon.styles[loop.index0] %}
+
+        {% embed "@components/well/well.twig" with {
+          well_modifiers: 'inline-flex leading-none h-20 w-20 items-center justify-center'
+        } %}
+      
+          {% block well_html %}
+      
+            {% include '@components/icon/icon.twig' %}
+      
+          {% endblock %}
+      
+        {% endembed %}
+
+      {% endfor %}
+
+    {% endfor %}
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+{# {% set key = get_object_key(icons, icon) %}
+
+    {{ key }} #}
+
+    {# {% for style in icon.styles %} #}
+
+      {# {{ dump(icon) }} #}
+
+      {# {{ icon.svg[style].raw }} #}
+
+      {# {% include '@components/icon/icon.twig' with {
+        icon_name: icon,
+        icon_type: 'solid',
+        icon_size: 'w-10',
+        icon_fill: 'fill-green dark:fill-modern'
+      } %} #}
+
+    {# {% endfor %} #}

@@ -9,8 +9,49 @@ layout: templates/page.html
 
   <h2>Description</h2>
 
-  <h2>Properties</h2>
+  <p>The icon component can be used standalone or nested inside another component, such as a button or, in the below example, a well.</p>
+
+  {% embed "@components/well/well.twig" with {
+    well_modifiers: 'inline-block leading-none'
+  } %}
+
+    {% block well_html %}
+
+      {% include '@components/icon/icon.twig' with {
+        icon_name: 'user',
+        icon_size: 'w-10',
+        icon_fill: 'fill-green dark:fill-modern'
+      } %}
+
+    {% endblock %}
+
+  {% endembed %}
+
+  <h3>Syntax</h3>
+
+  <p>Use the <code>include</code> tag to inject an icon. The icon must exist in the UL custom icon kit for it to be added to the icon bank (see <a href="/foundations/iconography/">Iconography</a>).</p>
+
+  <pre><code>{{ html("
+  {% include '@components/icon/icon.twig' with {
+    property: 'value'
+    ...
+  } %}
+  ")}}</code></pre>
+
+  <h3>Properties</h3>
+
+  <p>An icon has one mandatory and three optional properties.</p>
 
   {% include '@templates/partials/component-props.html' %}
+
+  <h2>Variants</h2>
+
+  <p></p>
+
+  <h3>Colour</h3>
+
+  <h3>Size</h3>
+
+  <h3>Type</h3>
 
 </div>
