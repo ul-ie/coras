@@ -7,7 +7,7 @@
  */
 #}
 {% set well_padding = well_padding is not empty ? well_padding : 'p-6' %}
-{% set well_modifiers = well_modifiers is not empty ? well_modifiers : '' %}
+{% set well_modifiers = well_modifiers ?? '' %}
 
 {# Define the core component styling. #}
 {% set core_classes = 'border border-granite-l3 bg-granite-l5 rounded-lg dark:bg-granite-d4 dark:border-granite-d1' %}
