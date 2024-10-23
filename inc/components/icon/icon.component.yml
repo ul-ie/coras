@@ -11,11 +11,6 @@ props:
       type: string
       description: The icon's fill colour. Inherits by default, so can be applied via a container element.
       default: none
-    icon_margin:
-      title: icon_margin
-      type: string
-      description: The margin surrounding the icon, defined by a margin utility class.
-      default: none
     icon_name:
       title: icon_name
       type: string
@@ -26,15 +21,10 @@ props:
       type: string
       description: The size of the icon, which is defined by a width utility class. 
       default: w-4
-    icon_stroke:
-      title: icon_stroke
-      type: string
-      description: The icon's stoke colour. Like the fill, it inherits by default.
-      default: none
     icon_type:
       title: icon_type
       type: string
-      description: The type (or style) of the chosen icon. This must be correct as it determines the file path.
+      description: The type (or style) of the chosen icon. This must be correct as it determines part of the file path.
       enum:
         - brand
         - duotone
