@@ -46,12 +46,178 @@ layout: templates/page.html
 
   <h2>Variants</h2>
 
-  <p></p>
+  <p>Icons can be customised by colour, size and type.</p>
 
   <h3>Colour</h3>
 
+  <p>All icon colours are defined by the <code>icon_fill</code> property, which expects a class or set of classes. Styling the stroke will have no effect; even very thin icons do not have a stroke.</p>
+
+  <p><strong>Note:</strong> Duotone icons are styled by a single colour; the secondary path (the one with the lighter colour) simply has a lower opacity.</p>
+
+  <h4>Examples</h4>
+
+  <p><strong>(i)</strong> Setting the <code>icon_fill</code> of a graduation cap to <a href="/foundations/colour/#ul-green">UL Green</a> and, if dark mode is supported, to <a href="/foundations/colour/#modern-green">Modern Green</a>:</p>
+
+  {% include '@components/icon/icon.twig' with {
+    icon_name: 'graduation-cap',
+    icon_fill: 'fill-green dark:fill-modern',
+    icon_size: 'w-20'
+  } %}
+
+  <pre><code>{{ html("
+  {% include '@components/icon/icon.twig' with {
+    icon_name: 'graduation-cap',
+    icon_fill: 'fill-green dark:fill-modern'
+  } %}
+  ")}}</code></pre>
+
+  
+  <p><strong>(ii)</strong> Setting the <code>icon_fill</code> to <a href="/foundations/colour/#modern-green">Shannon</a>, and using a lighter shade of the same colour on hover.</p>
+
+  {% include '@components/icon/icon.twig' with {
+    icon_name: 'earth-americas',
+    icon_fill: 'fill-shannon hover:fill-shannon-l1',
+    icon_size: 'w-16'
+  } %}
+
+  <pre><code>{{ html("
+  {% include '@components/icon/icon.twig' with {
+    icon_name: 'earth-americas',
+    icon_fill: 'fill-shannon hover:fill-shannon-l1'
+  } %}
+  ")}}</code></pre>
+
+  
+
   <h3>Size</h3>
 
+  <p>The <code>icon_size</code> will default to <code>w-4</code> (1 rem) if left unset. Below are some examples of increasing this size to <code>w-6</code>, <code>w-8</code> and <code>w-10</code> respectively. For brevity, only the code for the last example is shown.</p>
+
+  <div class="flex items-end gap-2">
+
+    {% include '@components/icon/icon.twig' with {
+      icon_name: 'user',
+      icon_fill: 'fill-golden'
+    } %}
+  
+    {% include '@components/icon/icon.twig' with {
+      icon_name: 'user',
+      icon_fill: 'fill-golden',
+      icon_size: 'w-6'
+    } %}
+  
+    {% include '@components/icon/icon.twig' with {
+      icon_name: 'user',
+      icon_fill: 'fill-golden',
+      icon_size: 'w-8'
+    } %}
+
+    {% include '@components/icon/icon.twig' with {
+      icon_name: 'user',
+      icon_fill: 'fill-golden',
+      icon_size: 'w-10'
+    } %}
+
+  </div>
+
+  <pre><code>{{ html("
+    {% include '@components/icon/icon.twig' with {
+      icon_name: 'user',
+      icon_fill: 'fill-golden',
+      icon_size: 'w-10'
+    } %}
+  ")}}</code></pre>
+
   <h3>Type</h3>
+
+  <p>The <code>icon_type</code> can be set to <strong>solid</strong> (the default value), <strong>regular</strong>, <strong>dutone</strong> or <strong>brands</strong>. Below are examples of each type, with code included for the final example:</p>
+
+  <div class="flex items-end gap-2">
+
+    {% embed "@components/well/well.twig" with {
+      well_modifiers: 'inline-flex flex-col gap-2 items-center'
+    } %}
+  
+      {% block well_html %}
+  
+        {% include '@components/icon/icon.twig' with {
+          icon_name: 'microscope',
+          icon_size: 'h-10',
+          icon_fill: 'fill-green dark:fill-modern'
+        } %}
+
+        <div class="text-xs">solid</div>
+  
+      {% endblock %}
+  
+    {% endembed %}
+
+    {% embed "@components/well/well.twig" with {
+      well_modifiers: 'inline-flex flex-col gap-2 items-center'
+    } %}
+  
+      {% block well_html %}
+  
+        {% include '@components/icon/icon.twig' with {
+          icon_name: 'school',
+          icon_type: 'regular',
+          icon_size: 'h-10',
+          icon_fill: 'fill-green dark:fill-modern'
+        } %}
+
+        <div class="text-xs">regular</div>
+  
+      {% endblock %}
+  
+    {% endembed %}
+
+    {% embed "@components/well/well.twig" with {
+      well_modifiers: 'inline-flex flex-col gap-2 items-center'
+    } %}
+  
+      {% block well_html %}
+  
+        {% include '@components/icon/icon.twig' with {
+          icon_name: 'moon-stars',
+          icon_type: 'duotone',
+          icon_size: 'h-10',
+          icon_fill: 'fill-green dark:fill-modern'
+        } %}
+
+        <div class="text-xs">duotone</div>
+  
+      {% endblock %}
+  
+    {% endembed %}
+
+    {% embed "@components/well/well.twig" with {
+      well_modifiers: 'inline-flex flex-col gap-2 items-center'
+    } %}
+  
+      {% block well_html %}
+  
+        {% include '@components/icon/icon.twig' with {
+          icon_name: 'instagram',
+          icon_type: 'brands',
+          icon_size: 'h-10',
+          icon_fill: 'fill-green dark:fill-modern'
+        } %}
+
+        <div class="text-xs">brands</div>
+  
+      {% endblock %}
+  
+    {% endembed %}
+
+  </div>
+
+  <pre><code>{{ html("
+  {% include '@components/icon/icon.twig' with {
+    icon_name: 'instagram',
+    icon_type: 'brands',
+    icon_size: 'h-10',
+    icon_fill: 'fill-green dark:fill-modern'
+  } %}
+  ")}}</code></pre>
 
 </div>

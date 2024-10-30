@@ -26,7 +26,7 @@ props:
       type: string
       description: The type (or style) of the chosen icon. This must be correct as it determines part of the file path.
       enum:
-        - brand
+        - brands
         - duotone
         - regular
         - solid
