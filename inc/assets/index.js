@@ -3,6 +3,7 @@ import Alpine from 'alpinejs';
 import hljs from 'highlight.js/lib/core';
 import xml from 'highlight.js/lib/languages/xml';
 import twig from 'highlight.js/lib/languages/twig';
+import yaml from 'highlight.js/lib/languages/yaml';
 
 window.Alpine = Alpine;
 
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Get highlight.js started.
   hljs.registerLanguage('xml', xml);
   hljs.registerLanguage('twig', twig);
+  hljs.registerLanguage('yaml', yaml);
   hljs.highlightAll();
   
   //Create the dynamic sidebar links.
