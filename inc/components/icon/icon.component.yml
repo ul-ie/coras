@@ -1,5 +1,5 @@
 name: Icon
-status: experimental
+status: stable
 version: 1.0
 props:
   type: object
