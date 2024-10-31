@@ -20,8 +20,8 @@
 
     <title>Icon</title>
 
-  <script type="module" crossorigin src="/assets/index-8ea4cbc2.js"></script>
-  <link rel="stylesheet" href="/assets/index-026cf322.css">
+  <script type="module" crossorigin src="/assets/index-3ccb79ad.js"></script>
+  <link rel="stylesheet" href="/assets/index-0b295e67.css">
 </head>
 <body class="antialiased bg-white dark:bg-granite-d3 text-granite-d3 dark:text-granite-l3">
 
@@ -529,6 +529,87 @@
     icon_fill: &#39;fill-green dark:fill-modern&#39;
   } %}
   </code></pre>
+
+  <h2>Source Code</h2>
+
+  <p>The source code below can be found at <code>inc/components/icon/</code>.</p>
+
+  <h3>Twig</h3>
+
+  <pre class="max-h-80"><code class="">{#
+/**
+ * @file
+ * Icon component.
+ * 
+ * @see https://coras.ul.ie/components/icon/#properties for full documentation.
+ */
+#}
+{% set icons_json = get_file(&#39;./node_modules/@awesome.me/kit-0dc973fac8/icons/metadata/icons.json&#39;) %}
+{% set icons = json_decode(icons_json) %}
+{% set icon_fill = icon_fill is not empty ? icon_fill : &#39;&#39; %}
+{% set icon_name = icon_name is not empty ? icon_name : &#39;&#39; %}
+{% set icon_type = icon_type in [&#39;brands&#39;, &#39;duotone&#39;, &#39;regular&#39;, &#39;solid&#39;] ? icon_type : &#39;solid&#39; %}
+{% set icon_size = icon_size is not empty ? icon_size : &#39;w-4&#39; %}
+
+{% set icon_classes = [
+  icon_fill,
+  icon_size
+]|join(&#39; &#39;) %}
+
+{% if icon_type in icons[icon_name].styles %}
+  &lt;svg
+    title=&quot;{{ icon_name }}&quot;
+    class=&quot;{{ icon_classes }}&quot;
+    xmlns=&quot;http://www.w3.org/2000/svg&quot;
+    viewBox=&quot;{{ icons[icon_name].svg[icon_type].viewBox|join(&#39; &#39;) }}&quot;
+    &gt;
+    {% if icon_type == &#39;duotone&#39; %}
+      &lt;path opacity=&quot;.4&quot; d=&quot;{{ icons[icon_name].svg[icon_type].path[0] }}&quot;/&gt;
+      &lt;path d=&quot;{{ icons[icon_name].svg[icon_type].path[1] }}&quot;/&gt;
+    {% else %}
+      &lt;path d=&quot;{{ icons[icon_name].svg[icon_type].path }}&quot;/&gt;
+    {% endif %}
+  &lt;/svg&gt;
+{% else %}
+  &lt;small class=&quot;text-xs mx-1&quot;&gt;Invalid icon&lt;/small&gt;
+{% endif %}
+</code></pre>
+
+  <h3>YML</h3>
+
+  <pre class="max-h-80"><code class="language-yaml">name: Icon
+status: stable
+version: 1.0
+props:
+  type: object
+  required:
+    - icon_name
+  properties:
+    icon_fill:
+      title: icon_fill
+      type: string
+      description: The icon&#39;s fill colour. Inherits by default, so can be applied via a container element.
+      default: none
+    icon_name:
+      title: icon_name
+      type: string
+      description: The icon file name, without the extension. E.g. in the case of &#39;icon-path/solid/user.svg&#39; the icon name would be &lt;strong&gt;user&lt;/strong&gt;.
+      default: none
+    icon_size:
+      title: icon_size
+      type: string
+      description: The size of the icon, which is defined by a width utility class. 
+      default: w-4
+    icon_type:
+      title: icon_type
+      type: string
+      description: The type (or style) of the chosen icon. This must be correct as it determines part of the file path.
+      enum:
+        - brands
+        - duotone
+        - regular
+        - solid
+      default: solid</code></pre>
 
 </div>
 
