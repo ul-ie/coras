@@ -6,18 +6,19 @@ import twig from 'highlight.js/lib/languages/twig';
 import yaml from 'highlight.js/lib/languages/yaml';
 
 window.Alpine = Alpine;
-
 Alpine.start();
+
+// Languages to highlight.
+hljs.registerLanguage('xml', xml);
+hljs.registerLanguage('twig', twig);
+hljs.registerLanguage('yaml', yaml);
 
 document.addEventListener('DOMContentLoaded', function () {
 
   // Get highlight.js started.
-  hljs.registerLanguage('xml', xml);
-  hljs.registerLanguage('twig', twig);
-  hljs.registerLanguage('yaml', yaml);
   hljs.highlightAll();
   
-  //Create the dynamic sidebar links.
+  // Create the dynamic sidebar links.
   pageNav();
 
   // Light switcher
@@ -44,29 +45,4 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
-
-  // Scrollspy
-  const targets = document.querySelectorAll('[data-scrollspy-target]');
-  const links = document.querySelectorAll('[data-scrollspy-link]');
-  if (links.length < 1) return;
-  const addActive = (i) => {
-    const link = links[i] ? links[i] : links[0];
-    link.classList.add('scrollspy-active');
-  }
-  const removeActive = (i) => {
-    links[i].classList.remove('scrollspy-active');
-  }
-  const removeAllActive = () => [...Array(targets.length).keys()].forEach((link) => removeActive(link));
-  const targetMargin = 100;
-  let currentActive = 0;
-  addActive(0);
-  // listen for scroll events
-  window.addEventListener('scroll', () => {
-    const current = targets.length - [...targets].reverse().findIndex((target) => window.scrollY >= target.offsetTop - targetMargin) - 1;
-    if (current !== currentActive) {
-      removeAllActive();
-      currentActive = current;
-      addActive(current);
-    }
-  });
 }, false);
