@@ -7,7 +7,28 @@ layout: templates/page.html
 
   <h1 class="is-decorated">{{ title }}</h1>
 
-  <h2>Getting Started</h2>
+  <h2>About This System</h2>
+
+  <p>The Córas Design System is developed using <a href="https://www.11ty.dev/" target="_blank">11ty (Eleventy)</a>, a framework-agnostic and customisable static site generator.</p>
+
+  <p>Although this platform is node/npm-based, JavaScript versions of both <a href="https://github.com/twigjs/twig.js" target="_blank">Twig</a> and <a href="https://www.npmjs.com/package/js-yaml" target="_blank">YML</a> are implemented to ensure the component code integrates with Drupal as seamlessly as possible.</p>
+
+  <h2>Pre-Requisities</h2>
+
+  <p>To develop components you need to be familiar with the following:</p>
+
+  <ul>
+    <li><a href="https://www.drupal.org/docs/develop/theming-drupal/using-single-directory-components" target="_blank">Single Directory Components</a></li>
+    <li><a href="https://tailwindcss.com/docs/installation" target="_blank">Tailwind CSS</a></li>
+  </ul>
+
+  <p>Single Directory Components (SDC) are part of Drupal core as of version 10.3. With SDC all the files necessary to render a component are housed in a single directory named components, on the same level as a theme's templates directory. </p>
+
+  <p>For CSS, we are <strong>not</strong> using the Drupal BEM methodology, but are implementing a customised Tailwind configuration so as to better standardise our styling.</p>
+
+  <p>Using both SDC and Tailwind together, we aim to promote <strong>consistency</strong>, <strong>reusability</strong> and <strong>robustness</strong>, and improve the <strong>scalability</strong> and <strong>maintainability</strong> of our codebase.</p>
+
+  <h2>Developing Components</h2>
 
   <p>Notes:</p>
   <ul>
