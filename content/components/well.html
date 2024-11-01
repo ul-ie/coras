@@ -9,7 +9,7 @@ layout: templates/page.html
 
   <h2>Description</h2>
 
-  <p>A well is a very simple component designed to nest other content or components. It consists of a border with a slightly rounded radius, some padding and a subtle background colour to distinguish it from surrounding content.</p>
+  <p>A well is a very simple component designed to nest other content or components.</p>
 
   {% embed '@components/well/well.twig' %}
 
@@ -141,8 +141,14 @@ layout: templates/page.html
 
   <h2>Source Code</h2>
 
-  <p>The source code below can be found at <code>inc/components/well/well.twig</code>.</p>
+  <p>The source code below can be found at <code>inc/components/well/</code>.</p>
 
-  <pre><code class="language-twig">{{ html(get_file("inc/components/well/well.twig")) }}</code></pre>
+  <h3>Twig</h3>
+
+  <pre class="max-h-80"><code class="">{{ html(get_file("inc/components/well/well.twig")) }}</code></pre>
+
+  <h3>YML</h3>
+
+  <pre><code class="language-yaml">{{ html(get_file("inc/components/well/well.component.yml")) }}</code></pre>
 
 </div>
