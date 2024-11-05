@@ -28,13 +28,140 @@ layout: templates/page.html
 
   <p>Using both SDC and Tailwind together, we aim to promote <strong>consistency</strong>, <strong>reusability</strong> and <strong>robustness</strong>, and improve the <strong>scalability</strong> and <strong>maintainability</strong> of our codebase.</p>
 
-  <h2>Developing Components</h2>
+  <h2>Development Process</h2>
 
-  <p>Notes:</p>
+  <p>Components are to be built inside of Drupal; there will be no need to contribute components to the design system directly. This is the job of UL's design system developer.</p>
+
+  <p>The overall development process can be summed up as follows:</p>
+
   <ul>
-    <li>Namespacing component properties</li>
-    <li>Properly documenting component yml files</li>
+    <li>Designers hand over completed <a href="https://www.figma.com/design/s8JOhBszxWjPLOCtUJwOtx/Redesign-Library-%F0%9F%93%97?node-id=1501-2600&node-type=canvas&t=w3JOaMM1niH7qO1a-0" target="_blank">Figma components</a> and page designs to developers.</li>
+    <li>These are developed as components and/or templates in the new UL Drupal theme, or as standalone modules if required.</li>
+    <li>Functionality and visual fidelity are reviewed by the design and development team.</li>
+    <li>Code is reviewed to ensure it follows design system standards.</li>
+    <li>Completed components can be integrated into design system and documented.</li>
   </ul>
+
+  <p><strong>Note</strong>: At a later point (post re-design) we will look at making the components in the design system directly importable to the Drupal theme. If we attempt this too soon, it could become an unnecessary development bottleneck.</p>
+
+  <h3>Figma Designs</h3>
+
+  <p>Our visual design team manages the <a href="https://www.figma.com/design/s8JOhBszxWjPLOCtUJwOtx/Redesign-Library-%F0%9F%93%97?node-id=1501-2600&node-type=canvas&t=w3JOaMM1niH7qO1a-0" target="_blank">Figma component library</a> and individual page wireframes (which can be forwarded on to the development team as/when needed).</p>
+
+  <p>Care has been taken to include variants (e.g. colour, size), states (e.g. hover, active), and mobile/desktop views to eliminate for the need for developer guesswork. However, if you do encounter any gaps in the design of our components or wireframes, <strong>please bring them to the design team</strong> rather than make design decisions yourself to address these gaps.</p>
+
+  <h3>Local Development</h3>
+
+  <p>Local development environments should use:</p>
+
+  <ul>
+    <li>DDEV</li>
+    <li>Browsersync (for DDEV)</li>
+    <li>Tailwind</li>
+  </ul>
+
+  <p>An example repository can be provided with the above already installed and configured, including custom DDEV commands.</p>
+
+  <h4>Theme Development</h3>
+
+  <p>As previously mentioned, the new UL Drupal theme is to be split into a components directory and a templates directory.</p>
+
+  <p>It is to be set up as a <strong>brand new theme</strong>; it is not an update to the previous theme.</p>
+
+  <h4>Module Development</h3>
+
+  <p>Certain features, such as the integration of a new search system, may require dedicated custom module development and/or integration of an external API.</p>
+
+  <p>It may also be necessary to update code in existing custom modules to ensure compatibility with the new theme.</p>
+
+  <h3>Staging/Testing</h3>
+
+  <p>A hosted staging and/or development environment should be provided to the design and development teams to inspect and test work in progress.</p>
+
+  <h2>Component Development</h2>
+
+  <p>Because Single Directory Components are a new feature of Drupal, even experienced Drupal developers may need some guidance in this area. We also want to ensure consistency from the outset. To that end, we have some guidelines and example components already built.</p>
+
+  <h3>YML Files</h3>
+
+  <p>Each component must have both a <code>*.twig</code> file and a <code>*.component.yml</code> file. Although it is not currently a Drupal requirement to have a fully annotated yml file for a component to function, we want to ensure our components are as future-proofed and as well-documented as possible. It is, therefore, a requirement from our point of view.</p>
+
+  <p>For an example of a fully annotated yml file, see the below <code>icon.component.yml</code> file (also available via the <a href="/components/icon/">icon component page</a>).</p>
+
+  <p>The yml file essentially describes the API of the component, i.e. the publicly available properties that a template or other component can call/consume.</p>
+
+  <pre class="max-h-80"><code class="language-yaml">{{ html(get_file("inc/components/icon/icon.component.yml")) }}</code></pre>
+
+  <h3>Namespacing Properties</h3>
+
+  <p>When naming properties, use either the full component name as a prefix (e.g. <code>icon_type</code>), or an abbreviation of the component name (e.g. <code>btn_size</code>). This essentially namespaces the component properties, protecting them from unintentional mofication when included in templates with their own set of variables.</p>
+
+  <h3>Validating Properties</h3>
+
+  <p>Although the yml component files can be set up to validate properties, it is recommended to include additional validation in the twig template. For examples, here's how the <code>icon_type</code> property should be coded to ensure the enumerated values in the yml file are adhered to:</p>
+
+  <p>The yml property:</p>
+  <pre><code class="language-yaml">
+  icon_type:
+    title: icon_type
+    type: string
+    description: The type (or style) of the chosen icon. This must be correct as it determines part of the file path.
+    enum:
+      - brands
+      - duotone
+      - regular
+      - solid
+    default: solid
+  </code></pre>
+
+  <p>The equivalent twig variable:</p>
+  <pre><code class="language-twig">{{ html("
+  {% set icon_type = icon_type in ['brands', 'duotone', 'regular', 'solid'] ? icon_type : 'solid' %}
+  ")}}</code></pre>
+
+  <h3>Component Styling</h3>
+
+  <p>As previously mentioned, we use Tailwind to style our components, which should eliminate the need for writing additional CSS files for both components and templates.</p>
+  
+  <p>However if Tailwind classes are not well managed, i.e. if they are all dumped together indiscriminately without first organising them, they can in some cases become unwieldly. We therefore recommend that classes are grouped logically and then merged in the actual component. This makes styling easier to maintain and keeps the component markup as clean and as readable as possible.</p>
+
+  <p><span class="font-bold mr-2 text-munster">x</span>Don't do this:</p>
+
+  <pre><code class="language-twig">{{ html('
+  <button
+    class="huge-long-list-of-classes-that-keeps-going-and-going-and-going
+    and-going-and-going-and-going-and-going-and-going-and-going-and-going
+    and-going-and-going-and-going-and-going-and-going-and-going-and-going
+    ah-here-seriously-will-this-ever-end"
+    type="{{ btn_type }}"
+    {{ is_disabled ? "disabled" : "" }}
+    >
+    Example Component
+  </button>
+  ')}}</code></pre>
+
+  <p><span class="font-bold mr-1 text-modern">✓</span>Do this instead:</p>
+
+  <pre><code class="language-twig">{{ html('
+  {% set core_classes = "manageable-list-of-classes-grouped-sensibly" %}
+  {% set size_classes = "another-manageable-list-of-classes" %}
+
+  {% set btn_classes = [
+    core_classes,
+    size_classes,
+    ... etc
+  ]|join(" ") %}
+
+  <button
+    class="{{ btn_classes }}"
+    type="{{ btn_type }}"
+    {{ is_disabled ? "disabled" : "" }}
+    >
+    Example Button
+  </button>
+  ')}}</code></pre>
+
+  
 
 
 </div>
