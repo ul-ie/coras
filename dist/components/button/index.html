@@ -1370,6 +1370,273 @@
   } %}
   </code></pre>
 
+  <h2>Source Code</h2>
+
+  <p>The source code below can be found at <code>inc/components/button/</code>.</p>
+
+  <h3>Twig</h3>
+
+  <pre class="max-h-80"><code class="">{#
+/**
+ * @file
+ * Button component.
+ * 
+ * @see https://coras.ul.ie/components/button/#properties for full documentation.
+ */
+#}
+
+{#
+  The following variables draw upon but are not necessarily equivalent to the
+  publicly available variables defined in the .yml file. The latter is what 
+  defines the component API.
+#}
+{% set btn_modifiers = btn_modifiers ?? &#39;&#39; %}
+{% set btn_padding = btn_padding in [&#39;equal&#39;, &#39;normal&#39;] ? btn_padding : &#39;normal&#39; %}
+{% set btn_size = btn_size in [&#39;small&#39;, &#39;medium&#39;, &#39;large&#39;] ? btn_size : &#39;medium&#39; %}
+{% set btn_theme = btn_theme is not empty ? btn_theme : &#39;primary-green&#39; %}
+{% set btn_type = btn_type in [&#39;button&#39;, &#39;link&#39;, &#39;submit&#39;, &#39;reset&#39;] ? btn_type : &#39;link&#39; %}
+{% set btn_url = btn_url is not empty ? btn_url : &#39;#&#39; %}
+{% set btn_width = btn_width in [&#39;fit&#39;, &#39;full&#39;] ? btn_width : &#39;fit&#39; %}
+{% set icon_pos = icon_pos in [&#39;left&#39;, &#39;right&#39;] ? icon_pos : &#39;left&#39; %}
+
+{# Define the core component styling. #}
+{% set core_classes = &#39;not-prose font-medium no-underline flex items-center justify-center rounded-md border-2 transition&#39; %}
+
+{# Apply modifier classes, if any. #}
+{% set modifier_classes = btn_modifiers %}
+
+{# Define the button width classes. #}
+{% set width_classes = btn_width == &#39;full&#39; ? &#39;w-full&#39; : &#39;w-fit&#39; %}
+
+{# Define the button size classes. #}
+{% set size_classes %}
+  {%- if btn_size == &#39;small&#39; -%}
+    {{ btn_padding == &#39;equal&#39; ? &#39;p-1.5 text-base&#39; : &#39;px-3 py-1 text-base&#39; }}
+  {%- elseif btn_size == &#39;medium&#39; -%}
+    {{ btn_padding == &#39;equal&#39; ? &#39;p-3 text-lg&#39; : &#39;px-6 py-2 text-lg&#39; }}
+  {%- elseif btn_size == &#39;large&#39; -%}
+    {{ btn_padding == &#39;equal&#39; ? &#39;p-5 text-xl&#39; : &#39;px-9 py-3 text-xl&#39; }}
+  {% endif %}
+{% endset %}
+
+{# Set up button theme classes as an object, to handle all the different permutations. #}
+{% set theme_classes = {
+
+  &#39;primary-green&#39;: &#39;bg-green border-green text-white fill-white hover:bg-green-d1 hover:border-green-d1 active:bg-green-d2 active:border-green-d2&#39;,
+
+  &#39;primary-green-alt&#39;: &#39;bg-white border-white text-green fill-green hover:bg-green-d1 hover:text-white hover:fill-white active:bg-green-d1&#39;,
+
+  &#39;primary-blue&#39;: &#39;bg-stone border-stone text-white fill-white hover:bg-stone-d1 hover:border-stone-d1 active:bg-stone-d2 active:border-green-d2&#39;,
+
+  &#39;primary-blue-alt&#39;: &#39;bg-white border-white text-stone fill-stone hover:bg-stone-d1 hover:text-white hover:fill-white active:bg-stone-d1&#39;,
+
+  &#39;secondary-green&#39;: &#39;bg-white border-green text-green fill-green hover:bg-green hover:text-white hover:fill-white active:bg-green-d1&#39;,
+
+  &#39;secondary-green-alt&#39;: &#39;bg-transparent border-white text-white fill-white hover:bg-green-d1 active:bg-green-d2&#39;,
+
+  &#39;secondary-blue&#39;: &#39;bg-white border-stone text-stone fill-stone hover:bg-stone hover:text-white hover:fill-white active:bg-stone-d1&#39;,
+
+  &#39;secondary-blue-alt&#39;: &#39;bg-transparent border-white text-white fill-white hover:bg-stone-d1 active:bg-stone-d2&#39;,
+
+  &#39;danger&#39;: &#39;bg-munster border-munster text-white fill-white hover:bg-munster-d1 hover:border-munster-d1 active:bg-munster-d2 active:border-munster-d2&#39;,
+
+  &#39;none&#39;: &#39;&#39;
+
+} %}
+
+{# Re-combine our classes into a single string to pass to the component. #}
+{% set btn_classes = [
+  core_classes,
+  modifier_classes,
+  size_classes,
+  theme_classes[btn_theme],
+  width_classes,
+  is_disabled ? &#39;cursor-not-allowed opacity-80&#39; : &#39;&#39;
+]|join(&#39; &#39;) %}
+
+{# Set up the icon markup in advance, to avoid repeating it. #}
+{% set icon %}
+  {% if icon_name is not empty %}
+    {% include &#39;@components/icon/icon.twig&#39; with {
+      icon_name,
+      icon_type
+    } %}
+  {% endif %}
+{% endset %}
+
+{# Define the button content. #}
+{% set btn_content %}
+  {% if icon_name is empty %}
+    {{ btn_text }}
+  {% elseif is_icon_only %}
+    &lt;span title=&quot;{{ btn_text }}&quot; aria-label=&quot;{{ btn_text }}&quot;&gt;
+      {{ icon }}
+    &lt;/span&gt;
+  {% else %}
+    {{ icon_pos == &#39;left&#39; ? icon : &#39;&#39; }}
+    &lt;span class=&quot;{{ icon_pos == &#39;right&#39; ? &#39;mr-3&#39; : &#39;ml-3&#39; }}&quot;&gt;
+      {{ btn_text }}
+    &lt;/span&gt;
+    {{ icon_pos == &#39;right&#39; ? icon : &#39;&#39; }}
+  {% endif %}
+{% endset %}
+
+{# The component markup #}
+{% if btn_type == &#39;link&#39; %}
+  &lt;a
+    href=&quot;{{ is_disabled ? &#39;#&#39; : btn_url }}&quot;
+    class=&quot;{{- btn_classes -}}&quot;
+    {{ is_download ? &#39;download&#39; : &#39;&#39; }}
+    {{ is_new_tab ? &#39;target=&quot;_blank&quot;&#39; : &#39;&#39; }}
+    &gt;
+    {{ btn_content }}
+  &lt;/a&gt;
+{% else %}
+  &lt;button
+    type=&quot;{{ btn_type }}&quot;
+    class=&quot;{{- btn_classes -}}&quot;
+    {{ is_disabled ? &#39;disabled&#39; : &#39;&#39; }}
+    &gt;
+    {{ btn_content }}
+  &lt;/button&gt;
+{% endif %}
+</code></pre>
+
+  <h3>YML</h3>
+
+  <pre class="max-h-80"><code class="language-yaml">name: Button
+status: experimental
+version: 1.0
+props:
+  type: object
+  required:
+    - btn_text
+  properties:
+    btn_modifiers:
+      title: btn_modifiers
+      type: string
+      description: Optional utility classes to further modify appearance. Particularly useful if no btn_theme is applied.
+    btn_padding:
+      title: btn_padding
+      type: string
+      description: Whether the button padding is the same on all sides (equal), or has more horizontal padding (normal).
+      enum:
+        - equal
+        - normal
+      default: normal
+    btn_size:
+      title: btn_size
+      type: string
+      description: The size of the button.
+      enum:
+        - small
+        - medium
+        - large
+      default: medium
+    btn_text:
+      title: btn_text
+      type: string
+      description: The text for the button. Required, even if it is an icon-only button (in which case it will be used to describe the button&#39;s action).
+    btn_theme:
+      title: btn_theme
+      type: string
+      description: The theme to apply to the button. This should be consistent with the button&#39;s purpose and/or function.
+      enum:
+        - primary-green
+        - primary-green-alt
+        - primary-blue
+        - primary-blue-alt
+        - secondary-green
+        - secondary-green-alt
+        - secondary-blue
+        - secondary-blue-alt
+        - danger
+        - none
+      default: primary-green
+    btn_type:
+      title: btn_type
+      type: string
+      description: The button type.
+      enum:
+        - button
+        - link
+        - submit
+        - reset
+      default: link
+    btn_url:
+      title: btn_url
+      type: string
+      description: The url for buttons of type link.
+      default: &#39;#&#39;
+    btn_width:
+      title: btn_width
+      type: string
+      description: The button width. Should it stretch to the full width of the container, or fit the content.
+      enum:
+        - fit
+        - full
+      default: fit
+    icon_name:
+      title: icon_name
+      type: string
+      description: The name of the svg icon, if any.
+    icon_only:
+      title: icon_only
+      type: boolean
+      description: Is the button just an icon or is it an icon with text.
+      enum:
+        - true
+        - false
+      default: false
+    icon_pos:
+      title: icon_pos
+      type: string
+      description: The icon&#39;s position.
+      enum:
+        - left
+        - right
+      default: left
+    icon_size:
+      title: icon_size
+      type: string
+      description: The size of the icon, which is defined by a width utility class. 
+      default: w-4
+    icon_type:
+      title: icon_type
+      type: string
+      description: The type (or style) of the chosen icon. This must be correct as it determines the file path.
+      enum:
+        - brand
+        - duotone
+        - regular
+        - solid
+      default: solid
+    is_disabled:
+      title: is_disabled
+      type: boolean
+      description: Is the button disabled.
+      enum:
+        - true
+        - false
+      default: false
+    is_download:
+      title: is_download
+      type: boolean
+      description: If the button is a link, does this link contain a download.
+      enum:
+        - true
+        - false
+      default: false
+    is_new_tab:
+      title: is_new_tab
+      type: boolean
+      description: If the button is a link, should the link open up a new tab.
+      enum:
+        - true
+        - false
+      default: false
+</code></pre>
+
 </div>
 
             </article>
