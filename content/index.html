@@ -3,70 +3,53 @@ layout: templates/home.html
 title: Córas | UL Design System
 ---
 
-<div class="prose prose-granite max-w-6xl flex flex-wrap px-10 py-20 mx-auto md:prose-lg dark:prose-invert">
+{% set extra_btn_classes = 'basis-1/3 dark:bg-green dark:hover:bg-green-d1 dark:text-white dark:fill-white dark:border-white' %}
 
-    <div class="basis-1/4">
+<div class="prose prose-granite max-w-4xl px-10 py-20 mx-auto md:prose-lg dark:prose-invert">
 
-        <div class="pr-6">{% include '@assets/img/pattern-01a.svg' %}</div>
+  <h1 class="font-display mb-0 is-decorated after:origin-left after:scale-150 md:text-8xl md:mb-0">Córas</h1>
 
-    </div>
+  <h2 class="font-serif mt-4 md:mt-5 md:text-5xl">UL Design System</h2>
 
-    <div class="basis-3/4">
+  <p>
+    <strong>Córas</strong> means <em>system</em> in Irish, and is also suggestive of a chorus, where
+    those gathered together sing from the same hymn sheet. This is essentially what a good design system
+    should offer its users: a single source of truth (the hymn sheet) to help harmonise their efforts.
+  </p>
 
-        <h1 class="font-display mb-0 is-decorated after:origin-left after:scale-150 md:text-8xl md:mb-0">Córas</h1>
+  <div class="flex gap-3 basis-full">
 
-        <h2 class="font-serif mt-4 md:mt-5 md:text-5xl">UL Design System</h2>
+    {% include '@components/button/button.twig' with {
+      btn_modifiers: extra_btn_classes,
+      btn_text: 'For Developers',
+      btn_theme: 'secondary-green',
+      btn_padding: 'equal',
+      btn_url: '/guides/for-developers/',
+      icon_name: 'code',
+      icon_type: 'duotone',
+      icon_size: 'w-7'
+    } %}
 
-        <p>
-            <strong>Córas</strong> means <em>system</em> in Irish, and is also suggestive of a chorus, where 
-            those gathered together sing from the same hymn sheet. This is essentially what a good design system 
-            should offer its users: a single source of truth (the hymn sheet) to help harmonise their efforts.
-        </p>
+    {% include '@components/button/button.twig' with {
+      btn_modifiers: extra_btn_classes,
+      btn_text: 'For Designers',
+      btn_theme: 'secondary-green',
+      btn_padding: 'equal',
+      icon_name: 'pen-paintbrush',
+      icon_type: 'duotone',
+      icon_size: 'w-6'
+    } %}
 
-    </div>
+    {% include '@components/button/button.twig' with {
+      btn_modifiers: extra_btn_classes,
+      btn_text: 'For Content Creators',
+      btn_theme: 'secondary-green',
+      btn_padding: 'equal',
+      icon_name: 'keyboard',
+      icon_type: 'duotone',
+      icon_size: 'w-7'
+    } %}
 
-    <div class="flex gap-4 basis-full">
-
-        <div class="basis-1/3">
-
-            {% embed "@components/well/well.twig" %}
-
-                {% block well_html %}
-
-                    <div class="text-sm">For Developers</div>
-
-                {% endblock %}
-
-            {% endembed %}
-        </div>
-
-        <div class="basis-1/3">
-
-            {% embed "@components/well/well.twig" %}
-
-                {% block well_html %}
-
-                    <div class="text-sm">For Designers</div>
-
-                {% endblock %}
-
-            {% endembed %}
-        </div>
-
-        <div class="basis-1/3">
-
-            {% embed "@components/well/well.twig" %}
-
-                {% block well_html %}
-
-                    <div class="text-sm">For Content Creators</div>
-
-                {% endblock %}
-
-            {% endembed %}
-            
-        </div>
-
-    </div>
+  </div>
 
 </div>
