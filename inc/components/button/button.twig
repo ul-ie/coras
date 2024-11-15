@@ -12,6 +12,8 @@
   publicly available variables defined in the .yml file. The latter is what 
   defines the component API.
 #}
+{% set btn_modifiers = btn_modifiers ?? '' %}
+{% set btn_padding = btn_padding in ['equal', 'normal'] ? btn_padding : 'normal' %}
 {% set btn_size = btn_size in ['small', 'medium', 'large'] ? btn_size : 'medium' %}
 {% set btn_theme = btn_theme is not empty ? btn_theme : 'primary-green' %}
 {% set btn_type = btn_type in ['button', 'link', 'submit', 'reset'] ? btn_type : 'link' %}
@@ -22,17 +24,20 @@
 {# Define the core component styling. #}
 {% set core_classes = 'not-prose font-medium no-underline flex items-center justify-center rounded-md border-2 transition' %}
 
+{# Apply modifier classes, if any. #}
+{% set modifier_classes = btn_modifiers %}
+
 {# Define the button width classes. #}
 {% set width_classes = btn_width == 'full' ? 'w-full' : 'w-fit' %}
 
 {# Define the button size classes. #}
 {% set size_classes %}
   {%- if btn_size == 'small' -%}
-    {{ 'px-3 py-1 text-sm' }}
+    {{ btn_padding == 'equal' ? 'p-1.5 text-base' : 'px-3 py-1 text-base' }}
   {%- elseif btn_size == 'medium' -%}
-    {{ 'px-6 py-2 text-md' }}
+    {{ btn_padding == 'equal' ? 'p-3 text-lg' : 'px-6 py-2 text-lg' }}
   {%- elseif btn_size == 'large' -%}
-    {{ 'px-9 py-3 text-xl' }}
+    {{ btn_padding == 'equal' ? 'p-5 text-xl' : 'px-9 py-3 text-xl' }}
   {% endif %}
 {% endset %}
 
@@ -41,11 +46,11 @@
 
   'primary-green': 'bg-green border-green text-white fill-white hover:bg-green-d1 hover:border-green-d1 active:bg-green-d2 active:border-green-d2',
 
-  'primary-green-alt': 'bg-white border-white text-green fill-green hover:bg-green hover:text-white hover:fill-white active:bg-green-d1',
+  'primary-green-alt': 'bg-white border-white text-green fill-green hover:bg-green-d1 hover:text-white hover:fill-white active:bg-green-d1',
 
   'primary-blue': 'bg-stone border-stone text-white fill-white hover:bg-stone-d1 hover:border-stone-d1 active:bg-stone-d2 active:border-green-d2',
 
-  'primary-blue-alt': 'bg-white border-white text-stone fill-stone hover:bg-stone hover:text-white hover:fill-white active:bg-stone-d1',
+  'primary-blue-alt': 'bg-white border-white text-stone fill-stone hover:bg-stone-d1 hover:text-white hover:fill-white active:bg-stone-d1',
 
   'secondary-green': 'bg-white border-green text-green fill-green hover:bg-green hover:text-white hover:fill-white active:bg-green-d1',
 
@@ -55,16 +60,19 @@
 
   'secondary-blue-alt': 'bg-transparent border-white text-white fill-white hover:bg-stone-d1 active:bg-stone-d2',
 
-  'danger': 'bg-munster border-munster text-white fill-white hover:bg-munster-d1 hover:border-munster-d1 active:bg-munster-d2 active:border-munster-d2'
+  'danger': 'bg-munster border-munster text-white fill-white hover:bg-munster-d1 hover:border-munster-d1 active:bg-munster-d2 active:border-munster-d2',
+
+  'none': ''
 
 } %}
 
 {# Re-combine our classes into a single string to pass to the component. #}
 {% set btn_classes = [
   core_classes,
-  width_classes,
+  modifier_classes,
   size_classes,
   theme_classes[btn_theme],
+  width_classes,
   is_disabled ? 'cursor-not-allowed opacity-80' : ''
 ]|join(' ') %}
 
@@ -80,11 +88,19 @@
 
 {# Define the button content. #}
 {% set btn_content %}
-  {{ icon_name is not empty and icon_pos == 'left' ? icon : '' }}
-  <span class="{{ icon_pos == 'left' ? 'ml-3' : icon_pos == 'right' ? 'mr-3' : '' }}">
+  {% if icon_name is empty %}
     {{ btn_text }}
-  </span>
-  {{ icon_name is not empty and icon_pos == 'right' ? icon : '' }}
+  {% elseif is_icon_only %}
+    <span title="{{ btn_text }}" aria-label="{{ btn_text }}">
+      {{ icon }}
+    </span>
+  {% else %}
+    {{ icon_pos == 'left' ? icon : '' }}
+    <span class="{{ icon_pos == 'right' ? 'mr-3' : 'ml-3' }}">
+      {{ btn_text }}
+    </span>
+    {{ icon_pos == 'right' ? icon : '' }}
+  {% endif %}
 {% endset %}
 
 {# The component markup #}

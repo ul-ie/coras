@@ -6,6 +6,18 @@ props:
   required:
     - btn_text
   properties:
+    btn_modifiers:
+      title: btn_modifiers
+      type: string
+      description: Optional utility classes to further modify appearance. Particularly useful if no btn_theme is applied.
+    btn_padding:
+      title: btn_padding
+      type: string
+      description: Whether the button padding is the same on all sides (equal), or has more horizontal padding (normal).
+      enum:
+        - equal
+        - normal
+      default: normal
     btn_size:
       title: btn_size
       type: string
@@ -33,6 +45,7 @@ props:
         - secondary-blue
         - secondary-blue-alt
         - danger
+        - none
       default: primary-green
     btn_type:
       title: btn_type
