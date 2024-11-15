@@ -1,67 +1,46 @@
-{#
-    The Swatch Colour Component
-    ---
-    Available variables:
-    - height (CSS Class)
-    - bgColor (CSS Class)
-    - label (String)
-    - hex (String)
-    - noIcon (Boolean)
- #}
+{# The Swatch Colour Component (internal only) #}
 
 <div
-    x-data="{
-        hexText: '{{ hex }}',
-        copyToClipboard() {
-            navigator.clipboard.writeText('{{ hex }}');
-            this.hexText = 'Copied!'
-            setTimeout(() => { this.hexText = '{{ hex }}'}, '2000');
-        }
-    }"
+  x-data="{
+    hexText: '{{ hex }}',
+    copyToClipboard() {
+      navigator.clipboard.writeText('{{ hex }}');
+      this.hexText = 'Copied!'
+      setTimeout(() => { this.hexText = '{{ hex }}'}, '2000');
+    }
+  }"
+  x-on:click="copyToClipboard()"
+  class="group relative w-full flex flex-col wrap m-1 p-1.5 border border-granite-l3 rounded cursor-pointer dark:border-granite-d1 hover:border-granite-l2 hover:dark:border-granite active:border-granite-l1">
 
-    x-on:click="copyToClipboard()"
+  <div
+    class="relative flex flex-col justify-end {{ height }} {{ bgColor }} p-[0.2rem] overflow-hidden"
+    title="Click or tap to copy the hex code">
 
-    class="group relative w-full flex flex-col wrap m-1 p-1.5
-    border border-granite-l3 rounded cursor-pointer
-    dark:border-granite-d1
-    hover:border-granite-l2 hover:dark:border-granite
-    active:border-granite-l1 active:dark:border-granite-l1"
-    >
+    <div
+      class="relative w-full h-full flex grow items-center justify-center opacity-0 bg-granite-d3 bg-opacity-50 text-granite-l5 text-sm group-hover:opacity-100 transition group-active:bg-opacity-70">
 
-    <div 
-        class="relative flex flex-col justify-end {{ height }} {{ bgColor }} p-[0.2rem] overflow-hidden"
-        title="Click or tap to copy the hex code"
-        >
+      {% if not noIcon %}
+      <div class="w-6">
 
-        <div
-            class="relative w-full h-full flex grow items-center justify-center
-            opacity-0 bg-granite-d3 bg-opacity-50 text-granite-l5 text-sm
-            group-hover:opacity-100 transition
-            group-active:bg-opacity-70"
-            >
+        {% include '@components/icon/icon.twig' with {
+          icon_name: 'copy',
+          icon_fill: 'fill-white'
+        } %}
 
-            {% if not noIcon %}
-            <div class="w-6">
-                
-                {% include '@assets/icons/copy.svg' with { classes: 'fill-white' } %}
-            
-            </div>
-            {% endif %}
-            
-            <div x-text="hexText"></div>
+      </div>
+      {% endif %}
 
-        </div>
-
-        <div 
-            class="absolute left-1 bottom-1 w-fit px-1 py-0.25 
-            bg-granite-d3 bg-opacity-70 text-granite-l4 text-sm opacity-100
-            group-hover:opacity-0 transition"
-            >
-
-            <span>{{ label }}</span>
-
-        </div>
+      <div x-text="hexText"></div>
 
     </div>
-    
+
+    <div
+      class="absolute left-1 bottom-1 w-fit px-1 py-0.25 bg-granite-d3 bg-opacity-70 text-granite-l4 text-sm opacity-100 group-hover:opacity-0 transition">
+
+      <span>{{ label }}</span>
+
+    </div>
+
+  </div>
+
 </div>
