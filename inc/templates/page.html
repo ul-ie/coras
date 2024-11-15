@@ -4,21 +4,21 @@
 
 {% include 'partials/head.html' %}
 
-<body class="antialiased bg-white dark:bg-granite-d3 text-granite-d3 dark:text-granite-l3">
+<body class="antialiased bg-limestone-l5 dark:bg-granite-d3 text-granite-d3 dark:text-granite-l3">
 
     {% include 'partials/header.html' %}
 
     <div class="flex container min-h-screen">
 
-        <div class="hidden lg:block grow basis-1/6 py-20 px-4 border-r border-granite-l3 dark:border-granite-d1">
+        <div class="hidden lg:flex basis-1/6 py-20 px-4 border-r border-granite-l3 dark:border-granite-d1">
 
             {% include 'partials/site-nav.html' %}
 
         </div>
 
-        <main class="basis-4/6"> 
+        <main class="basis-full lg:basis-4/6"> 
 
-            <article class="prose prose-granite dark:prose-invert md:prose-lg mx-auto">
+            <article class="prose prose-granite dark:prose-invert md:prose-lg mx-auto px-4 sm:px-6">
 
                 {{ content }}
 
@@ -26,7 +26,7 @@
 
         </main>
 
-        <div class="basis-1/6 py-20 px-4">
+        <div class="hidden lg:flex basis-1/6 py-20 px-4">
 
             {% include 'partials/page-nav.html' %}
 
