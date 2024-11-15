@@ -34,8 +34,8 @@
   - text: Icon
     url: /components/icon/
 
-  - text: Profile
-    url: /components/profile/
+  # - text: Profile
+  #   url: /components/profile/
 
   - text: Well
     url: /components/well/
