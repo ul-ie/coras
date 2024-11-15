@@ -22,7 +22,7 @@ layout: templates/page.html
     <li><a href="https://tailwindcss.com/docs/installation" target="_blank">Tailwind CSS</a></li>
   </ul>
 
-  <p>Single Directory Components (SDC) are part of Drupal core as of version 10.3. With SDC all the files necessary to render a component are housed in a single directory named components, on the same level as a theme's templates directory. </p>
+  <p>Single Directory Components (SDC) are part of Drupal core as of version 10.3. With SDC all the files necessary to render a component are housed in a single directory named components, on the same level as a theme's templates directory.</p>
 
   <p>For CSS, we are <strong>not</strong> using the Drupal BEM methodology, but are implementing a customised Tailwind configuration so as to better standardise our styling.</p>
 
@@ -92,11 +92,11 @@ layout: templates/page.html
 
   <pre class="max-h-80"><code class="language-yaml">{{ html(get_file("inc/components/icon/icon.component.yml")) }}</code></pre>
 
-  <h3>Namespacing Properties</h3>
+  <h3>Namespacing</h3>
 
-  <p>When naming properties, use either the full component name as a prefix (e.g. <code>icon_type</code>), or an abbreviation of the component name (e.g. <code>btn_size</code>). This essentially namespaces the component properties, protecting them from unintentional mofication when included in templates with their own set of variables.</p>
+  <p>When naming properties, use either the full component name as a prefix (e.g. <code>icon_*</code>), or an abbreviation of the component name (e.g. <code>btn_*</code>). This essentially namespaces the component properties, protecting them from unintentional modification when included in templates with their own set of variables.</p>
 
-  <h3>Validating Properties</h3>
+  <h3>Validation</h3>
 
   <p>Although the yml component files can be set up to validate properties, it is recommended to include additional validation in the twig template. For examples, here's how the <code>icon_type</code> property should be coded to ensure the enumerated values in the yml file are adhered to:</p>
 
@@ -119,7 +119,7 @@ layout: templates/page.html
   {% set icon_type = icon_type in ['brands', 'duotone', 'regular', 'solid'] ? icon_type : 'solid' %}
   ")}}</code></pre>
 
-  <h3>Component Styling</h3>
+  <h3>Styling</h3>
 
   <p>As previously mentioned, we use Tailwind to style our components, which should eliminate the need for writing additional CSS files for both components and templates.</p>
   
@@ -160,8 +160,5 @@ layout: templates/page.html
     Example Button
   </button>
   ')}}</code></pre>
-
-  
-
 
 </div>
