@@ -10,20 +10,20 @@
   - text: Breakpoints
     url: /foundations/breakpoints/
 
-  - text: Iconography
-    url: /foundations/iconography/
-
   - text: Spacing
     url: /foundations/spacing/
 
-  # - text: Layout
-  #   url: /foundations/layout/
+  - text: Layout
+    url: /foundations/layout/
 
   # - text: Typography
   #   url: /foundations/typography
 
   - text: Colour
     url: /foundations/colour/
+
+  - text: Iconography
+    url: /foundations/iconography/
 
 - section: Components
   entries:

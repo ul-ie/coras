@@ -13,26 +13,31 @@ layout: templates/page.html
 
   <h2>Icon Bank</h2>
 
-  <div class="flex flex-wrap gap-4">
+  <div class="grid grid-cols-3 gap-3">
 
     {% for icon in icons %}
 
       {% set icon_name =  get_object_key(icons, loop.index0) %}
       {% set icon_fill = 'fill-green dark:fill-modern' %}
-      {% set icon_size = 'h-10' %}
+      {% set icon_size = 'h-8 mr-2 basis-1/4' %}
 
       {% for style in icon.styles %}
 
         {% set icon_type = icon.styles[loop.index0] %}
 
         {% embed "@components/well/well.twig" with {
-          well_modifiers: 'inline-flex leading-none h-20 w-20 items-center justify-center'
+          well_modifiers: 'flex items-center justify-center p-2 bg-limestone-l4 dark:bg-transparent'
         } %}
       
           {% block well_html %}
       
             {% include '@components/icon/icon.twig' %}
-      
+
+            <div class="flex flex-col basis-3/4 text-xs">
+              <span>name: <strong>{{ icon_name }}</strong></span>
+              <span>type: <strong>{{ icon_type }}</strong></span>
+            </div>
+
           {% endblock %}
       
         {% endembed %}
@@ -44,30 +49,3 @@ layout: templates/page.html
   </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-{# {% set key = get_object_key(icons, icon) %}
-
-    {{ key }} #}
-
-    {# {% for style in icon.styles %} #}
-
-      {# {{ dump(icon) }} #}
-
-      {# {{ icon.svg[style].raw }} #}
-
-      {# {% include '@components/icon/icon.twig' with {
-        icon_name: icon,
-        icon_type: 'solid',
-        icon_size: 'w-10',
-        icon_fill: 'fill-green dark:fill-modern'
-      } %} #}
-
-    {# {% endfor %} #}

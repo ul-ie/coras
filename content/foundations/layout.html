@@ -7,7 +7,76 @@ layout: templates/page.html
 <div class="is-prose mx-auto py-20">
 
   <h1 class="is-decorated">{{ title }}</h1>
+  
+  <h2>Display</h2>
 
-  <p>Our layout system uses both flexbox and grid, depending on the use case.</p>
+  <p>Use the below utility classes to set the <code>display</code> property of elements.</p>
+
+  <p><strong>Note</strong>: To prevent conflicts with Drupal, the <code>block</code> utility class has been removed from Tailwind and replaced with <code>d-block</code>.</p>
+
+  <table class="text-left">
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th>CSS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>d-block</td>
+        <td>display: block</td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <h2>Positioning</h2>
+
+  <h2>Containers</h2>
+
+  <h2>Flexbox vs Grid</h2>
+
+  <p>Our layout system uses both <strong>flexbox</strong> and <strong>grid</strong>, depending on the use case.</p>
+
+  <p>Choose <strong>flexbox</strong> if:</p>
+
+  <ul>
+    <li>You have just a few items to arrange.</li>
+    <li>Centering items when they wrap onto a new row is important.</li>
+  </ul>
+
+  <p>Choose <strong>grid</strong> if:</p>
+
+  <ul>
+    <li>You have multiple items on a page.</li>
+    <li>Consistent gutter/gap spacing is needed.</li>
+    <li>Or, if the layout is non-standard (e.g. a 'Bento Box' layout where some items need to span multiple rows and/or columns).</li>
+  </ul>
+
+  <h2>Flexbox Layout</h2>
+
+  <h3>Syntax</h3>
+
+
+
+  <h3>Examples</h3>
+
+  <div class="flex">
+
+    {% for i in 1..5 %}
+
+      {% embed '@components/well/well.twig' %}
+      {% endembed %}
+
+    {% endfor %}
+
+
+  </div>
+
+  <h2>Grid Layout</h2>
+
+  <h3>Syntax</h3>
+
+  <h3>Examples</h3>
 
 </div>
