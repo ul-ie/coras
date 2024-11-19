@@ -3,6 +3,9 @@ module.exports = {
     './inc/**/*.{html,md,svg,twig,js}',
     './content/**/*.{html,md}'
   ],
+  blocklist: [
+    'block'
+  ],
   darkMode: 'selector',
   theme: {
     container: {

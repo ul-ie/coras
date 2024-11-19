@@ -89,6 +89,6 @@
 
 @layer utilities {
     .d-block {
-        @apply block
+        display: block;
     }
 }
