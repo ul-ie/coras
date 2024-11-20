@@ -20,8 +20,8 @@
 
     <title>Layout</title>
 
-  <script type="module" crossorigin src="/assets/index-93e54e04.js"></script>
-  <link rel="stylesheet" href="/assets/index-99dd06c6.css">
+  <script type="module" crossorigin src="/assets/index-05001fc6.js"></script>
+  <link rel="stylesheet" href="/assets/index-4ccf7ab6.css">
 </head>
 <body class="antialiased bg-limestone-l5 dark:bg-granite-d3 text-granite-d3 dark:text-granite-l3">
 
@@ -218,19 +218,103 @@
     <thead>
       <tr>
         <th>Class</th>
-        <th>CSS</th>
+        <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>d-block</td>
-        <td>display: block</td>
+        <td><code>d-block</code></td>
+        <td>Sets display to block</td>
       </tr>
-      
+      <tr>
+      </tr>
+        <td><code>inline-block</code></td>
+        <td>Sets display to inline-block</td>
+      </tr>
+      <tr>
+        <td><code>inline</code></td>
+        <td>Sets display to inline</td>
+      </tr>
+      <tr>
+        <td><code>flex</code></td>
+        <td>Sets display to flex</td>
+      </tr>
+      <tr>
+        <td><code>inline-flex</code></td>
+        <td>Sets display to inline-flex</td>
+      </tr>
+      <tr>
+        <td><code>grid</code></td>
+        <td>Sets display to grid</td>
+      </tr>
+      <tr>
+        <td><code>inline-grid</code></td>
+        <td>Sets display to inline-grid</td>
+      </tr>
     </tbody>
   </table>
 
+  <h3>Visibility</h3>
+
+  <p>When hiding an element, care should be taken to ensure that the correct class is chosen.</p>
+
+  <table class="text-left">
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>hidden</code></td>
+        <td>Sets display to none, removing it from view and screen readers</td>
+      </tr>
+      <tr>
+        <td><code>sr-only</code></td>
+        <td>Removes an element visually <strong>without</strong> hiding it from screen readers</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>If an element still needs to be readable by assistive technology like screen readers, use <code>sr-only</code>. This does the same job as the <code>visually-hidden</code> class provided by Drupal, but the former is preferable as it is in our own codebase, is more concise and makes the meaning clearer.</p>
+  
+  <p>The <code>aria-hidden</code> attribute should also be used where appropriate to hide something that only makes sense to a sighted individual. For example, a button icon should set <code>aria-hidden="true"</code>.</p>
+
   <h2>Positioning</h2>
+
+  <p>The following utility classes can be used to position elements.</p>
+
+  <table class="text-left">
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>static</code></td>
+        <td>Sets position to static</td>
+      </tr>
+      <tr>
+        <td><code>fixed</code></td>
+        <td>Sets position to fixed</td>
+      </tr>
+      <tr>
+        <td><code>absolute</code></td>
+        <td>Sets position to absolute</td>
+      </tr>
+      <tr>
+        <td><code>relative</code></td>
+        <td>Sets position to relative</td>
+      </tr>
+      <tr>
+        <td><code>sticky</code></td>
+        <td>Sets position to sticky</td>
+      </tr>
+    </tbody>
+  </table>
 
   <h2>Containers</h2>
 
