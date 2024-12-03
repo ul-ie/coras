@@ -4,9 +4,14 @@ tags: foundations
 layout: templates/page.html
 ---
 
+{% set flex_styles = 'bg-modern bg-opacity-20 m-1 h-12 rounded-md flex items-center justify-center' %}
+{% set grid_styles = 'bg-modern bg-opacity-20 rounded-md flex items-center justify-center text-center' %}
+
 <div class="is-prose mx-auto py-20">
 
   <h1 class="is-decorated">{{ title }}</h1>
+
+  <p>This section covers how to position and display elements, and how to best layout items in grids and container elements.</p>
   
   <h2>Display</h2>
 
@@ -81,9 +86,101 @@ layout: templates/page.html
   
   <p>The <code>aria-hidden</code> attribute should also be used where appropriate to hide something that only makes sense to a sighted individual. For example, a button icon should set <code>aria-hidden="true"</code>.</p>
 
-  <h2>Positioning</h2>
+  <h2>Containers</h2>
 
-  <p>The following utility classes can be used to position elements.</p>
+  <p>Using the <code>container</code> class will centre the elements it contains (in a similar way to using <code>mx-auto</code>) and ensure the width never exceeds that of the currently active breakpoint (see <a href="/foundations/breakpoints/">breakpoints</a>).</p>
+
+  <h3>Max-Width</h3>
+
+  <p>Whether you use a container or not, you might want to set the maximum width of an element to a specific breakpoint, or, for example, if the content contains prose, set it according to a maximum character count to aid legibility and accessibility. The following utility classes can prove useful for these situations.</p>
+
+  <table class="text-left">
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th>CSS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>max-w-prose</code></td>
+        <td>max-width: 65ch;</td>
+      </tr>
+      <tr>
+        <td><code>max-w-screen-sm</code></td>
+        <td>max-width: 640px;</td>
+      </tr>
+      <tr>
+        <td><code>max-w-screen-md</code></td>
+        <td>max-width: 768px;</td>
+      </tr>
+      <tr>
+        <td><code>max-w-screen-lg</code></td>
+        <td>max-width: 1024px;</td>
+      </tr>
+      <tr>
+        <td><code>max-w-screen-xl</code></td>
+        <td>max-width: 1280px;</td>
+      </tr>
+      <tr>
+        <td><code>max-w-screen-2xl</code></td>
+        <td>max-width: 1536px;</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Flexbox vs Grid</h2>
+
+  <p>Our layout system uses both <strong>Flexbox</strong> and <strong>CSS Grid</strong>, depending on the use case. The same layouts can generally be achieved using either, so the below are just general guidelines.</p>
+
+  <p>Choose <strong>Flexbox</strong> if:</p>
+
+  <ul>
+    <li>You have just a few items to arrange</li>
+    <li>Centering items when they wrap onto a new row is important</li>
+  </ul>
+
+  <p>Choose <strong>Grid</strong> if:</p>
+
+  <ul>
+    <li>You have multiple items on a page</li>
+    <li>Consistent gutter/gap spacing is needed</li>
+    <li>You need a non-standard layout where columns can span multiple rows or rows can span multiple columns (e.g. a Bento Box)</li>
+  </ul>
+
+  <h2>Flexbox Layout</h2>
+
+  <p><strong>Note</strong>: This is not intended to be a Flexbox tutorial. To best avail of these utility classes, you should already have a strong working knowledge of Flexbox.</p>
+
+  <p>To define an element as a flexbox container simply use the <code>flex</code> display utility class <a href="#display">as covered above</a>.
+
+  <h3>Flex Basis</h3>
+
+  <p>To set the width of flex items (children of the parent flex container) use the <code>basis-*</code> utility classes. These can be defined as fractional measurements, using halves, thirds, quarters, fifths, sixths or twelfths.</p>
+
+  <p>In the below example, one item takes up half the row, while the remaining two take up a quarter.</p>
+
+  <div class="flex">
+    <div class="basis-1/2 {{ flex_styles }}">1/2</div>
+    <div class="basis-1/4 {{ flex_styles }}">1/4</div>
+    <div class="basis-1/4 {{ flex_styles }}">1/4</div>
+  </div>
+
+  <pre><code>{{ html('
+  <div class="flex">
+    <div class="basis-1/2">1/2</div>
+    <div class="basis-1/4">1/4</div>
+    <div class="basis-1/4">1/4</div>
+  </div>
+  ') }}</code></pre>
+
+  <p>When choosing fractional measurements, try to avoid mixing fractions (e.g. try not to use quarters and twelfths together) and always opt for the lowest possible denominator (i.e. <code>3/4</code> instead of <code>9/12</code>).</p>
+
+  <p>In the below example, consistent fractions are used to create a 'Bento Box' type layout.</p>
+
+  <h3>Flex Direction</h3>
+
+  <p>Use the below utility classes to control the direction of flex items.</p>
 
   <table class="text-left">
     <thead>
@@ -94,73 +191,509 @@ layout: templates/page.html
     </thead>
     <tbody>
       <tr>
-        <td><code>static</code></td>
-        <td>Sets position to static</td>
+        <td><code>flex-row</code></td>
+        <td>Position flex items horizontally</td>
       </tr>
       <tr>
-        <td><code>fixed</code></td>
-        <td>Sets position to fixed</td>
+        <td><code>flex-col</code></td>
+        <td>Position flex items vertically</td>
       </tr>
       <tr>
-        <td><code>absolute</code></td>
-        <td>Sets position to absolute</td>
+        <td><code>flex-row-reverse</code></td>
+        <td>Position flex items horizontally in reverse order</td>
       </tr>
       <tr>
-        <td><code>relative</code></td>
-        <td>Sets position to relative</td>
+        <td><code>flex-col-reverse</code></td>
+        <td>Position flex items vertically in reverse order</td>
       </tr>
-      <tr>
-        <td><code>sticky</code></td>
-        <td>Sets position to sticky</td>
       </tr>
     </tbody>
   </table>
 
-  <h2>Containers</h2>
+  <p>In the below example, columns are arranged vertically and in the reverse order from how they appear in the DOM.</p>
 
-  <h2>Flexbox vs Grid</h2>
+  <div class="flex flex-col-reverse">
+    <div class="basis-full {{ flex_styles }}">01</div>
+    <div class="basis-full {{ flex_styles }}">02</div>
+    <div class="basis-full {{ flex_styles }}">03</div>
+  </div>
 
-  <p>Our layout system uses both <strong>flexbox</strong> and <strong>grid</strong>, depending on the use case.</p>
+  <pre><code>{{ html('
+  <div class="flex flex-col-reverse">
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+  </div>
+  ') }}</code></pre>
 
-  <p>Choose <strong>flexbox</strong> if:</p>
+  <h3>Other Flex Utilities</h3>
 
-  <ul>
-    <li>You have just a few items to arrange.</li>
-    <li>Centering items when they wrap onto a new row is important.</li>
-  </ul>
+  <h4>Order</h4>
 
-  <p>Choose <strong>grid</strong> if:</p>
+  <p>Individual flex items can override the normal ordering of DOM elements using the <code>order-*</code> utility class.You can use numbers (e.g. <code>order-1</code>) but <code>order-first</code> and <code>order-last</code> are particularly useful.</p>
 
-  <ul>
-    <li>You have multiple items on a page.</li>
-    <li>Consistent gutter/gap spacing is needed.</li>
-    <li>Or, if the layout is non-standard (e.g. a 'Bento Box' layout where some items need to span multiple rows and/or columns).</li>
-  </ul>
-
-  <h2>Flexbox Layout</h2>
-
-  <h3>Syntax</h3>
-
-
-
-  <h3>Examples</h3>
+  <p>In the following example the order is changed on large screen sizes only.</p>
 
   <div class="flex">
-
-    {% for i in 1..5 %}
-
-      {% embed '@components/well/well.twig' %}
-      {% endembed %}
-
-    {% endfor %}
-
-
+    <div class="basis-1/3 {{ flex_styles }}">01</div>
+    <div class="basis-1/3 {{ flex_styles }}">02</div>
+    <div class="basis-1/3 lg:order-first {{ flex_styles }}">03</div>
   </div>
+
+  <pre><code>{{ html('
+  <div class="flex">
+    <div class="basis-1/3">01</div>
+    <div class="basis-1/3">02</div>
+    <div class="basis-1/3 lg:order-first">03</div>
+  </div>
+  ') }}</code></pre>
+
+  <h4>Wrapping</h4>
+
+  <p>The wrap utility classes allow you to define how flex items behave when they overflow a row or column. Using <code>flex-wrap</code> will push items onto a new line, <code>flex-nowrap</code> will prevent wrapping and cause overflow, and <code>flex-wrap-reverse</code> will push items onto a line above instead of below.</p>
+
+  <div class="flex flex-wrap">
+    <div class="basis-1/2 {{ flex_styles }}">01</div>
+    <div class="basis-1/3 {{ flex_styles }}">02</div>
+    <div class="basis-1/3 {{ flex_styles }}">03</div>
+  </div>
+
+  <pre><code>{{ html('
+  <div class="flex flex-wrap">
+    <div class="basis-1/2">01</div>
+    <div class="basis-1/3">02</div>
+    <div class="basis-1/3">03</div>
+  </div>
+  ') }}</code></pre>
+
+  <h4>Grow and Shrink</h4>
+
+  <p>The <code>grow</code> and <code>shrink</code> utility classes define how flex items behave if there is available space to fill.</p>
+
+  <table class="text-left">
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th>CSS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>grow</code></td>
+        <td>flex-grow: 1;</td>
+      </tr>
+      <tr>
+        <td><code>grow-0</code></td>
+        <td>flex-grow: 0;</td>
+      </tr>
+      <tr>
+        <td><code>shrink</code></td>
+        <td>flex-shrink: 1;</td>
+      </tr>
+      <tr>
+        <td><code>shrink-0</code></td>
+        <td>flex-shrink: 0;</td>
+      </tr>
+    </tbody>
+  </table>
 
   <h2>Grid Layout</h2>
 
-  <h3>Syntax</h3>
+  <p><strong>Note</strong>: As with Flexbox above, this section is not intended to be a tutorial on how to use CSS Grid. To best avail of these utility classes, you should already have a basic grasp of how CSS Grid works.</p>
 
-  <h3>Examples</h3>
+  <p>To define an element as a grid simply use the <code>grid</code> display utility class <a href="#display">as covered above</a>.
+
+  <h3>Columns</h3>
+
+  <p>You can use the <code>grid-cols-*</code> utility classes to specify the number of columns in a grid, from <strong>1</strong> to <strong>12</strong>.</p>
+
+  <p>In the below example, the number of columns changes when the <code>md</code> breakpoint is reached.</p>
+
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+    {% for i in 1..6 %}
+      <div class="{{ grid_styles }} h-12">0{{ i }}</div>
+    {% endfor %}
+  </div>
+
+  <pre><code>{{ html('
+  <div class="grid grid-cols-2 md:grid-cols-3">
+    {% for i in 1..6 %}
+      <div>0{{ i }}</div>
+    {% endfor %}
+  </div>
+  ') }}</code></pre>
+
+  <h3>Gaps</h3>
+
+  <p>The gap or 'gutter' can be set with the <code>gap-*</code> utility classes, using the <a href="/foundations/spacing/">spacing scale</a>. Alternatively, <code>gap-x-*</code> and <code>gap-y-*</code> utilities can be used if the gaps need to be set separataly on the horizontal and vertical axes.</p>
+
+  <p>In the below example, the gap is uniformly expanded to <strong>1 rem</strong> using <code>gap-4</code>.</p>
+
+  <div class="grid grid-cols-4 gap-4">
+    {% for i in 1..8 %}
+      <div class="{{ grid_styles }} h-12">0{{ i }}</div>
+    {% endfor %}
+  </div>
+
+  <pre><code>{{ html('
+  <div class="grid grid-cols-4 gap-4">
+    {% for i in 1..8 %}
+      <div>0{{ i }}</div>
+    {% endfor %}
+  </div>
+  ') }}</code></pre>
+
+  <h3>Spans</h3>
+
+  <p>Elements can span multiple rows using <code>row-span-*</code>, and multiple columns using <code>col-span-*</code>.</p>
+
+  <p>In the below example, <code>col-span-*</code> is used to create a simple Bento Box layout.</p>
+
+  <div class="grid grid-cols-3 gap-2">
+    <div class="col-span-2 {{ grid_styles }} h-12">01</div>
+    <div class="{{ grid_styles }} h-12">02</div>
+    <div class="{{ grid_styles }} h-12">03</div>
+    <div class="col-span-2 {{ grid_styles }} h-12">04</div>
+  </div>
+
+  <pre><code>{{ html('
+    <div class="grid grid-cols-3 gap-2">
+      <div class="col-span-2">01</div>
+      <div>02</div>
+      <div>03</div>
+      <div class="col-span-2">04</div>
+    </div>
+  ') }}</code></pre>
+
+  <p>The following example shows how both <code>row-span-*</code> and <code>col-span-*</code> can be used together.</p>
+
+  <div class="grid grid-cols-5 gap-2">
+    <div class="col-span-2 row-span-2 {{ grid_styles }}">01</div>
+    <div class="col-span-3 {{ grid_styles }}">02</div>
+    <div class="{{ grid_styles }}">03</div>
+    <div class="col-span-2 {{ grid_styles }}">04</div>
+  </div>
+
+  <pre><code>{{ html('
+    <div class="grid grid-cols-5 gap-2">
+      <div class="col-span-2 row-span-2">01</div>
+      <div class="col-span-3">02</div>
+      <div>03</div>
+      <div class="col-span-2">04</div>
+    </div>
+  ') }}</code></pre>
+
+  <h2>Positioning</h2>
+
+  <h3>Standard Elements</h3>
+
+  <p>The following utility classes can be used to position elements (ideally not grid or flex elements - these are better positioned using justification and alignment below). An element's position will be static by default.</p>
+
+  <table class="text-left">
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>fixed</code></td>
+        <td>Sets position to fixed (relative to the browser window)</td>
+      </tr>
+      <tr>
+        <td><code>absolute</code></td>
+        <td>Sets position to absolute (outside the normal flow of the document)</td>
+      </tr>
+      <tr>
+        <td><code>relative</code></td>
+        <td>Sets position to relative (to itself, in the normal flow of the document)</td>
+      </tr>
+      <tr>
+        <td><code>sticky</code></td>
+        <td>Sets position to sticky (relative to a specified threshold, and fixed once that is offscreen)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Utility classes like <code>top</code>, <code>left</code>, <code>bottom</code> and <code>right</code> can also be used in combination with spacing units to define the placement of positioned elements. For example, the below child element is absolutely positioned to the bottom right of its relatively-positioned parent:</p>
+
+  <pre><code>{{ html('
+  <div class="relative">
+    <div class="absolute bottom-1 right-1"></div>
+  </div>
+  ') }}</code></pre>
+
+  {% embed '@components/well/well.twig' with {
+    well_modifiers: 'relative',
+    well_padding: 'p-8'
+  } %}
+
+    {% block well_html %}
+
+      <div class="absolute w-24 h-8 bottom-1 right-1 {{ grid_styles }}"></div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  <h3>Z-Index</h3>
+
+  <p>To control the three-dimensional stacking order of elements, the following z-index utility classes can be used:</p>
+
+  <table class="text-left">
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th>CSS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>z-0</code></td>
+        <td>z-index: 0;</td>
+      </tr>
+      <tr>
+        <td><code>z-10</code></td>
+        <td>z-index: 10;</td>
+      </tr>
+      <tr>
+        <td><code>z-20</code></td>
+        <td>z-index: 20;</td>
+      </tr>
+      <tr>
+        <td><code>z-30</code></td>
+        <td>z-index: 30;</td>
+      </tr>
+      <tr>
+        <td><code>z-40</code></td>
+        <td>z-index: 40;</td>
+      </tr>
+      <tr>
+        <td><code>z-50</code></td>
+        <td>z-index: 50;</td>
+      </tr>
+      <tr>
+        <td><code>z-auto</code></td>
+        <td>z-index: auto;</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Custom values can also be set using <code>z-[value]</code>, e.g. <code>z-[100]</code> to set the z-index to 100. We discourage using very large values unless absolutely necessary.</p>
+
+  <h3>Justification</h3>
+
+  <p>For flex elements, see <a href="#justify-content">Justify Content</a>. For grid elements, see <a href="#justify-items">Justify Items</a>.</p>
+
+  <h4 id="justify-content">Justify Content</h4>
+
+  <p>The below utility classes control how flex elements are positioned along the flex container's main axis. By default, this means from left to right, but if <code>flex-col</code> is selected, it means from top to bottom.</p>
+
+  <table class="text-left">
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th>CSS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>justify-start</code></td>
+        <td>justify-content: flex-start;</td>
+      </tr>
+      <tr>
+        <td><code>justify-end</code></td>
+        <td>justify-content: flex-end;</td>
+      </tr>
+      <tr>
+        <td><code>justify-center</code></td>
+        <td>justify-content: center;</td>
+      </tr>
+      <tr>
+        <td><code>justify-between</code></td>
+        <td>justify-content: space-between;</td>
+      </tr>
+      <tr>
+        <td><code>justify-around</code></td>
+        <td>justify-content: space-around;</td>
+      </tr>
+      <tr>
+        <td><code>justify-evenly</code></td>
+        <td>justify-content: space-evenly;</td>
+      </tr>
+      <tr>
+        <td><code>justify-stretch</code></td>
+        <td>justify-content: stretch;</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>In the below example, flex items are positioned using <code>justify-center</code>.</p>
+  
+  {% embed '@components/well/well.twig' with { well_padding: 'p-2', well_modifiers: 'flex justify-center' } %}
+    {% block well_html %}
+      {% for i in 1..4 %}
+        <div class="{{ flex_styles }} w-12">0{{ i }}</div>
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}
+
+  <pre><code>{{ html('
+  <div class="flex justify-center">
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+    <div>04</div>
+  </div>
+  ') }}</code></pre>
+
+  <p>In the below example, flex items are positioned using <code>justify-between</code>.</p>
+  
+  {% embed '@components/well/well.twig' with { well_padding: 'p-2', well_modifiers: 'flex justify-between' } %}
+    {% block well_html %}
+      {% for i in 1..4 %}
+        <div class="{{ flex_styles }} w-12">0{{ i }}</div>
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}
+
+  <pre><code>{{ html('
+  <div class="flex justify-between">
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+    <div>04</div>
+  </div>
+  ') }}</code></pre>
+
+  <h4 id="justify-items">Justify Items</h4>
+
+  <p>The below utility classes control how grid elements are positioned along the grid's inline axis.</p>
+
+  <table class="text-left">
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th>CSS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>justify-items-start</code></td>
+        <td>justify-items: start;</td>
+      </tr>
+      <tr>
+        <td><code>justify-items-end</code></td>
+        <td>justify-items: end;</td>
+      </tr>
+      <tr>
+        <td><code>justify-items-center</code></td>
+        <td>justify-items: center;</td>
+      </tr>
+      <tr>
+        <td><code>justify-items-stretch</code></td>
+        <td>justify-items: stretch;</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>In the below example, grid items are positioned using <code>justify-items-center</code>, which centres the items within their cell.</p>
+
+  {% embed '@components/well/well.twig' with { well_padding: 'p-2', well_modifiers: 'grid grid-cols-3 justify-items-center' } %}
+    {% block well_html %}
+      {% for i in 1..3 %}
+        <div class="{{ grid_styles }} h-12 w-12">0{{ i }}</div>
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}
+
+  <pre><code>{{ html('
+  <div class="grid grid-cols-3 justify-items-center">
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+    <div>04</div>
+  </div>
+  ') }}</code></pre>
+
+  <h3>Alignment</h3>
+
+  <p>The following utilities control how flex items are positioned along a container's cross axis.</p>
+
+  <table class="text-left">
+    <thead>
+      <tr>
+        <th>Class</th>
+        <th>CSS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>items-start</code></td>
+        <td>align-items: flex-start;</td>
+      </tr>
+      <tr>
+        <td><code>items-end</code></td>
+        <td>align-items: flex-end;</td>
+      </tr>
+      <tr>
+        <td><code>items-center</code></td>
+        <td>align-items: center;
+        </td>
+      </tr>
+      <tr>
+        <td><code>items-baseline</code></td>
+        <td>align-items: baseline;
+        </td>
+      </tr>
+      <tr>
+        <td><code>items-stretch</code></td>
+        <td>align-items: stretch;
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>In the below example, the flex items are positioned along the centre of the container's cross axis.</p>
+
+  {% embed '@components/well/well.twig' with { well_padding: 'p-2', well_modifiers: 'flex h-48 items-center' } %}
+    {% block well_html %}
+      {% for i in 1..3 %}
+        <div class="{{ flex_styles }} w-12">0{{ i }}</div>
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}
+
+  <pre><code>{{ html('
+  <div class="flex justify-center">
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+    <div>04</div>
+  </div>
+  ') }}</code></pre>
+
+  <p>As a final example, here's how you might justify and align flex items at the same time.</p>
+
+  {% embed '@components/well/well.twig' with {
+    well_padding: 'py-6 px-12',
+    well_modifiers: 'flex flex-wrap items-center justify-center'
+  } %}
+    {% block well_html %}
+      {% for i in 1..5 %}
+        <div class="bg-modern bg-opacity-20 m-6 h-28 w-28 rounded-full flex items-center justify-center">0{{ i }}</div>
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}
+
+  <pre><code>{{ html('
+  <div class="flex flex-wrap items-center justify-center">
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+    <div>04</div>
+  </div>
+  ') }}</code></pre>
 
 </div>
