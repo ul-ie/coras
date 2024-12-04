@@ -20,8 +20,8 @@
 
     <title>Button</title>
 
-  <script type="module" crossorigin src="/assets/index-c1092466.js"></script>
-  <link rel="stylesheet" href="/assets/index-f532fcae.css">
+  <script type="module" crossorigin src="/assets/index-5355c24d.js"></script>
+  <link rel="stylesheet" href="/assets/index-180bd029.css">
 </head>
 <body class="antialiased bg-limestone-l5 dark:bg-granite-d3 text-granite-d3 dark:text-granite-l3">
 
@@ -330,7 +330,7 @@
         <em>[Default:
                   primary-green]</em>
       </td>
-      <td>primary-green, primary-green-alt, primary-blue, primary-blue-alt, secondary-green, secondary-green-alt, secondary-blue, secondary-blue-alt, danger, none</td>
+      <td>primary-green, primary-blue, secondary-green, secondary-blue, danger, none</td>
     </tr>
           <tr>
       <td><code>btn_type</code></td>
@@ -554,9 +554,7 @@
   
   <h3>Theme</h3>
 
-  <p>A button's function (i.e. whether it's <strong>primary</strong> or <strong>secondary</strong>), is defined by the <code>btn_theme</code> property. There are ten button themes: four primary, four secondary, one danger and one empty (to allow for custom styling).</p>
-
-  <p><strong>Note</strong>: In the table below, some buttons include a background to aid visualisation of the button and indicate its intended context; the background itself is <em>not</em> part of the button component.</p>
+  <p>A button's function (i.e. whether it's <strong>primary</strong> or <strong>secondary</strong>), is defined by the <code>btn_theme</code> property. There are six button themes: two primary, two secondary, one danger and one empty (to allow for custom styling).</p>
 
   <style>
     #btn-table td {
@@ -607,40 +605,6 @@
       </tr>
       <tr>
         <td>
-          <div class="bg-green p-4 rounded-lg w-fit">
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <button
-    type="button"
-    class="not-prose font-medium no-underline flex items-center justify-center rounded-md border-2 transition  px-6 py-2 text-lg bg-white border-white text-green fill-green hover:bg-green-d1 hover:text-white hover:fill-white active:bg-green-d1 w-fit "
-    
-    >
-          Primary Green Alt
-  
-  </button>
-          </div>
-        </td>
-        <td><code>primary-green-alt</code></td>
-      </tr>
-      <tr>
-        <td>
           
 
 
@@ -670,40 +634,6 @@
   </button>
         </td>
         <td><code>primary-blue</code></td>
-      </tr>
-      <tr>
-        <td>
-          <div class="bg-stone p-4 rounded-lg w-fit">
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <button
-    type="button"
-    class="not-prose font-medium no-underline flex items-center justify-center rounded-md border-2 transition  px-6 py-2 text-lg bg-white border-white text-stone fill-stone hover:bg-stone-d1 hover:text-white hover:fill-white active:bg-stone-d1 w-fit "
-    
-    >
-          Primary Blue Alt
-  
-  </button>
-          </div>
-        </td>
-        <td><code>primary-blue-alt</code></td>
       </tr>
       <tr>
         <td>
@@ -739,40 +669,6 @@
       </tr>
       <tr>
         <td>
-          <div class="bg-green p-4 rounded-lg w-fit">
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <button
-    type="button"
-    class="not-prose font-medium no-underline flex items-center justify-center rounded-md border-2 transition  px-6 py-2 text-lg bg-transparent border-white text-white fill-white hover:bg-green-d1 active:bg-green-d2 w-fit "
-    
-    >
-          Secondary Green Alt
-  
-  </button>
-          </div>
-        </td>
-        <td><code>secondary-green-alt</code></td>
-      </tr>
-      <tr>
-        <td>
           
 
 
@@ -802,40 +698,6 @@
   </button>
         </td>
         <td><code>secondary-blue</code></td>
-      </tr>
-      <tr>
-        <td>
-          <div class="bg-stone p-4 rounded-lg w-fit">
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <button
-    type="button"
-    class="not-prose font-medium no-underline flex items-center justify-center rounded-md border-2 transition  px-6 py-2 text-lg bg-transparent border-white text-white fill-white hover:bg-stone-d1 active:bg-stone-d2 w-fit "
-    
-    >
-          Secondary Blue Alt
-  
-  </button>
-          </div>
-        </td>
-        <td><code>secondary-blue-alt</code></td>
       </tr>
       <tr>
         <td>
@@ -904,12 +766,12 @@
     </tbody>
   </table>
 
-  <p>Applying a theme is straightforward. Below is an example of how to change the <code>btn_theme</code> to <code>primary-blue-alt</code>:</p>
+  <p>Applying a theme is straightforward. Below is an example of how to change the <code>btn_theme</code> to <code>primary-blue</code>:</p>
 
   <pre><code>
   {% include &#39;@components/button/button.twig&#39; with {
-    btn_text: &#39;Primary Blue Alt&#39;,
-    btn_theme: &#39;primary-blue-alt&#39;
+    btn_text: &#39;Primary Blue&#39;,
+    btn_theme: &#39;primary-blue&#39;
   } %}
   </code></pre>
   
@@ -1318,7 +1180,7 @@
 
   <h4>Custom Styling</h4>
 
-  <p>In what should only be exceptional circumstances, the nine provided button themes may not satisfy requirements (a different colour may be requested for example). In this case the <code>btn_theme</code> should be set to <strong>none</strong>, and new classes can be injected using the <code>btn_modifiers</code> property.</p>
+  <p>In what should only be exceptional circumstances, the five pre-defined button themes may not satisfy requirements (a different colour may be requested for example). In this case the <code>btn_theme</code> should be set to <strong>none</strong>, and new classes can be injected using the <code>btn_modifiers</code> property.</p>
 
   
 
@@ -1341,7 +1203,7 @@
 
   <button
     type="button"
-    class="not-prose font-medium no-underline flex items-center justify-center rounded-md border-2 transition border-salmon text-salmon fill-salmon px-6 py-2 text-lg  w-fit "
+    class="not-prose font-medium no-underline flex items-center justify-center rounded-md border-2 transition border-salmon text-salmon fill-salmon hover:bg-salmon hover:text-white hover:fill-white px-6 py-2 text-lg  w-fit "
     
     >
                 
@@ -1367,9 +1229,13 @@
 
   <pre><code>
   {% include &#39;@components/button/button.twig&#39; with {
-    btn_text: &#39;Disabled Button&#39;,
+    btn_modifiers: &#39;border-salmon text-salmon fill-salmon hover:bg-salmon hover:text-white hover:fill-white&#39;,
+    btn_text: &#39;Custom Button&#39;,
     btn_type: &#39;button&#39;,
-    is_disabled: true
+    btn_theme: &#39;none&#39;,
+    icon_name: &#39;atom-simple&#39;,
+    icon_type: &#39;regular&#39;,
+    icon_size: &#39;w-5&#39;
   } %}
   </code></pre>
 
@@ -1427,19 +1293,11 @@
 
   &#39;primary-green&#39;: &#39;bg-green border-green text-white fill-white hover:bg-green-d1 hover:border-green-d1 active:bg-green-d2 active:border-green-d2&#39;,
 
-  &#39;primary-green-alt&#39;: &#39;bg-white border-white text-green fill-green hover:bg-green-d1 hover:text-white hover:fill-white active:bg-green-d1&#39;,
-
   &#39;primary-blue&#39;: &#39;bg-stone border-stone text-white fill-white hover:bg-stone-d1 hover:border-stone-d1 active:bg-stone-d2 active:border-green-d2&#39;,
-
-  &#39;primary-blue-alt&#39;: &#39;bg-white border-white text-stone fill-stone hover:bg-stone-d1 hover:text-white hover:fill-white active:bg-stone-d1&#39;,
 
   &#39;secondary-green&#39;: &#39;bg-white border-green text-green fill-green hover:bg-green hover:text-white hover:fill-white active:bg-green-d1&#39;,
 
-  &#39;secondary-green-alt&#39;: &#39;bg-transparent border-white text-white fill-white hover:bg-green-d1 active:bg-green-d2&#39;,
-
   &#39;secondary-blue&#39;: &#39;bg-white border-stone text-stone fill-stone hover:bg-stone hover:text-white hover:fill-white active:bg-stone-d1&#39;,
-
-  &#39;secondary-blue-alt&#39;: &#39;bg-transparent border-white text-white fill-white hover:bg-stone-d1 active:bg-stone-d2&#39;,
 
   &#39;danger&#39;: &#39;bg-munster border-munster text-white fill-white hover:bg-munster-d1 hover:border-munster-d1 active:bg-munster-d2 active:border-munster-d2&#39;,
 
@@ -1546,13 +1404,9 @@ props:
       description: The theme to apply to the button. This should be consistent with the button&#39;s purpose and/or function.
       enum:
         - primary-green
-        - primary-green-alt
         - primary-blue
-        - primary-blue-alt
         - secondary-green
-        - secondary-green-alt
         - secondary-blue
-        - secondary-blue-alt
         - danger
         - none
       default: primary-green
