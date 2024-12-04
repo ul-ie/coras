@@ -37,13 +37,9 @@ props:
       description: The theme to apply to the button. This should be consistent with the button's purpose and/or function.
       enum:
         - primary-green
-        - primary-green-alt
         - primary-blue
-        - primary-blue-alt
         - secondary-green
-        - secondary-green-alt
         - secondary-blue
-        - secondary-blue-alt
         - danger
         - none
       default: primary-green
