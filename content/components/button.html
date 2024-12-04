@@ -75,9 +75,7 @@ layout: templates/page.html
   
   <h3>Theme</h3>
 
-  <p>A button's function (i.e. whether it's <strong>primary</strong> or <strong>secondary</strong>), is defined by the <code>btn_theme</code> property. There are ten button themes: four primary, four secondary, one danger and one empty (to allow for custom styling).</p>
-
-  <p><strong>Note</strong>: In the table below, some buttons include a background to aid visualisation of the button and indicate its intended context; the background itself is <em>not</em> part of the button component.</p>
+  <p>A button's function (i.e. whether it's <strong>primary</strong> or <strong>secondary</strong>), is defined by the <code>btn_theme</code> property. There are six button themes: two primary, two secondary, one danger and one empty (to allow for custom styling).</p>
 
   <style>
     #btn-table td {
@@ -104,18 +102,6 @@ layout: templates/page.html
       </tr>
       <tr>
         <td>
-          <div class="bg-green p-4 rounded-lg w-fit">
-            {% include '@components/button/button.twig' with {
-              btn_text: 'Primary Green Alt',
-              btn_theme: 'primary-green-alt',
-              btn_type: 'button'
-            } %}
-          </div>
-        </td>
-        <td><code>primary-green-alt</code></td>
-      </tr>
-      <tr>
-        <td>
           {% include '@components/button/button.twig' with {
             btn_text: 'Primary Blue',
             btn_theme: 'primary-blue',
@@ -123,18 +109,6 @@ layout: templates/page.html
           } %}
         </td>
         <td><code>primary-blue</code></td>
-      </tr>
-      <tr>
-        <td>
-          <div class="bg-stone p-4 rounded-lg w-fit">
-            {% include '@components/button/button.twig' with {
-              btn_text: 'Primary Blue Alt',
-              btn_theme: 'primary-blue-alt',
-              btn_type: 'button'
-            } %}
-          </div>
-        </td>
-        <td><code>primary-blue-alt</code></td>
       </tr>
       <tr>
         <td>
@@ -148,18 +122,6 @@ layout: templates/page.html
       </tr>
       <tr>
         <td>
-          <div class="bg-green p-4 rounded-lg w-fit">
-            {% include '@components/button/button.twig' with {
-              btn_text: 'Secondary Green Alt',
-              btn_theme: 'secondary-green-alt',
-              btn_type: 'button'
-            } %}
-          </div>
-        </td>
-        <td><code>secondary-green-alt</code></td>
-      </tr>
-      <tr>
-        <td>
           {% include '@components/button/button.twig' with {
             btn_text: 'Secondary Blue',
             btn_theme: 'secondary-blue',
@@ -167,18 +129,6 @@ layout: templates/page.html
           } %}
         </td>
         <td><code>secondary-blue</code></td>
-      </tr>
-      <tr>
-        <td>
-          <div class="bg-stone p-4 rounded-lg w-fit">
-            {% include '@components/button/button.twig' with {
-              btn_text: 'Secondary Blue Alt',
-              btn_theme: 'secondary-blue-alt',
-              btn_type: 'button'
-            } %}
-          </div>
-        </td>
-        <td><code>secondary-blue-alt</code></td>
       </tr>
       <tr>
         <td>
@@ -203,12 +153,12 @@ layout: templates/page.html
     </tbody>
   </table>
 
-  <p>Applying a theme is straightforward. Below is an example of how to change the <code>btn_theme</code> to <code>primary-blue-alt</code>:</p>
+  <p>Applying a theme is straightforward. Below is an example of how to change the <code>btn_theme</code> to <code>primary-blue</code>:</p>
 
   <pre><code>{{ html("
   {% include '@components/button/button.twig' with {
-    btn_text: 'Primary Blue Alt',
-    btn_theme: 'primary-blue-alt'
+    btn_text: 'Primary Blue',
+    btn_theme: 'primary-blue'
   } %}
   ")}}</code></pre>
   
@@ -404,10 +354,10 @@ layout: templates/page.html
 
   <h4>Custom Styling</h4>
 
-  <p>In what should only be exceptional circumstances, the nine provided button themes may not satisfy requirements (a different colour may be requested for example). In this case the <code>btn_theme</code> should be set to <strong>none</strong>, and new classes can be injected using the <code>btn_modifiers</code> property.</p>
+  <p>In what should only be exceptional circumstances, the five pre-defined button themes may not satisfy requirements (a different colour may be requested for example). In this case the <code>btn_theme</code> should be set to <strong>none</strong>, and new classes can be injected using the <code>btn_modifiers</code> property.</p>
 
   {% include '@components/button/button.twig' with {
-    btn_modifiers: 'border-salmon text-salmon fill-salmon',
+    btn_modifiers: 'border-salmon text-salmon fill-salmon hover:bg-salmon hover:text-white hover:fill-white',
     btn_text: 'Custom Button',
     btn_type: 'button',
     btn_theme: 'none',
@@ -420,9 +370,13 @@ layout: templates/page.html
 
   <pre><code>{{ html("
   {% include '@components/button/button.twig' with {
-    btn_text: 'Disabled Button',
+    btn_modifiers: 'border-salmon text-salmon fill-salmon hover:bg-salmon hover:text-white hover:fill-white',
+    btn_text: 'Custom Button',
     btn_type: 'button',
-    is_disabled: true
+    btn_theme: 'none',
+    icon_name: 'atom-simple',
+    icon_type: 'regular',
+    icon_size: 'w-5'
   } %}
   ")}}</code></pre>
 
