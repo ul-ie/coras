@@ -24,7 +24,7 @@ layout: templates/page.html
   <p>Use the <code>include</code> tag to inject a button. Icons can be included by using properties; it is not necessary to embed them.</p>
 
   <pre><code>{{ html("
-  {% include '@components/button/button.twig' with {
+  {% include 'THEME_NAME:button' with {
     property: 'value'
     ...
   } %}
@@ -68,7 +68,7 @@ layout: templates/page.html
   <p>Example code:</p>
 
   <pre><code>{{ html("
-  {% include '@components/button/button.twig' with {
+  {% include 'ul:button' with {
     btn_text: 'Download Prospectus'
   } %}
   ")}}</code></pre>
@@ -156,7 +156,7 @@ layout: templates/page.html
   <p>Applying a theme is straightforward. Below is an example of how to change the <code>btn_theme</code> to <code>primary-blue</code>:</p>
 
   <pre><code>{{ html("
-  {% include '@components/button/button.twig' with {
+  {% include 'ul:button' with {
     btn_text: 'Primary Blue',
     btn_theme: 'primary-blue'
   } %}
@@ -198,7 +198,7 @@ layout: templates/page.html
   <p>Example code for a button to download a document:</p>
 
   <pre><code>{{ html("
-  {% include '@components/button/button.twig' with {
+  {% include 'ul:button' with {
     btn_text: 'Download Prospectus',
     btn_type: 'link',
     btn_url: '/path/to/download',
@@ -227,7 +227,7 @@ layout: templates/page.html
   <p>Example code:</p>
 
   <pre><code>{{ html("
-  {% include '@components/button/button.twig' with {
+  {% include 'ul:button' with {
     btn_text: 'Download Prospectus',
     btn_type: 'button',
     icon_name: 'download',
@@ -262,7 +262,7 @@ layout: templates/page.html
   <p>Example code:</p>
 
   <pre><code>{{ html("
-  {% include '@components/button/button.twig' with {
+  {% include 'ul:button' with {
     btn_padding: 'equal',
     btn_text: 'Icon Only',
     btn_type: 'button',
@@ -301,7 +301,7 @@ layout: templates/page.html
   <p>Example code:</p>
 
   <pre><code>{{ html("
-  {% include '@components/button/button.twig' with {
+  {% include 'ul:button' with {
     btn_text: 'Button (S)',
     btn_type: 'button',
     btn_size: 'small'
@@ -320,7 +320,7 @@ layout: templates/page.html
   <p>Example code:</p>
 
   <pre><code>{{ html("
-  {% include '@components/button/button.twig' with {
+  {% include 'ul:button' with {
     btn_text: 'Large Full-Width Button',
     btn_type: 'button',
     btn_size: 'large',
@@ -345,7 +345,7 @@ layout: templates/page.html
   <p>Example code:</p>
 
   <pre><code>{{ html("
-  {% include '@components/button/button.twig' with {
+  {% include 'ul:button' with {
     btn_text: 'Disabled Button',
     btn_type: 'button',
     is_disabled: true
@@ -369,7 +369,7 @@ layout: templates/page.html
   <p>Example code:</p>
 
   <pre><code>{{ html("
-  {% include '@components/button/button.twig' with {
+  {% include 'ul:button' with {
     btn_modifiers: 'border-salmon text-salmon fill-salmon hover:bg-salmon hover:text-white hover:fill-white',
     btn_text: 'Custom Button',
     btn_type: 'button',
@@ -382,7 +382,7 @@ layout: templates/page.html
 
   <h2>Source Code</h2>
 
-  <p>The source code below can be found at <code>inc/components/button/</code>.</p>
+  <p>The source code below can be found below, and at <code>inc/components/button/</code> in the design system repository.</p>
 
   <h3>Twig</h3>
 

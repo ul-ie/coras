@@ -231,7 +231,7 @@
   <p>A well is to be used with the <code>embed</code> tag, as it is a container for other content. To place content inside the well, use the <code>block</code> placeholder named <code>well_html</code> as follows:</p>
 
   <pre><code>
-  {% embed &#39;@components/well/well.twig&#39; with {
+  {% embed &#39;THEME_NAME:well&#39; with {
     property: &#39;value&#39; } %}
 
     {% block well_html %}
@@ -291,7 +291,7 @@
     make it smaller:</p>
 
   <pre><code>
-  {% embed &#39;@components/well/well.twig&#39; with { well_padding: &#39;p-2&#39; } %}
+  {% embed &#39;ul:well&#39; with { well_padding: &#39;p-2&#39; } %}
 
     {% block well_html %}
 
@@ -324,7 +324,7 @@
     will change depending on the size of the user's screen:</p>
 
   <pre><code>
-  {% embed &#39;@components/well/well.twig&#39; with { 
+  {% embed &#39;ul:well&#39; with { 
     well_padding: &#39;p-3 md:p-5 lg:p-8&#39; 
   } %}
 
@@ -357,7 +357,7 @@
     you wanted it to appear as an inline block rather than the default block, you could use the following code:</p>
 
   <pre><code>
-  {% embed &#39;@components/well/well.twig&#39; with { 
+  {% embed &#39;ul:well&#39; with { 
     well_modifiers: &#39;inline-block&#39; 
   } %}
 
@@ -386,7 +386,7 @@
 </div>
   <h2>Source Code</h2>
 
-  <p>The source code below can be found at <code>inc/components/well/</code>.</p>
+  <p>The source code below can be found below, and at <code>inc/components/well/</code> in the design system repository.</p>
 
   <h3>Twig</h3>
 
@@ -456,7 +456,7 @@ props:
     basis-full p-4 border-t border-granite-l3 text-center
     dark:border-granite-d1">
 
-    Copyright © University of Limerick 2024
+    Copyright © University of Limerick 2025
 
 </footer>
     

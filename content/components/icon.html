@@ -32,7 +32,7 @@ layout: templates/page.html
   <p>Use the <code>include</code> tag to inject an icon. The icon must exist in the UL custom icon kit for it to be added to the icon bank (see <a href="/foundations/iconography/">Iconography</a>).</p>
 
   <pre><code>{{ html("
-  {% include '@components/icon/icon.twig' with {
+  {% include 'THEME_NAME:icon' with {
     property: 'value'
     ...
   } %}
@@ -65,7 +65,7 @@ layout: templates/page.html
   } %}
 
   <pre><code>{{ html("
-  {% include '@components/icon/icon.twig' with {
+  {% include 'ul:icon' with {
     icon_name: 'graduation-cap',
     icon_fill: 'fill-green dark:fill-modern'
   } %}
@@ -81,7 +81,7 @@ layout: templates/page.html
   } %}
 
   <pre><code>{{ html("
-  {% include '@components/icon/icon.twig' with {
+  {% include 'ul:icon' with {
     icon_name: 'earth-americas',
     icon_fill: 'fill-shannon hover:fill-shannon-l1'
   } %}
@@ -121,7 +121,7 @@ layout: templates/page.html
   </div>
 
   <pre><code>{{ html("
-    {% include '@components/icon/icon.twig' with {
+    {% include 'ul:icon' with {
       icon_name: 'user',
       icon_fill: 'fill-golden',
       icon_size: 'w-10'
@@ -214,7 +214,7 @@ layout: templates/page.html
   </div>
 
   <pre><code>{{ html("
-  {% include '@components/icon/icon.twig' with {
+  {% include 'ul:icon' with {
     icon_name: 'instagram',
     icon_type: 'brands',
     icon_size: 'h-10',
@@ -224,7 +224,7 @@ layout: templates/page.html
 
   <h2>Source Code</h2>
 
-  <p>The source code below can be found at <code>inc/components/icon/</code>.</p>
+  <p>The source code below can be found below, and at <code>inc/components/icon/</code> in the design system repository.</p>
 
   <h3>Twig</h3>
 

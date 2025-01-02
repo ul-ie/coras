@@ -26,7 +26,7 @@ layout: templates/page.html
   <p>A well is to be used with the <code>embed</code> tag, as it is a container for other content. To place content inside the well, use the <code>block</code> placeholder named <code>well_html</code> as follows:</p>
 
   <pre><code>{{ html("
-  {% embed '@components/well/well.twig' with {
+  {% embed 'THEME_NAME:well' with {
     property: 'value' } %}
 
     {% block well_html %}
@@ -54,7 +54,7 @@ layout: templates/page.html
     make it smaller:</p>
 
   <pre><code>{{ html("
-  {% embed '@components/well/well.twig' with { well_padding: 'p-2' } %}
+  {% embed 'ul:well' with { well_padding: 'p-2' } %}
 
     {% block well_html %}
 
@@ -83,7 +83,7 @@ layout: templates/page.html
     will change depending on the size of the user's screen:</p>
 
   <pre><code>{{ html("
-  {% embed '@components/well/well.twig' with { 
+  {% embed 'ul:well' with { 
     well_padding: 'p-3 md:p-5 lg:p-8' 
   } %}
 
@@ -114,7 +114,7 @@ layout: templates/page.html
     you wanted it to appear as an inline block rather than the default block, you could use the following code:</p>
 
   <pre><code>{{ html("
-  {% embed '@components/well/well.twig' with { 
+  {% embed 'ul:well' with { 
     well_modifiers: 'inline-block' 
   } %}
 
@@ -141,7 +141,7 @@ layout: templates/page.html
 
   <h2>Source Code</h2>
 
-  <p>The source code below can be found at <code>inc/components/well/</code>.</p>
+  <p>The source code below can be found below, and at <code>inc/components/well/</code> in the design system repository.</p>
 
   <h3>Twig</h3>
 

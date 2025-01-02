@@ -261,7 +261,7 @@
   <p>Use the <code>include</code> tag to inject a button. Icons can be included by using properties; it is not necessary to embed them.</p>
 
   <pre><code>
-  {% include &#39;@components/button/button.twig&#39; with {
+  {% include &#39;THEME_NAME:button&#39; with {
     property: &#39;value&#39;
     ...
   } %}
@@ -547,7 +547,7 @@
   <p>Example code:</p>
 
   <pre><code>
-  {% include &#39;@components/button/button.twig&#39; with {
+  {% include &#39;ul:button&#39; with {
     btn_text: &#39;Download Prospectus&#39;
   } %}
   </code></pre>
@@ -769,7 +769,7 @@
   <p>Applying a theme is straightforward. Below is an example of how to change the <code>btn_theme</code> to <code>primary-blue</code>:</p>
 
   <pre><code>
-  {% include &#39;@components/button/button.twig&#39; with {
+  {% include &#39;ul:button&#39; with {
     btn_text: &#39;Primary Blue&#39;,
     btn_theme: &#39;primary-blue&#39;
   } %}
@@ -811,7 +811,7 @@
   <p>Example code for a button to download a document:</p>
 
   <pre><code>
-  {% include &#39;@components/button/button.twig&#39; with {
+  {% include &#39;ul:button&#39; with {
     btn_text: &#39;Download Prospectus&#39;,
     btn_type: &#39;link&#39;,
     btn_url: &#39;/path/to/download&#39;,
@@ -875,7 +875,7 @@
   <p>Example code:</p>
 
   <pre><code>
-  {% include &#39;@components/button/button.twig&#39; with {
+  {% include &#39;ul:button&#39; with {
     btn_text: &#39;Download Prospectus&#39;,
     btn_type: &#39;button&#39;,
     icon_name: &#39;download&#39;,
@@ -977,7 +977,7 @@
   <p>Example code:</p>
 
   <pre><code>
-  {% include &#39;@components/button/button.twig&#39; with {
+  {% include &#39;ul:button&#39; with {
     btn_padding: &#39;equal&#39;,
     btn_text: &#39;Icon Only&#39;,
     btn_type: &#39;button&#39;,
@@ -1083,7 +1083,7 @@
   <p>Example code:</p>
 
   <pre><code>
-  {% include &#39;@components/button/button.twig&#39; with {
+  {% include &#39;ul:button&#39; with {
     btn_text: &#39;Button (S)&#39;,
     btn_type: &#39;button&#39;,
     btn_size: &#39;small&#39;
@@ -1124,7 +1124,7 @@
   <p>Example code:</p>
 
   <pre><code>
-  {% include &#39;@components/button/button.twig&#39; with {
+  {% include &#39;ul:button&#39; with {
     btn_text: &#39;Large Full-Width Button&#39;,
     btn_type: &#39;button&#39;,
     btn_size: &#39;large&#39;,
@@ -1171,7 +1171,7 @@
   <p>Example code:</p>
 
   <pre><code>
-  {% include &#39;@components/button/button.twig&#39; with {
+  {% include &#39;ul:button&#39; with {
     btn_text: &#39;Disabled Button&#39;,
     btn_type: &#39;button&#39;,
     is_disabled: true
@@ -1228,7 +1228,7 @@
   <p>Example code:</p>
 
   <pre><code>
-  {% include &#39;@components/button/button.twig&#39; with {
+  {% include &#39;ul:button&#39; with {
     btn_modifiers: &#39;border-salmon text-salmon fill-salmon hover:bg-salmon hover:text-white hover:fill-white&#39;,
     btn_text: &#39;Custom Button&#39;,
     btn_type: &#39;button&#39;,
@@ -1241,7 +1241,7 @@
 
   <h2>Source Code</h2>
 
-  <p>The source code below can be found at <code>inc/components/button/</code>.</p>
+  <p>The source code below can be found below, and at <code>inc/components/button/</code> in the design system repository.</p>
 
   <h3>Twig</h3>
 
@@ -1514,7 +1514,7 @@ props:
     basis-full p-4 border-t border-granite-l3 text-center
     dark:border-granite-d1">
 
-    Copyright © University of Limerick 2024
+    Copyright © University of Limerick 2025
 
 </footer>
     
