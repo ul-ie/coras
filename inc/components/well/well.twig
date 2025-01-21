@@ -6,7 +6,7 @@
  * @see https://coras.ul.ie/components/well/#properties for full documentation.
  */
 #}
-{% set well_padding = well_padding is not empty ? well_padding : 'p-6' %}
+{% set well_padding = well_padding ?? 'p-6' %}
 {% set well_modifiers = well_modifiers ?? '' %}
 
 {# Define the core component styling. #}

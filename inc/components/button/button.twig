@@ -15,9 +15,9 @@
 {% set btn_modifiers = btn_modifiers ?? '' %}
 {% set btn_padding = btn_padding in ['equal', 'normal'] ? btn_padding : 'normal' %}
 {% set btn_size = btn_size in ['small', 'medium', 'large'] ? btn_size : 'medium' %}
-{% set btn_theme = btn_theme is not empty ? btn_theme : 'primary-green' %}
+{% set btn_theme = btn_theme ?? 'primary-green' %}
 {% set btn_type = btn_type in ['button', 'link', 'submit', 'reset'] ? btn_type : 'link' %}
-{% set btn_url = btn_url is not empty ? btn_url : '#' %}
+{% set btn_url = btn_url ?? '#' %}
 {% set btn_width = btn_width in ['fit', 'full'] ? btn_width : 'fit' %}
 {% set icon_pos = icon_pos in ['left', 'right'] ? icon_pos : 'left' %}
 

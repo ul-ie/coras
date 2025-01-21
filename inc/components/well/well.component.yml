@@ -3,7 +3,14 @@ status: stable
 version: 1.0
 props:
   type: object
+  required:
+    - well_html
   properties:
+    well_html:
+      title: well_html
+      type: block
+      description: The block of content to insert into the well.
+      default: none
     well_modifiers:
       title: well_modifiers
       type: string
