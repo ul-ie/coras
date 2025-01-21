@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Accordion component.
+ * 
+ * @see https://coras.ul.ie/components/accordion/#properties for full documentation.
+ */
+#}
+{% set acc_icon_fill = acc_icon_fill ?? 'fill-green dark:fill-modern group-open:fill-granite' %}
+{% set acc_modifiers = acc_modifiers ?? 'border-b border-granite-l3 dark:border-granite-d1' %}
+{% set acc_title_colour = acc_title_colour ?? 'text-green dark:text-granite-l3' %}
+{% set acc_title_size = acc_title_size in ['small', 'medium', 'large'] ? acc_title_size : 'medium' %}
+
+{# Combine the account title classes. #}
+{% set acc_title_classes %}
+  {{ 'font-bold ' ~ acc_title_colour }}
+  {{ acc_title_size == 'small' ? 'text-lg' : acc_title_size == 'medium' ? 'text-xl' : 'text-2xl' -}}
+{% endset %}
+
+<details
+  {% if acc_id is not empty %} id="{{ acc_id }}"{% endif %}
+  class="group {{ acc_modifiers }}">
+
+  <summary class="flex justify-between cursor-pointer px-4 py-6">
+
+    <span class="{{ acc_title_classes }}">
+
+      {{ acc_title }}
+
+    </span>
+
+    {% include '@components/icon/icon.twig' with {
+      icon_fill: acc_icon_fill,
+      icon_name: 'chevron-down',
+      icon_type: 'solid',
+      icon_size: 'w-4 shrink-0',
+      icon_modifiers: 'group-open:rotate-180 transition-all'
+    } %}
+
+  </summary>
+
+  <div class="px-4 -mt-4">
+
+    {% block acc_html %}{% endblock %}
+
+  </div>
+
+</details>
