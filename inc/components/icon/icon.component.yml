@@ -11,6 +11,11 @@ props:
       type: string
       description: The icon's fill colour. Inherits by default, so can be applied via a container element.
       default: none
+    icon_modifiers:
+      title: icon_modifiers
+      type: string
+      description: Optional modifier classes in case further customisation is needed.
+      default: none
     icon_name:
       title: icon_name
       type: string
