@@ -1,0 +1,186 @@
+---
+title: Accordion
+layout: templates/page.html
+---
+
+<div class="is-prose py-20 mx-auto">
+
+  <h1 class="is-decorated">{{ title }}</h1>
+
+  <h2>Description</h2>
+
+  <p>An accordion is an expandable and collapsable container component that reveals its content when the user interacts with it. Accordions help organise information, and can help users consume the information they need more efficiently.</p>
+
+  {% embed '@components/accordion/accordion.twig' with {
+    acc_title: 'Accordion header 1'
+  }%}
+
+    {% block acc_html %}
+
+      <p>Some sample accordion content.</p>
+
+      <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+      </ul>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  {% embed '@components/accordion/accordion.twig' with {
+    acc_title: 'Accordion header 2',
+    acc_id: 'acc-2'
+  }%}
+
+    {% block acc_html %}
+
+      <p>More sample accordion content.</p>
+
+      <ol>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+      </ol>
+
+    {% endblock %}
+
+  {% endembed %}  
+
+  <h3>Syntax</h3>
+
+  <p>An accordion should be used with the <code>embed</code> tag, as it is a container for other content. To place content inside an accordion, use the <code>block</code> placeholder named <code>acc_html</code> as follows:</p>
+
+  <pre><code>{{ html("
+  {% embed 'THEME_NAME:accordion' with {
+    property: 'value' } %}
+
+    {% block acc_html %}
+
+      <!-- Your accordion content here -->
+
+    {% endblock %}
+
+  {% endembed %}
+  ")}}</code></pre>
+
+  <h3>Properties</h3>
+
+  <p>The accordion component has seven properties in full, but only two are required: <code>acc_title</code> and <code>acc_html</code>.</p>
+
+  {% include '@templates/partials/component-props.html' %}
+
+  <h2>Variants</h2>
+
+  <p>The accordion component has several properties that allow for customisation, but this customisation should only be availed of in exceptional circumstances, e.g. if the accordion is placed on a coloured background.</p>
+
+  <h3>Title Length</h3>
+
+  <p>The accordion title <strong>is not a replacement for a page heading</strong> and should not be used as such. Titles should be kept short and concise.</p>
+
+  <div class="mb-1 mt-3"><span class="font-bold mr-2 text-munster">x</span>Too long:</div>
+
+  {% embed '@components/accordion/accordion.twig' with {
+    acc_title: 'An accordion title should act as a quick summary and in most cases should not flow onto a new line'
+  }%}
+
+    {% block acc_html %}
+
+      <p>Some sample accordion content.</p>
+
+      <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+      </ul>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  <div class="mb-1 mt-6"><span class="font-bold mr-1 text-modern">✓</span>Better:</div>
+
+  {% embed '@components/accordion/accordion.twig' with {
+    acc_title: 'A short and sweet accordion title'
+  }%}
+
+    {% block acc_html %}
+
+      <p>Some sample accordion content.</p>
+
+      <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+      </ul>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  <h3>Title Text Size</h3>
+
+  <p>The font size of the accordion titles aligns with that of a <code>h3</code> element, but it can be adjusted if required using the <code>acc_title_size</code> property. The value is medium by default, and can be set to large or small. It might be changed to small for instance if you had an FAQ section and many of the questions needed to flow onto two or more lines.</p>
+
+  {% embed '@components/accordion/accordion.twig' with {
+    acc_title: 'Smaller text, more suited to an FAQ section',
+    acc_title_size: 'small'
+  }%}
+
+    {% block acc_html %}
+
+      <p>Dummy text.</p>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  <p>Example code:</p>
+
+  <pre><code>{{ html("
+  {% embed '@components/accordion/accordion.twig' with {
+    acc_title: 'Smaller text, more suited to an FAQ section',
+    acc_title_size: 'small'
+  }%}
+
+    {% block acc_html %}
+
+      <!-- Accordion content -->
+
+    {% endblock %}
+
+  {% endembed %}
+  ")}}</code></pre>
+
+  {% embed '@components/accordion/accordion.twig' with {
+    acc_title: 'Larger text, for extra emphasis',
+    acc_title_size: 'large'
+  }%}
+
+    {% block acc_html %}
+
+      <p>Dummy text.</p>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  <p>Example code:</p>
+
+  <pre><code>{{ html("
+  {% embed '@components/accordion/accordion.twig' with {
+    acc_title: 'Larger text, for extra emphasis',
+    acc_title_size: 'large'
+  }%}
+
+    {% block acc_html %}
+
+      <!-- Accordion content -->
+
+    {% endblock %}
+
+  {% endembed %}
+  ")}}</code></pre>
+
+</div>
