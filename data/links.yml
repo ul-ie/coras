@@ -28,6 +28,9 @@
 - section: Components
   entries:
 
+  - text: Accordion
+    url: /components/accordion/
+
   - text: Button
     url: /components/button/
 
