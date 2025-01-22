@@ -7,10 +7,10 @@
 <table class="text-left">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Options</th>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Description</th>
+      <th scope="col">Options</th>
     </tr>
   </thead>
   <tbody>
@@ -37,5 +37,7 @@
   </tbody>
 </table>
 {% if component.props.required is not empty %}
-  <small class="before:d-block before:h-px before:w-10 before:bg-granite-l3 before:mb-2">* Denotes a required property.</small>
+  <small class="before:d-block before:h-px before:w-10 before:bg-granite-l3 before:mb-2">
+    * Denotes a required property.
+  </small>
 {% endif %}
