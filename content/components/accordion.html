@@ -67,7 +67,7 @@ layout: templates/page.html
 
   <h3>Properties</h3>
 
-  <p>The accordion component has seven properties in full, but only two are required: <code>acc_title</code> and <code>acc_html</code>.</p>
+  <p>The accordion component has six properties in full, but only two are required: <code>acc_title</code> and <code>acc_html</code>.</p>
 
   {% include '@templates/partials/component-props.html' %}
 
@@ -172,6 +172,54 @@ layout: templates/page.html
   {% embed '@components/accordion/accordion.twig' with {
     acc_title: 'Larger text, for extra emphasis',
     acc_title_size: 'large'
+  }%}
+
+    {% block acc_html %}
+
+      <!-- Accordion content -->
+
+    {% endblock %}
+
+  {% endembed %}
+  ")}}</code></pre>
+
+  <h3>Title Colour</h3>
+
+  <p>The <code>acc_title_colour</code> property can be used if it is necessary to toggle the colour of both the title text and chevron icon from green to white. This can be useful if the accordion needs to be placed on a coloured background.</p>
+  
+  <div class="bg-stone p-8 rounded">
+
+    {% embed '@components/accordion/accordion.twig' with {
+      acc_title: 'White title text',
+      acc_title_colour: 'white',
+      acc_modifiers: 'border-b border-granite-l3'
+    }%}
+
+      {% block acc_html %}
+
+      <div class="text-granite-l4">
+
+        <p>Some sample accordion content.</p>
+
+        <ul>
+          <li>List Item 1</li>
+          <li>List Item 2</li>
+          <li>List Item 3</li>
+        </ul>
+
+      </div>
+
+      {% endblock %}
+
+    {% endembed %}
+
+  </div>
+
+  <pre><code>{{ html("
+  {% embed '@components/accordion/accordion.twig' with {
+    acc_title: 'White title text',
+    acc_title_colour: 'white',
+    acc_modifiers: 'border-b border-granite-l3'
   }%}
 
     {% block acc_html %}
