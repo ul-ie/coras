@@ -6,27 +6,6 @@ props:
   required:
     - btn_text
   properties:
-    btn_modifiers:
-      title: btn_modifiers
-      type: string
-      description: Optional utility classes to further modify appearance. Particularly useful if no btn_theme is applied.
-    btn_padding:
-      title: btn_padding
-      type: string
-      description: Whether the button padding is the same on all sides (equal), or has more horizontal padding (normal).
-      enum:
-        - equal
-        - normal
-      default: normal
-    btn_size:
-      title: btn_size
-      type: string
-      description: The size of the button.
-      enum:
-        - small
-        - medium
-        - large
-      default: medium
     btn_text:
       title: btn_text
       type: string
@@ -58,6 +37,15 @@ props:
       type: string
       description: The url for buttons of type link.
       default: '#'
+    btn_size:
+      title: btn_size
+      type: string
+      description: The size of the button.
+      enum:
+        - small
+        - medium
+        - large
+      default: medium
     btn_width:
       title: btn_width
       type: string
@@ -66,6 +54,42 @@ props:
         - fit
         - full
       default: fit
+    btn_padding:
+      title: btn_padding
+      type: string
+      description: Whether the button padding is the same on all sides (equal), or has more horizontal padding (normal).
+      enum:
+        - equal
+        - normal
+      default: normal
+    btn_modifiers:
+      title: btn_modifiers
+      type: string
+      description: Optional utility classes to further modify appearance. Particularly useful if no btn_theme is applied.
+    is_disabled:
+      title: is_disabled
+      type: boolean
+      description: Is the button disabled.
+      enum:
+        - true
+        - false
+      default: false
+    is_download:
+      title: is_download
+      type: boolean
+      description: If the button is a link, does this link contain a download.
+      enum:
+        - true
+        - false
+      default: false
+    is_new_tab:
+      title: is_new_tab
+      type: boolean
+      description: If the button is a link, should the link open up a new tab.
+      enum:
+        - true
+        - false
+      default: false
     icon_name:
       title: icon_name
       type: string
@@ -101,27 +125,3 @@ props:
         - regular
         - solid
       default: solid
-    is_disabled:
-      title: is_disabled
-      type: boolean
-      description: Is the button disabled.
-      enum:
-        - true
-        - false
-      default: false
-    is_download:
-      title: is_download
-      type: boolean
-      description: If the button is a link, does this link contain a download.
-      enum:
-        - true
-        - false
-      default: false
-    is_new_tab:
-      title: is_new_tab
-      type: boolean
-      description: If the button is a link, should the link open up a new tab.
-      enum:
-        - true
-        - false
-      default: false

@@ -7,6 +7,28 @@ props:
     - acc_html
     - acc_title
   properties:
+    acc_title:
+      title: acc_title
+      type: string
+      description: The title of the accordion. This should concisely describe its content.
+      default: none
+    acc_title_colour:
+      title: acc_title_colour
+      type: string
+      description: The classes defining the colour of the accordion title.
+      enum:
+        - green
+        - white
+      default: green
+    acc_title_size:
+      title: acc_title_size
+      type: string
+      description: The size of the accordion title.
+      enum:
+        - small
+        - medium
+        - large
+      default: medium
     acc_html:
       title: acc_html
       type: block
@@ -17,32 +39,8 @@ props:
       type: string
       description: An optional id to assign to the accordion. Useful for anchor links.
       default: none
-    acc_icon_fill:
-      title: acc_icon_fill
-      type: string
-      description: The fill colour of the chevron icon.
-      default: 'fill-green dark:fill-modern group-open:fill-granite'
     acc_modifiers:
       title: acc_modifiers
       type: string
       description: Optional classes to override the styling of the main details container.
       default: 'border-b border-granite-l3 dark:border-granite-d1'
-    acc_title:
-      title: acc_title
-      type: string
-      description: The title of the accordion. This should concisely describe its content.
-      default: none
-    acc_title_colour:
-      title: acc_title_colour
-      type: string
-      description: The classes defining the colour of the accordion title.
-      default: 'text-green dark:text-granite-l3'
-    acc_title_size:
-      title: acc_title_size
-      type: string
-      description: The size of the accordion title.
-      enum:
-        - small
-        - medium
-        - large
-      default: medium

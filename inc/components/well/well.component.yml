@@ -11,12 +11,12 @@ props:
       type: block
       description: The block of content to insert into the well.
       default: none
-    well_modifiers:
-      title: well_modifiers
-      type: string
-      description: Optional utility classes to apply to the well to further modify its appearance.
     well_padding:
       title: well_padding
       type: string
       description: The padding to apply to the well.
       default: p-6
+    well_modifiers:
+      title: well_modifiers
+      type: string
+      description: Optional utility classes to apply to the well to further modify its appearance.
