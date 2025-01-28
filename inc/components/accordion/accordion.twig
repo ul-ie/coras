@@ -12,12 +12,12 @@
 
 {# The icon fill should depend on the title fill. #}
 {% set acc_icon_fill %}
-  {{ acc_title_colour == 'green' ? 'fill-green dark:fill-granite-l3 group-open:fill-granite' : 'fill-granite-l4' }}
+  {{ acc_title_colour == 'green' ? 'fill-green dark:fill-granite-l3 group-open:fill-granite' : 'fill-granite-l5' }}
 {% endset %}
 
 {# Combine the account title classes. #}
 {% set acc_title_classes %}
-  {{ acc_title_colour == 'white' ? 'text-granite-l3' : 'text-green dark:text-granite-l3' }}
+  {{ acc_title_colour == 'white' ? 'text-granite-l5' : 'text-green dark:text-granite-l3' }}
   {{ acc_title_size == 'small' ? 'text-lg' : acc_title_size == 'medium' ? 'text-xl' : 'text-2xl' -}}
 {% endset %}
 
