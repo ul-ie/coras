@@ -139,7 +139,7 @@ layout: templates/page.html
   <p>Example code:</p>
 
   <pre><code>{{ html("
-  {% embed '@components/accordion/accordion.twig' with {
+  {% embed 'ul:accordion' with {
     acc_title: 'Smaller text, more suited to an FAQ section',
     acc_title_size: 'small'
   }%}
@@ -169,7 +169,7 @@ layout: templates/page.html
   <p>Example code:</p>
 
   <pre><code>{{ html("
-  {% embed '@components/accordion/accordion.twig' with {
+  {% embed 'ul:accordion' with {
     acc_title: 'Larger text, for extra emphasis',
     acc_title_size: 'large'
   }%}
@@ -215,8 +215,10 @@ layout: templates/page.html
 
   </div>
 
+  <p>Example code:</p>
+
   <pre><code>{{ html("
-  {% embed '@components/accordion/accordion.twig' with {
+  {% embed 'ul:accordion' with {
     acc_title: 'White title text',
     acc_title_colour: 'white',
     acc_modifiers: 'border-b border-granite-l3'
@@ -230,5 +232,53 @@ layout: templates/page.html
 
   {% endembed %}
   ")}}</code></pre>
+
+  <h3>Other Properties</h3>
+
+  <p>The <code>acc_id</code> property can be used for creating anchor links, <a href="#example-id">like this</a>. This can be useful if an accordion content needs to be linked to internally or externally.</p>
+
+  {% embed '@components/accordion/accordion.twig' with {
+    acc_title: 'Accordion with id',
+    acc_id: 'example-id'
+  }%}
+
+    {% block acc_html %}
+
+      <p>Dummy text.</p>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  <p>Example code:</p>
+
+  <pre><code>{{ html("
+  {% embed 'ul:accordion' with {
+    acc_title: 'Accordion with id',
+    acc_id: 'example-id'
+  }%}
+
+    {% block acc_html %}
+
+      <!-- Accordion content -->
+
+    {% endblock %}
+
+  {% endembed %}
+  ")}}</code></pre>
+
+  <p>The accordion container can be customised if needed using the <code>acc_modifiers</code> property. <a href="#title-colour">A previous example</a> illustates this, where the bottom border colour is modified to better suit the blue background.</p>
+
+  <h2>Source Code</h2>
+
+  <p>The accordion markup takes advantage of the HTML5 <code>{{ html("<details>") }}</code> and <code>{{ html("<summary>") }}</code> elements. The source code below can be found below, and at <code>inc/components/accordion/</code> in the design system repository.</p>
+
+  <h3>Twig</h3>
+
+  <pre class="max-h-80"><code class="">{{ html(get_file("inc/components/accordion/accordion.twig")) }}</code></pre>
+
+  <h3>YML</h3>
+
+  <pre class="max-h-80"><code class="language-yaml">{{ html(get_file("inc/components/accordion/accordion.component.yml")) }}</code></pre>
 
 </div>
