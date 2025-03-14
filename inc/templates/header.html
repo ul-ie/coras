@@ -1,0 +1,38 @@
+<header class="sticky top-0 w-full h-24 z-10">
+
+  <div class="
+        absolute inset-0 bg-white/60 border-b border-granite-l3 backdrop-blur -z-10
+        dark:bg-granite-d3/70 dark:border-granite-d1" aria-hidden="true">
+  </div>
+
+  <div class="container h-full flex items-center justify-between px-5 sm:px-6">
+
+    <a href="/">{% include '@img/logo.svg' %}</a>
+
+    <label
+      for="dark-switch"
+      class="relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1/5 dark:hover:bg-modern-l1/10" >
+
+      {% include '@components/icon/icon.twig' with {
+        icon_name: 'brightness',
+        icon_type: 'duotone',
+        icon_size: 'w-6',
+        icon_fill: 'fill-green dark:hidden'
+      } %}
+
+      {% include '@components/icon/icon.twig' with {
+        icon_name: 'moon-stars',
+        icon_type: 'duotone',
+        icon_size: 'w-6 -mt-1',
+        icon_fill: 'fill-white hidden dark:block'
+      } %}
+
+      <span class="sr-only">Switch between dark and light modes</span>
+
+    </label>
+
+    <input type="checkbox" name="dark-switch" id="dark-switch" class="sr-only" />
+
+  </div>
+
+</header>

@@ -1,14 +1,13 @@
-const vite = require('@11ty/eleventy-plugin-vite');
 const twig = require('twig');
 const yaml = require('js-yaml');
 const path = require('path');
 const fs = require('fs');
 
-module.exports = function(eleventyConfig) {
+module.exports = async function(eleventyConfig) {
 
-  eleventyConfig.addPlugin(vite);
-
-  eleventyConfig.addPassthroughCopy({ 'inc/assets': '/' });
+  eleventyConfig.addPassthroughCopy({ 'inc/img': '/img' });
+  eleventyConfig.addPassthroughCopy({ 'inc/fonts': '/fonts' });
+  eleventyConfig.addPassthroughCopy({ 'inc/js': '/js' });
 
   eleventyConfig.addDataExtension('yml', (contents) => {
     return yaml.load(contents);
@@ -22,7 +21,7 @@ module.exports = function(eleventyConfig) {
         data: inputContent,
         path: `./${inputPath}`,
         namespaces: {
-          assets: './inc/assets',
+          img: './inc/img',
           templates: './inc/templates',
           components: './inc/components',
           icons: './node_modules/@awesome.me/kit-0dc973fac8/icons'
@@ -37,7 +36,7 @@ module.exports = function(eleventyConfig) {
   twig.cache(false);
 
   twig.extendFunction('get_year', () => {
-    let date = new Date();
+    const date = new Date();
     return date.getFullYear();
   });
 
@@ -50,7 +49,7 @@ module.exports = function(eleventyConfig) {
   });
 
   twig.extendFunction('get_yml', (filePath) => {
-    let file = fs.readFileSync(path.resolve(__dirname, filePath), 'utf8');
+    const file = fs.readFileSync(path.resolve(__dirname, filePath), 'utf8');
     return yaml.load(file);
   });
 
@@ -59,10 +58,11 @@ module.exports = function(eleventyConfig) {
   });
 
   twig.extendFunction('html', (str) => {
-    return str.replace(/[&<>"']/g, ($0) => {
-      let chars = { "&":"amp", "<":"lt", ">":"gt", '"':"quot", "'":"#39" }[$0];
+    const formattedCode = str.replace(/[&<>"']/g, ($0) => {
+      const chars = { "&":"amp", "<":"lt", ">":"gt", '"':"quot", "'":"#39" }[$0];
       return `&${chars};`;
     });
+    return formattedCode.trim();
   });
 
   return {
@@ -71,7 +71,7 @@ module.exports = function(eleventyConfig) {
     templateFormats: [
       'twig',
       'html',
-      'md'      
+      'md'
     ],
     dir: {
       input: 'content',

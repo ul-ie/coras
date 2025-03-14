@@ -2,35 +2,36 @@
 
 <html lang="en" class="scroll-smooth">
 
-<head>
+  <head>
 
     <meta charset="UTF-8">
 
+    <meta name="generator" content="Eleventy">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/css/index.css">
 
     <script>
-        if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
-            document.querySelector('html').classList.remove('dark');
-        } else {
-            document.querySelector('html').classList.add('dark');
-        }
+      // Check for dark mode.
+      let html = document.querySelector('html');
+      let isDarkModeActive = ('dark-mode' in localStorage) && localStorage.getItem('dark-mode') === 'true';
+      isDarkModeActive ? html.classList.add('dark') : html.classList.remove('dark');
     </script>
 
     <title>Colour</title>
 
-</head>
-<body class="antialiased bg-limestone-l5 dark:bg-granite-d3 text-granite-d3 dark:text-granite-l3">
+  </head>
+<body class="antialiased bg-limestone-l5 text-granite-d2 dark:bg-granite-d3 dark:text-granite-l3">
 
-    <header class="sticky top-0 w-full h-24 z-10">
+  <header class="sticky top-0 w-full h-24 z-10">
 
   <div class="
-        absolute inset-0 bg-white bg-opacity-60 border-b border-granite-l3 backdrop-blur -z-10
-        dark:bg-granite-d3 dark:border-granite-d1 dark:bg-opacity-70" aria-hidden="true">
+        absolute inset-0 bg-white/60 border-b border-granite-l3 backdrop-blur -z-10
+        dark:bg-granite-d3/70 dark:border-granite-d1" aria-hidden="true">
   </div>
 
-  <div class="container h-full flex items-center justify-between px-4 sm:px-6">
+  <div class="container h-full flex items-center justify-between px-5 sm:px-6">
 
     <a href="/"><svg version="1.1" viewBox="0 0 1480 676.28" width="148px" xmlns="http://www.w3.org/2000/svg" class="my-3">
   <title>University of Limerick</title>
@@ -79,13 +80,9 @@
 </svg>
 </a>
 
-    <!-- Dark mode toggle -->
-
-    <input type="checkbox" name="light-switch" id="light-switch" class="light-switch sr-only" />
-
     <label
-      for="light-switch"
-      class="relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1 hover:bg-opacity-5 dark:hover:bg-opacity-10" >
+      for="dark-switch"
+      class="relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1/5 dark:hover:bg-modern-l1/10" >
 
       
 
@@ -105,7 +102,7 @@
 
   <svg
     title="moon-stars"
-    class="fill-white hidden dark:d-block w-6 -mt-1 "
+    class="fill-white hidden dark:block w-6 -mt-1 "
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
     >
@@ -117,101 +114,170 @@
 
     </label>
 
+    <input type="checkbox" name="dark-switch" id="dark-switch" class="sr-only" />
+
   </div>
 
 </header>
-    <div class="flex container min-h-screen">
+  <div class="container grid grid-cols-6 min-h-screen">
 
-        <div class="hidden lg:flex basis-1/6 py-20 px-4 border-r border-granite-l3 dark:border-granite-d1">
+    <div class="hidden lg:block col-span-1 py-20 px-5 border-r border-granite-l3 dark:border-granite-d1">
 
-            <nav class="fixed">
+  <nav class="fixed">
 
-    <ul class="ml-2 text-green dark:text-modern-l1">
+    <ul class="list-none leading-none m-0 p-0 text-green dark:text-modern-l1">
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Guides</span>
+      
+      <li class="m-0 p-0">
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+        <span class="text-lg font-bold">Guides</span>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/guides/for-developers/">For Developers</a></li>
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
 
-                    
-            </ul>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-        </li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/guides/for-developers/">
+              For Developers
+            </a>
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Foundations</span>
+          </li>
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+          
+        </ul>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/breakpoints/">Breakpoints</a></li>
+      </li>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/spacing/">Spacing</a></li>
+      
+      <li class="m-0 p-0">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/layout/">Layout</a></li>
+        <span class="text-lg font-bold">Foundations</span>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/colour/">Colour</a></li>
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/iconography/">Iconography</a></li>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-                    
-            </ul>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/breakpoints/">
+              Breakpoints
+            </a>
 
-        </li>
+          </li>
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Components</span>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/spacing/">
+              Spacing
+            </a>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/accordion/">Accordion</a></li>
+          </li>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/button/">Button</a></li>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/icon/">Icon</a></li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/layout/">
+              Layout
+            </a>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/well/">Well</a></li>
+          </li>
 
-                    
-            </ul>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-        </li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/typography">
+              Typography
+            </a>
 
-        
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/colour/">
+              Colour
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/iconography/">
+              Iconography
+            </a>
+
+          </li>
+
+          
+        </ul>
+
+      </li>
+
+      
+      <li class="m-0 p-0">
+
+        <span class="text-lg font-bold">Components</span>
+
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/accordion/">
+              Accordion
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/button/">
+              Button
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/icon/">
+              Icon
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/well/">
+              Well
+            </a>
+
+          </li>
+
+          
+        </ul>
+
+      </li>
+
+      
     </ul>
 
-</nav>
-        </div>
+  </nav>
 
-        <main class="basis-full lg:basis-4/6"> 
+</div>
+    <main class="col-span-6 lg:col-span-4">
 
-            <article class="prose prose-granite dark:prose-invert md:prose-lg mx-auto px-4 sm:px-6">
+      <article class="px-5 py-16 sm:px-6 lg:p-20 xl:px-32">
 
-                
-<div class="is-prose py-20 mx-auto">
+        
+<h1 class="font-serif is-decorated">Colour</h1>
 
-    <h1 class="is-decorated">Colour</h1>
+<p>UL's brand palette is composed of primary, secondary and monotone colours.</p>
 
-    <p>UL's brand palette is composed of primary, secondary and monotone colours.</p>
 
-    
 
 
 
@@ -221,98 +287,143 @@
 <div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 ">
 
   
-        <div class="flex gap-1 mb-1 items-center">
-            <span class="text-sm w-20">Primary:</span>
-            <a href="#ul-green" title="UL Green"><div class="w-8 h-6 rounded bg-green"></div></a>
-            <a href="#modern-green" title="Modern Green"><div class="w-8 h-6 rounded bg-modern"></div></a>
-            <a href="#heritage-green" title="Heritage Green"><div class="w-8 h-6 rounded bg-heritage"></div></a>
-        </div>
-        <div class="flex gap-1 mb-1">
-            <span class="text-sm w-20">Secondary:</span>
-            <a href="#shannon" title="Shannon"><div class="w-8 h-6 rounded bg-shannon"></div></a>
-            <a href="#sky" title="Sky"><div class="w-8 h-6 rounded bg-sky"></div></a>
-            <a href="#stone" title="Stone"><div class="w-8 h-6 rounded bg-stone"></div></a>
-            <a href="#marine" title="Marine"><div class="w-8 h-6 rounded bg-marine"></div></a>
-            <a href="#marigold" title="Marigold"><div class="w-8 h-6 rounded bg-marigold"></div></a>
-            <a href="#golden-leaf" title="Golden Leaf"><div class="w-8 h-6 rounded bg-golden"></div></a>
-            <a href="#pumpkin" title="Pumpkin"><div class="w-8 h-6 rounded bg-pumpkin"></div></a>
-            <a href="#munster" title="Munster"><div class="w-8 h-6 rounded bg-munster"></div></a>
-            <a href="#salmon" title="Salmon"><div class="w-8 h-6 rounded bg-salmon"></div></a>
-            <a href="#autumnal-leaf" title="Autumnal Leaf"><div class="w-8 h-6 rounded bg-autumnal"></div></a>
-            <a href="#copper" title="Copper"><div class="w-8 h-6 rounded bg-copper"></div></a>
-        </div>
-        <div class="flex gap-1 mb-1">
-            <span class="text-sm w-20">Monotone:</span>
-            <a href="#limestone" title="Limestone"><div class="w-8 h-6 rounded bg-limestone"></div></a>
-            <a href="#pebble" title="Pebble"><div class="w-8 h-6 rounded bg-pebble"></div></a>
-            <a href="#granite" title="Granite"><div class="w-8 h-6 rounded bg-granite"></div></a>
-            <a href="#slate" title="Slate"><div class="w-8 h-6 rounded bg-slate"></div></a>
-        </div>
-
-        
+<div class="flex gap-1 mb-1 items-center">
+  <span class="text-sm w-20">Primary:</span>
+  <a href="#ul-green" title="UL Green">
+    <div class="w-8 h-6 rounded bg-green"></div>
+  </a>
+  <a href="#modern-green" title="Modern Green">
+    <div class="w-8 h-6 rounded bg-modern"></div>
+  </a>
+  <a href="#heritage-green" title="Heritage Green">
+    <div class="w-8 h-6 rounded bg-heritage"></div>
+  </a>
 </div>
-    <small class="pl-2 border-l-2 border-granite-l2 dark:border-granite-d1"><em>Quick links to each colour.</em></small>
+<div class="flex gap-1 mb-1">
+  <span class="text-sm w-20">Secondary:</span>
+  <a href="#shannon" title="Shannon">
+    <div class="w-8 h-6 rounded bg-shannon"></div>
+  </a>
+  <a href="#sky" title="Sky">
+    <div class="w-8 h-6 rounded bg-sky"></div>
+  </a>
+  <a href="#stone" title="Stone">
+    <div class="w-8 h-6 rounded bg-stone"></div>
+  </a>
+  <a href="#marine" title="Marine">
+    <div class="w-8 h-6 rounded bg-marine"></div>
+  </a>
+  <a href="#marigold" title="Marigold">
+    <div class="w-8 h-6 rounded bg-marigold"></div>
+  </a>
+  <a href="#golden-leaf" title="Golden Leaf">
+    <div class="w-8 h-6 rounded bg-golden"></div>
+  </a>
+  <a href="#pumpkin" title="Pumpkin">
+    <div class="w-8 h-6 rounded bg-pumpkin"></div>
+  </a>
+  <a href="#munster" title="Munster">
+    <div class="w-8 h-6 rounded bg-munster"></div>
+  </a>
+  <a href="#salmon" title="Salmon">
+    <div class="w-8 h-6 rounded bg-salmon"></div>
+  </a>
+  <a href="#autumnal-leaf" title="Autumnal Leaf">
+    <div class="w-8 h-6 rounded bg-autumnal"></div>
+  </a>
+  <a href="#copper" title="Copper">
+    <div class="w-8 h-6 rounded bg-copper"></div>
+  </a>
+</div>
+<div class="flex gap-1 mb-1">
+  <span class="text-sm w-20">Monotone:</span>
+  <a href="#limestone" title="Limestone">
+    <div class="w-8 h-6 rounded bg-limestone"></div>
+  </a>
+  <a href="#pebble" title="Pebble">
+    <div class="w-8 h-6 rounded bg-pebble"></div>
+  </a>
+  <a href="#granite" title="Granite">
+    <div class="w-8 h-6 rounded bg-granite"></div>
+  </a>
+  <a href="#slate" title="Slate">
+    <div class="w-8 h-6 rounded bg-slate"></div>
+  </a>
+</div>
 
-    <p><a href="#primary-colours">Primary</a> and <a href="#secondary-colours">secondary</a> colours have five shades each: the main shade, and two lighter and darker shades. <a href="#monotone-colours">Monotone</a> colours have five lighter and five darker shades.</p>
 
-    <h2>Usage</h2>
+</div>
+<small class="pl-2 border-l-2 border-granite-l2 dark:border-granite-d1"><em>Quick links to each colour.</em></small>
 
-    <p>The lighter and darker shades of the primary and secondary colours should only be used to complement the main shade or emphasise a transition state (e.g. a hover or active state on a button). They <strong>should not</strong> be used in isolation.</p>
+<p><a href="#primary-colours">Primary</a> and <a href="#secondary-colours">secondary</a> colours have five shades each:
+  the main shade, and two lighter and darker shades. <a href="#monotone-colours">Monotone</a> colours have five lighter
+  and five darker shades.</p>
 
-    <h3>Syntax</h3>
+<h2>Usage</h2>
 
-    <p>To set the colour of an element, construct a class name using the following structure:</p>
-        
-    <pre><code>property-colourName[-shadeName]</code></pre>
-    
-    <p>The shade name is optional (without it, the main colour will be used), and the property may be one of the following:</p>
-    
-    <ul>
-        <li><code>text-</code></li>
-        <li><code>bg-</code></li>
-        <li><code>border-</code></li>
-        <li><code>outline-</code></li>
-        <li><code>decoration-</code></li>
-        <li><code>shadow-</code></li>
-        <li><code>fill-</code> (SVG)</li>
-        <li><code>stroke-</code> (SVG)</li>
-    </ul>
+<p>The lighter and darker shades of the primary and secondary colours should only be used to complement the main shade
+  or emphasise a transition state (e.g. a hover or active state on a button). They <strong>should not</strong> be used
+  in isolation.</p>
 
-    <p>In practice, <code>text</code>, <code>bg</code>, and <code>border</code> will be the most commonly used, and some properties such as <code>border</code> allow for further specificity, e.g. <code>border-l</code> can be used to target an element's left border only.</p>
+<h3>Syntax</h3>
 
-    <h3>Examples</h3>
+<p>To set the colour of an element, construct a class name using the following structure:</p>
 
-    <p>(i) Setting the background of a <code>div</code> element to UL Green.</p>
+<pre><code>property-colourName[-shadeName]</code></pre>
 
-    <pre><code>&lt;div class=&quot;bg-green&quot;&gt;&lt;/div&gt;</code></pre>
+<p>The shade name is optional (without it, the main colour will be used), and the property may be one of the following:
+</p>
 
-    <p>(ii) Setting a <code>h3</code> element's text colour to Heritage Green.</p>
+<ul>
+  <li><code>text-</code></li>
+  <li><code>bg-</code></li>
+  <li><code>border-</code></li>
+  <li><code>outline-</code></li>
+  <li><code>decoration-</code></li>
+  <li><code>shadow-</code></li>
+  <li><code>fill-</code> (SVG)</li>
+  <li><code>stroke-</code> (SVG)</li>
+</ul>
 
-    <pre><code>&lt;h3 class=&quot;text-heritage&quot;&gt;Heading&lt;/h3&gt;</code></pre>
+<p>In practice, <code>text</code>, <code>bg</code>, and <code>border</code> will be the most commonly used, and some
+  properties such as <code>border</code> allow for further specificity, e.g. <code>border-l</code> can be used to target
+  an element's left border only.</p>
 
-    <p>(iii) Changing the background colour when the user hovers over a <code>div</code> element.</p>
+<h3>Examples</h3>
 
-    <pre><code>&lt;div class=&quot;bg-sky hover:bg-sky-d1&quot;&gt;&lt;/div&gt;</code></pre>
+<p>(i) Setting the background of a <code>div</code> element to UL Green.</p>
 
-    <p>(iv) Specifying a different colour for dark mode.</p>
+<pre><code>&lt;div class=&quot;bg-green&quot;&gt;&lt;/div&gt;</code></pre>
 
-    <pre><code>&lt;p class=&quot;text-granite-d2 dark:text-granite-l2&quot;&gt;Some text.&lt;/p&gt;</code></pre>
+<p>(ii) Setting a <code>h3</code> element's text colour to Heritage Green.</p>
 
-    <h2>Primary Colours</h2>
+<pre><code>&lt;h3 class=&quot;text-heritage&quot;&gt;Heading&lt;/h3&gt;</code></pre>
 
-    <p>It is particularly important to stick with the default colour (rather than using lighter or darker shades) when applying the primary colours, so as not to dilute brand identity.</p>
+<p>(iii) Changing the background colour when the user hovers over a <code>div</code> element.</p>
 
-    <p>Shades should only be used if accessibility is compromised (as can be the case with Modern Green) or when using state changes.</p>
+<pre><code>&lt;div class=&quot;bg-sky hover:bg-sky-d1&quot;&gt;&lt;/div&gt;</code></pre>
 
-    <div class="flex flex-col">
+<p>(iv) Specifying a different colour for dark mode.</p>
 
-        <h3>UL Green</h3>
+<pre><code>&lt;p class=&quot;text-granite-d2 dark:text-granite-l2&quot;&gt;Some text.&lt;/p&gt;</code></pre>
 
-        <div class="flex justify-between">
+<h2>Primary Colours</h2>
 
-            <div class="flex basis-1/3">
+<p>It is particularly important to stick with the default colour (rather than using lighter or darker shades) when
+  applying the primary colours, so as not to dilute brand identity.</p>
 
-                
+<p>Shades should only be used if accessibility is compromised (as can be the case with Modern Green) or when using state
+  changes.</p>
+
+<div class="flex flex-col">
+
+  <h3>UL Green</h3>
+
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/3">
+
+      
 
 <div
   x-data="{
@@ -362,13 +473,13 @@
 
   </div>
 
-</div>            
-            </div>
+</div>
+    </div>
 
-            <div class="flex flex-col justify-between basis-2/3">
+    <div class="flex flex-col justify-between basis-2/3">
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -418,7 +529,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -468,10 +579,10 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -521,7 +632,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -571,19 +682,19 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-            </div>
+    </div>
 
-        </div>
+  </div>
 
-        <h3>Modern Green</h3>
+  <h3>Modern Green</h3>
 
-        <div class="flex justify-between">
+  <div class="flex justify-between">
 
-            <div class="flex basis-1/3">
+    <div class="flex basis-1/3">
 
-                
+      
 
 <div
   x-data="{
@@ -633,13 +744,13 @@
 
   </div>
 
-</div>            
-            </div>
+</div>
+    </div>
 
-            <div class="flex flex-col justify-between basis-2/3">
+    <div class="flex flex-col justify-between basis-2/3">
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -689,7 +800,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -739,10 +850,10 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -792,7 +903,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -842,19 +953,19 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-            </div>
+    </div>
 
-        </div>
+  </div>
 
-        <h3>Heritage Green</h3>
+  <h3>Heritage Green</h3>
 
-        <div class="flex justify-between">
+  <div class="flex justify-between">
 
-            <div class="flex basis-1/3">
+    <div class="flex basis-1/3">
 
-                
+      
 
 <div
   x-data="{
@@ -904,13 +1015,13 @@
 
   </div>
 
-</div>            
-            </div>
+</div>
+    </div>
 
-            <div class="flex flex-col justify-between basis-2/3">
+    <div class="flex flex-col justify-between basis-2/3">
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -960,7 +1071,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -1010,10 +1121,10 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -1063,7 +1174,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -1113,27 +1224,27 @@
 
   </div>
 
-</div>                </div>
-
-            </div>
-
-        </div>
+</div>      </div>
 
     </div>
 
-    <h2>Secondary Colours</h2>
+  </div>
 
-    <p>Secondary colours are more flexible than primary colours but shades should ideally be confined to state changes.</p>
+</div>
 
-    <div class="flex flex-col">
+<h2>Secondary Colours</h2>
 
-        <h3>Shannon</h3>
+<p>Secondary colours are more flexible than primary colours but shades should ideally be confined to state changes.</p>
 
-        <div class="flex justify-between">
+<div class="flex flex-col">
 
-            <div class="flex basis-1/3">
+  <h3>Shannon</h3>
 
-                
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/3">
+
+      
 
 <div
   x-data="{
@@ -1183,13 +1294,13 @@
 
   </div>
 
-</div>            
-            </div>
+</div>
+    </div>
 
-            <div class="flex flex-col justify-between basis-2/3">
+    <div class="flex flex-col justify-between basis-2/3">
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -1239,7 +1350,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -1289,10 +1400,10 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -1342,7 +1453,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -1392,19 +1503,19 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-            </div>
+    </div>
 
-        </div>
+  </div>
 
-        <h3>Sky</h3>
+  <h3>Sky</h3>
 
-        <div class="flex justify-between">
+  <div class="flex justify-between">
 
-            <div class="flex basis-1/3">
+    <div class="flex basis-1/3">
 
-                
+      
 
 <div
   x-data="{
@@ -1454,13 +1565,13 @@
 
   </div>
 
-</div>            
-            </div>
+</div>
+    </div>
 
-            <div class="flex flex-col justify-between basis-2/3">
+    <div class="flex flex-col justify-between basis-2/3">
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -1510,7 +1621,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -1560,10 +1671,10 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -1613,7 +1724,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -1663,19 +1774,19 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-            </div>
+    </div>
 
-        </div>
+  </div>
 
-        <h3>Stone</h3>
+  <h3>Stone</h3>
 
-        <div class="flex justify-between">
+  <div class="flex justify-between">
 
-            <div class="flex basis-1/3">
+    <div class="flex basis-1/3">
 
-                
+      
 
 <div
   x-data="{
@@ -1725,13 +1836,13 @@
 
   </div>
 
-</div>            
-            </div>
+</div>
+    </div>
 
-            <div class="flex flex-col justify-between basis-2/3">
+    <div class="flex flex-col justify-between basis-2/3">
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -1781,7 +1892,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -1831,10 +1942,10 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -1884,7 +1995,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -1934,19 +2045,19 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-            </div>
+    </div>
 
-        </div>
+  </div>
 
-        <h3>Marine</h3>
+  <h3>Marine</h3>
 
-        <div class="flex justify-between">
+  <div class="flex justify-between">
 
-            <div class="flex basis-1/3">
+    <div class="flex basis-1/3">
 
-                
+      
 
 <div
   x-data="{
@@ -1996,13 +2107,13 @@
 
   </div>
 
-</div>            
-            </div>
+</div>
+    </div>
 
-            <div class="flex flex-col justify-between basis-2/3">
+    <div class="flex flex-col justify-between basis-2/3">
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -2052,7 +2163,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -2102,10 +2213,10 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -2155,7 +2266,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -2205,19 +2316,19 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-            </div>
+    </div>
 
-        </div>
+  </div>
 
-        <h3>Marigold</h3>
+  <h3>Marigold</h3>
 
-        <div class="flex justify-between">
+  <div class="flex justify-between">
 
-            <div class="flex basis-1/3">
+    <div class="flex basis-1/3">
 
-                
+      
 
 <div
   x-data="{
@@ -2267,13 +2378,13 @@
 
   </div>
 
-</div>            
-            </div>
+</div>
+    </div>
 
-            <div class="flex flex-col justify-between basis-2/3">
+    <div class="flex flex-col justify-between basis-2/3">
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -2323,7 +2434,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -2373,10 +2484,10 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -2426,7 +2537,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -2476,19 +2587,19 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-            </div>
+    </div>
 
-        </div>
+  </div>
 
-        <h3>Golden Leaf</h3>
+  <h3>Golden Leaf</h3>
 
-        <div class="flex justify-between">
+  <div class="flex justify-between">
 
-            <div class="flex basis-1/3">
+    <div class="flex basis-1/3">
 
-                
+      
 
 <div
   x-data="{
@@ -2538,13 +2649,13 @@
 
   </div>
 
-</div>            
-            </div>
+</div>
+    </div>
 
-            <div class="flex flex-col justify-between basis-2/3">
+    <div class="flex flex-col justify-between basis-2/3">
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -2594,7 +2705,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -2644,10 +2755,10 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -2697,7 +2808,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -2747,19 +2858,19 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-            </div>
+    </div>
 
-        </div>
+  </div>
 
-        <h3>Pumpkin</h3>
+  <h3>Pumpkin</h3>
 
-        <div class="flex justify-between">
+  <div class="flex justify-between">
 
-            <div class="flex basis-1/3">
+    <div class="flex basis-1/3">
 
-                
+      
 
 <div
   x-data="{
@@ -2809,13 +2920,13 @@
 
   </div>
 
-</div>            
-            </div>
+</div>
+    </div>
 
-            <div class="flex flex-col justify-between basis-2/3">
+    <div class="flex flex-col justify-between basis-2/3">
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -2865,7 +2976,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -2915,10 +3026,10 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -2968,7 +3079,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -3018,19 +3129,19 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-            </div>
+    </div>
 
-        </div>
+  </div>
 
-        <h3>Munster</h3>
+  <h3>Munster</h3>
 
-        <div class="flex justify-between">
+  <div class="flex justify-between">
 
-            <div class="flex basis-1/3">
+    <div class="flex basis-1/3">
 
-                
+      
 
 <div
   x-data="{
@@ -3080,13 +3191,13 @@
 
   </div>
 
-</div>            
-            </div>
+</div>
+    </div>
 
-            <div class="flex flex-col justify-between basis-2/3">
+    <div class="flex flex-col justify-between basis-2/3">
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -3136,7 +3247,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -3186,10 +3297,10 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -3239,7 +3350,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -3289,19 +3400,19 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-            </div>
+    </div>
 
-        </div>
+  </div>
 
-        <h3>Salmon</h3>
+  <h3>Salmon</h3>
 
-        <div class="flex justify-between">
+  <div class="flex justify-between">
 
-            <div class="flex basis-1/3">
+    <div class="flex basis-1/3">
 
-                
+      
 
 <div
   x-data="{
@@ -3351,13 +3462,13 @@
 
   </div>
 
-</div>            
-            </div>
+</div>
+    </div>
 
-            <div class="flex flex-col justify-between basis-2/3">
+    <div class="flex flex-col justify-between basis-2/3">
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -3407,7 +3518,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -3457,10 +3568,10 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -3510,7 +3621,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -3560,19 +3671,19 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-            </div>
+    </div>
 
-        </div>
+  </div>
 
-        <h3>Autumnal Leaf</h3>
+  <h3>Autumnal Leaf</h3>
 
-        <div class="flex justify-between">
+  <div class="flex justify-between">
 
-            <div class="flex basis-1/3">
+    <div class="flex basis-1/3">
 
-                
+      
 
 <div
   x-data="{
@@ -3622,13 +3733,13 @@
 
   </div>
 
-</div>            
-            </div>
+</div>
+    </div>
 
-            <div class="flex flex-col justify-between basis-2/3">
+    <div class="flex flex-col justify-between basis-2/3">
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -3678,7 +3789,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -3728,10 +3839,10 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -3781,7 +3892,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -3831,19 +3942,19 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-            </div>
+    </div>
 
-        </div>
+  </div>
 
-        <h3>Copper</h3>
+  <h3>Copper</h3>
 
-        <div class="flex justify-between">
+  <div class="flex justify-between">
 
-            <div class="flex basis-1/3">
+    <div class="flex basis-1/3">
 
-                
+      
 
 <div
   x-data="{
@@ -3893,13 +4004,13 @@
 
   </div>
 
-</div>            
-            </div>
+</div>
+    </div>
 
-            <div class="flex flex-col justify-between basis-2/3">
+    <div class="flex flex-col justify-between basis-2/3">
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -3949,7 +4060,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -3999,10 +4110,10 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -4052,7 +4163,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -4102,27 +4213,28 @@
 
   </div>
 
-</div>                </div>
-
-            </div>
-
-        </div>
+</div>      </div>
 
     </div>
 
-    <h2>Monotone Colours</h2>
+  </div>
 
-    <p>Monotone colours are the most flexible and different shades may be freely used. <strong>Note:</strong> the below monotone palette is optimised for UI and web design.</p>
+</div>
 
-    <div class="flex flex-col">
+<h2>Monotone Colours</h2>
 
-        <h3>Limestone</h3>
+<p>Monotone colours are the most flexible and different shades may be freely used. <strong>Note:</strong> the below
+  monotone palette is optimised for UI and web design.</p>
 
-        <div class="flex justify-between">
+<div class="flex flex-col">
 
-            <div class="flex basis-1/4">
+  <h3>Limestone</h3>
 
-                
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/4">
+
+      
 
 <div
   x-data="{
@@ -4172,13 +4284,13 @@
 
   </div>
 
-</div>            
-            </div>
+</div>
+    </div>
 
-            <div class="flex flex-col justify-between basis-3/4">
+    <div class="flex flex-col justify-between basis-3/4">
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -4213,7 +4325,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -4248,7 +4360,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -4283,7 +4395,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -4318,7 +4430,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -4353,10 +4465,10 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -4391,7 +4503,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -4426,7 +4538,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -4461,7 +4573,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -4496,7 +4608,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -4531,19 +4643,19 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-            </div>
+    </div>
 
-        </div>
+  </div>
 
-        <h3>Pebble</h3>
+  <h3>Pebble</h3>
 
-        <div class="flex justify-between">
+  <div class="flex justify-between">
 
-            <div class="flex basis-1/4">
+    <div class="flex basis-1/4">
 
-                
+      
 
 <div
   x-data="{
@@ -4593,13 +4705,13 @@
 
   </div>
 
-</div>            
-            </div>
+</div>
+    </div>
 
-            <div class="flex flex-col justify-between basis-3/4">
+    <div class="flex flex-col justify-between basis-3/4">
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -4634,7 +4746,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -4669,7 +4781,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -4704,7 +4816,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -4739,7 +4851,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -4774,10 +4886,10 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -4812,7 +4924,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -4847,7 +4959,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -4882,7 +4994,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -4917,7 +5029,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -4952,19 +5064,19 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-            </div>
+    </div>
 
-        </div>
+  </div>
 
-        <h3>Granite</h3>
+  <h3>Granite</h3>
 
-        <div class="flex justify-between">
+  <div class="flex justify-between">
 
-            <div class="flex basis-1/4">
+    <div class="flex basis-1/4">
 
-                
+      
 
 <div
   x-data="{
@@ -5014,13 +5126,13 @@
 
   </div>
 
-</div>            
-            </div>
+</div>
+    </div>
 
-            <div class="flex flex-col justify-between basis-3/4">
+    <div class="flex flex-col justify-between basis-3/4">
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -5055,7 +5167,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -5090,7 +5202,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -5125,7 +5237,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -5160,7 +5272,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -5195,10 +5307,10 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -5233,7 +5345,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -5268,7 +5380,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -5303,7 +5415,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -5338,7 +5450,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -5373,19 +5485,19 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-            </div>
+    </div>
 
-        </div>
+  </div>
 
-        <h3>Slate</h3>
+  <h3>Slate</h3>
 
-        <div class="flex justify-between">
+  <div class="flex justify-between">
 
-            <div class="flex basis-1/4">
+    <div class="flex basis-1/4">
 
-                
+      
 
 <div
   x-data="{
@@ -5435,13 +5547,13 @@
 
   </div>
 
-</div>            
-            </div>
+</div>
+    </div>
 
-            <div class="flex flex-col justify-between basis-3/4">
+    <div class="flex flex-col justify-between basis-3/4">
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -5476,7 +5588,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -5511,7 +5623,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -5546,7 +5658,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -5581,7 +5693,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -5616,10 +5728,10 @@
 
   </div>
 
-</div>                </div>
+</div>      </div>
 
-                <div class="flex">
-                    
+      <div class="flex">
+        
 
 <div
   x-data="{
@@ -5654,7 +5766,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -5689,7 +5801,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -5724,7 +5836,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -5759,7 +5871,7 @@
 
   </div>
 
-</div>                    
+</div>        
 
 <div
   x-data="{
@@ -5794,40 +5906,39 @@
 
   </div>
 
-</div>                </div>
-
-            </div>
-
-        </div>
+</div>      </div>
 
     </div>
+
+  </div>
 
 </div>
 
+      </article>
 
-            </article>
+    </main>
 
-        </main>
+    <div class="hidden lg:block col-span-1 py-20 px-4">
 
-        <div class="hidden lg:flex basis-1/6 py-20 px-4">
+  <div class="flex justify-center">
 
-            <nav
-  id="page-nav"
-  class="fixed no-scrollbar">
-</nav>
-        </div>
-        
-    </div>
+    <nav id="page-nav" class="fixed no-scrollbar"></nav>
 
-    <footer class="
-    basis-full p-4 border-t border-granite-l3 text-center
-    dark:border-granite-d1">
+  </div>
 
-    Copyright © University of Limerick 2025
+</div>
+  </div>
 
-</footer>
-    <script type="module" src="/index.js"></script>
+      <footer class="
+      basis-full p-4 border-t border-granite-l3 text-center
+      dark:border-granite-d1">
 
-</body>
+      Copyright © University of Limerick 2025
+
+    </footer>
+    
+    <script type="module" src="/js/index.js"></script>
+
+  </body>
 
 </html>

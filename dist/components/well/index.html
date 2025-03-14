@@ -2,35 +2,36 @@
 
 <html lang="en" class="scroll-smooth">
 
-<head>
+  <head>
 
     <meta charset="UTF-8">
 
+    <meta name="generator" content="Eleventy">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/css/index.css">
 
     <script>
-        if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
-            document.querySelector('html').classList.remove('dark');
-        } else {
-            document.querySelector('html').classList.add('dark');
-        }
+      // Check for dark mode.
+      let html = document.querySelector('html');
+      let isDarkModeActive = ('dark-mode' in localStorage) && localStorage.getItem('dark-mode') === 'true';
+      isDarkModeActive ? html.classList.add('dark') : html.classList.remove('dark');
     </script>
 
     <title>Well</title>
 
-</head>
-<body class="antialiased bg-limestone-l5 dark:bg-granite-d3 text-granite-d3 dark:text-granite-l3">
+  </head>
+<body class="antialiased bg-limestone-l5 text-granite-d2 dark:bg-granite-d3 dark:text-granite-l3">
 
-    <header class="sticky top-0 w-full h-24 z-10">
+  <header class="sticky top-0 w-full h-24 z-10">
 
   <div class="
-        absolute inset-0 bg-white bg-opacity-60 border-b border-granite-l3 backdrop-blur -z-10
-        dark:bg-granite-d3 dark:border-granite-d1 dark:bg-opacity-70" aria-hidden="true">
+        absolute inset-0 bg-white/60 border-b border-granite-l3 backdrop-blur -z-10
+        dark:bg-granite-d3/70 dark:border-granite-d1" aria-hidden="true">
   </div>
 
-  <div class="container h-full flex items-center justify-between px-4 sm:px-6">
+  <div class="container h-full flex items-center justify-between px-5 sm:px-6">
 
     <a href="/"><svg version="1.1" viewBox="0 0 1480 676.28" width="148px" xmlns="http://www.w3.org/2000/svg" class="my-3">
   <title>University of Limerick</title>
@@ -79,13 +80,9 @@
 </svg>
 </a>
 
-    <!-- Dark mode toggle -->
-
-    <input type="checkbox" name="light-switch" id="light-switch" class="light-switch sr-only" />
-
     <label
-      for="light-switch"
-      class="relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1 hover:bg-opacity-5 dark:hover:bg-opacity-10" >
+      for="dark-switch"
+      class="relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1/5 dark:hover:bg-modern-l1/10" >
 
       
 
@@ -105,7 +102,7 @@
 
   <svg
     title="moon-stars"
-    class="fill-white hidden dark:d-block w-6 -mt-1 "
+    class="fill-white hidden dark:block w-6 -mt-1 "
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
     >
@@ -117,103 +114,172 @@
 
     </label>
 
+    <input type="checkbox" name="dark-switch" id="dark-switch" class="sr-only" />
+
   </div>
 
 </header>
-    <div class="flex container min-h-screen">
+  <div class="container grid grid-cols-6 min-h-screen">
 
-        <div class="hidden lg:flex basis-1/6 py-20 px-4 border-r border-granite-l3 dark:border-granite-d1">
+    <div class="hidden lg:block col-span-1 py-20 px-5 border-r border-granite-l3 dark:border-granite-d1">
 
-            <nav class="fixed">
+  <nav class="fixed">
 
-    <ul class="ml-2 text-green dark:text-modern-l1">
+    <ul class="list-none leading-none m-0 p-0 text-green dark:text-modern-l1">
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Guides</span>
+      
+      <li class="m-0 p-0">
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+        <span class="text-lg font-bold">Guides</span>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/guides/for-developers/">For Developers</a></li>
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
 
-                    
-            </ul>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-        </li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/guides/for-developers/">
+              For Developers
+            </a>
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Foundations</span>
+          </li>
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+          
+        </ul>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/breakpoints/">Breakpoints</a></li>
+      </li>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/spacing/">Spacing</a></li>
+      
+      <li class="m-0 p-0">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/layout/">Layout</a></li>
+        <span class="text-lg font-bold">Foundations</span>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/colour/">Colour</a></li>
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/iconography/">Iconography</a></li>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-                    
-            </ul>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/breakpoints/">
+              Breakpoints
+            </a>
 
-        </li>
+          </li>
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Components</span>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/spacing/">
+              Spacing
+            </a>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/accordion/">Accordion</a></li>
+          </li>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/button/">Button</a></li>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/icon/">Icon</a></li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/layout/">
+              Layout
+            </a>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/well/">Well</a></li>
+          </li>
 
-                    
-            </ul>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-        </li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/typography">
+              Typography
+            </a>
 
-        
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/colour/">
+              Colour
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/iconography/">
+              Iconography
+            </a>
+
+          </li>
+
+          
+        </ul>
+
+      </li>
+
+      
+      <li class="m-0 p-0">
+
+        <span class="text-lg font-bold">Components</span>
+
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/accordion/">
+              Accordion
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/button/">
+              Button
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/icon/">
+              Icon
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/well/">
+              Well
+            </a>
+
+          </li>
+
+          
+        </ul>
+
+      </li>
+
+      
     </ul>
 
-</nav>
-        </div>
+  </nav>
 
-        <main class="basis-full lg:basis-4/6"> 
+</div>
+    <main class="col-span-6 lg:col-span-4">
 
-            <article class="prose prose-granite dark:prose-invert md:prose-lg mx-auto px-4 sm:px-6">
+      <article class="px-5 py-16 sm:px-6 lg:p-20 xl:px-32">
 
-                
-<div class="is-prose py-20 mx-auto">
+        
+<h1 class="font-serif is-decorated">Well</h1>
 
-  <h1 class="is-decorated">Well</h1>
+<h2>Description</h2>
 
-  <h2>Description</h2>
+<p>A well is a very simple component designed to nest other content or components.</p>
 
-  <p>A well is a very simple component designed to nest other content or components.</p>
 
-  
 
 
 
@@ -223,32 +289,30 @@
 <div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 ">
 
   
-      <div class="text-center"><code>div</code> content inside a well.</div>
-
-    
-</div>
-  <h3>Syntax</h3>
-
-  <p>A well is to be used with the <code>embed</code> tag, as it is a container for other content. To place content inside the well, use the <code>block</code> placeholder named <code>well_html</code> as follows:</p>
-
-  <pre><code>
-  {% embed &#39;THEME_NAME:well&#39; with {
-    property: &#39;value&#39; } %}
-
-    {% block well_html %}
-
-      &lt;!-- Your content or components here --&gt;
-
-    {% endblock %}
-
-  {% endembed %}
-  </code></pre>
-
-  <h3>Properties</h3>
-
-  <p>In addition to the <code>well_html</code> block a well has two properties, both optional.</p>
+    <div class="text-center"><code>div</code> content inside a well.</div>
 
   
+</div>
+<h3>Syntax</h3>
+
+<p>A well is to be used with the <code>embed</code> tag, as it is a container for other content. To place content inside the well, use the <code>block</code> placeholder named <code>well_html</code> as follows:</p>
+
+<pre><code>{% embed &#39;THEME_NAME:well&#39; with {
+  property: &#39;value&#39; } %}
+
+  {% block well_html %}
+
+    &lt;!-- Your content or components here --&gt;
+
+  {% endblock %}
+
+{% endembed %}</code></pre>
+
+<h3>Properties</h3>
+
+<p>In addition to the <code>well_html</code> block a well has two properties, both optional.</p>
+
+
 
 <table class="text-left">
   <thead>
@@ -295,30 +359,28 @@
     * Denotes a required property.
   </small>
 
-  <h2>Variants</h2>
+<h2>Variants</h2>
 
-  <p>The padding can be customized per instance using the optional <code>well_padding</code> variable. In the following examples the padding is indicated with a dashed outline.</p>
+<p>The padding can be customized per instance using the optional <code>well_padding</code> variable. In the following examples the padding is indicated with a dashed outline.</p>
 
-  <h3>Custom Padding</h3>
+<h3>Custom Padding</h3>
 
-  <p>To decrease or increase the padding, use a different value for the utility padding class, e.g. <code>p-2</code> to
-    make it smaller:</p>
+<p>To decrease or increase the padding, use a different value for the utility padding class, e.g. <code>p-2</code> to
+  make it smaller:</p>
 
-  <pre><code>
-  {% embed &#39;ul:well&#39; with { well_padding: &#39;p-2&#39; } %}
+<pre><code>{% embed &#39;ul:well&#39; with { well_padding: &#39;p-2&#39; } %}
 
-    {% block well_html %}
+  {% block well_html %}
 
-      &lt;!-- Your content or components here --&gt;
+    &lt;!-- Your content or components here --&gt;
 
-    {% endblock %}
+  {% endblock %}
 
-  {% endembed %}
-  </code></pre>
+{% endembed %}</code></pre>
 
-  <p>This would result in the following output:</p>
+<p>This would result in the following output:</p>
 
-  
+
 
 
 
@@ -328,30 +390,28 @@
 <div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-2 ">
 
   
-      <div class="text-center outline-1 outline-modern outline-dashed dark:outline-modern-d2">A well with less padding.</div>
-
-    
-</div>
-  <h3>Conditional Padding</h3>
-
-  <p>You could also have the padding adapt to different screen sizes. For example, in the following code the padding
-    will change depending on the size of the user's screen:</p>
-
-  <pre><code>
-  {% embed &#39;ul:well&#39; with { 
-    well_padding: &#39;p-3 md:p-5 lg:p-8&#39; 
-  } %}
-
-    {% block well_html %}
-
-      &lt;!-- Your content or components here --&gt;
-
-    {% endblock %}
-
-  {% endembed %}
-  </code></pre>
+    <div class="text-center outline-1 outline-modern outline-dashed dark:outline-modern-d2">A well with less padding.</div>
 
   
+</div>
+<h3>Conditional Padding</h3>
+
+<p>You could also have the padding adapt to different screen sizes. For example, in the following code the padding
+  will change depending on the size of the user's screen:</p>
+
+<pre><code>{% embed &#39;ul:well&#39; with { 
+  well_padding: &#39;p-3 md:p-5 lg:p-8&#39; 
+} %}
+
+  {% block well_html %}
+
+    &lt;!-- Your content or components here --&gt;
+
+  {% endblock %}
+
+{% endembed %}</code></pre>
+
+
 
 
 
@@ -361,30 +421,28 @@
 <div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-3 md:p-5 lg:p-8 ">
 
   
-    <div class="text-center outline-1 outline-modern outline-dashed dark:outline-modern-d2">Responsive padding.</div>
-
-    
-</div>
-  <h3>Modifier Classes</h3>
-
-  <p>Using the <code>well_modifiers</code> property, you can further adjust the appearance of the well. For example, if
-    you wanted it to appear as an inline block rather than the default block, you could use the following code:</p>
-
-  <pre><code>
-  {% embed &#39;ul:well&#39; with { 
-    well_modifiers: &#39;inline-block&#39; 
-  } %}
-
-    {% block well_html %}
-
-      &lt;!-- Your content or components here --&gt;
-
-    {% endblock %}
-
-  {% endembed %}
-  </code></pre>
+  <div class="text-center outline-1 outline-modern outline-dashed dark:outline-modern-d2">Responsive padding.</div>
 
   
+</div>
+<h3>Modifier Classes</h3>
+
+<p>Using the <code>well_modifiers</code> property, you can further adjust the appearance of the well. For example, if
+  you wanted it to appear as an inline block rather than the default block, you could use the following code:</p>
+
+<pre><code>{% embed &#39;ul:well&#39; with { 
+  well_modifiers: &#39;inline-block&#39; 
+} %}
+
+  {% block well_html %}
+
+    &lt;!-- Your content or components here --&gt;
+
+  {% endblock %}
+
+{% endembed %}</code></pre>
+
+
 
 
 
@@ -394,17 +452,17 @@
 <div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 inline-block">
 
   
-      <div class="text-center">A well styled as an inline block.</div>
+    <div class="text-center">A well styled as an inline block.</div>
 
-    
+  
 </div>
-  <h2>Source Code</h2>
+<h2>Source Code</h2>
 
-  <p>The source code below can be found below, and at <code>inc/components/well/</code> in the design system repository.</p>
+<p>The source code below can be found below, and at <code>inc/components/well/</code> in the design system repository.</p>
 
-  <h3>Twig</h3>
+<h3>Twig</h3>
 
-  <pre class="max-h-80"><code class="">{#
+<pre class="max-h-80"><code class="">{#
 /**
  * @file
  * Well component.
@@ -432,9 +490,9 @@
 
 &lt;/div&gt;</code></pre>
 
-  <h3>YML</h3>
+<h3>YML</h3>
 
-  <pre><code class="language-yaml">name: Well
+<pre><code class="language-yaml">name: Well
 status: stable
 version: 1.0
 props:
@@ -455,34 +513,33 @@ props:
     well_modifiers:
       title: well_modifiers
       type: string
-      description: Optional utility classes to apply to the well to further modify its appearance.
-</code></pre>
+      description: Optional utility classes to apply to the well to further modify its appearance.</code></pre>
+
+      </article>
+
+    </main>
+
+    <div class="hidden lg:block col-span-1 py-20 px-4">
+
+  <div class="flex justify-center">
+
+    <nav id="page-nav" class="fixed no-scrollbar"></nav>
+
+  </div>
 
 </div>
+  </div>
 
-            </article>
+      <footer class="
+      basis-full p-4 border-t border-granite-l3 text-center
+      dark:border-granite-d1">
 
-        </main>
+      Copyright © University of Limerick 2025
 
-        <div class="hidden lg:flex basis-1/6 py-20 px-4">
+    </footer>
+    
+    <script type="module" src="/js/index.js"></script>
 
-            <nav
-  id="page-nav"
-  class="fixed no-scrollbar">
-</nav>
-        </div>
-        
-    </div>
-
-    <footer class="
-    basis-full p-4 border-t border-granite-l3 text-center
-    dark:border-granite-d1">
-
-    Copyright © University of Limerick 2025
-
-</footer>
-    <script type="module" src="/index.js"></script>
-
-</body>
+  </body>
 
 </html>

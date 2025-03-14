@@ -4,611 +4,767 @@ tags: foundations
 layout: templates/page.html
 ---
 
-<div class="is-prose py-20 mx-auto">
+<h1 class="font-serif is-decorated">{{ title }}</h1>
 
-    <h1 class="is-decorated">{{ title }}</h1>
+<p>UL's brand palette is composed of primary, secondary and monotone colours.</p>
 
-    <p>UL's brand palette is composed of primary, secondary and monotone colours.</p>
+{% embed '@components/well/well.twig' %}
 
-    {% embed '@components/well/well.twig' %}
+{% block well_html %}
 
-        {% block well_html %}
+<div class="flex gap-1 mb-1 items-center">
+  <span class="text-sm w-20">Primary:</span>
+  <a href="#ul-green" title="UL Green">
+    <div class="w-8 h-6 rounded bg-green"></div>
+  </a>
+  <a href="#modern-green" title="Modern Green">
+    <div class="w-8 h-6 rounded bg-modern"></div>
+  </a>
+  <a href="#heritage-green" title="Heritage Green">
+    <div class="w-8 h-6 rounded bg-heritage"></div>
+  </a>
+</div>
+<div class="flex gap-1 mb-1">
+  <span class="text-sm w-20">Secondary:</span>
+  <a href="#shannon" title="Shannon">
+    <div class="w-8 h-6 rounded bg-shannon"></div>
+  </a>
+  <a href="#sky" title="Sky">
+    <div class="w-8 h-6 rounded bg-sky"></div>
+  </a>
+  <a href="#stone" title="Stone">
+    <div class="w-8 h-6 rounded bg-stone"></div>
+  </a>
+  <a href="#marine" title="Marine">
+    <div class="w-8 h-6 rounded bg-marine"></div>
+  </a>
+  <a href="#marigold" title="Marigold">
+    <div class="w-8 h-6 rounded bg-marigold"></div>
+  </a>
+  <a href="#golden-leaf" title="Golden Leaf">
+    <div class="w-8 h-6 rounded bg-golden"></div>
+  </a>
+  <a href="#pumpkin" title="Pumpkin">
+    <div class="w-8 h-6 rounded bg-pumpkin"></div>
+  </a>
+  <a href="#munster" title="Munster">
+    <div class="w-8 h-6 rounded bg-munster"></div>
+  </a>
+  <a href="#salmon" title="Salmon">
+    <div class="w-8 h-6 rounded bg-salmon"></div>
+  </a>
+  <a href="#autumnal-leaf" title="Autumnal Leaf">
+    <div class="w-8 h-6 rounded bg-autumnal"></div>
+  </a>
+  <a href="#copper" title="Copper">
+    <div class="w-8 h-6 rounded bg-copper"></div>
+  </a>
+</div>
+<div class="flex gap-1 mb-1">
+  <span class="text-sm w-20">Monotone:</span>
+  <a href="#limestone" title="Limestone">
+    <div class="w-8 h-6 rounded bg-limestone"></div>
+  </a>
+  <a href="#pebble" title="Pebble">
+    <div class="w-8 h-6 rounded bg-pebble"></div>
+  </a>
+  <a href="#granite" title="Granite">
+    <div class="w-8 h-6 rounded bg-granite"></div>
+  </a>
+  <a href="#slate" title="Slate">
+    <div class="w-8 h-6 rounded bg-slate"></div>
+  </a>
+</div>
 
-        <div class="flex gap-1 mb-1 items-center">
-            <span class="text-sm w-20">Primary:</span>
-            <a href="#ul-green" title="UL Green"><div class="w-8 h-6 rounded bg-green"></div></a>
-            <a href="#modern-green" title="Modern Green"><div class="w-8 h-6 rounded bg-modern"></div></a>
-            <a href="#heritage-green" title="Heritage Green"><div class="w-8 h-6 rounded bg-heritage"></div></a>
-        </div>
-        <div class="flex gap-1 mb-1">
-            <span class="text-sm w-20">Secondary:</span>
-            <a href="#shannon" title="Shannon"><div class="w-8 h-6 rounded bg-shannon"></div></a>
-            <a href="#sky" title="Sky"><div class="w-8 h-6 rounded bg-sky"></div></a>
-            <a href="#stone" title="Stone"><div class="w-8 h-6 rounded bg-stone"></div></a>
-            <a href="#marine" title="Marine"><div class="w-8 h-6 rounded bg-marine"></div></a>
-            <a href="#marigold" title="Marigold"><div class="w-8 h-6 rounded bg-marigold"></div></a>
-            <a href="#golden-leaf" title="Golden Leaf"><div class="w-8 h-6 rounded bg-golden"></div></a>
-            <a href="#pumpkin" title="Pumpkin"><div class="w-8 h-6 rounded bg-pumpkin"></div></a>
-            <a href="#munster" title="Munster"><div class="w-8 h-6 rounded bg-munster"></div></a>
-            <a href="#salmon" title="Salmon"><div class="w-8 h-6 rounded bg-salmon"></div></a>
-            <a href="#autumnal-leaf" title="Autumnal Leaf"><div class="w-8 h-6 rounded bg-autumnal"></div></a>
-            <a href="#copper" title="Copper"><div class="w-8 h-6 rounded bg-copper"></div></a>
-        </div>
-        <div class="flex gap-1 mb-1">
-            <span class="text-sm w-20">Monotone:</span>
-            <a href="#limestone" title="Limestone"><div class="w-8 h-6 rounded bg-limestone"></div></a>
-            <a href="#pebble" title="Pebble"><div class="w-8 h-6 rounded bg-pebble"></div></a>
-            <a href="#granite" title="Granite"><div class="w-8 h-6 rounded bg-granite"></div></a>
-            <a href="#slate" title="Slate"><div class="w-8 h-6 rounded bg-slate"></div></a>
-        </div>
+{% endblock %}
 
-        {% endblock %}
+{% endembed %}
 
-    {% endembed %}
+<small class="pl-2 border-l-2 border-granite-l2 dark:border-granite-d1"><em>Quick links to each colour.</em></small>
 
-    <small class="pl-2 border-l-2 border-granite-l2 dark:border-granite-d1"><em>Quick links to each colour.</em></small>
+<p><a href="#primary-colours">Primary</a> and <a href="#secondary-colours">secondary</a> colours have five shades each:
+  the main shade, and two lighter and darker shades. <a href="#monotone-colours">Monotone</a> colours have five lighter
+  and five darker shades.</p>
 
-    <p><a href="#primary-colours">Primary</a> and <a href="#secondary-colours">secondary</a> colours have five shades each: the main shade, and two lighter and darker shades. <a href="#monotone-colours">Monotone</a> colours have five lighter and five darker shades.</p>
+<h2>Usage</h2>
 
-    <h2>Usage</h2>
+<p>The lighter and darker shades of the primary and secondary colours should only be used to complement the main shade
+  or emphasise a transition state (e.g. a hover or active state on a button). They <strong>should not</strong> be used
+  in isolation.</p>
 
-    <p>The lighter and darker shades of the primary and secondary colours should only be used to complement the main shade or emphasise a transition state (e.g. a hover or active state on a button). They <strong>should not</strong> be used in isolation.</p>
+<h3>Syntax</h3>
 
-    <h3>Syntax</h3>
+<p>To set the colour of an element, construct a class name using the following structure:</p>
 
-    <p>To set the colour of an element, construct a class name using the following structure:</p>
-        
-    <pre><code>property-colourName[-shadeName]</code></pre>
-    
-    <p>The shade name is optional (without it, the main colour will be used), and the property may be one of the following:</p>
-    
-    <ul>
-        <li><code>text-</code></li>
-        <li><code>bg-</code></li>
-        <li><code>border-</code></li>
-        <li><code>outline-</code></li>
-        <li><code>decoration-</code></li>
-        <li><code>shadow-</code></li>
-        <li><code>fill-</code> (SVG)</li>
-        <li><code>stroke-</code> (SVG)</li>
-    </ul>
+<pre><code>property-colourName[-shadeName]</code></pre>
 
-    <p>In practice, <code>text</code>, <code>bg</code>, and <code>border</code> will be the most commonly used, and some properties such as <code>border</code> allow for further specificity, e.g. <code>border-l</code> can be used to target an element's left border only.</p>
+<p>The shade name is optional (without it, the main colour will be used), and the property may be one of the following:
+</p>
 
-    <h3>Examples</h3>
+<ul>
+  <li><code>text-</code></li>
+  <li><code>bg-</code></li>
+  <li><code>border-</code></li>
+  <li><code>outline-</code></li>
+  <li><code>decoration-</code></li>
+  <li><code>shadow-</code></li>
+  <li><code>fill-</code> (SVG)</li>
+  <li><code>stroke-</code> (SVG)</li>
+</ul>
 
-    <p>(i) Setting the background of a <code>div</code> element to UL Green.</p>
+<p>In practice, <code>text</code>, <code>bg</code>, and <code>border</code> will be the most commonly used, and some
+  properties such as <code>border</code> allow for further specificity, e.g. <code>border-l</code> can be used to target
+  an element's left border only.</p>
 
-    <pre><code>{{ html('<div class="bg-green"></div>') }}</code></pre>
+<h3>Examples</h3>
 
-    <p>(ii) Setting a <code>h3</code> element's text colour to Heritage Green.</p>
+<p>(i) Setting the background of a <code>div</code> element to UL Green.</p>
 
-    <pre><code>{{ html('<h3 class="text-heritage">Heading</h3>') }}</code></pre>
+<pre><code>{{ html('<div class="bg-green"></div>') }}</code></pre>
 
-    <p>(iii) Changing the background colour when the user hovers over a <code>div</code> element.</p>
+<p>(ii) Setting a <code>h3</code> element's text colour to Heritage Green.</p>
 
-    <pre><code>{{ html('<div class="bg-sky hover:bg-sky-d1"></div>') }}</code></pre>
+<pre><code>{{ html('<h3 class="text-heritage">Heading</h3>') }}</code></pre>
 
-    <p>(iv) Specifying a different colour for dark mode.</p>
+<p>(iii) Changing the background colour when the user hovers over a <code>div</code> element.</p>
 
-    <pre><code>{{ html('<p class="text-granite-d2 dark:text-granite-l2">Some text.</p>') }}</code></pre>
+<pre><code>{{ html('<div class="bg-sky hover:bg-sky-d1"></div>') }}</code></pre>
 
-    <h2>Primary Colours</h2>
+<p>(iv) Specifying a different colour for dark mode.</p>
 
-    <p>It is particularly important to stick with the default colour (rather than using lighter or darker shades) when applying the primary colours, so as not to dilute brand identity.</p>
+<pre><code>{{ html('<p class="text-granite-d2 dark:text-granite-l2">Some text.</p>') }}</code></pre>
 
-    <p>Shades should only be used if accessibility is compromised (as can be the case with Modern Green) or when using state changes.</p>
+<h2>Primary Colours</h2>
 
-    <div class="flex flex-col">
+<p>It is particularly important to stick with the default colour (rather than using lighter or darker shades) when
+  applying the primary colours, so as not to dilute brand identity.</p>
 
-        <h3>UL Green</h3>
+<p>Shades should only be used if accessibility is compromised (as can be the case with Modern Green) or when using state
+  changes.</p>
 
-        <div class="flex justify-between">
+<div class="flex flex-col">
 
-            <div class="flex basis-1/3">
+  <h3>UL Green</h3>
 
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-green', label: 'green', hex: '#005335' } %}
-            
-            </div>
+  <div class="flex justify-between">
 
-            <div class="flex flex-col justify-between basis-2/3">
+    <div class="flex basis-1/3">
 
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-green-l1', label: 'l1', hex: '#186142' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-green-l2', label: 'l2', hex: '#2A7050' } %}
-                </div>
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-green-d1', label: 'd1', hex: '#01442B' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-green-d2', label: 'd2', hex: '#013621' } %}
-                </div>
-
-            </div>
-
-        </div>
-
-        <h3>Modern Green</h3>
-
-        <div class="flex justify-between">
-
-            <div class="flex basis-1/3">
-
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-modern', label: 'modern', hex: '#00B140' } %}
-            
-            </div>
-
-            <div class="flex flex-col justify-between basis-2/3">
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-modern-l1', label: 'l1', hex: '#2BC150' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-modern-l2', label: 'l2', hex: '#42D260' } %}
-                </div>
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-modern-d1', label: 'd1', hex: '#02A039' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-modern-d2', label: 'd2', hex: '#008F32' } %}
-                </div>
-
-            </div>
-
-        </div>
-
-        <h3>Heritage Green</h3>
-
-        <div class="flex justify-between">
-
-            <div class="flex basis-1/3">
-
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-heritage', label: 'heritage', hex: '#003726' } %}
-            
-            </div>
-
-            <div class="flex flex-col justify-between basis-2/3">
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-heritage-l1', label: 'l1', hex: '#114432' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-heritage-l2', label: 'l2', hex: '#21523F' } %}
-                </div>
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-heritage-d1', label: 'd1', hex: '#00291C' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-heritage-d2', label: 'd2', hex: '#001C12' } %}
-                </div>
-
-            </div>
-
-        </div>
+      {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-green', label: 'green', hex:
+      '#005335' } %}
 
     </div>
 
-    <h2>Secondary Colours</h2>
-
-    <p>Secondary colours are more flexible than primary colours but shades should ideally be confined to state changes.</p>
-
-    <div class="flex flex-col">
-
-        <h3>Shannon</h3>
-
-        <div class="flex justify-between">
-
-            <div class="flex basis-1/3">
-
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-shannon', label: 'shannon', hex: '#00A3E0' } %}
-            
-            </div>
-
-            <div class="flex flex-col justify-between basis-2/3">
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-shannon-l1', label: 'l1', hex: '#2AB3F1' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-shannon-l2', label: 'l2', hex: '#49C3FF' } %}
-                </div>
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-shannon-d1', label: 'd1', hex: '#0193CB' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-shannon-d2', label: 'd2', hex: '#0083B6' } %}
-                </div>
-
-            </div>
-
-        </div>
-
-        <h3>Sky</h3>
-
-        <div class="flex justify-between">
-
-            <div class="flex basis-1/3">
-
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-sky', label: 'sky', hex: '#007DBA' } %}
-            
-            </div>
-
-            <div class="flex flex-col justify-between basis-2/3">
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-sky-l1', label: 'l1', hex: '#228CCA' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-sky-l2', label: 'l2', hex: '#379CDB' } %}
-                </div>
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-sky-d1', label: 'd1', hex: '#016EA4' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-sky-d2', label: 'd2', hex: '#016090' } %}
-                </div>
-
-            </div>
-
-        </div>
-
-        <h3>Stone</h3>
-
-        <div class="flex justify-between">
-
-            <div class="flex basis-1/3">
-
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-stone', label: 'stone', hex: '#2D5980' } %}
-            
-            </div>
-
-            <div class="flex flex-col justify-between basis-2/3">
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-stone-l1', label: 'l1', hex: '#3B678F' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-stone-l2', label: 'l2', hex: '#49769F' } %}
-                </div>
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-stone-d1', label: 'd1', hex: '#1F4B71' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-stone-d2', label: 'd2', hex: '#0F3D62' } %}
-                </div>
-
-            </div>
-
-        </div>
-
-        <h3>Marine</h3>
-
-        <div class="flex justify-between">
-
-            <div class="flex basis-1/3">
-
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-marine', label: 'marine', hex: '#13294B' } %}
-            
-            </div>
-
-            <div class="flex flex-col justify-between basis-2/3">
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marine-l1', label: 'l1', hex: '#1F3659' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marine-l2', label: 'l2', hex: '#2C4368' } %}
-                </div>
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marine-d1', label: 'd1', hex: '#071C3D' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marine-d2', label: 'd2', hex: '#001030' } %}
-                </div>
-
-            </div>
-
-        </div>
-
-        <h3>Marigold</h3>
-
-        <div class="flex justify-between">
-
-            <div class="flex basis-1/3">
-
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-marigold', label: 'marigold', hex: '#FFC72C' } %}
-            
-            </div>
-
-            <div class="flex flex-col justify-between basis-2/3">
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marigold-l1', label: 'l1', hex: '#FFD572' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marigold-l2', label: 'l2', hex: '#FFE2A1' } %}
-                </div>
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marigold-d1', label: 'd1', hex: '#EEB701' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marigold-d2', label: 'd2', hex: '#DBA800' } %}
-                </div>
-
-            </div>
-
-        </div>
-
-        <h3>Golden Leaf</h3>
-
-        <div class="flex justify-between">
-
-            <div class="flex basis-1/3">
-
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-golden', label: 'golden', hex: '#FFA300' } %}
-            
-            </div>
-
-            <div class="flex flex-col justify-between basis-2/3">
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-golden-l1', label: 'l1', hex: '#FFB55A' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-golden-l2', label: 'l2', hex: '#FFC785' } %}
-                </div>
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-golden-d1', label: 'd1', hex: '#EA9500' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-golden-d2', label: 'd2', hex: '#D68800' } %}
-                </div>
-
-            </div>
-
-        </div>
-
-        <h3>Pumpkin</h3>
-
-        <div class="flex justify-between">
-
-            <div class="flex basis-1/3">
-
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-pumpkin', label: 'pumpkin', hex: '#D45D00' } %}
-            
-            </div>
-
-            <div class="flex flex-col justify-between basis-2/3">
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pumpkin-l1', label: 'l1', hex: '#E56D23' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pumpkin-l2', label: 'l2', hex: '#F77D37' } %}
-                </div>
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pumpkin-d1', label: 'd1', hex: '#BE5300' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pumpkin-d2', label: 'd2', hex: '#A94800' } %}
-                </div>
-
-            </div>
-
-        </div>
-
-        <h3>Munster</h3>
-
-        <div class="flex justify-between">
-
-            <div class="flex basis-1/3">
-
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-munster', label: 'munster', hex: '#CB333B' } %}
-            
-            </div>
-
-            <div class="flex flex-col justify-between basis-2/3">
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-munster-l1', label: 'l1', hex: '#DD4549' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-munster-l2', label: 'l2', hex: '#EF5658' } %}
-                </div>
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-munster-d1', label: 'd1', hex: '#B91E2D' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-munster-d2', label: 'd2', hex: '#A6011F' } %}
-                </div>
-
-            </div>
-
-        </div>
-
-        <h3>Salmon</h3>
-
-        <div class="flex justify-between">
-
-            <div class="flex basis-1/3">
-
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-salmon', label: 'salmon', hex: '#E31C79' } %}
-            
-            </div>
-
-            <div class="flex flex-col justify-between basis-2/3">
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-salmon-l1', label: 'l1', hex: '#F53688' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-salmon-l2', label: 'l2', hex: '#FF5596' } %}
-                </div>
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-salmon-d1', label: 'd1', hex: '#CE006B' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-salmon-d2', label: 'd2', hex: '#B7005E' } %}
-                </div>
-
-            </div>
-
-        </div>
-
-        <h3>Autumnal Leaf</h3>
-
-        <div class="flex justify-between">
-
-            <div class="flex basis-1/3">
-
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-autumnal', label: 'autumnal', hex: '#6F263D' } %}
-            
-            </div>
-
-            <div class="flex flex-col justify-between basis-2/3">
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-autumnal-l1', label: 'l1', hex: '#7F344A' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-autumnal-l2', label: 'l2', hex: '#8F4258' } %}
-                </div>
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-autumnal-d1', label: 'd1', hex: '#601730' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-autumnal-d2', label: 'd2', hex: '#500724' } %}
-                </div>
-
-            </div>
-
-        </div>
-
-        <h3>Copper</h3>
-
-        <div class="flex justify-between">
-
-            <div class="flex basis-1/3">
-
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-copper', label: 'copper', hex: '#89532F' } %}
-            
-            </div>
-
-            <div class="flex flex-col justify-between basis-2/3">
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-copper-l1', label: 'l1', hex: '#99613D' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-copper-l2', label: 'l2', hex: '#A8704C' } %}
-                </div>
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-copper-d1', label: 'd1', hex: '#7A4521' } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-copper-d2', label: 'd2', hex: '#6A3711' } %}
-                </div>
-
-            </div>
-
-        </div>
+    <div class="flex flex-col justify-between basis-2/3">
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-green-l1', label: 'l1', hex:
+        '#186142' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-green-l2', label: 'l2', hex:
+        '#2A7050' } %}
+      </div>
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-green-d1', label: 'd1', hex:
+        '#01442B' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-green-d2', label: 'd2', hex:
+        '#013621' } %}
+      </div>
 
     </div>
 
-    <h2>Monotone Colours</h2>
+  </div>
 
-    <p>Monotone colours are the most flexible and different shades may be freely used. <strong>Note:</strong> the below monotone palette is optimised for UI and web design.</p>
+  <h3>Modern Green</h3>
 
-    <div class="flex flex-col">
+  <div class="flex justify-between">
 
-        <h3>Limestone</h3>
+    <div class="flex basis-1/3">
 
-        <div class="flex justify-between">
-
-            <div class="flex basis-1/4">
-
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-limestone', label: 'limestone', hex: '#78716C' } %}
-            
-            </div>
-
-            <div class="flex flex-col justify-between basis-3/4">
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l1', label: 'l1', hex: '#A8A29E', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l2', label: 'l2', hex: '#D6D3D1', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l3', label: 'l3', hex: '#E7E5E4', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l4', label: 'l4', hex: '#F5F5F4', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l5', label: 'l5', hex: '#FAFAF9', noIcon: true } %}
-                </div>
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d1', label: 'd1', hex: '#57534E', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d2', label: 'd2', hex: '#44403C', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d3', label: 'd3', hex: '#292524', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d4', label: 'd4', hex: '#1C1917', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d5', label: 'd5', hex: '#0C0A09', noIcon: true } %}
-                </div>
-
-            </div>
-
-        </div>
-
-        <h3>Pebble</h3>
-
-        <div class="flex justify-between">
-
-            <div class="flex basis-1/4">
-
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-pebble', label: 'pebble', hex: '#737373' } %}
-            
-            </div>
-
-            <div class="flex flex-col justify-between basis-3/4">
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l1', label: 'l1', hex: '#A3A3A3', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l2', label: 'l2', hex: '#D4D4D4', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l3', label: 'l3', hex: '#E5E5E5', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l4', label: 'l4', hex: '#F5F5F5', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l5', label: 'l5', hex: '#FAFAFA', noIcon: true } %}
-                </div>
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d1', label: 'd1', hex: '#525252', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d2', label: 'd2', hex: '#404040', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d3', label: 'd3', hex: '#262626', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d4', label: 'd4', hex: '#171717', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d5', label: 'd5', hex: '#0A0A0A', noIcon: true } %}
-                </div>
-
-            </div>
-
-        </div>
-
-        <h3>Granite</h3>
-
-        <div class="flex justify-between">
-
-            <div class="flex basis-1/4">
-
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-granite', label: 'granite', hex: '#71717A' } %}
-            
-            </div>
-
-            <div class="flex flex-col justify-between basis-3/4">
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l1', label: 'l1', hex: '#A1A1AA', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l2', label: 'l2', hex: '#D4D4D8', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l3', label: 'l3', hex: '#E4E4E7', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l4', label: 'l4', hex: '#F4F4F5', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l5', label: 'l5', hex: '#FAFAFB', noIcon: true } %}
-                </div>
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d1', label: 'd1', hex: '#52525B', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d2', label: 'd2', hex: '#3F3F46', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d3', label: 'd3', hex: '#27272A', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d4', label: 'd4', hex: '#18181B', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d5', label: 'd5', hex: '#09090B', noIcon: true } %}
-                </div>
-
-            </div>
-
-        </div>
-
-        <h3>Slate</h3>
-
-        <div class="flex justify-between">
-
-            <div class="flex basis-1/4">
-
-                {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-slate', label: 'slate', hex: '#6B7280' } %}
-            
-            </div>
-
-            <div class="flex flex-col justify-between basis-3/4">
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l1', label: 'l1', hex: '#9CA3AF', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l2', label: 'l2', hex: '#D1D5DB', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l3', label: 'l3', hex: '#E5E7EB', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l4', label: 'l4', hex: '#F3F4F6', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l5', label: 'l5', hex: '#F9FAFB', noIcon: true } %}
-                </div>
-
-                <div class="flex">
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d1', label: 'd1', hex: '#4B5563', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d2', label: 'd2', hex: '#374151', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d3', label: 'd3', hex: '#1F2937', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d4', label: 'd4', hex: '#111827', noIcon: true } %}
-                    {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d5', label: 'd5', hex: '#030712', noIcon: true } %}
-                </div>
-
-            </div>
-
-        </div>
+      {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-modern', label: 'modern', hex:
+      '#00B140' } %}
 
     </div>
+
+    <div class="flex flex-col justify-between basis-2/3">
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-modern-l1', label: 'l1', hex:
+        '#2BC150' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-modern-l2', label: 'l2', hex:
+        '#42D260' } %}
+      </div>
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-modern-d1', label: 'd1', hex:
+        '#02A039' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-modern-d2', label: 'd2', hex:
+        '#008F32' } %}
+      </div>
+
+    </div>
+
+  </div>
+
+  <h3>Heritage Green</h3>
+
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/3">
+
+      {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-heritage', label: 'heritage', hex:
+      '#003726' } %}
+
+    </div>
+
+    <div class="flex flex-col justify-between basis-2/3">
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-heritage-l1', label: 'l1', hex:
+        '#114432' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-heritage-l2', label: 'l2', hex:
+        '#21523F' } %}
+      </div>
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-heritage-d1', label: 'd1', hex:
+        '#00291C' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-heritage-d2', label: 'd2', hex:
+        '#001C12' } %}
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<h2>Secondary Colours</h2>
+
+<p>Secondary colours are more flexible than primary colours but shades should ideally be confined to state changes.</p>
+
+<div class="flex flex-col">
+
+  <h3>Shannon</h3>
+
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/3">
+
+      {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-shannon', label: 'shannon', hex:
+      '#00A3E0' } %}
+
+    </div>
+
+    <div class="flex flex-col justify-between basis-2/3">
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-shannon-l1', label: 'l1', hex:
+        '#2AB3F1' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-shannon-l2', label: 'l2', hex:
+        '#49C3FF' } %}
+      </div>
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-shannon-d1', label: 'd1', hex:
+        '#0193CB' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-shannon-d2', label: 'd2', hex:
+        '#0083B6' } %}
+      </div>
+
+    </div>
+
+  </div>
+
+  <h3>Sky</h3>
+
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/3">
+
+      {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-sky', label: 'sky', hex: '#007DBA'
+      } %}
+
+    </div>
+
+    <div class="flex flex-col justify-between basis-2/3">
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-sky-l1', label: 'l1', hex:
+        '#228CCA' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-sky-l2', label: 'l2', hex:
+        '#379CDB' } %}
+      </div>
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-sky-d1', label: 'd1', hex:
+        '#016EA4' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-sky-d2', label: 'd2', hex:
+        '#016090' } %}
+      </div>
+
+    </div>
+
+  </div>
+
+  <h3>Stone</h3>
+
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/3">
+
+      {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-stone', label: 'stone', hex:
+      '#2D5980' } %}
+
+    </div>
+
+    <div class="flex flex-col justify-between basis-2/3">
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-stone-l1', label: 'l1', hex:
+        '#3B678F' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-stone-l2', label: 'l2', hex:
+        '#49769F' } %}
+      </div>
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-stone-d1', label: 'd1', hex:
+        '#1F4B71' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-stone-d2', label: 'd2', hex:
+        '#0F3D62' } %}
+      </div>
+
+    </div>
+
+  </div>
+
+  <h3>Marine</h3>
+
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/3">
+
+      {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-marine', label: 'marine', hex:
+      '#13294B' } %}
+
+    </div>
+
+    <div class="flex flex-col justify-between basis-2/3">
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marine-l1', label: 'l1', hex:
+        '#1F3659' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marine-l2', label: 'l2', hex:
+        '#2C4368' } %}
+      </div>
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marine-d1', label: 'd1', hex:
+        '#071C3D' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marine-d2', label: 'd2', hex:
+        '#001030' } %}
+      </div>
+
+    </div>
+
+  </div>
+
+  <h3>Marigold</h3>
+
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/3">
+
+      {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-marigold', label: 'marigold', hex:
+      '#FFC72C' } %}
+
+    </div>
+
+    <div class="flex flex-col justify-between basis-2/3">
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marigold-l1', label: 'l1', hex:
+        '#FFD572' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marigold-l2', label: 'l2', hex:
+        '#FFE2A1' } %}
+      </div>
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marigold-d1', label: 'd1', hex:
+        '#EEB701' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-marigold-d2', label: 'd2', hex:
+        '#DBA800' } %}
+      </div>
+
+    </div>
+
+  </div>
+
+  <h3>Golden Leaf</h3>
+
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/3">
+
+      {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-golden', label: 'golden', hex:
+      '#FFA300' } %}
+
+    </div>
+
+    <div class="flex flex-col justify-between basis-2/3">
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-golden-l1', label: 'l1', hex:
+        '#FFB55A' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-golden-l2', label: 'l2', hex:
+        '#FFC785' } %}
+      </div>
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-golden-d1', label: 'd1', hex:
+        '#EA9500' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-golden-d2', label: 'd2', hex:
+        '#D68800' } %}
+      </div>
+
+    </div>
+
+  </div>
+
+  <h3>Pumpkin</h3>
+
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/3">
+
+      {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-pumpkin', label: 'pumpkin', hex:
+      '#D45D00' } %}
+
+    </div>
+
+    <div class="flex flex-col justify-between basis-2/3">
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pumpkin-l1', label: 'l1', hex:
+        '#E56D23' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pumpkin-l2', label: 'l2', hex:
+        '#F77D37' } %}
+      </div>
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pumpkin-d1', label: 'd1', hex:
+        '#BE5300' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pumpkin-d2', label: 'd2', hex:
+        '#A94800' } %}
+      </div>
+
+    </div>
+
+  </div>
+
+  <h3>Munster</h3>
+
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/3">
+
+      {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-munster', label: 'munster', hex:
+      '#CB333B' } %}
+
+    </div>
+
+    <div class="flex flex-col justify-between basis-2/3">
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-munster-l1', label: 'l1', hex:
+        '#DD4549' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-munster-l2', label: 'l2', hex:
+        '#EF5658' } %}
+      </div>
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-munster-d1', label: 'd1', hex:
+        '#B91E2D' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-munster-d2', label: 'd2', hex:
+        '#A6011F' } %}
+      </div>
+
+    </div>
+
+  </div>
+
+  <h3>Salmon</h3>
+
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/3">
+
+      {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-salmon', label: 'salmon', hex:
+      '#E31C79' } %}
+
+    </div>
+
+    <div class="flex flex-col justify-between basis-2/3">
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-salmon-l1', label: 'l1', hex:
+        '#F53688' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-salmon-l2', label: 'l2', hex:
+        '#FF5596' } %}
+      </div>
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-salmon-d1', label: 'd1', hex:
+        '#CE006B' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-salmon-d2', label: 'd2', hex:
+        '#B7005E' } %}
+      </div>
+
+    </div>
+
+  </div>
+
+  <h3>Autumnal Leaf</h3>
+
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/3">
+
+      {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-autumnal', label: 'autumnal', hex:
+      '#6F263D' } %}
+
+    </div>
+
+    <div class="flex flex-col justify-between basis-2/3">
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-autumnal-l1', label: 'l1', hex:
+        '#7F344A' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-autumnal-l2', label: 'l2', hex:
+        '#8F4258' } %}
+      </div>
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-autumnal-d1', label: 'd1', hex:
+        '#601730' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-autumnal-d2', label: 'd2', hex:
+        '#500724' } %}
+      </div>
+
+    </div>
+
+  </div>
+
+  <h3>Copper</h3>
+
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/3">
+
+      {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-copper', label: 'copper', hex:
+      '#89532F' } %}
+
+    </div>
+
+    <div class="flex flex-col justify-between basis-2/3">
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-copper-l1', label: 'l1', hex:
+        '#99613D' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-copper-l2', label: 'l2', hex:
+        '#A8704C' } %}
+      </div>
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-copper-d1', label: 'd1', hex:
+        '#7A4521' } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-copper-d2', label: 'd2', hex:
+        '#6A3711' } %}
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<h2>Monotone Colours</h2>
+
+<p>Monotone colours are the most flexible and different shades may be freely used. <strong>Note:</strong> the below
+  monotone palette is optimised for UI and web design.</p>
+
+<div class="flex flex-col">
+
+  <h3>Limestone</h3>
+
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/4">
+
+      {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-limestone', label: 'limestone',
+      hex: '#78716C' } %}
+
+    </div>
+
+    <div class="flex flex-col justify-between basis-3/4">
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l1', label: 'l1', hex:
+        '#A8A29E', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l2', label: 'l2', hex:
+        '#D6D3D1', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l3', label: 'l3', hex:
+        '#E7E5E4', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l4', label: 'l4', hex:
+        '#F5F5F4', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-l5', label: 'l5', hex:
+        '#FAFAF9', noIcon: true } %}
+      </div>
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d1', label: 'd1', hex:
+        '#57534E', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d2', label: 'd2', hex:
+        '#44403C', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d3', label: 'd3', hex:
+        '#292524', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d4', label: 'd4', hex:
+        '#1C1917', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-limestone-d5', label: 'd5', hex:
+        '#0C0A09', noIcon: true } %}
+      </div>
+
+    </div>
+
+  </div>
+
+  <h3>Pebble</h3>
+
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/4">
+
+      {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-pebble', label: 'pebble', hex:
+      '#737373' } %}
+
+    </div>
+
+    <div class="flex flex-col justify-between basis-3/4">
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l1', label: 'l1', hex:
+        '#A3A3A3', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l2', label: 'l2', hex:
+        '#D4D4D4', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l3', label: 'l3', hex:
+        '#E5E5E5', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l4', label: 'l4', hex:
+        '#F5F5F5', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-l5', label: 'l5', hex:
+        '#FAFAFA', noIcon: true } %}
+      </div>
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d1', label: 'd1', hex:
+        '#525252', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d2', label: 'd2', hex:
+        '#404040', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d3', label: 'd3', hex:
+        '#262626', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d4', label: 'd4', hex:
+        '#171717', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-pebble-d5', label: 'd5', hex:
+        '#0A0A0A', noIcon: true } %}
+      </div>
+
+    </div>
+
+  </div>
+
+  <h3>Granite</h3>
+
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/4">
+
+      {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-granite', label: 'granite', hex:
+      '#71717A' } %}
+
+    </div>
+
+    <div class="flex flex-col justify-between basis-3/4">
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l1', label: 'l1', hex:
+        '#A1A1AA', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l2', label: 'l2', hex:
+        '#D4D4D8', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l3', label: 'l3', hex:
+        '#E4E4E7', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l4', label: 'l4', hex:
+        '#F4F4F5', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-l5', label: 'l5', hex:
+        '#FAFAFB', noIcon: true } %}
+      </div>
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d1', label: 'd1', hex:
+        '#52525B', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d2', label: 'd2', hex:
+        '#3F3F46', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d3', label: 'd3', hex:
+        '#27272A', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d4', label: 'd4', hex:
+        '#18181B', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-granite-d5', label: 'd5', hex:
+        '#09090B', noIcon: true } %}
+      </div>
+
+    </div>
+
+  </div>
+
+  <h3>Slate</h3>
+
+  <div class="flex justify-between">
+
+    <div class="flex basis-1/4">
+
+      {% include '@components/swatch/swatch.twig' with { height: 'h-20', bgColor: 'bg-slate', label: 'slate', hex:
+      '#6B7280' } %}
+
+    </div>
+
+    <div class="flex flex-col justify-between basis-3/4">
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l1', label: 'l1', hex:
+        '#9CA3AF', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l2', label: 'l2', hex:
+        '#D1D5DB', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l3', label: 'l3', hex:
+        '#E5E7EB', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l4', label: 'l4', hex:
+        '#F3F4F6', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-l5', label: 'l5', hex:
+        '#F9FAFB', noIcon: true } %}
+      </div>
+
+      <div class="flex">
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d1', label: 'd1', hex:
+        '#4B5563', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d2', label: 'd2', hex:
+        '#374151', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d3', label: 'd3', hex:
+        '#1F2937', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d4', label: 'd4', hex:
+        '#111827', noIcon: true } %}
+        {% include '@components/swatch/swatch.twig' with { height: 'h-7', bgColor: 'bg-slate-d5', label: 'd5', hex:
+        '#030712', noIcon: true } %}
+      </div>
+
+    </div>
+
+  </div>
 
 </div>

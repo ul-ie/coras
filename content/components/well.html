@@ -3,152 +3,148 @@ title: Well
 layout: templates/page.html
 ---
 
-<div class="is-prose py-20 mx-auto">
+<h1 class="font-serif is-decorated">{{ title }}</h1>
 
-  <h1 class="is-decorated">{{ title }}</h1>
+<h2>Description</h2>
 
-  <h2>Description</h2>
+<p>A well is a very simple component designed to nest other content or components.</p>
 
-  <p>A well is a very simple component designed to nest other content or components.</p>
+{% embed '@components/well/well.twig' %}
 
-  {% embed '@components/well/well.twig' %}
+  {% block well_html %}
 
-    {% block well_html %}
+    <div class="text-center"><code>div</code> content inside a well.</div>
 
-      <div class="text-center"><code>div</code> content inside a well.</div>
+  {% endblock %}
 
-    {% endblock %}
+{% endembed %}
 
-  {% endembed %}
+<h3>Syntax</h3>
 
-  <h3>Syntax</h3>
+<p>A well is to be used with the <code>embed</code> tag, as it is a container for other content. To place content inside the well, use the <code>block</code> placeholder named <code>well_html</code> as follows:</p>
 
-  <p>A well is to be used with the <code>embed</code> tag, as it is a container for other content. To place content inside the well, use the <code>block</code> placeholder named <code>well_html</code> as follows:</p>
+<pre><code>{{ html("
+{% embed 'THEME_NAME:well' with {
+  property: 'value' } %}
 
-  <pre><code>{{ html("
-  {% embed 'THEME_NAME:well' with {
-    property: 'value' } %}
+  {% block well_html %}
 
-    {% block well_html %}
+    <!-- Your content or components here -->
 
-      <!-- Your content or components here -->
+  {% endblock %}
 
-    {% endblock %}
+{% endembed %}
+")}}</code></pre>
 
-  {% endembed %}
-  ")}}</code></pre>
+<h3>Properties</h3>
 
-  <h3>Properties</h3>
+<p>In addition to the <code>well_html</code> block a well has two properties, both optional.</p>
 
-  <p>In addition to the <code>well_html</code> block a well has two properties, both optional.</p>
+{% include '@templates/component-props.html' %}
 
-  {% include '@templates/partials/component-props.html' %}
+<h2>Variants</h2>
 
-  <h2>Variants</h2>
+<p>The padding can be customized per instance using the optional <code>well_padding</code> variable. In the following examples the padding is indicated with a dashed outline.</p>
 
-  <p>The padding can be customized per instance using the optional <code>well_padding</code> variable. In the following examples the padding is indicated with a dashed outline.</p>
+<h3>Custom Padding</h3>
 
-  <h3>Custom Padding</h3>
+<p>To decrease or increase the padding, use a different value for the utility padding class, e.g. <code>p-2</code> to
+  make it smaller:</p>
 
-  <p>To decrease or increase the padding, use a different value for the utility padding class, e.g. <code>p-2</code> to
-    make it smaller:</p>
+<pre><code>{{ html("
+{% embed 'ul:well' with { well_padding: 'p-2' } %}
 
-  <pre><code>{{ html("
-  {% embed 'ul:well' with { well_padding: 'p-2' } %}
+  {% block well_html %}
 
-    {% block well_html %}
+    <!-- Your content or components here -->
 
-      <!-- Your content or components here -->
+  {% endblock %}
 
-    {% endblock %}
+{% endembed %}
+")}}</code></pre>
 
-  {% endembed %}
-  ")}}</code></pre>
+<p>This would result in the following output:</p>
 
-  <p>This would result in the following output:</p>
+{% embed '@components/well/well.twig' with { well_padding: 'p-2' } %}
 
-  {% embed '@components/well/well.twig' with { well_padding: 'p-2' } %}
+  {% block well_html %}
 
-    {% block well_html %}
+    <div class="text-center outline-1 outline-modern outline-dashed dark:outline-modern-d2">A well with less padding.</div>
 
-      <div class="text-center outline-1 outline-modern outline-dashed dark:outline-modern-d2">A well with less padding.</div>
+  {% endblock %}
 
-    {% endblock %}
+{% endembed %}
 
-  {% endembed %}
+<h3>Conditional Padding</h3>
 
-  <h3>Conditional Padding</h3>
+<p>You could also have the padding adapt to different screen sizes. For example, in the following code the padding
+  will change depending on the size of the user's screen:</p>
 
-  <p>You could also have the padding adapt to different screen sizes. For example, in the following code the padding
-    will change depending on the size of the user's screen:</p>
+<pre><code>{{ html("
+{% embed 'ul:well' with { 
+  well_padding: 'p-3 md:p-5 lg:p-8' 
+} %}
 
-  <pre><code>{{ html("
-  {% embed 'ul:well' with { 
-    well_padding: 'p-3 md:p-5 lg:p-8' 
-  } %}
+  {% block well_html %}
 
-    {% block well_html %}
+    <!-- Your content or components here -->
 
-      <!-- Your content or components here -->
+  {% endblock %}
 
-    {% endblock %}
+{% endembed %}
+")}}</code></pre>
 
-  {% endembed %}
-  ")}}</code></pre>
+{% embed '@components/well/well.twig' with {
+  well_padding: 'p-3 md:p-5 lg:p-8'
+} %}
 
-  {% embed '@components/well/well.twig' with {
-    well_padding: 'p-3 md:p-5 lg:p-8'
-  } %}
+  {% block well_html %}
 
-    {% block well_html %}
+  <div class="text-center outline-1 outline-modern outline-dashed dark:outline-modern-d2">Responsive padding.</div>
 
-    <div class="text-center outline-1 outline-modern outline-dashed dark:outline-modern-d2">Responsive padding.</div>
+  {% endblock %}
 
-    {% endblock %}
+{% endembed %}
 
-  {% endembed %}
+<h3>Modifier Classes</h3>
 
-  <h3>Modifier Classes</h3>
+<p>Using the <code>well_modifiers</code> property, you can further adjust the appearance of the well. For example, if
+  you wanted it to appear as an inline block rather than the default block, you could use the following code:</p>
 
-  <p>Using the <code>well_modifiers</code> property, you can further adjust the appearance of the well. For example, if
-    you wanted it to appear as an inline block rather than the default block, you could use the following code:</p>
+<pre><code>{{ html("
+{% embed 'ul:well' with { 
+  well_modifiers: 'inline-block' 
+} %}
 
-  <pre><code>{{ html("
-  {% embed 'ul:well' with { 
-    well_modifiers: 'inline-block' 
-  } %}
+  {% block well_html %}
 
-    {% block well_html %}
+    <!-- Your content or components here -->
 
-      <!-- Your content or components here -->
+  {% endblock %}
 
-    {% endblock %}
+{% endembed %}
+")}}</code></pre>
 
-  {% endembed %}
-  ")}}</code></pre>
+{% embed '@components/well/well.twig' with {
+  well_modifiers: 'inline-block'
+} %}
 
-  {% embed '@components/well/well.twig' with {
-    well_modifiers: 'inline-block'
-  } %}
+  {% block well_html %}
 
-    {% block well_html %}
+    <div class="text-center">A well styled as an inline block.</div>
 
-      <div class="text-center">A well styled as an inline block.</div>
+  {% endblock %}
 
-    {% endblock %}
+{% endembed %}
 
-  {% endembed %}
+<h2>Source Code</h2>
 
-  <h2>Source Code</h2>
+<p>The source code below can be found below, and at <code>inc/components/well/</code> in the design system repository.</p>
 
-  <p>The source code below can be found below, and at <code>inc/components/well/</code> in the design system repository.</p>
+<h3>Twig</h3>
 
-  <h3>Twig</h3>
+<pre class="max-h-80"><code class="">{{ html(get_file("inc/components/well/well.twig")) }}</code></pre>
 
-  <pre class="max-h-80"><code class="">{{ html(get_file("inc/components/well/well.twig")) }}</code></pre>
+<h3>YML</h3>
 
-  <h3>YML</h3>
-
-  <pre><code class="language-yaml">{{ html(get_file("inc/components/well/well.component.yml")) }}</code></pre>
-
-</div>
+<pre><code class="language-yaml">{{ html(get_file("inc/components/well/well.component.yml")) }}</code></pre>

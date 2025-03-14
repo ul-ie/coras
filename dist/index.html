@@ -2,35 +2,36 @@
 
 <html lang="en" class="scroll-smooth">
 
-<head>
+  <head>
 
     <meta charset="UTF-8">
 
+    <meta name="generator" content="Eleventy">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/css/index.css">
 
     <script>
-        if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
-            document.querySelector('html').classList.remove('dark');
-        } else {
-            document.querySelector('html').classList.add('dark');
-        }
+      // Check for dark mode.
+      let html = document.querySelector('html');
+      let isDarkModeActive = ('dark-mode' in localStorage) && localStorage.getItem('dark-mode') === 'true';
+      isDarkModeActive ? html.classList.add('dark') : html.classList.remove('dark');
     </script>
 
     <title>Córas | UL Design System</title>
 
-</head>
-<body class="antialiased bg-limestone-l5 dark:bg-granite-d3 text-granite-d3 dark:text-granite-l3">
+  </head>
+<body class="antialiased bg-limestone-l5 text-granite-d2 dark:bg-granite-d3 dark:text-granite-l3">
 
-    <header class="sticky top-0 w-full h-24 z-10">
+  <header class="sticky top-0 w-full h-24 z-10">
 
   <div class="
-        absolute inset-0 bg-white bg-opacity-60 border-b border-granite-l3 backdrop-blur -z-10
-        dark:bg-granite-d3 dark:border-granite-d1 dark:bg-opacity-70" aria-hidden="true">
+        absolute inset-0 bg-white/60 border-b border-granite-l3 backdrop-blur -z-10
+        dark:bg-granite-d3/70 dark:border-granite-d1" aria-hidden="true">
   </div>
 
-  <div class="container h-full flex items-center justify-between px-4 sm:px-6">
+  <div class="container h-full flex items-center justify-between px-5 sm:px-6">
 
     <a href="/"><svg version="1.1" viewBox="0 0 1480 676.28" width="148px" xmlns="http://www.w3.org/2000/svg" class="my-3">
   <title>University of Limerick</title>
@@ -79,13 +80,9 @@
 </svg>
 </a>
 
-    <!-- Dark mode toggle -->
-
-    <input type="checkbox" name="light-switch" id="light-switch" class="light-switch sr-only" />
-
     <label
-      for="light-switch"
-      class="relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1 hover:bg-opacity-5 dark:hover:bg-opacity-10" >
+      for="dark-switch"
+      class="relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1/5 dark:hover:bg-modern-l1/10" >
 
       
 
@@ -105,7 +102,7 @@
 
   <svg
     title="moon-stars"
-    class="fill-white hidden dark:d-block w-6 -mt-1 "
+    class="fill-white hidden dark:block w-6 -mt-1 "
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
     >
@@ -117,100 +114,171 @@
 
     </label>
 
+    <input type="checkbox" name="dark-switch" id="dark-switch" class="sr-only" />
+
   </div>
 
 </header>
-    <div class="flex container min-h-screen">
+  <div class="container grid grid-cols-6 min-h-screen">
 
-        <div class="hidden lg:flex grow basis-1/6 py-20 px-4 border-r border-granite-l3 dark:border-granite-d1">
+    <div class="hidden lg:block col-span-1 py-20 px-5 border-r border-granite-l3 dark:border-granite-d1">
 
-            <nav class="fixed">
+  <nav class="fixed">
 
-    <ul class="ml-2 text-green dark:text-modern-l1">
+    <ul class="list-none leading-none m-0 p-0 text-green dark:text-modern-l1">
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Guides</span>
+      
+      <li class="m-0 p-0">
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+        <span class="text-lg font-bold">Guides</span>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/guides/for-developers/">For Developers</a></li>
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
 
-                    
-            </ul>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-        </li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/guides/for-developers/">
+              For Developers
+            </a>
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Foundations</span>
+          </li>
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+          
+        </ul>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/breakpoints/">Breakpoints</a></li>
+      </li>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/spacing/">Spacing</a></li>
+      
+      <li class="m-0 p-0">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/layout/">Layout</a></li>
+        <span class="text-lg font-bold">Foundations</span>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/colour/">Colour</a></li>
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/iconography/">Iconography</a></li>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-                    
-            </ul>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/breakpoints/">
+              Breakpoints
+            </a>
 
-        </li>
+          </li>
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Components</span>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/spacing/">
+              Spacing
+            </a>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/accordion/">Accordion</a></li>
+          </li>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/button/">Button</a></li>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/icon/">Icon</a></li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/layout/">
+              Layout
+            </a>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/well/">Well</a></li>
+          </li>
 
-                    
-            </ul>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-        </li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/typography">
+              Typography
+            </a>
 
-        
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/colour/">
+              Colour
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/iconography/">
+              Iconography
+            </a>
+
+          </li>
+
+          
+        </ul>
+
+      </li>
+
+      
+      <li class="m-0 p-0">
+
+        <span class="text-lg font-bold">Components</span>
+
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/accordion/">
+              Accordion
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/button/">
+              Button
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/icon/">
+              Icon
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/well/">
+              Well
+            </a>
+
+          </li>
+
+          
+        </ul>
+
+      </li>
+
+      
     </ul>
 
-</nav>
-        </div>
+  </nav>
 
-        <main class="basis-5/6"> 
+</div>
+    <main class="col-span-6 lg:col-span-5">
 
-            <article>
+      <article class="px-4 py-10 sm:px-6 sm:py-16 lg:p-20">
 
-                
+        
 
-<div class="prose prose-granite max-w-4xl px-10 py-20 mx-auto md:prose-lg dark:prose-invert">
+<div class="max-w-4xl mx-auto">
 
-  <h1 class="font-display mb-0 is-decorated after:origin-left after:scale-150 md:text-8xl md:mb-0">Córas</h1>
+  <h1 class="font-display mb-0 is-decorated after:origin-left after:scale-150 text-10xl">Córas</h1>
 
-  <h2 class="font-serif mt-4 md:mt-5 md:text-5xl">UL Design System</h2>
+  <h2 class="font-serif mt-4 md:mt-5 md:text-6xl">UL Design System</h2>
 
   <p>
     <strong>Córas</strong> means <em>system</em> in Irish, and is also suggestive of a chorus, where
@@ -241,7 +309,7 @@
 
   <a
     href="/guides/for-developers/"
-    class="not-prose font-medium no-underline flex items-center justify-center rounded-md border-2 transition basis-1/3 dark:bg-green dark:hover:bg-green-d1 dark:text-white dark:fill-white dark:border-white p-3 text-lg bg-white border-green text-green fill-green hover:bg-green hover:text-white hover:fill-white active:bg-green-d1 w-fit "
+    class="not-prose no-underline flex items-center justify-center rounded-md border-2 transition basis-1/3 dark:bg-green dark:hover:bg-green-d1 dark:text-white dark:fill-white dark:border-white p-3 text-lg bg-white border-green text-green fill-green hover:bg-green hover:text-white hover:fill-white active:bg-green-d1 w-fit "
     
     
     >
@@ -286,7 +354,7 @@
 
   <a
     href="#"
-    class="not-prose font-medium no-underline flex items-center justify-center rounded-md border-2 transition basis-1/3 dark:bg-green dark:hover:bg-green-d1 dark:text-white dark:fill-white dark:border-white p-3 text-lg bg-white border-green text-green fill-green hover:bg-green hover:text-white hover:fill-white active:bg-green-d1 w-fit "
+    class="not-prose no-underline flex items-center justify-center rounded-md border-2 transition basis-1/3 dark:bg-green dark:hover:bg-green-d1 dark:text-white dark:fill-white dark:border-white p-3 text-lg bg-white border-green text-green fill-green hover:bg-green hover:text-white hover:fill-white active:bg-green-d1 w-fit "
     
     
     >
@@ -331,7 +399,7 @@
 
   <a
     href="#"
-    class="not-prose font-medium no-underline flex items-center justify-center rounded-md border-2 transition basis-1/3 dark:bg-green dark:hover:bg-green-d1 dark:text-white dark:fill-white dark:border-white p-3 text-lg bg-white border-green text-green fill-green hover:bg-green hover:text-white hover:fill-white active:bg-green-d1 w-fit "
+    class="not-prose no-underline flex items-center justify-center rounded-md border-2 transition basis-1/3 dark:bg-green dark:hover:bg-green-d1 dark:text-white dark:fill-white dark:border-white p-3 text-lg bg-white border-green text-green fill-green hover:bg-green hover:text-white hover:fill-white active:bg-green-d1 w-fit "
     
     
     >
@@ -359,21 +427,22 @@
 
 </div>
 
-            </article>            
-                
-        </main>
-        
-    </div>
+      </article>
 
-    <footer class="
-    basis-full p-4 border-t border-granite-l3 text-center
-    dark:border-granite-d1">
+    </main>
 
-    Copyright © University of Limerick 2025
+  </div>
 
-</footer>
-    <script type="module" src="/index.js"></script>
+      <footer class="
+      basis-full p-4 border-t border-granite-l3 text-center
+      dark:border-granite-d1">
 
-</body>
+      Copyright © University of Limerick 2025
+
+    </footer>
+    
+    <script type="module" src="/js/index.js"></script>
+
+  </body>
 
 </html>

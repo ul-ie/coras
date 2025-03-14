@@ -21,8 +21,9 @@ export default function pageNav() {
 
     // Add styling and text.
     pageNav.classList.add('text-granite-d3', 'dark:text-granite-l2');
-    list.classList.add('ml-1');
-    listHeading.classList.add('font-bold', 'mb-1', 'text-green', 'dark:text-modern-l1');
+    list.classList.add('ml-1', 'my-0', 'px-0', 'list-none', 'leading-none');
+    listHeading.classList.add('text-base', 'mb-1');
+    listHeadingLink.classList.add('font-bold', 'no-underline', 'text-green', 'dark:text-modern-l1', 'visited:text-green', 'dark:visited:text-modern-l1');
     listHeadingLink.innerText = 'On this page';
     
     // Append the elements.
@@ -34,7 +35,7 @@ export default function pageNav() {
     const subheadings = document.querySelectorAll('h2, h3');
 
     // For each heading...
-    subheadings.forEach((heading, index) => {
+    subheadings.forEach((heading) => {
 
       // Run for all the h2 and h3 headings that haven't opted out.
       if (heading.dataset.pageNav != 'false') {
@@ -48,12 +49,13 @@ export default function pageNav() {
           heading.id = heading.innerText.replace(/\s+/g, '-').toLowerCase();
         }
 
-        // Create the internal link to the heading.
+        // Create the internal link to the heading and style it.
         link.href = `#${heading.id}`;
+        link.classList.add('no-underline', 'font-normal', 'text-inherit', 'visited:text-inherit')
 
         // Get the heading text and style it appropriately.
         link.innerText = heading.innerText;
-        listItem.classList.add('pb-1', 'text-sm', 'border-l', 'border-granite-l3', 'dark:border-granite-d1');
+        listItem.classList.add('my-0', 'pb-1', 'text-sm', 'border-l', 'border-granite-l3', 'dark:border-granite-d1');
         if (heading.tagName.toLowerCase() === 'h2') {
           listItem.classList.add('pl-3');
         } else {

@@ -2,35 +2,36 @@
 
 <html lang="en" class="scroll-smooth">
 
-<head>
+  <head>
 
     <meta charset="UTF-8">
 
+    <meta name="generator" content="Eleventy">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/css/index.css">
 
     <script>
-        if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
-            document.querySelector('html').classList.remove('dark');
-        } else {
-            document.querySelector('html').classList.add('dark');
-        }
+      // Check for dark mode.
+      let html = document.querySelector('html');
+      let isDarkModeActive = ('dark-mode' in localStorage) && localStorage.getItem('dark-mode') === 'true';
+      isDarkModeActive ? html.classList.add('dark') : html.classList.remove('dark');
     </script>
 
     <title>Breakpoints</title>
 
-</head>
-<body class="antialiased bg-limestone-l5 dark:bg-granite-d3 text-granite-d3 dark:text-granite-l3">
+  </head>
+<body class="antialiased bg-limestone-l5 text-granite-d2 dark:bg-granite-d3 dark:text-granite-l3">
 
-    <header class="sticky top-0 w-full h-24 z-10">
+  <header class="sticky top-0 w-full h-24 z-10">
 
   <div class="
-        absolute inset-0 bg-white bg-opacity-60 border-b border-granite-l3 backdrop-blur -z-10
-        dark:bg-granite-d3 dark:border-granite-d1 dark:bg-opacity-70" aria-hidden="true">
+        absolute inset-0 bg-white/60 border-b border-granite-l3 backdrop-blur -z-10
+        dark:bg-granite-d3/70 dark:border-granite-d1" aria-hidden="true">
   </div>
 
-  <div class="container h-full flex items-center justify-between px-4 sm:px-6">
+  <div class="container h-full flex items-center justify-between px-5 sm:px-6">
 
     <a href="/"><svg version="1.1" viewBox="0 0 1480 676.28" width="148px" xmlns="http://www.w3.org/2000/svg" class="my-3">
   <title>University of Limerick</title>
@@ -79,13 +80,9 @@
 </svg>
 </a>
 
-    <!-- Dark mode toggle -->
-
-    <input type="checkbox" name="light-switch" id="light-switch" class="light-switch sr-only" />
-
     <label
-      for="light-switch"
-      class="relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1 hover:bg-opacity-5 dark:hover:bg-opacity-10" >
+      for="dark-switch"
+      class="relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1/5 dark:hover:bg-modern-l1/10" >
 
       
 
@@ -105,7 +102,7 @@
 
   <svg
     title="moon-stars"
-    class="fill-white hidden dark:d-block w-6 -mt-1 "
+    class="fill-white hidden dark:block w-6 -mt-1 "
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
     >
@@ -117,267 +114,332 @@
 
     </label>
 
+    <input type="checkbox" name="dark-switch" id="dark-switch" class="sr-only" />
+
   </div>
 
 </header>
-    <div class="flex container min-h-screen">
+  <div class="container grid grid-cols-6 min-h-screen">
 
-        <div class="hidden lg:flex basis-1/6 py-20 px-4 border-r border-granite-l3 dark:border-granite-d1">
+    <div class="hidden lg:block col-span-1 py-20 px-5 border-r border-granite-l3 dark:border-granite-d1">
 
-            <nav class="fixed">
+  <nav class="fixed">
 
-    <ul class="ml-2 text-green dark:text-modern-l1">
+    <ul class="list-none leading-none m-0 p-0 text-green dark:text-modern-l1">
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Guides</span>
+      
+      <li class="m-0 p-0">
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+        <span class="text-lg font-bold">Guides</span>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/guides/for-developers/">For Developers</a></li>
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
 
-                    
-            </ul>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-        </li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/guides/for-developers/">
+              For Developers
+            </a>
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Foundations</span>
+          </li>
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+          
+        </ul>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/breakpoints/">Breakpoints</a></li>
+      </li>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/spacing/">Spacing</a></li>
+      
+      <li class="m-0 p-0">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/layout/">Layout</a></li>
+        <span class="text-lg font-bold">Foundations</span>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/colour/">Colour</a></li>
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/iconography/">Iconography</a></li>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-                    
-            </ul>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/breakpoints/">
+              Breakpoints
+            </a>
 
-        </li>
+          </li>
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Components</span>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/spacing/">
+              Spacing
+            </a>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/accordion/">Accordion</a></li>
+          </li>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/button/">Button</a></li>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/icon/">Icon</a></li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/layout/">
+              Layout
+            </a>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/well/">Well</a></li>
+          </li>
 
-                    
-            </ul>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-        </li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/typography">
+              Typography
+            </a>
 
-        
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/colour/">
+              Colour
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/iconography/">
+              Iconography
+            </a>
+
+          </li>
+
+          
+        </ul>
+
+      </li>
+
+      
+      <li class="m-0 p-0">
+
+        <span class="text-lg font-bold">Components</span>
+
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/accordion/">
+              Accordion
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/button/">
+              Button
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/icon/">
+              Icon
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/well/">
+              Well
+            </a>
+
+          </li>
+
+          
+        </ul>
+
+      </li>
+
+      
     </ul>
 
-</nav>
-        </div>
-
-        <main class="basis-full lg:basis-4/6"> 
-
-            <article class="prose prose-granite dark:prose-invert md:prose-lg mx-auto px-4 sm:px-6">
-
-                
-<div class="is-prose mx-auto py-20">
-
-  <h1 class="is-decorated">Breakpoints</h1>
-
-  <p>
-    Breakpoints are foundational to responsive design. They are pre-defined values
-    that determine how your layout behaves and adapts to different device and viewport
-    sizes.
-  </p>
-
-  <h2>Mobile-First Design</h2>
-
-  <p>
-    Whether you're a developer, designer or content editor, when you are creating
-    anything for a digital audience, you should first consider how it will appear
-    and function on a mobile device, and only <em>afterwards</em> consider how it
-    will adapt to larger devices or viewports.
-  </p>
-
-  <h2>Available Breakpoints</h2>
-
-  <p>
-    Our design system works with five breakpoints, defined by a series of
-    <em>minimum widths</em>. What this means in practice is that breakpoints move
-    upwards, from mobile (where no breakpoint is needed) to tablet, laptop, desktop
-    monitor, widescreen etc.
-  </p>
-
-  <table class="text-left">
-    <thead>
-      <tr>
-        <th>Breakpoint prefix</th>
-        <th>Minimum width</th>
-        <th>CSS</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>sm</td>
-        <td>640px</td>
-        <td>@media (min-width: 640px) { ... }</td>
-      </tr>
-      <tr>
-        <td>md</td>
-        <td>768px</td>
-        <td>@media (min-width: 768px) { ... }</td>
-      </tr>
-      <tr>
-        <td>lg</td>
-        <td>1024px</td>
-        <td>@media (min-width: 1024px) { ... }</td>
-      </tr>
-      <tr>
-        <td>xl</td>
-        <td>1280px</td>
-        <td>@media (min-width: 1280px) { ... }</td>
-      </tr>
-      <tr>
-        <td>2xl</td>
-        <td>1536px</td>
-        <td>@media (min-width: 1536px) { ... }</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h2>Using Breakpoints</h2>
-
-  <p>
-    For designers, ensure the frame widths defined in Figma correspond to the above 
-    breakpoint values. Ideally, <a href="https://uxdesign.cc/using-figma-variables-for-breakpoints-eff321435306" target="_blank">
-    use these values as variables</a> in Figma. <a href="https://www.figma.com/community/plugin/824289601590456356" target="_blank">
-    Plugins also exist</a> which facilitate automatic responsive layouts.
-  </p>
-  
-  <p>
-    For developers, breakpoints can be used as modifiers, prefixing normal 
-    style classes. This will ensure the styles in question only become active at
-    the prefixed breakpoint(s).
-  </p>
-
-  <h3>Syntax</h3>
-
-  <pre><code>&lt;element class=&quot;prefix:style-rule&quot;&gt;&lt;/element&gt;</code></pre>
-
-  <h3>Examples</h3>
-
-  <p>
-    <strong>(i)</strong> Here's how you would set different levels of padding for a <code>div</code> 
-    element at small (<code>sm</code>) and large (<code>lg</code>) breakpoints.
-  </p>
-
-  <pre><code>&lt;div class=&quot;p-4 sm:p-6 lg:p-8&quot;&gt;&lt;/div&gt;</code></pre>
-
-  <p>
-    <strong>(ii)</strong> An especially common use case will be setting different column counts 
-    for mobile versus desktop. Here's one such example using CSS Grid.
-  </p>
-
-  <pre><code>
-  &lt;div class=&quot;grid-cols-1 sm:grid-cols-2 lg:grid-cols-3&quot;&gt;
-      &lt;div&gt;...&lt;/div&gt;
-      &lt;div&gt;...&lt;/div&gt;
-      &lt;div&gt;...&lt;/div&gt;
-      &lt;div&gt;...&lt;/div&gt;
-      &lt;div&gt;...&lt;/div&gt;
-  &lt;/div&gt;
-  </code></pre>
-  
-  <p>
-    <strong>(iii)</strong> It is also very useful to be able to set content visibility depending 
-    on the currently active breakpoint. Here's an example that hides a table 
-    column for mobile users and displays it only when the user is on a larger 
-    screen.
-  </p>
-
-  <pre><code>
-  &lt;table&gt;
-      &lt;thead&gt;
-          &lt;tr&gt;
-              &lt;th&gt;Name&lt;/th&gt;
-              &lt;th&gt;Size&lt;/th&gt;
-              &lt;th&gt;Pixels&lt;/th&gt;
-              &lt;th class=&quot;hidden lg:table-cell&quot;&gt;
-                  &lt;span class=&quot;sr-only&quot;&gt;Preview&lt;/span&gt;
-              &lt;/th&gt;
-          &lt;/tr&gt;
-      &lt;/thead&gt;
-      &lt;tbody&gt;
-          ...
-          &lt;tr&gt;
-              &lt;td&gt;0.5&lt;/td&gt;
-              &lt;td&gt;0.125rem&lt;/td&gt;
-              &lt;td&gt;2px&lt;/td&gt;
-              &lt;td class=&quot;hidden lg:table-cell&quot;&gt;
-                  &lt;div class=&quot;h-4 bg-modern&quot; style=&quot;width: 0.125rem;&quot;&gt;&lt;/div&gt;
-              &lt;/td&gt;
-          &lt;/tr&gt;
-          ...
-      &lt;/tbody&gt;
-  &lt;/table&gt;
-  </code></pre>
-
-  <p>
-    <strong>Note:</strong> The above example is given not to advocate for the use of tables, but to 
-    address their shortcomings when it comes to UX on mobile. We generally 
-    recommend avoiding the use of tables unless absolutely necessary.
-  </p>
+  </nav>
 
 </div>
+    <main class="col-span-6 lg:col-span-4">
 
-            </article>
+      <article class="px-5 py-16 sm:px-6 lg:p-20 xl:px-32">
 
-        </main>
-
-        <div class="hidden lg:flex basis-1/6 py-20 px-4">
-
-            <nav
-  id="page-nav"
-  class="fixed no-scrollbar">
-</nav>
-        </div>
         
-    </div>
+<h1 class="font-serif is-decorated">Breakpoints</h1>
 
-    <footer class="
-    basis-full p-4 border-t border-granite-l3 text-center
-    dark:border-granite-d1">
+<p>
+  Breakpoints are foundational to responsive design. They are pre-defined values
+  that determine how your layout behaves and adapts to different device and viewport
+  sizes.
+</p>
 
-    Copyright © University of Limerick 2025
+<h2>Mobile-First Design</h2>
 
-</footer>
-    <script type="module" src="/index.js"></script>
+<p>
+  Whether you're a developer, designer or content editor, when you are creating
+  anything for a digital audience, you should first consider how it will appear
+  and function on a mobile device, and only <em>afterwards</em> consider how it
+  will adapt to larger devices or viewports.
+</p>
 
-</body>
+<h2>Available Breakpoints</h2>
+
+<p>
+  Our design system works with five breakpoints, defined by a series of
+  <em>minimum widths</em>. What this means in practice is that breakpoints move
+  upwards, from mobile (where no breakpoint is needed) to tablet, laptop, desktop
+  monitor, widescreen etc.
+</p>
+
+<table class="text-left">
+  <thead>
+    <tr>
+      <th>Breakpoint prefix</th>
+      <th>Minimum width</th>
+      <th>CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>sm</td>
+      <td>640px</td>
+      <td>@media (min-width: 640px) { ... }</td>
+    </tr>
+    <tr>
+      <td>md</td>
+      <td>768px</td>
+      <td>@media (min-width: 768px) { ... }</td>
+    </tr>
+    <tr>
+      <td>lg</td>
+      <td>1024px</td>
+      <td>@media (min-width: 1024px) { ... }</td>
+    </tr>
+    <tr>
+      <td>xl</td>
+      <td>1280px</td>
+      <td>@media (min-width: 1280px) { ... }</td>
+    </tr>
+    <tr>
+      <td>2xl</td>
+      <td>1536px</td>
+      <td>@media (min-width: 1536px) { ... }</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Using Breakpoints</h2>
+
+<p>
+  For designers, ensure the frame widths defined in Figma correspond to the above 
+  breakpoint values. Ideally, <a href="https://uxdesign.cc/using-figma-variables-for-breakpoints-eff321435306" target="_blank">
+  use these values as variables</a> in Figma. <a href="https://www.figma.com/community/plugin/824289601590456356" target="_blank">
+  Plugins also exist</a> which facilitate automatic responsive layouts.
+</p>
+
+<p>
+  For developers, breakpoints can be used as modifiers, prefixing normal 
+  style classes. This will ensure the styles in question only become active at
+  the prefixed breakpoint(s).
+</p>
+
+<h3>Syntax</h3>
+
+<pre><code>&lt;element class=&quot;prefix:style-rule&quot;&gt;&lt;/element&gt;</code></pre>
+
+<h3>Examples</h3>
+
+<p>
+  <strong>(i)</strong> Here's how you would set different levels of padding for a <code>div</code> 
+  element at small (<code>sm</code>) and large (<code>lg</code>) breakpoints.
+</p>
+
+<pre><code>&lt;div class=&quot;p-4 sm:p-6 lg:p-8&quot;&gt;&lt;/div&gt;</code></pre>
+
+<p>
+  <strong>(ii)</strong> An especially common use case will be setting different column counts 
+  for mobile versus desktop. Here's one such example using CSS Grid.
+</p>
+
+<pre><code>&lt;div class=&quot;grid-cols-1 sm:grid-cols-2 lg:grid-cols-3&quot;&gt;
+  &lt;div&gt;...&lt;/div&gt;
+  &lt;div&gt;...&lt;/div&gt;
+  &lt;div&gt;...&lt;/div&gt;
+  &lt;div&gt;...&lt;/div&gt;
+  &lt;div&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<p>
+  <strong>(iii)</strong> It is also very useful to be able to set content visibility depending 
+  on the currently active breakpoint. Here's an example that hides a table 
+  column for mobile users and displays it only when the user is on a larger 
+  screen.
+</p>
+
+<pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Size&lt;/th&gt;
+      &lt;th&gt;Pixels&lt;/th&gt;
+      &lt;th class=&quot;hidden lg:table-cell&quot;&gt;
+          &lt;span class=&quot;sr-only&quot;&gt;Preview&lt;/span&gt;
+      &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    ...
+    &lt;tr&gt;
+      &lt;td&gt;0.5&lt;/td&gt;
+      &lt;td&gt;0.125rem&lt;/td&gt;
+      &lt;td&gt;2px&lt;/td&gt;
+      &lt;td class=&quot;hidden lg:table-cell&quot;&gt;
+        &lt;div class=&quot;h-4 bg-modern&quot; style=&quot;width: 0.125rem;&quot;&gt;&lt;/div&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    ...
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+<p>
+  <strong>Note:</strong> The above example is given not to advocate for the use of tables, but to 
+  address their shortcomings when it comes to UX on mobile. We generally 
+  recommend avoiding the use of tables unless absolutely necessary.
+</p>
+
+      </article>
+
+    </main>
+
+    <div class="hidden lg:block col-span-1 py-20 px-4">
+
+  <div class="flex justify-center">
+
+    <nav id="page-nav" class="fixed no-scrollbar"></nav>
+
+  </div>
+
+</div>
+  </div>
+
+      <footer class="
+      basis-full p-4 border-t border-granite-l3 text-center
+      dark:border-granite-d1">
+
+      Copyright © University of Limerick 2025
+
+    </footer>
+    
+    <script type="module" src="/js/index.js"></script>
+
+  </body>
 
 </html>

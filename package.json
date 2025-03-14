@@ -1,28 +1,28 @@
 {
   "name": "coras",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Córas is the design system for University of Limerick.",
   "main": "index.js",
   "scripts": {
     "clean": "rm -r dist",
-    "start": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy",
-    "icons": "npm update '@awesome.me/kit-0dc973fac8'"
+    "start": "npm run 11ty-serve & npm run tw-watch",
+    "build": "npm run clean && npm run 11ty-build && npm run tw-build",
+    "icons": "npm update '@awesome.me/kit-0dc973fac8'",
+    "11ty-serve": "npx @11ty/eleventy --serve",
+    "11ty-build": "npx @11ty/eleventy",
+    "tw-watch": "npx @tailwindcss/cli -i ./inc/css/index.css -o ./dist/css/index.css --watch",
+    "tw-build": "npx @tailwindcss/cli -i ./inc/css/index.css -o ./dist/css/index.css --minify"
   },
   "author": "David Matthew",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "@11ty/eleventy-plugin-vite": "^4.0.0",
-    "@tailwindcss/typography": "^0.5.13",
+    "@11ty/eleventy": "^3.0.0",
+    "@tailwindcss/cli": "^4.0.4",
     "js-yaml": "^4.1.0",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
+    "tailwindcss": "^4.0.4",
     "twig": "^1.17.1"
   },
   "dependencies": {
-    "@awesome.me/kit-0dc973fac8": "^1.0.4",
-    "alpinejs": "^3.13.10",
-    "highlight.js": "^11.10.0"
+    "@awesome.me/kit-0dc973fac8": "^1.0.4"
   }
 }

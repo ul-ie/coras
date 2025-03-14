@@ -2,35 +2,36 @@
 
 <html lang="en" class="scroll-smooth">
 
-<head>
+  <head>
 
     <meta charset="UTF-8">
 
+    <meta name="generator" content="Eleventy">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/css/index.css">
 
     <script>
-        if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
-            document.querySelector('html').classList.remove('dark');
-        } else {
-            document.querySelector('html').classList.add('dark');
-        }
+      // Check for dark mode.
+      let html = document.querySelector('html');
+      let isDarkModeActive = ('dark-mode' in localStorage) && localStorage.getItem('dark-mode') === 'true';
+      isDarkModeActive ? html.classList.add('dark') : html.classList.remove('dark');
     </script>
 
     <title>Spacing</title>
 
-</head>
-<body class="antialiased bg-limestone-l5 dark:bg-granite-d3 text-granite-d3 dark:text-granite-l3">
+  </head>
+<body class="antialiased bg-limestone-l5 text-granite-d2 dark:bg-granite-d3 dark:text-granite-l3">
 
-    <header class="sticky top-0 w-full h-24 z-10">
+  <header class="sticky top-0 w-full h-24 z-10">
 
   <div class="
-        absolute inset-0 bg-white bg-opacity-60 border-b border-granite-l3 backdrop-blur -z-10
-        dark:bg-granite-d3 dark:border-granite-d1 dark:bg-opacity-70" aria-hidden="true">
+        absolute inset-0 bg-white/60 border-b border-granite-l3 backdrop-blur -z-10
+        dark:bg-granite-d3/70 dark:border-granite-d1" aria-hidden="true">
   </div>
 
-  <div class="container h-full flex items-center justify-between px-4 sm:px-6">
+  <div class="container h-full flex items-center justify-between px-5 sm:px-6">
 
     <a href="/"><svg version="1.1" viewBox="0 0 1480 676.28" width="148px" xmlns="http://www.w3.org/2000/svg" class="my-3">
   <title>University of Limerick</title>
@@ -79,13 +80,9 @@
 </svg>
 </a>
 
-    <!-- Dark mode toggle -->
-
-    <input type="checkbox" name="light-switch" id="light-switch" class="light-switch sr-only" />
-
     <label
-      for="light-switch"
-      class="relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1 hover:bg-opacity-5 dark:hover:bg-opacity-10" >
+      for="dark-switch"
+      class="relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1/5 dark:hover:bg-modern-l1/10" >
 
       
 
@@ -105,7 +102,7 @@
 
   <svg
     title="moon-stars"
-    class="fill-white hidden dark:d-block w-6 -mt-1 "
+    class="fill-white hidden dark:block w-6 -mt-1 "
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
     >
@@ -117,479 +114,548 @@
 
     </label>
 
+    <input type="checkbox" name="dark-switch" id="dark-switch" class="sr-only" />
+
   </div>
 
 </header>
-    <div class="flex container min-h-screen">
+  <div class="container grid grid-cols-6 min-h-screen">
 
-        <div class="hidden lg:flex basis-1/6 py-20 px-4 border-r border-granite-l3 dark:border-granite-d1">
+    <div class="hidden lg:block col-span-1 py-20 px-5 border-r border-granite-l3 dark:border-granite-d1">
 
-            <nav class="fixed">
+  <nav class="fixed">
 
-    <ul class="ml-2 text-green dark:text-modern-l1">
+    <ul class="list-none leading-none m-0 p-0 text-green dark:text-modern-l1">
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Guides</span>
+      
+      <li class="m-0 p-0">
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+        <span class="text-lg font-bold">Guides</span>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/guides/for-developers/">For Developers</a></li>
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
 
-                    
-            </ul>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-        </li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/guides/for-developers/">
+              For Developers
+            </a>
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Foundations</span>
+          </li>
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+          
+        </ul>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/breakpoints/">Breakpoints</a></li>
+      </li>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/spacing/">Spacing</a></li>
+      
+      <li class="m-0 p-0">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/layout/">Layout</a></li>
+        <span class="text-lg font-bold">Foundations</span>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/colour/">Colour</a></li>
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/iconography/">Iconography</a></li>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-                    
-            </ul>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/breakpoints/">
+              Breakpoints
+            </a>
 
-        </li>
+          </li>
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Components</span>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/spacing/">
+              Spacing
+            </a>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/accordion/">Accordion</a></li>
+          </li>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/button/">Button</a></li>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/icon/">Icon</a></li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/layout/">
+              Layout
+            </a>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/well/">Well</a></li>
+          </li>
 
-                    
-            </ul>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-        </li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/typography">
+              Typography
+            </a>
 
-        
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/colour/">
+              Colour
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/iconography/">
+              Iconography
+            </a>
+
+          </li>
+
+          
+        </ul>
+
+      </li>
+
+      
+      <li class="m-0 p-0">
+
+        <span class="text-lg font-bold">Components</span>
+
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/accordion/">
+              Accordion
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/button/">
+              Button
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/icon/">
+              Icon
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/well/">
+              Well
+            </a>
+
+          </li>
+
+          
+        </ul>
+
+      </li>
+
+      
     </ul>
 
-</nav>
-        </div>
+  </nav>
 
-        <main class="basis-full lg:basis-4/6"> 
+</div>
+    <main class="col-span-6 lg:col-span-4">
 
-            <article class="prose prose-granite dark:prose-invert md:prose-lg mx-auto px-4 sm:px-6">
+      <article class="px-5 py-16 sm:px-6 lg:p-20 xl:px-32">
 
-                
-<div class="is-prose mx-auto py-20">
+        
+<h1 class="font-serif is-decorated">Spacing</h1>
 
-  <h1 class="is-decorated">Spacing</h1>
+<p>
+  Our spacing is based on <code>rem</code> units (a measurement relative to 
+  the root element font size), where <code>1</code> spacing unit is equal to 
+  <code>0.25 rem</code>. Because the root element font size in standard web 
+  browsers is <code>16px</code> this translates to <code>4px</code>.
+</p>
 
-  <p>
-    Our spacing is based on <code>rem</code> units (a measurement relative to 
-    the root element font size), where <code>1</code> spacing unit is equal to 
-    <code>0.25 rem</code>. Because the root element font size in standard web 
-    browsers is <code>16px</code> this translates to <code>4px</code>.
-  </p>
+<ul>
+  <li><code>1 unit = 0.25rem</code></li>
+  <li><code>0.25rem = 4px</code></li>
+</ul>
 
-  <ul>
-    <li><code>1 unit = 0.25rem</code></li>
-    <li><code>0.25rem = 4px</code></li>
-  </ul>
+<h2>Spacing Scale</h2>
 
-  <h2>Spacing Scale</h2>
+<p>
+  The spacing scale below is utilised across all padding and margin utility
+  classes to ensure consistency.
+</p>
 
-  <p>
-    The spacing scale below is utilised across all padding and margin utility
-    classes to ensure consistency.
-  </p>
+<table class="text-left">
+  <thead>
+    <tr>
+      <th>Unit</th>
+      <th>Size</th>
+      <th>Pixels</th>
+      <th class="hidden sm:table-cell">
+        <span>Preview</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0px</td>
+      <td>0px</td>
+    </tr>
+    <tr>
+      <td>px</td>
+      <td>1px</td>
+      <td>1px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 1px;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>0.5</td>
+      <td>0.125rem</td>
+      <td>2px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 0.125rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.25rem</td>
+      <td>4px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 0.25rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>1.5</td>
+      <td>0.375rem</td>
+      <td>6px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 0.375rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.5rem</td>
+      <td>8px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 0.5rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>2.5</td>
+      <td>0.625rem</td>
+      <td>10px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 0.625rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.75rem</td>
+      <td>12px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 0.75rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>3.5</td>
+      <td>0.875rem</td>
+      <td>14px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 0.875rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>1rem</td>
+      <td>16px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 1rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>1.25rem</td>
+      <td>20px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 1.25rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>1.5rem</td>
+      <td>24px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 1.5rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>1.75rem</td>
+      <td>28px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 1.75rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2rem</td>
+      <td>32px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 2rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>2.25rem</td>
+      <td>36px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 2.25rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>2.5rem</td>
+      <td>40px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 2.5rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>2.75rem</td>
+      <td>44px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 2.75rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>3rem</td>
+      <td>48px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 3rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>3.5rem</td>
+      <td>56px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 3.5rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>4rem</td>
+      <td>64px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 4rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>5rem</td>
+      <td>80px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 5rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>6rem</td>
+      <td>96px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 6rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>7rem</td>
+      <td>112px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 7rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>8rem</td>
+      <td>128px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 8rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>9rem</td>
+      <td>144px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 9rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>10rem</td>
+      <td>160px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 10rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>44</td>
+      <td>11rem</td>
+      <td>176px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 11rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>48</td>
+      <td>12rem</td>
+      <td>192px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 12rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>13rem</td>
+      <td>208px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 13rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>56</td>
+      <td>14rem</td>
+      <td>224px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 14rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>15rem</td>
+      <td>240px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 15rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>64</td>
+      <td>16rem</td>
+      <td>256px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 16rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>18rem</td>
+      <td>288px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 18rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>20rem</td>
+      <td>320px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 20rem;"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>96</td>
+      <td>24rem</td>
+      <td>384px</td>
+      <td class="hidden sm:table-cell">
+        <div class="h-4 bg-modern" style="width: 24rem;"></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-  <table class="text-left">
-    <thead>
-      <tr>
-        <th>Unit</th>
-        <th>Size</th>
-        <th>Pixels</th>
-        <th class="hidden sm:table-cell">
-          <span>Preview</span>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>0</td>
-        <td>0px</td>
-        <td>0px</td>
-      </tr>
-      <tr>
-        <td>px</td>
-        <td>1px</td>
-        <td>1px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 1px;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>0.5</td>
-        <td>0.125rem</td>
-        <td>2px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 0.125rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>0.25rem</td>
-        <td>4px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 0.25rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>1.5</td>
-        <td>0.375rem</td>
-        <td>6px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 0.375rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>0.5rem</td>
-        <td>8px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 0.5rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>2.5</td>
-        <td>0.625rem</td>
-        <td>10px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 0.625rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>0.75rem</td>
-        <td>12px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 0.75rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>3.5</td>
-        <td>0.875rem</td>
-        <td>14px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 0.875rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>1rem</td>
-        <td>16px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 1rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>1.25rem</td>
-        <td>20px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 1.25rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td>1.5rem</td>
-        <td>24px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 1.5rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td>1.75rem</td>
-        <td>28px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 1.75rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td>2rem</td>
-        <td>32px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 2rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>9</td>
-        <td>2.25rem</td>
-        <td>36px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 2.25rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>10</td>
-        <td>2.5rem</td>
-        <td>40px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 2.5rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>11</td>
-        <td>2.75rem</td>
-        <td>44px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 2.75rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>12</td>
-        <td>3rem</td>
-        <td>48px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 3rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>14</td>
-        <td>3.5rem</td>
-        <td>56px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 3.5rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>16</td>
-        <td>4rem</td>
-        <td>64px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 4rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>20</td>
-        <td>5rem</td>
-        <td>80px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 5rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>24</td>
-        <td>6rem</td>
-        <td>96px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 6rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>28</td>
-        <td>7rem</td>
-        <td>112px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 7rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>32</td>
-        <td>8rem</td>
-        <td>128px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 8rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>36</td>
-        <td>9rem</td>
-        <td>144px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 9rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>40</td>
-        <td>10rem</td>
-        <td>160px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 10rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>44</td>
-        <td>11rem</td>
-        <td>176px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 11rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>48</td>
-        <td>12rem</td>
-        <td>192px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 12rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>52</td>
-        <td>13rem</td>
-        <td>208px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 13rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>56</td>
-        <td>14rem</td>
-        <td>224px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 14rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>60</td>
-        <td>15rem</td>
-        <td>240px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 15rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>64</td>
-        <td>16rem</td>
-        <td>256px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 16rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>72</td>
-        <td>18rem</td>
-        <td>288px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 18rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>80</td>
-        <td>20rem</td>
-        <td>320px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 20rem;"></div>
-        </td>
-      </tr>
-      <tr>
-        <td>96</td>
-        <td>24rem</td>
-        <td>384px</td>
-        <td class="hidden sm:table-cell">
-          <div class="h-4 bg-modern" style="width: 24rem;"></div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<h2>Padding</h2>
 
-  <h2>Padding</h2>
+<p>
+  Padding can be set for all sides of an element at once, for just a single 
+  axis (horizontal or vertical), or individually for each side.
+</p>
 
-  <p>
-    Padding can be set for all sides of an element at once, for just a single 
-    axis (horizontal or vertical), or individually for each side.
-  </p>
+<h3>Syntax</h3>
 
-  <h3>Syntax</h3>
+<pre><code>&lt;element class=&quot;p[modifier]-unit&quot;&gt;</code></pre>
 
-  <pre><code>&lt;element class=&quot;p[modifier]-unit&quot;&gt;</code></pre>
+<table class="text-left">
+  <thead>
+    <tr>
+      <th>Padding Class</th>
+      <th>CSS Property</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>p-</td>
+      <td>padding</td>
+    </tr>
+    <tr>
+      <td>pt-</td>
+      <td>padding-top</td>
+    </tr>
+    <tr>
+      <td>pb-</td>
+      <td>padding-bottom</td>
+    </tr>
+    <tr>
+      <td>pl-</td>
+      <td>padding-left</td>
+    </tr>
+    <tr>
+      <td>pr-</td>
+      <td>padding-right</td>
+    </tr>
+    <tr>
+      <td>px-</td>
+      <td>padding-left; padding-right</td>
+    </tr>
+    <tr>
+      <td>py-</td>
+      <td>padding-top; padding-bottom</td>
+    </tr>
+    <tr>
+      <td>ps-</td>
+      <td>padding-inline-start</td>
+    </tr>
+    <tr>
+      <td>pe-</td>
+      <td>padding-inline-end</td>
+    </tr>
+  </tbody>
+</table>
 
-  <table class="text-left">
-    <thead>
-      <tr>
-        <th>Padding Class</th>
-        <th>CSS Property</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>p-</td>
-        <td>padding</td>
-      </tr>
-      <tr>
-        <td>pt-</td>
-        <td>padding-top</td>
-      </tr>
-      <tr>
-        <td>pb-</td>
-        <td>padding-bottom</td>
-      </tr>
-      <tr>
-        <td>pl-</td>
-        <td>padding-left</td>
-      </tr>
-      <tr>
-        <td>pr-</td>
-        <td>padding-right</td>
-      </tr>
-      <tr>
-        <td>px-</td>
-        <td>padding-left; padding-right</td>
-      </tr>
-      <tr>
-        <td>py-</td>
-        <td>padding-top; padding-bottom</td>
-      </tr>
-      <tr>
-        <td>ps-</td>
-        <td>padding-inline-start</td>
-      </tr>
-      <tr>
-        <td>pe-</td>
-        <td>padding-inline-end</td>
-      </tr>
-    </tbody>
-  </table>
+<h3>Examples</h3>
 
-  <h3>Examples</h3>
+<p>
+  <strong>(i)</strong> Setting the padding of a <code>div</code> to <code>1rem</code> on all
+  sides.
+</p>
 
-  <p>
-    <strong>(i)</strong> Setting the padding of a <code>div</code> to <code>1rem</code> on all
-    sides.
-  </p>
+<pre><code>&lt;div class=&quot;p-4&quot;&gt;...&lt;/div&gt;</code></pre>
 
-  <pre><code>&lt;div class=&quot;p-4&quot;&gt;...&lt;/div&gt;</code></pre>
+<p>Result:</p>
 
-  <p>Result:</p>
 
-  
 
 
 
@@ -599,20 +665,20 @@
 <div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 ">
 
   
-        <div class="text-center block w-full border border-dashed border-modern"><code>p-4</code></div>
-
-    
-</div>
-  <p class="mt-10">
-    <strong>(ii)</strong> Setting the horizontal padding (i.e. x-axis only) of 
-    a <code>div</code> to <code>2rem</code>.
-  </p>
-
-  <pre><code>&lt;div class=&quot;px-8&quot;&gt;...&lt;/div&gt;</code></pre>
-
-  <p>Result:</p>
+    <div class="text-center block w-full border border-dashed border-modern"><code>p-4</code></div>
 
   
+</div>
+<p class="mt-10">
+  <strong>(ii)</strong> Setting the horizontal padding (i.e. x-axis only) of 
+  a <code>div</code> to <code>2rem</code>.
+</p>
+
+<pre><code>&lt;div class=&quot;px-8&quot;&gt;...&lt;/div&gt;</code></pre>
+
+<p>Result:</p>
+
+
 
 
 
@@ -622,20 +688,20 @@
 <div class="border border-granite-l3 rounded-md dark:border-granite-d1 px-8 ">
 
   
-        <div class="text-center block w-full border border-dashed border-modern"><code>px-8</code></div>
-
-    
-</div>
-  <p class="mt-10">
-    <strong>(iii)</strong> Setting the vertical padding (i.e. y-axis only) of 
-    a <code>div</code> to <code>2rem</code>.
-  </p>
-
-  <pre><code>&lt;div class=&quot;py-8&quot;&gt;...&lt;/div&gt;</code></pre>
-
-  <p>Result:</p>
+    <div class="text-center block w-full border border-dashed border-modern"><code>px-8</code></div>
 
   
+</div>
+<p class="mt-10">
+  <strong>(iii)</strong> Setting the vertical padding (i.e. y-axis only) of 
+  a <code>div</code> to <code>2rem</code>.
+</p>
+
+<pre><code>&lt;div class=&quot;py-8&quot;&gt;...&lt;/div&gt;</code></pre>
+
+<p>Result:</p>
+
+
 
 
 
@@ -645,20 +711,20 @@
 <div class="border border-granite-l3 rounded-md dark:border-granite-d1 py-8 ">
 
   
-        <div class="text-center block w-full border border-dashed border-modern"><code>py-8</code></div>
-
-    
-</div>
-  <p class="mt-10"></p>
-    <strong>(iv)</strong> Setting different padding values for each side of a 
-    <code>div</code>.
-  </p>
-
-  <pre><code>&lt;div class=&quot;pt-0.5 pr-1 pb-1.5 pl-2&quot;&gt;...&lt;/div&gt;</code></pre>
-
-  <p>Result:</p>
+    <div class="text-center block w-full border border-dashed border-modern"><code>py-8</code></div>
 
   
+</div>
+<p class="mt-10"></p>
+  <strong>(iv)</strong> Setting different padding values for each side of a 
+  <code>div</code>.
+</p>
+
+<pre><code>&lt;div class=&quot;pt-0.5 pr-1 pb-1.5 pl-2&quot;&gt;...&lt;/div&gt;</code></pre>
+
+<p>Result:</p>
+
+
 
 
 
@@ -668,155 +734,154 @@
 <div class="border border-granite-l3 rounded-md dark:border-granite-d1 pt-0.5 pr-1 pb-1.5 pl-2 ">
 
   
-        <div class="text-center block w-full border border-dashed border-modern"><code>pt-0.5 pr-1 pb-1.5 pl-2</code></div>
+    <div class="text-center block w-full border border-dashed border-modern"><code>pt-0.5 pr-1 pb-1.5 pl-2</code></div>
 
-    
+  
 </div>
-  <h2>Margins</h2>
+<h2>Margins</h2>
 
-  <p>
-    As with padding, margins can be set for all sides of an element at once, 
-    for just a single axis (horizontal or vertical), or individually for each side.
-  </p>
+<p>
+  As with padding, margins can be set for all sides of an element at once, 
+  for just a single axis (horizontal or vertical), or individually for each side.
+</p>
 
-  <h3 id="margin-syntax">Syntax</h3>
+<h3 id="margin-syntax">Syntax</h3>
 
-  <pre><code>&lt;element class=&quot;m[modifier]-unit&quot;&gt;</code></pre>
+<pre><code>&lt;element class=&quot;m[modifier]-unit&quot;&gt;</code></pre>
 
-  <table class="text-left">
-    <thead>
-      <tr>
-        <th>Margin Class</th>
-        <th>CSS Property</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>m-</td>
-        <td>margin</td>
-      </tr>
-      <tr>
-        <td>mt-</td>
-        <td>margin-top</td>
-      </tr>
-      <tr>
-        <td>mb-</td>
-        <td>margin-bottom</td>
-      </tr>
-      <tr>
-        <td>ml-</td>
-        <td>margin-left</td>
-      </tr>
-      <tr>
-        <td>mr-</td>
-        <td>margin-right</td>
-      </tr>
-      <tr>
-        <td>mx-</td>
-        <td>margin-left; margin-right</td>
-      </tr>
-      <tr>
-        <td>my-</td>
-        <td>margin-top; margin-bottom</td>
-      </tr>
-      <tr>
-        <td>ms-</td>
-        <td>margin-inline-start</td>
-      </tr>
-      <tr>
-        <td>me-</td>
-        <td>margin-inline-end</td>
-      </tr>
-    </tbody>
-  </table>
+<table class="text-left">
+  <thead>
+    <tr>
+      <th>Margin Class</th>
+      <th>CSS Property</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>m-</td>
+      <td>margin</td>
+    </tr>
+    <tr>
+      <td>mt-</td>
+      <td>margin-top</td>
+    </tr>
+    <tr>
+      <td>mb-</td>
+      <td>margin-bottom</td>
+    </tr>
+    <tr>
+      <td>ml-</td>
+      <td>margin-left</td>
+    </tr>
+    <tr>
+      <td>mr-</td>
+      <td>margin-right</td>
+    </tr>
+    <tr>
+      <td>mx-</td>
+      <td>margin-left; margin-right</td>
+    </tr>
+    <tr>
+      <td>my-</td>
+      <td>margin-top; margin-bottom</td>
+    </tr>
+    <tr>
+      <td>ms-</td>
+      <td>margin-inline-start</td>
+    </tr>
+    <tr>
+      <td>me-</td>
+      <td>margin-inline-end</td>
+    </tr>
+  </tbody>
+</table>
 
-  <h3 id="margin-examples">Examples</h3>
+<h3 id="margin-examples">Examples</h3>
 
-  <p>
-    <strong>(i)</strong> Setting the margin of a paragraph to <code>1rem</code> 
-    on all sides.
-  </p>
+<p>
+  <strong>(i)</strong> Setting the margin of a paragraph to <code>1rem</code> 
+  on all sides.
+</p>
 
-  <pre><code>&lt;p class=&quot;m-4&quot;&gt;...&lt;/p&gt;</code></pre>
+<pre><code>&lt;p class=&quot;m-4&quot;&gt;...&lt;/p&gt;</code></pre>
 
-  <p>Result:</p>
+<p>Result:</p>
 
-  <div class="border-[16px] border-solid border-modern border-opacity-20">
-    
-    <p class="m-0">Sample text with a margin of <code>m-4</code>.</p>
+<div class="border-[16px] border-solid border-modern border-opacity-20">
   
-  </div>
-
-  <p class="mt-10">
-    <strong>(ii)</strong> Setting the horizontal margin (i.e. x-axis only) of 
-    a paragraph to <code>3rem</code>.
-  </p>
-
-  <pre><code>&lt;p class=&quot;mx-12&quot;&gt;...&lt;/p&gt;</code></pre>
-
-  <p>Result:</p>
-
-  <div class="border-[48px] border-solid border-modern border-opacity-20 border-t-0 border-b-0">
-    
-    <p class="m-0">Sample text with a margin of <code>mx-12</code>.</p>
-  
-  </div>
-
-  <p class="mt-10">
-    <strong>(iii)</strong> Setting the vertical margin (i.e. y-axis only) of 
-    a paragraph to <code>2rem</code>.
-  </p>
-
-  <pre><code>&lt;div class=&quot;my-8&quot;&gt;...&lt;/div&gt;</code></pre>
-
-  <p>Result:</p>
-
-  <div class="border-[32px] border-solid border-modern border-opacity-20 border-l-0 border-r-0">
-    
-    <p class="m-0">Sample text with a margin of <code>my-8</code>.</p>
-  
-  </div>
-
-  <p class="mt-10"></p>
-    <strong>(iv)</strong> Setting different margin values for each side of a 
-    paragraph.
-  </p>
-
-  <pre><code>&lt;p class=&quot;mt-0.5 mr-1 mb-1.5 ml-2&quot;&gt;...&lt;/p&gt;</code></pre>
-
-  <p>Result:</p>
-
-  <div class="border-t-2 border-r-4 border-b-[6px] border-l-8 border-solid border-modern border-opacity-20">
-    
-    <p class="m-0">Sample text with a margins of <code>mt-0.5 mr-1 mb-1.5 ml-2</code>.</p>
-  
-  </div>
+  <p class="m-0">Sample text with a margin of <code>m-4</code>.</p>
 
 </div>
 
-            </article>
+<p class="mt-10">
+  <strong>(ii)</strong> Setting the horizontal margin (i.e. x-axis only) of 
+  a paragraph to <code>3rem</code>.
+</p>
 
-        </main>
+<pre><code>&lt;p class=&quot;mx-12&quot;&gt;...&lt;/p&gt;</code></pre>
 
-        <div class="hidden lg:flex basis-1/6 py-20 px-4">
+<p>Result:</p>
 
-            <nav
-  id="page-nav"
-  class="fixed no-scrollbar">
-</nav>
-        </div>
-        
-    </div>
+<div class="border-[48px] border-solid border-modern border-opacity-20 border-t-0 border-b-0">
+  
+  <p class="m-0">Sample text with a margin of <code>mx-12</code>.</p>
 
-    <footer class="
-    basis-full p-4 border-t border-granite-l3 text-center
-    dark:border-granite-d1">
+</div>
 
-    Copyright © University of Limerick 2025
+<p class="mt-10">
+  <strong>(iii)</strong> Setting the vertical margin (i.e. y-axis only) of 
+  a paragraph to <code>2rem</code>.
+</p>
 
-</footer>
-    <script type="module" src="/index.js"></script>
+<pre><code>&lt;div class=&quot;my-8&quot;&gt;...&lt;/div&gt;</code></pre>
 
-</body>
+<p>Result:</p>
+
+<div class="border-[32px] border-solid border-modern border-opacity-20 border-l-0 border-r-0">
+  
+  <p class="m-0">Sample text with a margin of <code>my-8</code>.</p>
+
+</div>
+
+<p class="mt-10"></p>
+  <strong>(iv)</strong> Setting different margin values for each side of a paragraph.
+</p>
+
+<pre><code>&lt;p class=&quot;mt-0.5 mr-1 mb-1.5 ml-2&quot;&gt;...&lt;/p&gt;</code></pre>
+
+<p>Result:</p>
+
+<div class="border-t-2 border-r-4 border-b-[6px] border-l-8 border-solid border-modern border-opacity-20">
+  
+  <p class="m-0">Sample text with a margins of <code>mt-0.5 mr-1 mb-1.5 ml-2</code>.</p>
+
+</div>
+
+      </article>
+
+    </main>
+
+    <div class="hidden lg:block col-span-1 py-20 px-4">
+
+  <div class="flex justify-center">
+
+    <nav id="page-nav" class="fixed no-scrollbar"></nav>
+
+  </div>
+
+</div>
+  </div>
+
+      <footer class="
+      basis-full p-4 border-t border-granite-l3 text-center
+      dark:border-granite-d1">
+
+      Copyright © University of Limerick 2025
+
+    </footer>
+    
+    <script type="module" src="/js/index.js"></script>
+
+  </body>
 
 </html>

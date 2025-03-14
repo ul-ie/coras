@@ -3,162 +3,158 @@ title: For Developers
 layout: templates/page.html
 ---
 
-<div class="py-20">
+<h1 class="font-serif is-decorated">{{ title }}</h1>
 
-  <h1 class="is-decorated">{{ title }}</h1>
+<h2>About This System</h2>
 
-  <h2>About This System</h2>
+<p>The Córas Design System is developed using <a href="https://www.11ty.dev/" target="_blank">11ty (Eleventy)</a>, a framework-agnostic and customisable static site generator.</p>
 
-  <p>The Córas Design System is developed using <a href="https://www.11ty.dev/" target="_blank">11ty (Eleventy)</a>, a framework-agnostic and customisable static site generator.</p>
+<p>Although this platform is node/npm-based, JavaScript versions of both <a href="https://github.com/twigjs/twig.js" target="_blank">Twig</a> and <a href="https://www.npmjs.com/package/js-yaml" target="_blank">YML</a> are implemented to ensure the component code integrates with Drupal as seamlessly as possible.</p>
 
-  <p>Although this platform is node/npm-based, JavaScript versions of both <a href="https://github.com/twigjs/twig.js" target="_blank">Twig</a> and <a href="https://www.npmjs.com/package/js-yaml" target="_blank">YML</a> are implemented to ensure the component code integrates with Drupal as seamlessly as possible.</p>
+<h2>Pre-Requisites</h2>
 
-  <h2>Pre-Requisities</h2>
+<p>To develop components you need to be familiar with the following:</p>
 
-  <p>To develop components you need to be familiar with the following:</p>
+<ul>
+  <li><a href="https://www.drupal.org/docs/develop/theming-drupal/using-single-directory-components" target="_blank">Single Directory Components</a></li>
+  <li><a href="https://tailwindcss.com/docs/installation" target="_blank">Tailwind CSS</a></li>
+</ul>
 
-  <ul>
-    <li><a href="https://www.drupal.org/docs/develop/theming-drupal/using-single-directory-components" target="_blank">Single Directory Components</a></li>
-    <li><a href="https://tailwindcss.com/docs/installation" target="_blank">Tailwind CSS</a></li>
-  </ul>
+<p>Single Directory Components (SDC) are part of Drupal core as of version 10.3. With SDC all the files necessary to render a component are housed in a single directory named components, on the same level as a theme's templates directory.</p>
 
-  <p>Single Directory Components (SDC) are part of Drupal core as of version 10.3. With SDC all the files necessary to render a component are housed in a single directory named components, on the same level as a theme's templates directory.</p>
+<p>For CSS, we are <strong>not</strong> using the Drupal BEM methodology, but are implementing a customised Tailwind configuration so as to better standardise our styling.</p>
 
-  <p>For CSS, we are <strong>not</strong> using the Drupal BEM methodology, but are implementing a customised Tailwind configuration so as to better standardise our styling.</p>
+<p>Using both SDC and Tailwind together, we aim to promote <strong>consistency</strong>, <strong>reusability</strong> and <strong>robustness</strong>, and improve the <strong>scalability</strong> and <strong>maintainability</strong> of our codebase.</p>
 
-  <p>Using both SDC and Tailwind together, we aim to promote <strong>consistency</strong>, <strong>reusability</strong> and <strong>robustness</strong>, and improve the <strong>scalability</strong> and <strong>maintainability</strong> of our codebase.</p>
+<h2>Development Process</h2>
 
-  <h2>Development Process</h2>
+<p>Components are to be built inside of Drupal; there will be no need to contribute components to the design system directly. This is the job of UL's design system developer.</p>
 
-  <p>Components are to be built inside of Drupal; there will be no need to contribute components to the design system directly. This is the job of UL's design system developer.</p>
+<p>The overall development process can be summed up as follows:</p>
 
-  <p>The overall development process can be summed up as follows:</p>
+<ul>
+  <li>Designers hand over completed <a href="https://www.figma.com/design/s8JOhBszxWjPLOCtUJwOtx/Redesign-Library-%F0%9F%93%97?node-id=1501-2600&node-type=canvas&t=w3JOaMM1niH7qO1a-0" target="_blank">Figma components</a> and page designs to developers.</li>
+  <li>These are developed as components and/or templates in the new UL Drupal theme.</li>
+  <li>Functionality and visual fidelity are reviewed by the design and development team in a deployed development environment.</li>
+  <li>Code is reviewed to ensure it follows design system standards.</li>
+  <li>Completed components can be integrated into design system and documented.</li>
+</ul>
 
-  <ul>
-    <li>Designers hand over completed <a href="https://www.figma.com/design/s8JOhBszxWjPLOCtUJwOtx/Redesign-Library-%F0%9F%93%97?node-id=1501-2600&node-type=canvas&t=w3JOaMM1niH7qO1a-0" target="_blank">Figma components</a> and page designs to developers.</li>
-    <li>These are developed as components and/or templates in the new UL Drupal theme.</li>
-    <li>Functionality and visual fidelity are reviewed by the design and development team in a deployed development environment.</li>
-    <li>Code is reviewed to ensure it follows design system standards.</li>
-    <li>Completed components can be integrated into design system and documented.</li>
-  </ul>
+<p><strong>Note</strong>: At a later point (post re-design) we will look at making the components in the design system directly importable to the Drupal theme. If we attempt this too soon, it could become an unnecessary development bottleneck.</p>
 
-  <p><strong>Note</strong>: At a later point (post re-design) we will look at making the components in the design system directly importable to the Drupal theme. If we attempt this too soon, it could become an unnecessary development bottleneck.</p>
+<h3>Figma Designs</h3>
 
-  <h3>Figma Designs</h3>
+<p>Our visual design team manages the <a href="https://www.figma.com/design/s8JOhBszxWjPLOCtUJwOtx/Redesign-Library-%F0%9F%93%97?node-id=1501-2600&node-type=canvas&t=w3JOaMM1niH7qO1a-0" target="_blank">Figma component library</a> and individual page wireframes (which can be forwarded on to the development team as/when needed).</p>
 
-  <p>Our visual design team manages the <a href="https://www.figma.com/design/s8JOhBszxWjPLOCtUJwOtx/Redesign-Library-%F0%9F%93%97?node-id=1501-2600&node-type=canvas&t=w3JOaMM1niH7qO1a-0" target="_blank">Figma component library</a> and individual page wireframes (which can be forwarded on to the development team as/when needed).</p>
+<p>Care has been taken to include variants (e.g. colour, size), states (e.g. hover, active), and mobile/desktop views to eliminate for the need for developer guesswork. However, if you do encounter any gaps in the design of our components or wireframes, <strong>please bring them to the design team</strong> rather than make design decisions yourself to address these gaps.</p>
 
-  <p>Care has been taken to include variants (e.g. colour, size), states (e.g. hover, active), and mobile/desktop views to eliminate for the need for developer guesswork. However, if you do encounter any gaps in the design of our components or wireframes, <strong>please bring them to the design team</strong> rather than make design decisions yourself to address these gaps.</p>
+<h3>Local Development</h3>
 
-  <h3>Local Development</h3>
+<p>Local development environments should use:</p>
 
-  <p>Local development environments should use:</p>
+<ul>
+  <li>DDEV</li>
+  <li>Browsersync (for DDEV)</li>
+  <li>Tailwind</li>
+</ul>
 
-  <ul>
-    <li>DDEV</li>
-    <li>Browsersync (for DDEV)</li>
-    <li>Tailwind</li>
-  </ul>
+<p>An example repository can be provided with the above already installed and configured, including custom DDEV commands.</p>
 
-  <p>An example repository can be provided with the above already installed and configured, including custom DDEV commands.</p>
+<h4>Theme Development</h3>
 
-  <h4>Theme Development</h3>
+<p>As previously mentioned, the new UL Drupal theme is to be split into a components directory and a templates directory. Some component-related functions will rely on a custom module (details below).</p>
 
-  <p>As previously mentioned, the new UL Drupal theme is to be split into a components directory and a templates directory. Some component-related functions will rely on a custom module (details below).</p>
+<h4>Module Development</h3>
 
-  <h4>Module Development</h3>
+<p>In the example repository/reference theme, a custom module called <strong>UL Twig Tweaks</strong> is provided to replicate some of the JavaScript functions used in Córas for pulling in and parsing the icon JSON data.</p>
 
-  <p>In the example repository/reference theme, a custom module called <strong>UL Twig Tweaks</strong> is provided to replicate some of the JavaScript functions used in Córas for pulling in and parsing the icon JSON data.</p>
+<p>Certain features, such as the integration of a new search system, may require dedicated custom module development and/or integration of an external API.</p>
 
-  <p>Certain features, such as the integration of a new search system, may require dedicated custom module development and/or integration of an external API.</p>
+<p>It may also be necessary to update code in existing custom modules to ensure compatibility with the new theme.</p>
 
-  <p>It may also be necessary to update code in existing custom modules to ensure compatibility with the new theme.</p>
+<h3>Remote Environments</h3>
 
-  <h3>Remote Environments</h3>
+<p>An always-available and performant development environment should be provided to the design and development teams to inspect and test work in progress.</p>
 
-  <p>An always-available and performant development environment should be provided to the design and development teams to inspect and test work in progress.</p>
+<h2>Component Development</h2>
 
-  <h2>Component Development</h2>
+<p>Because Single Directory Components are a new feature of Drupal, even experienced Drupal developers may need some guidance in this area. We also want to ensure consistency from the outset. To that end, we have some guidelines and example components already built.</p>
 
-  <p>Because Single Directory Components are a new feature of Drupal, even experienced Drupal developers may need some guidance in this area. We also want to ensure consistency from the outset. To that end, we have some guidelines and example components already built.</p>
+<h3>YML Files</h3>
 
-  <h3>YML Files</h3>
+<p>Each component must have both a <code>*.twig</code> file and a <code>*.component.yml</code> file. Although it is not currently a Drupal requirement to have a fully annotated yml file for a component to function, we want to ensure our components are as future-proofed and as well-documented as possible. It is, therefore, a requirement from our point of view.</p>
 
-  <p>Each component must have both a <code>*.twig</code> file and a <code>*.component.yml</code> file. Although it is not currently a Drupal requirement to have a fully annotated yml file for a component to function, we want to ensure our components are as future-proofed and as well-documented as possible. It is, therefore, a requirement from our point of view.</p>
+<p>For an example of a fully annotated yml file, see the below <code>icon.component.yml</code> file (also available via the <a href="/components/icon/">icon component page</a>).</p>
 
-  <p>For an example of a fully annotated yml file, see the below <code>icon.component.yml</code> file (also available via the <a href="/components/icon/">icon component page</a>).</p>
+<p>The yml file essentially describes the API of the component, i.e. the publicly available properties that a template or other component can call/consume.</p>
 
-  <p>The yml file essentially describes the API of the component, i.e. the publicly available properties that a template or other component can call/consume.</p>
+<pre class="max-h-80"><code class="language-yaml">{{ html(get_file("inc/components/icon/icon.component.yml")) }}</code></pre>
 
-  <pre class="max-h-80"><code class="language-yaml">{{ html(get_file("inc/components/icon/icon.component.yml")) }}</code></pre>
+<h3>Namespacing</h3>
 
-  <h3>Namespacing</h3>
+<p>When naming properties, use either the full component name as a prefix (e.g. <code>icon_*</code>), or an abbreviation of the component name (e.g. <code>btn_*</code>). This essentially namespaces the component properties, protecting them from unintentional modification when included in templates with their own set of variables.</p>
 
-  <p>When naming properties, use either the full component name as a prefix (e.g. <code>icon_*</code>), or an abbreviation of the component name (e.g. <code>btn_*</code>). This essentially namespaces the component properties, protecting them from unintentional modification when included in templates with their own set of variables.</p>
+<h3>Validation</h3>
 
-  <h3>Validation</h3>
+<p>Although the yml component files can be set up to validate properties, it is recommended to include additional validation in the twig template. For examples, here's how the <code>icon_type</code> property should be coded to ensure the enumerated values in the yml file are adhered to:</p>
 
-  <p>Although the yml component files can be set up to validate properties, it is recommended to include additional validation in the twig template. For examples, here's how the <code>icon_type</code> property should be coded to ensure the enumerated values in the yml file are adhered to:</p>
+<p>The yml property:</p>
+<pre><code class="language-yaml">
+icon_type:
+  title: icon_type
+  type: string
+  description: The type (or style) of the chosen icon. This must be correct as it determines part of the file path.
+  enum:
+    - brands
+    - duotone
+    - regular
+    - solid
+  default: solid
+</code></pre>
 
-  <p>The yml property:</p>
-  <pre><code class="language-yaml">
-  icon_type:
-    title: icon_type
-    type: string
-    description: The type (or style) of the chosen icon. This must be correct as it determines part of the file path.
-    enum:
-      - brands
-      - duotone
-      - regular
-      - solid
-    default: solid
-  </code></pre>
+<p>The equivalent twig variable:</p>
+<pre><code class="language-twig">{{ html("
+{% set icon_type = icon_type in ['brands', 'duotone', 'regular', 'solid'] ? icon_type : 'solid' %}
+")}}</code></pre>
 
-  <p>The equivalent twig variable:</p>
-  <pre><code class="language-twig">{{ html("
-  {% set icon_type = icon_type in ['brands', 'duotone', 'regular', 'solid'] ? icon_type : 'solid' %}
-  ")}}</code></pre>
+<h3>Styling</h3>
 
-  <h3>Styling</h3>
+<p>As previously mentioned, we use Tailwind to style our components, which should eliminate the need for writing additional CSS files for both components and templates.</p>
 
-  <p>As previously mentioned, we use Tailwind to style our components, which should eliminate the need for writing additional CSS files for both components and templates.</p>
-  
-  <p>However if Tailwind classes are not well managed, i.e. if they are all dumped together indiscriminately without first organising them, they can in some cases become unwieldly. We therefore recommend that classes are grouped logically and then merged in the actual component. This makes styling easier to maintain and keeps the component markup as clean and as readable as possible.</p>
+<p>However if Tailwind classes are not well managed, i.e. if they are all dumped together indiscriminately without first organising them, they can in some cases become unwieldly. We therefore recommend that classes are grouped logically and then merged in the actual component. This makes styling easier to maintain and keeps the component markup as clean and as readable as possible.</p>
 
-  <p><span class="font-bold mr-2 text-munster">x</span>Don't do this:</p>
+<p><span class="font-bold mr-2 text-munster">x</span>Don't do this:</p>
 
-  <pre><code class="language-twig">{{ html('
-  <button
-    class="huge-long-list-of-classes-that-keeps-going-and-going-and-going
-    and-going-and-going-and-going-and-going-and-going-and-going-and-going
-    and-going-and-going-and-going-and-going-and-going-and-going-and-going
-    ah-here-seriously-will-this-ever-end"
-    type="{{ btn_type }}"
-    {{ is_disabled ? "disabled" : "" }}
-    >
-    Example Component
-  </button>
-  ')}}</code></pre>
+<pre><code class="language-twig">{{ html('
+<button
+  class="huge-long-list-of-classes-that-keeps-going-and-going-and-going
+  and-going-and-going-and-going-and-going-and-going-and-going-and-going
+  and-going-and-going-and-going-and-going-and-going-and-going-and-going
+  ah-here-seriously-will-this-ever-end"
+  type="{{ btn_type }}"
+  {{ is_disabled ? "disabled" : "" }}
+  >
+  Example Component
+</button>
+')}}</code></pre>
 
-  <p><span class="font-bold mr-1 text-modern">✓</span>Do this instead:</p>
+<p><span class="font-bold mr-1 text-modern">✓</span>Do this instead:</p>
 
-  <pre><code class="language-twig">{{ html('
-  {% set core_classes = "manageable-list-of-classes-grouped-sensibly" %}
-  {% set size_classes = "another-manageable-list-of-classes" %}
+<pre><code class="language-twig">{{ html('
+{% set core_classes = "manageable-list-of-classes-grouped-sensibly" %}
+{% set size_classes = "another-manageable-list-of-classes" %}
 
-  {% set btn_classes = [
-    core_classes,
-    size_classes,
-    ... etc
-  ]|join(" ") %}
+{% set btn_classes = [
+  core_classes,
+  size_classes,
+  ... etc
+]|join(" ") %}
 
-  <button
-    class="{{ btn_classes }}"
-    type="{{ btn_type }}"
-    {{ is_disabled ? "disabled" : "" }}
-    >
-    Example Button
-  </button>
-  ')}}</code></pre>
-
-</div>
+<button
+  class="{{ btn_classes }}"
+  type="{{ btn_type }}"
+  {{ is_disabled ? "disabled" : "" }}
+  >
+  Example Button
+</button>
+')}}</code></pre>

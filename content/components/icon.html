@@ -3,235 +3,231 @@ title: Icon
 layout: templates/page.html
 ---
 
-<div class="py-20">
+<h1 class="font-serif is-decorated">{{ title }}</h1>
 
-  <h1 class="is-decorated">{{ title }}</h1>
+<h2>Description</h2>
 
-  <h2>Description</h2>
+<p>The icon component can be used standalone or nested inside another component, such as a button or, in the below example, a well.</p>
 
-  <p>The icon component can be used standalone or nested inside another component, such as a button or, in the below example, a well.</p>
+{% embed "@components/well/well.twig" with {
+  well_modifiers: 'inline-block leading-none'
+} %}
+
+  {% block well_html %}
+
+    {% include '@components/icon/icon.twig' with {
+      icon_name: 'user',
+      icon_size: 'w-10',
+      icon_fill: 'fill-green dark:fill-modern'
+    } %}
+
+  {% endblock %}
+
+{% endembed %}
+
+<h3>Syntax</h3>
+
+<p>Use the <code>include</code> tag to inject an icon. The icon must exist in the UL custom icon kit for it to be added to the icon bank (see <a href="/foundations/iconography/">Iconography</a>).</p>
+
+<pre><code>{{ html("
+{% include 'THEME_NAME:icon' with {
+  property: 'value'
+  ...
+} %}
+")}}</code></pre>
+
+<h3>Properties</h3>
+
+<p>An icon has one mandatory and four optional properties.</p>
+
+{% include '@templates/component-props.html' %}
+
+<h2>Variants</h2>
+
+<p>Icons can be customised by colour, size and type.</p>
+
+<h3>Colour</h3>
+
+<p>All icon colours are defined by the <code>icon_fill</code> property, which expects a class or set of classes. Styling the stroke will have no effect; even very thin icons do not have a stroke.</p>
+
+<p><strong>Note:</strong> Duotone icons are styled by a single colour; the secondary path (the one with the lighter colour) simply has a lower opacity.</p>
+
+<h4>Examples</h4>
+
+<p><strong>(i)</strong> Setting the <code>icon_fill</code> of a graduation cap to <a href="/foundations/colour/#ul-green">UL Green</a> and, if dark mode is supported, to <a href="/foundations/colour/#modern-green">Modern Green</a>:</p>
+
+{% include '@components/icon/icon.twig' with {
+  icon_name: 'graduation-cap',
+  icon_fill: 'fill-green dark:fill-modern',
+  icon_size: 'w-20'
+} %}
+
+<pre><code>{{ html("
+{% include 'ul:icon' with {
+  icon_name: 'graduation-cap',
+  icon_fill: 'fill-green dark:fill-modern'
+} %}
+")}}</code></pre>
+
+
+<p><strong>(ii)</strong> Setting the <code>icon_fill</code> to <a href="/foundations/colour/#modern-green">Shannon</a>, and using a lighter shade of the same colour on hover.</p>
+
+{% include '@components/icon/icon.twig' with {
+  icon_name: 'earth-americas',
+  icon_fill: 'fill-shannon hover:fill-shannon-l1',
+  icon_size: 'w-16'
+} %}
+
+<pre><code>{{ html("
+{% include 'ul:icon' with {
+  icon_name: 'earth-americas',
+  icon_fill: 'fill-shannon hover:fill-shannon-l1'
+} %}
+")}}</code></pre>
+
+
+
+<h3>Size</h3>
+
+<p>The <code>icon_size</code> will default to <code>w-4</code> (1 rem) if left unset. Below are some examples of increasing this size to <code>w-6</code>, <code>w-8</code> and <code>w-10</code> respectively. For brevity, only the code for the last example is shown.</p>
+
+<div class="flex items-end gap-2">
+
+  {% include '@components/icon/icon.twig' with {
+    icon_name: 'user',
+    icon_fill: 'fill-golden'
+  } %}
+
+  {% include '@components/icon/icon.twig' with {
+    icon_name: 'user',
+    icon_fill: 'fill-golden',
+    icon_size: 'w-6'
+  } %}
+
+  {% include '@components/icon/icon.twig' with {
+    icon_name: 'user',
+    icon_fill: 'fill-golden',
+    icon_size: 'w-8'
+  } %}
+
+  {% include '@components/icon/icon.twig' with {
+    icon_name: 'user',
+    icon_fill: 'fill-golden',
+    icon_size: 'w-10'
+  } %}
+
+</div>
+
+<pre><code>{{ html("
+  {% include 'ul:icon' with {
+    icon_name: 'user',
+    icon_fill: 'fill-golden',
+    icon_size: 'w-10'
+  } %}
+")}}</code></pre>
+
+<p>Icons can also be sized by height, e.g. using a <code>h-10</code> class (which features in the brand examples below).</p>
+
+<h3>Type</h3>
+
+<p>The <code>icon_type</code> can be set to <strong>solid</strong> (the default value), <strong>regular</strong>, <strong>dutone</strong> or <strong>brands</strong>. Below are examples of each type, with code included for the final example:</p>
+
+<div class="flex items-end gap-2">
 
   {% embed "@components/well/well.twig" with {
-    well_modifiers: 'inline-block leading-none'
+    well_modifiers: 'inline-flex flex-col gap-2 items-center'
   } %}
 
     {% block well_html %}
 
       {% include '@components/icon/icon.twig' with {
-        icon_name: 'user',
-        icon_size: 'w-10',
+        icon_name: 'microscope',
+        icon_size: 'h-10',
         icon_fill: 'fill-green dark:fill-modern'
       } %}
+
+      <div class="text-xs">solid</div>
 
     {% endblock %}
 
   {% endembed %}
 
-  <h3>Syntax</h3>
-
-  <p>Use the <code>include</code> tag to inject an icon. The icon must exist in the UL custom icon kit for it to be added to the icon bank (see <a href="/foundations/iconography/">Iconography</a>).</p>
-
-  <pre><code>{{ html("
-  {% include 'THEME_NAME:icon' with {
-    property: 'value'
-    ...
-  } %}
-  ")}}</code></pre>
-
-  <h3>Properties</h3>
-
-  <p>An icon has one mandatory and four optional properties.</p>
-
-  {% include '@templates/partials/component-props.html' %}
-
-  <h2>Variants</h2>
-
-  <p>Icons can be customised by colour, size and type.</p>
-
-  <h3>Colour</h3>
-
-  <p>All icon colours are defined by the <code>icon_fill</code> property, which expects a class or set of classes. Styling the stroke will have no effect; even very thin icons do not have a stroke.</p>
-
-  <p><strong>Note:</strong> Duotone icons are styled by a single colour; the secondary path (the one with the lighter colour) simply has a lower opacity.</p>
-
-  <h4>Examples</h4>
-
-  <p><strong>(i)</strong> Setting the <code>icon_fill</code> of a graduation cap to <a href="/foundations/colour/#ul-green">UL Green</a> and, if dark mode is supported, to <a href="/foundations/colour/#modern-green">Modern Green</a>:</p>
-
-  {% include '@components/icon/icon.twig' with {
-    icon_name: 'graduation-cap',
-    icon_fill: 'fill-green dark:fill-modern',
-    icon_size: 'w-20'
+  {% embed "@components/well/well.twig" with {
+    well_modifiers: 'inline-flex flex-col gap-2 items-center'
   } %}
 
-  <pre><code>{{ html("
-  {% include 'ul:icon' with {
-    icon_name: 'graduation-cap',
-    icon_fill: 'fill-green dark:fill-modern'
+    {% block well_html %}
+
+      {% include '@components/icon/icon.twig' with {
+        icon_name: 'school',
+        icon_type: 'regular',
+        icon_size: 'h-10',
+        icon_fill: 'fill-green dark:fill-modern'
+      } %}
+
+      <div class="text-xs">regular</div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  {% embed "@components/well/well.twig" with {
+    well_modifiers: 'inline-flex flex-col gap-2 items-center'
   } %}
-  ")}}</code></pre>
 
-  
-  <p><strong>(ii)</strong> Setting the <code>icon_fill</code> to <a href="/foundations/colour/#modern-green">Shannon</a>, and using a lighter shade of the same colour on hover.</p>
+    {% block well_html %}
 
-  {% include '@components/icon/icon.twig' with {
-    icon_name: 'earth-americas',
-    icon_fill: 'fill-shannon hover:fill-shannon-l1',
-    icon_size: 'w-16'
+      {% include '@components/icon/icon.twig' with {
+        icon_name: 'moon-stars',
+        icon_type: 'duotone',
+        icon_size: 'h-10',
+        icon_fill: 'fill-green dark:fill-modern'
+      } %}
+
+      <div class="text-xs">duotone</div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  {% embed "@components/well/well.twig" with {
+    well_modifiers: 'inline-flex flex-col gap-2 items-center'
   } %}
 
-  <pre><code>{{ html("
-  {% include 'ul:icon' with {
-    icon_name: 'earth-americas',
-    icon_fill: 'fill-shannon hover:fill-shannon-l1'
-  } %}
-  ")}}</code></pre>
+    {% block well_html %}
 
-  
+      {% include '@components/icon/icon.twig' with {
+        icon_name: 'instagram',
+        icon_type: 'brands',
+        icon_size: 'h-10',
+        icon_fill: 'fill-green dark:fill-modern'
+      } %}
 
-  <h3>Size</h3>
+      <div class="text-xs">brands</div>
 
-  <p>The <code>icon_size</code> will default to <code>w-4</code> (1 rem) if left unset. Below are some examples of increasing this size to <code>w-6</code>, <code>w-8</code> and <code>w-10</code> respectively. For brevity, only the code for the last example is shown.</p>
+    {% endblock %}
 
-  <div class="flex items-end gap-2">
-
-    {% include '@components/icon/icon.twig' with {
-      icon_name: 'user',
-      icon_fill: 'fill-golden'
-    } %}
-  
-    {% include '@components/icon/icon.twig' with {
-      icon_name: 'user',
-      icon_fill: 'fill-golden',
-      icon_size: 'w-6'
-    } %}
-  
-    {% include '@components/icon/icon.twig' with {
-      icon_name: 'user',
-      icon_fill: 'fill-golden',
-      icon_size: 'w-8'
-    } %}
-
-    {% include '@components/icon/icon.twig' with {
-      icon_name: 'user',
-      icon_fill: 'fill-golden',
-      icon_size: 'w-10'
-    } %}
-
-  </div>
-
-  <pre><code>{{ html("
-    {% include 'ul:icon' with {
-      icon_name: 'user',
-      icon_fill: 'fill-golden',
-      icon_size: 'w-10'
-    } %}
-  ")}}</code></pre>
-
-  <p>Icons can also be sized by height, e.g. using a <code>h-10</code> class (which features in the brand examples below).</p>
-
-  <h3>Type</h3>
-
-  <p>The <code>icon_type</code> can be set to <strong>solid</strong> (the default value), <strong>regular</strong>, <strong>dutone</strong> or <strong>brands</strong>. Below are examples of each type, with code included for the final example:</p>
-
-  <div class="flex items-end gap-2">
-
-    {% embed "@components/well/well.twig" with {
-      well_modifiers: 'inline-flex flex-col gap-2 items-center'
-    } %}
-  
-      {% block well_html %}
-  
-        {% include '@components/icon/icon.twig' with {
-          icon_name: 'microscope',
-          icon_size: 'h-10',
-          icon_fill: 'fill-green dark:fill-modern'
-        } %}
-
-        <div class="text-xs">solid</div>
-  
-      {% endblock %}
-  
-    {% endembed %}
-
-    {% embed "@components/well/well.twig" with {
-      well_modifiers: 'inline-flex flex-col gap-2 items-center'
-    } %}
-  
-      {% block well_html %}
-  
-        {% include '@components/icon/icon.twig' with {
-          icon_name: 'school',
-          icon_type: 'regular',
-          icon_size: 'h-10',
-          icon_fill: 'fill-green dark:fill-modern'
-        } %}
-
-        <div class="text-xs">regular</div>
-  
-      {% endblock %}
-  
-    {% endembed %}
-
-    {% embed "@components/well/well.twig" with {
-      well_modifiers: 'inline-flex flex-col gap-2 items-center'
-    } %}
-  
-      {% block well_html %}
-  
-        {% include '@components/icon/icon.twig' with {
-          icon_name: 'moon-stars',
-          icon_type: 'duotone',
-          icon_size: 'h-10',
-          icon_fill: 'fill-green dark:fill-modern'
-        } %}
-
-        <div class="text-xs">duotone</div>
-  
-      {% endblock %}
-  
-    {% endembed %}
-
-    {% embed "@components/well/well.twig" with {
-      well_modifiers: 'inline-flex flex-col gap-2 items-center'
-    } %}
-  
-      {% block well_html %}
-  
-        {% include '@components/icon/icon.twig' with {
-          icon_name: 'instagram',
-          icon_type: 'brands',
-          icon_size: 'h-10',
-          icon_fill: 'fill-green dark:fill-modern'
-        } %}
-
-        <div class="text-xs">brands</div>
-  
-      {% endblock %}
-  
-    {% endembed %}
-
-  </div>
-
-  <pre><code>{{ html("
-  {% include 'ul:icon' with {
-    icon_name: 'instagram',
-    icon_type: 'brands',
-    icon_size: 'h-10',
-    icon_fill: 'fill-green dark:fill-modern'
-  } %}
-  ")}}</code></pre>
-
-  <h2>Source Code</h2>
-
-  <p>The source code below can be found below, and at <code>inc/components/icon/</code> in the design system repository.</p>
-
-  <h3>Twig</h3>
-
-  <pre class="max-h-80"><code class="">{{ html(get_file("inc/components/icon/icon.twig")) }}</code></pre>
-
-  <h3>YML</h3>
-
-  <pre class="max-h-80"><code class="language-yaml">{{ html(get_file("inc/components/icon/icon.component.yml")) }}</code></pre>
+  {% endembed %}
 
 </div>
+
+<pre><code>{{ html("
+{% include 'ul:icon' with {
+  icon_name: 'instagram',
+  icon_type: 'brands',
+  icon_size: 'h-10',
+  icon_fill: 'fill-green dark:fill-modern'
+} %}
+")}}</code></pre>
+
+<h2>Source Code</h2>
+
+<p>The source code below can be found below, and at <code>inc/components/icon/</code> in the design system repository.</p>
+
+<h3>Twig</h3>
+
+<pre class="max-h-80"><code class="">{{ html(get_file("inc/components/icon/icon.twig")) }}</code></pre>
+
+<h3>YML</h3>
+
+<pre class="max-h-80"><code class="language-yaml">{{ html(get_file("inc/components/icon/icon.component.yml")) }}</code></pre>

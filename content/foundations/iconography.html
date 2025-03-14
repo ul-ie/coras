@@ -7,45 +7,41 @@ layout: templates/page.html
 {% set icons_json = get_file('./node_modules/@awesome.me/kit-0dc973fac8/icons/metadata/icons.json') %}
 {% set icons = json_decode(icons_json) %}
 
-<div class="is-prose mx-auto py-20">
+<h1 class="font-serif is-decorated">{{ title }}</h1>
 
-  <h1 class="is-decorated">{{ title }}</h1>
+<h2>Icon Bank</h2>
 
-  <h2>Icon Bank</h2>
+<div class="grid grid-cols-3 gap-3">
 
-  <div class="grid grid-cols-3 gap-3">
+  {% for icon in icons %}
 
-    {% for icon in icons %}
+    {% set icon_name =  get_object_key(icons, loop.index0) %}
+    {% set icon_fill = 'fill-green dark:fill-modern' %}
+    {% set icon_size = 'h-8 mr-2 basis-1/4' %}
 
-      {% set icon_name =  get_object_key(icons, loop.index0) %}
-      {% set icon_fill = 'fill-green dark:fill-modern' %}
-      {% set icon_size = 'h-8 mr-2 basis-1/4' %}
+    {% for style in icon.styles %}
 
-      {% for style in icon.styles %}
+      {% set icon_type = icon.styles[loop.index0] %}
 
-        {% set icon_type = icon.styles[loop.index0] %}
+      {% embed "@components/well/well.twig" with {
+        well_modifiers: 'flex items-center justify-center p-2 bg-limestone-l4 dark:bg-transparent'
+      } %}
+    
+        {% block well_html %}
+    
+          {% include '@components/icon/icon.twig' %}
 
-        {% embed "@components/well/well.twig" with {
-          well_modifiers: 'flex items-center justify-center p-2 bg-limestone-l4 dark:bg-transparent'
-        } %}
-      
-          {% block well_html %}
-      
-            {% include '@components/icon/icon.twig' %}
+          <div class="flex flex-col basis-3/4 text-xs">
+            <span>name: <strong>{{ icon_name }}</strong></span>
+            <span>type: <strong>{{ icon_type }}</strong></span>
+          </div>
 
-            <div class="flex flex-col basis-3/4 text-xs">
-              <span>name: <strong>{{ icon_name }}</strong></span>
-              <span>type: <strong>{{ icon_type }}</strong></span>
-            </div>
-
-          {% endblock %}
-      
-        {% endembed %}
-
-      {% endfor %}
+        {% endblock %}
+    
+      {% endembed %}
 
     {% endfor %}
 
-  </div>
+  {% endfor %}
 
 </div>

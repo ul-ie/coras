@@ -2,35 +2,36 @@
 
 <html lang="en" class="scroll-smooth">
 
-<head>
+  <head>
 
     <meta charset="UTF-8">
 
+    <meta name="generator" content="Eleventy">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/css/index.css">
 
     <script>
-        if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
-            document.querySelector('html').classList.remove('dark');
-        } else {
-            document.querySelector('html').classList.add('dark');
-        }
+      // Check for dark mode.
+      let html = document.querySelector('html');
+      let isDarkModeActive = ('dark-mode' in localStorage) && localStorage.getItem('dark-mode') === 'true';
+      isDarkModeActive ? html.classList.add('dark') : html.classList.remove('dark');
     </script>
 
     <title>Accordion</title>
 
-</head>
-<body class="antialiased bg-limestone-l5 dark:bg-granite-d3 text-granite-d3 dark:text-granite-l3">
+  </head>
+<body class="antialiased bg-limestone-l5 text-granite-d2 dark:bg-granite-d3 dark:text-granite-l3">
 
-    <header class="sticky top-0 w-full h-24 z-10">
+  <header class="sticky top-0 w-full h-24 z-10">
 
   <div class="
-        absolute inset-0 bg-white bg-opacity-60 border-b border-granite-l3 backdrop-blur -z-10
-        dark:bg-granite-d3 dark:border-granite-d1 dark:bg-opacity-70" aria-hidden="true">
+        absolute inset-0 bg-white/60 border-b border-granite-l3 backdrop-blur -z-10
+        dark:bg-granite-d3/70 dark:border-granite-d1" aria-hidden="true">
   </div>
 
-  <div class="container h-full flex items-center justify-between px-4 sm:px-6">
+  <div class="container h-full flex items-center justify-between px-5 sm:px-6">
 
     <a href="/"><svg version="1.1" viewBox="0 0 1480 676.28" width="148px" xmlns="http://www.w3.org/2000/svg" class="my-3">
   <title>University of Limerick</title>
@@ -79,13 +80,9 @@
 </svg>
 </a>
 
-    <!-- Dark mode toggle -->
-
-    <input type="checkbox" name="light-switch" id="light-switch" class="light-switch sr-only" />
-
     <label
-      for="light-switch"
-      class="relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1 hover:bg-opacity-5 dark:hover:bg-opacity-10" >
+      for="dark-switch"
+      class="relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1/5 dark:hover:bg-modern-l1/10" >
 
       
 
@@ -105,7 +102,7 @@
 
   <svg
     title="moon-stars"
-    class="fill-white hidden dark:d-block w-6 -mt-1 "
+    class="fill-white hidden dark:block w-6 -mt-1 "
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
     >
@@ -117,103 +114,172 @@
 
     </label>
 
+    <input type="checkbox" name="dark-switch" id="dark-switch" class="sr-only" />
+
   </div>
 
 </header>
-    <div class="flex container min-h-screen">
+  <div class="container grid grid-cols-6 min-h-screen">
 
-        <div class="hidden lg:flex basis-1/6 py-20 px-4 border-r border-granite-l3 dark:border-granite-d1">
+    <div class="hidden lg:block col-span-1 py-20 px-5 border-r border-granite-l3 dark:border-granite-d1">
 
-            <nav class="fixed">
+  <nav class="fixed">
 
-    <ul class="ml-2 text-green dark:text-modern-l1">
+    <ul class="list-none leading-none m-0 p-0 text-green dark:text-modern-l1">
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Guides</span>
+      
+      <li class="m-0 p-0">
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+        <span class="text-lg font-bold">Guides</span>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/guides/for-developers/">For Developers</a></li>
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
 
-                    
-            </ul>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-        </li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/guides/for-developers/">
+              For Developers
+            </a>
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Foundations</span>
+          </li>
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+          
+        </ul>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/breakpoints/">Breakpoints</a></li>
+      </li>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/spacing/">Spacing</a></li>
+      
+      <li class="m-0 p-0">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/layout/">Layout</a></li>
+        <span class="text-lg font-bold">Foundations</span>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/colour/">Colour</a></li>
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/iconography/">Iconography</a></li>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-                    
-            </ul>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/breakpoints/">
+              Breakpoints
+            </a>
 
-        </li>
+          </li>
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Components</span>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/spacing/">
+              Spacing
+            </a>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/accordion/">Accordion</a></li>
+          </li>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/button/">Button</a></li>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/icon/">Icon</a></li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/layout/">
+              Layout
+            </a>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/well/">Well</a></li>
+          </li>
 
-                    
-            </ul>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-        </li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/typography">
+              Typography
+            </a>
 
-        
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/colour/">
+              Colour
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/iconography/">
+              Iconography
+            </a>
+
+          </li>
+
+          
+        </ul>
+
+      </li>
+
+      
+      <li class="m-0 p-0">
+
+        <span class="text-lg font-bold">Components</span>
+
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/accordion/">
+              Accordion
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/button/">
+              Button
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/icon/">
+              Icon
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/well/">
+              Well
+            </a>
+
+          </li>
+
+          
+        </ul>
+
+      </li>
+
+      
     </ul>
 
-</nav>
-        </div>
+  </nav>
 
-        <main class="basis-full lg:basis-4/6"> 
+</div>
+    <main class="col-span-6 lg:col-span-4">
 
-            <article class="prose prose-granite dark:prose-invert md:prose-lg mx-auto px-4 sm:px-6">
+      <article class="px-5 py-16 sm:px-6 lg:p-20 xl:px-32">
 
-                
-<div class="is-prose py-20 mx-auto">
+        
+<h1 class="font-serif is-decorated">Accordion</h1>
 
-  <h1 class="is-decorated">Accordion</h1>
+<h2>Description</h2>
 
-  <h2>Description</h2>
+<p>An accordion is an expandable and collapsable container component that reveals its content when the user interacts with it. Accordions help organise information, and can help users consume the information they need more efficiently.</p>
 
-  <p>An accordion is an expandable and collapsable container component that reveals its content when the user interacts with it. Accordions help organise information, and can help users consume the information they need more efficiently.</p>
 
-  
 
 
 
@@ -249,19 +315,19 @@
   <div class="px-4 -mt-4">
 
     
-      <p>Some sample accordion content.</p>
+    <p>Some sample accordion content.</p>
 
-      <ul>
-        <li>List Item 1</li>
-        <li>List Item 2</li>
-        <li>List Item 3</li>
-      </ul>
+    <ul>
+      <li>List Item 1</li>
+      <li>List Item 2</li>
+      <li>List Item 3</li>
+    </ul>
 
-    
+  
   </div>
 
 </details>
-  
+
 
 
 
@@ -297,41 +363,39 @@
   <div class="px-4 -mt-4">
 
     
-      <p>More sample accordion content.</p>
+    <p>More sample accordion content.</p>
 
-      <ol>
-        <li>List Item 1</li>
-        <li>List Item 2</li>
-        <li>List Item 3</li>
-      </ol>
+    <ol>
+      <li>List Item 1</li>
+      <li>List Item 2</li>
+      <li>List Item 3</li>
+    </ol>
 
-    
+  
   </div>
 
 </details>  
 
-  <h3>Syntax</h3>
+<h3>Syntax</h3>
 
-  <p>An accordion should be used with the <code>embed</code> tag, as it is a container for other content. To place content inside an accordion, use the <code>block</code> placeholder named <code>acc_html</code> as follows:</p>
+<p>An accordion should be used with the <code>embed</code> tag, as it is a container for other content. To place content inside an accordion, use the <code>block</code> placeholder named <code>acc_html</code> as follows:</p>
 
-  <pre><code>
-  {% embed &#39;THEME_NAME:accordion&#39; with {
-    property: &#39;value&#39; } %}
+<pre><code>{% embed &#39;THEME_NAME:accordion&#39; with {
+  property: &#39;value&#39; } %}
 
-    {% block acc_html %}
+  {% block acc_html %}
 
-      &lt;!-- Your accordion content here --&gt;
+    &lt;!-- Your accordion content here --&gt;
 
-    {% endblock %}
+  {% endblock %}
 
-  {% endembed %}
-  </code></pre>
+{% endembed %}</code></pre>
 
-  <h3>Properties</h3>
+<h3>Properties</h3>
 
-  <p>The accordion component has six properties in full, but only two are required: <code>acc_title</code> and <code>acc_html</code>.</p>
+<p>The accordion component has six properties in full, but only two are required: <code>acc_title</code> and <code>acc_html</code>.</p>
 
-  
+
 
 <table class="text-left">
   <thead>
@@ -408,17 +472,17 @@
     * Denotes a required property.
   </small>
 
-  <h2>Variants</h2>
+<h2>Variants</h2>
 
-  <p>The accordion component has several properties that allow for customisation, but this customisation should only be availed of in exceptional circumstances, e.g. if the accordion is placed on a coloured background.</p>
+<p>The accordion component has several properties that allow for customisation, but this customisation should only be availed of in exceptional circumstances, e.g. if the accordion is placed on a coloured background.</p>
 
-  <h3>Title Length</h3>
+<h3>Title Length</h3>
 
-  <p>The accordion title <strong>is not a replacement for a page heading</strong> and should not be used as such. Titles should be kept short and concise.</p>
+<p>The accordion title <strong>is not a replacement for a page heading</strong> and should not be used as such. Titles should be kept short and concise.</p>
 
-  <div class="mb-1 mt-3"><span class="font-bold mr-2 text-munster">x</span>Too long:</div>
+<div class="mb-1 mt-3"><span class="font-bold mr-2 text-munster">x</span>Too long:</div>
 
-  
+
 
 
 
@@ -454,21 +518,21 @@
   <div class="px-4 -mt-4">
 
     
-      <p>Some sample accordion content.</p>
+    <p>Some sample accordion content.</p>
 
-      <ul>
-        <li>List Item 1</li>
-        <li>List Item 2</li>
-        <li>List Item 3</li>
-      </ul>
+    <ul>
+      <li>List Item 1</li>
+      <li>List Item 2</li>
+      <li>List Item 3</li>
+    </ul>
 
-    
+  
   </div>
 
 </details>
-  <div class="mb-1 mt-6"><span class="font-bold mr-1 text-modern">✓</span>Better:</div>
+<div class="mb-1 mt-6"><span class="font-bold mr-1 text-modern">✓</span>Better:</div>
 
-  
+
 
 
 
@@ -504,23 +568,23 @@
   <div class="px-4 -mt-4">
 
     
-      <p>Some sample accordion content.</p>
+    <p>Some sample accordion content.</p>
 
-      <ul>
-        <li>List Item 1</li>
-        <li>List Item 2</li>
-        <li>List Item 3</li>
-      </ul>
+    <ul>
+      <li>List Item 1</li>
+      <li>List Item 2</li>
+      <li>List Item 3</li>
+    </ul>
 
-    
+  
   </div>
 
 </details>
-  <h3>Title Text Size</h3>
+<h3>Title Text Size</h3>
 
-  <p>The font size of the accordion titles aligns with that of a <code>h3</code> element, but it can be adjusted if required using the <code>acc_title_size</code> property. The value is medium by default, and can be set to large or small. It might be changed to small for instance if you had an FAQ section and many of the questions needed to flow onto two or more lines.</p>
+<p>The font size of the accordion titles aligns with that of a <code>h3</code> element, but it can be adjusted if required using the <code>acc_title_size</code> property. The value is medium by default, and can be set to large or small. It might be changed to small for instance if you had an FAQ section and many of the questions needed to flow onto two or more lines.</p>
 
-  
+
 
 
 
@@ -556,30 +620,28 @@
   <div class="px-4 -mt-4">
 
     
-      <p>Dummy text.</p>
+    <p>Dummy text.</p>
 
-    
+  
   </div>
 
 </details>
-  <p>Example code:</p>
+<p>Example code:</p>
 
-  <pre><code>
-  {% embed &#39;@components/accordion/accordion.twig&#39; with {
-    acc_title: &#39;Smaller text, more suited to an FAQ section&#39;,
-    acc_title_size: &#39;small&#39;
-  }%}
+<pre><code>{% embed &#39;ul:accordion&#39; with {
+  acc_title: &#39;Smaller text, more suited to an FAQ section&#39;,
+  acc_title_size: &#39;small&#39;
+}%}
 
-    {% block acc_html %}
+  {% block acc_html %}
 
-      &lt;!-- Accordion content --&gt;
+    &lt;!-- Accordion content --&gt;
 
-    {% endblock %}
+  {% endblock %}
 
-  {% endembed %}
-  </code></pre>
+{% endembed %}</code></pre>
 
-  
+
 
 
 
@@ -615,36 +677,34 @@
   <div class="px-4 -mt-4">
 
     
-      <p>Dummy text.</p>
+    <p>Dummy text.</p>
 
-    
+  
   </div>
 
 </details>
-  <p>Example code:</p>
+<p>Example code:</p>
 
-  <pre><code>
-  {% embed &#39;@components/accordion/accordion.twig&#39; with {
-    acc_title: &#39;Larger text, for extra emphasis&#39;,
-    acc_title_size: &#39;large&#39;
-  }%}
+<pre><code>{% embed &#39;ul:accordion&#39; with {
+  acc_title: &#39;Larger text, for extra emphasis&#39;,
+  acc_title_size: &#39;large&#39;
+}%}
 
-    {% block acc_html %}
+  {% block acc_html %}
 
-      &lt;!-- Accordion content --&gt;
+    &lt;!-- Accordion content --&gt;
 
-    {% endblock %}
+  {% endblock %}
 
-  {% endembed %}
-  </code></pre>
+{% endembed %}</code></pre>
 
-  <h3>Title Colour</h3>
+<h3>Title Colour</h3>
 
-  <p>The <code>acc_title_colour</code> property can be used if it is necessary to toggle the colour of both the title text and chevron icon from green to white. This can be useful if the accordion needs to be placed on a coloured background.</p>
+<p>The <code>acc_title_colour</code> property can be used if it is necessary to toggle the colour of both the title text and chevron icon from green to white. This can be useful if the accordion needs to be placed on a coloured background.</p>
+
+<div class="bg-stone p-8 rounded">
+
   
-  <div class="bg-stone p-8 rounded">
-
-    
 
 
 
@@ -655,7 +715,7 @@
 
   <summary class="flex justify-between cursor-pointer px-4 py-6">
 
-    <span class="font-bold   text-granite-l3
+    <span class="font-bold   text-granite-l5
   text-xl">
 
       White title text
@@ -667,7 +727,7 @@
 
   <svg
     title="chevron-down"
-    class="  fill-granite-l4
+    class="  fill-granite-l5
  w-4 shrink-0 group-open:rotate-180 transition-all"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
@@ -680,65 +740,236 @@
   <div class="px-4 -mt-4">
 
     
-      <div class="text-granite-l4">
+    <div class="text-granite-l4">
 
-        <p>Some sample accordion content.</p>
+      <p>Some sample accordion content.</p>
 
-        <ul>
-          <li>List Item 1</li>
-          <li>List Item 2</li>
-          <li>List Item 3</li>
-        </ul>
+      <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+      </ul>
 
-      </div>
+    </div>
 
-      
+    
   </div>
 
 </details>
-  </div>
-
-  <pre><code>
-  {% embed &#39;@components/accordion/accordion.twig&#39; with {
-    acc_title: &#39;White title text&#39;,
-    acc_title_colour: &#39;white&#39;,
-    acc_modifiers: &#39;border-b border-granite-l3&#39;
-  }%}
-
-    {% block acc_html %}
-
-      &lt;!-- Accordion content --&gt;
-
-    {% endblock %}
-
-  {% endembed %}
-  </code></pre>
-
 </div>
 
-            </article>
+<p>Example code:</p>
 
-        </main>
+<pre><code>{% embed &#39;ul:accordion&#39; with {
+  acc_title: &#39;White title text&#39;,
+  acc_title_colour: &#39;white&#39;,
+  acc_modifiers: &#39;border-b border-granite-l3&#39;
+}%}
 
-        <div class="hidden lg:flex basis-1/6 py-20 px-4">
+  {% block acc_html %}
 
-            <nav
-  id="page-nav"
-  class="fixed no-scrollbar">
-</nav>
-        </div>
-        
-    </div>
+    &lt;!-- Accordion content --&gt;
 
-    <footer class="
-    basis-full p-4 border-t border-granite-l3 text-center
-    dark:border-granite-d1">
+  {% endblock %}
 
-    Copyright © University of Limerick 2025
+{% endembed %}</code></pre>
 
-</footer>
-    <script type="module" src="/index.js"></script>
+<h3>Other Properties</h3>
 
-</body>
+<p>The <code>acc_id</code> property can be used for creating anchor links, <a href="#example-id">like this</a>. This can be useful if an accordion content needs to be linked to internally or externally.</p>
+
+
+
+
+
+
+
+<details
+   id="example-id"  class="group border-b border-granite-l3 dark:border-granite-d1">
+
+  <summary class="flex justify-between cursor-pointer px-4 py-6">
+
+    <span class="font-bold   text-green dark:text-granite-l3
+  text-xl">
+
+      Accordion with id
+
+    </span>
+
+    
+
+
+  <svg
+    title="chevron-down"
+    class="  fill-green dark:fill-granite-l3 group-open:fill-granite
+ w-4 shrink-0 group-open:rotate-180 transition-all"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 512 512"
+    >
+          <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/>
+      </svg>
+
+  </summary>
+
+  <div class="px-4 -mt-4">
+
+    
+    <p>Dummy text.</p>
+
+  
+  </div>
+
+</details>
+<p>Example code:</p>
+
+<pre><code>{% embed &#39;ul:accordion&#39; with {
+  acc_title: &#39;Accordion with id&#39;,
+  acc_id: &#39;example-id&#39;
+}%}
+
+  {% block acc_html %}
+
+    &lt;!-- Accordion content --&gt;
+
+  {% endblock %}
+
+{% endembed %}</code></pre>
+
+<p>The accordion container can be customised if needed using the <code>acc_modifiers</code> property. <a href="#title-colour">A previous example</a> illustates this, where the bottom border colour is modified to better suit the blue background.</p>
+
+<h2>Source Code</h2>
+
+<p>The accordion markup takes advantage of the HTML5 <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements. The source code below can be found below, and at <code>inc/components/accordion/</code> in the design system repository.</p>
+
+<h3>Twig</h3>
+
+<pre class="max-h-80"><code class="language-twig">{#
+/**
+ * @file
+ * Accordion component.
+ * 
+ * @see https://coras.ul.ie/components/accordion/#properties for full documentation.
+ */
+#}
+{% set acc_modifiers = acc_modifiers ?? &#39;border-b border-granite-l3 dark:border-granite-d1&#39; %}
+{% set acc_title_colour = acc_title_colour in [&#39;green&#39;, &#39;white&#39;] ? acc_title_colour : &#39;green&#39; %}
+{% set acc_title_size = acc_title_size in [&#39;small&#39;, &#39;medium&#39;, &#39;large&#39;] ? acc_title_size : &#39;medium&#39; %}
+
+{# The icon fill should depend on the title fill. #}
+{% set acc_icon_fill %}
+  {{ acc_title_colour == &#39;green&#39; ? &#39;fill-green dark:fill-granite-l3 group-open:fill-granite&#39; : &#39;fill-granite-l5&#39; }}
+{% endset %}
+
+{# Combine the account title classes. #}
+{% set acc_title_classes %}
+  {{ acc_title_colour == &#39;white&#39; ? &#39;text-granite-l5&#39; : &#39;text-green dark:text-granite-l3&#39; }}
+  {{ acc_title_size == &#39;small&#39; ? &#39;text-lg&#39; : acc_title_size == &#39;medium&#39; ? &#39;text-xl&#39; : &#39;text-2xl&#39; -}}
+{% endset %}
+
+&lt;details
+  {% if acc_id is not empty %} id=&quot;{{ acc_id }}&quot;{% endif %}
+  class=&quot;group {{ acc_modifiers }}&quot;&gt;
+
+  &lt;summary class=&quot;flex justify-between cursor-pointer px-4 py-6&quot;&gt;
+
+    &lt;span class=&quot;font-bold {{ acc_title_classes }}&quot;&gt;
+
+      {{ acc_title }}
+
+    &lt;/span&gt;
+
+    {% include &#39;@components/icon/icon.twig&#39; with {
+      icon_fill: acc_icon_fill,
+      icon_name: &#39;chevron-down&#39;,
+      icon_type: &#39;solid&#39;,
+      icon_size: &#39;w-4 shrink-0&#39;,
+      icon_modifiers: &#39;group-open:rotate-180 transition-all&#39;
+    } %}
+
+  &lt;/summary&gt;
+
+  &lt;div class=&quot;px-4 -mt-4&quot;&gt;
+
+    {% block acc_html %}{% endblock %}
+
+  &lt;/div&gt;
+
+&lt;/details&gt;</code></pre>
+
+<h3>YML</h3>
+
+<pre class="max-h-80"><code class="language-yaml">name: Accordion
+status: experimental
+version: 1.0
+props:
+  type: object
+  required:
+    - acc_html
+    - acc_title
+  properties:
+    acc_title:
+      title: acc_title
+      type: string
+      description: The title of the accordion. This should concisely describe its content.
+      default: none
+    acc_title_colour:
+      title: acc_title_colour
+      type: string
+      description: The classes defining the colour of the accordion title.
+      enum:
+        - green
+        - white
+      default: green
+    acc_title_size:
+      title: acc_title_size
+      type: string
+      description: The size of the accordion title.
+      enum:
+        - small
+        - medium
+        - large
+      default: medium
+    acc_html:
+      title: acc_html
+      type: block
+      description: The block of content to insert in the body of the accordion.
+      default: none
+    acc_id:
+      title: acc_id
+      type: string
+      description: An optional id to assign to the accordion. Useful for anchor links.
+      default: none
+    acc_modifiers:
+      title: acc_modifiers
+      type: string
+      description: Optional classes to override the styling of the main details container.
+      default: &#39;border-b border-granite-l3 dark:border-granite-d1&#39;</code></pre>
+
+      </article>
+
+    </main>
+
+    <div class="hidden lg:block col-span-1 py-20 px-4">
+
+  <div class="flex justify-center">
+
+    <nav id="page-nav" class="fixed no-scrollbar"></nav>
+
+  </div>
+
+</div>
+  </div>
+
+      <footer class="
+      basis-full p-4 border-t border-granite-l3 text-center
+      dark:border-granite-d1">
+
+      Copyright © University of Limerick 2025
+
+    </footer>
+    
+    <script type="module" src="/js/index.js"></script>
+
+  </body>
 
 </html>

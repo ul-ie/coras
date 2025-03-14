@@ -3,393 +3,389 @@ title: Button
 layout: templates/page.html
 ---
 
-<div class="py-20">
+<h1 class="font-serif is-decorated">{{ title }}</h1>
 
-  <h1 class="is-decorated">{{ title }}</h1>
+<h2>Description</h2>
 
-  <h2>Description</h2>
+<p>Buttons represent an action to be performed (such as visiting a link, downloading a document or submitting/resetting form data). The button's text and optional icon should clearly convey its semantic intent.</p>
 
-  <p>Buttons represent an action to be performed (such as visiting a link, downloading a document or submitting/resetting form data). The button's text and optional icon should clearly convey its semantic intent.</p>
+{% include '@components/button/button.twig' with {
+  btn_text: 'Jump To Properties',
+  btn_type: 'link',
+  btn_url: '#properties',
+  icon_name: 'circle-down',
+  icon_size: 'w-5'
+} %}
 
-  {% include '@components/button/button.twig' with {
-    btn_text: 'Jump To Properties',
-    btn_type: 'link',
-    btn_url: '#properties',
-    icon_name: 'circle-down',
-    icon_size: 'w-5'
-  } %}
+<h3>Syntax</h3>
 
-  <h3>Syntax</h3>
+<p>Use the <code>include</code> tag to inject a button. Icons can be included by using properties; it is not necessary to embed them.</p>
 
-  <p>Use the <code>include</code> tag to inject a button. Icons can be included by using properties; it is not necessary to embed them.</p>
+<pre><code>{{ html("
+{% include 'THEME_NAME:button' with {
+  property: 'value'
+  ...
+} %}
+")}}</code></pre>
 
-  <pre><code>{{ html("
-  {% include 'THEME_NAME:button' with {
-    property: 'value'
-    ...
-  } %}
-  ")}}</code></pre>
+<h3>Properties</h3>
 
-  <h3>Properties</h3>
+<p>A button has one mandatory property and fifteen optional properties, five of which relate to icons.</p>
 
-  <p>A button has one mandatory property and fifteen optional properties, five of which relate to icons.</p>
+{% include '@templates/component-props.html' %}
 
-  {% include '@templates/partials/component-props.html' %}
+<h2>Variants</h2>
 
-  <h2>Variants</h2>
+<p>The button component is designed to be flexible and customisable, and thus includes a relatively large number of variants.</p>
 
-  <p>The button component is designed to be flexible and customisable, and thus includes a relatively large number of variants.</p>
+<h3>Text</h3>
 
-  <h3>Text</h3>
+<p>Button text (<code>btn_text</code>) should be concise and clearly communicate the action the button will perform. If there is too little text, the action may be ambiguous, and if there is too much text, either use a link instead of a button, or shorten the text and include supporting information before or after the button.</p>
 
-  <p>Button text (<code>btn_text</code>) should be concise and clearly communicate the action the button will perform. If there is too little text, the action may be ambiguous, and if there is too much text, either use a link instead of a button, or shorten the text and include supporting information before or after the button.</p>
+<div class="mb-1.5 mt-3"><span class="font-bold mr-2 text-munster">x</span>Too short:</div>
 
-  <div class="mb-1.5 mt-3"><span class="font-bold mr-2 text-munster">x</span>Too short:</div>
+{% include '@components/button/button.twig' with {
+  btn_text: 'Download',
+  btn_type: 'button'
+} %}
 
-  {% include '@components/button/button.twig' with {
-    btn_text: 'Download',
-    btn_type: 'button'
-  } %}
+<div class="mb-1.5 mt-3"><span class="font-bold mr-2 text-munster">x</span>Too long:</div>
 
-  <div class="mb-1.5 mt-3"><span class="font-bold mr-2 text-munster">x</span>Too long:</div>
+{% include '@components/button/button.twig' with {
+  btn_text: 'Download our Prospectus and See Where Your Future Takes You',
+  btn_type: 'button'
+} %}
 
-  {% include '@components/button/button.twig' with {
-    btn_text: 'Download our Prospectus and See Where Your Future Takes You',
-    btn_type: 'button'
-  } %}
+<div class="mb-1.5 mt-3"><span class="font-bold mr-1 text-modern">✓</span>Better:</div>
 
-  <div class="mb-1.5 mt-3"><span class="font-bold mr-1 text-modern">✓</span>Better:</div>
+{% include '@components/button/button.twig' with {
+  btn_text: 'Download Prospectus',
+  btn_type: 'button'
+} %}
 
-  {% include '@components/button/button.twig' with {
-    btn_text: 'Download Prospectus',
-    btn_type: 'button'
-  } %}
+<p>Example code:</p>
 
-  <p>Example code:</p>
+<pre><code>{{ html("
+{% include 'ul:button' with {
+  btn_text: 'Download Prospectus'
+} %}
+")}}</code></pre>
 
-  <pre><code>{{ html("
-  {% include 'ul:button' with {
-    btn_text: 'Download Prospectus'
-  } %}
-  ")}}</code></pre>
-  
-  <h3>Theme</h3>
+<h3>Theme</h3>
 
-  <p>A button's function (i.e. whether it's <strong>primary</strong> or <strong>secondary</strong>), is defined by the <code>btn_theme</code> property. There are six button themes: two primary, two secondary, one danger and one empty (to allow for custom styling).</p>
+<p>A button's function (i.e. whether it's <strong>primary</strong> or <strong>secondary</strong>), is defined by the <code>btn_theme</code> property. There are six button themes: two primary, two secondary, one danger and one empty (to allow for custom styling).</p>
 
-  <style>
-    #btn-table td {
-      vertical-align: middle;
-    }
-  </style>
-  <table id="btn-table" class="text-left">
-    <thead>
-      <tr>
-        <th>Button Theme</th>
-        <th><code>btn_theme</code></th>
-      </tr>
-    </thead>
+<style>
+  #btn-table td {
+    vertical-align: middle;
+  }
+</style>
+<table id="btn-table" class="text-left">
+  <thead>
+    <tr>
+      <th>Button Theme</th>
+      <th><code>btn_theme</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        {% include '@components/button/button.twig' with {
+          btn_text: 'Primary Green',
+          btn_theme: 'primary-green'
+        } %}
+      </td>
+      <td><code>primary-green</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {% include '@components/button/button.twig' with {
+          btn_text: 'Primary Blue',
+          btn_theme: 'primary-blue',
+          btn_type: 'button'
+        } %}
+      </td>
+      <td><code>primary-blue</code></td>
+    </tr>
+    <tr>
+      <td>
+        {% include '@components/button/button.twig' with {
+          btn_text: 'Secondary Green',
+          btn_theme: 'secondary-green',
+          btn_type: 'button'
+        } %}
+      </td>
+      <td><code>secondary-green</code></td>
+    </tr>
+    <tr>
+      <td>
+        {% include '@components/button/button.twig' with {
+          btn_text: 'Secondary Blue',
+          btn_theme: 'secondary-blue',
+          btn_type: 'button'
+        } %}
+      </td>
+      <td><code>secondary-blue</code></td>
+    </tr>
+    <tr>
+      <td>
+        {% include '@components/button/button.twig' with {
+          btn_text: 'Danger',
+          btn_theme: 'danger',
+          btn_type: 'button'
+        } %}
+      </td>
+      <td><code>danger</code></td>
+    </tr>
+    <tr>
+      <td>
+        {% include '@components/button/button.twig' with {
+          btn_text: 'No Theme',
+          btn_theme: 'none',
+          btn_type: 'button'
+        } %}
+      </td>
+      <td><code>none</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Applying a theme is straightforward. Below is an example of how to change the <code>btn_theme</code> to <code>primary-blue</code>:</p>
+
+<pre><code>{{ html("
+{% include 'ul:button' with {
+  btn_text: 'Primary Blue',
+  btn_theme: 'primary-blue'
+} %}
+")}}</code></pre>
+
+<h3>Type</h3>
+
+<p>The <code>btn_type</code> can either be link (the default), button, submit or reset. Its type will not alter its appearance but will alter the underlying markup used.</p>
+
+<p>Recommended use cases for each are outlined below:</p>
+
+<table class="text-left">
+  <thead>
+    <tr>
+      <th><code>btn_type</code></th>
+      <th>Use Case(s)</th>
+    </tr>
     <tbody>
       <tr>
-        <td>
-          {% include '@components/button/button.twig' with {
-            btn_text: 'Primary Green',
-            btn_theme: 'primary-green'
-          } %}
-        </td>
-        <td><code>primary-green</code>
-        </td>
+        <td><code>link</code></td>
+        <td>CTA links, document downloads</td>
       </tr>
       <tr>
-        <td>
-          {% include '@components/button/button.twig' with {
-            btn_text: 'Primary Blue',
-            btn_theme: 'primary-blue',
-            btn_type: 'button'
-          } %}
-        </td>
-        <td><code>primary-blue</code></td>
+        <td><code>button</code></td>
+        <td>Any other functionality not covered by the other types, including code execution</td>
       </tr>
       <tr>
-        <td>
-          {% include '@components/button/button.twig' with {
-            btn_text: 'Secondary Green',
-            btn_theme: 'secondary-green',
-            btn_type: 'button'
-          } %}
-        </td>
-        <td><code>secondary-green</code></td>
+        <td><code>submit</code></td>
+        <td>Search buttons, submiting the contents of a form</td>
       </tr>
       <tr>
-        <td>
-          {% include '@components/button/button.twig' with {
-            btn_text: 'Secondary Blue',
-            btn_theme: 'secondary-blue',
-            btn_type: 'button'
-          } %}
-        </td>
-        <td><code>secondary-blue</code></td>
-      </tr>
-      <tr>
-        <td>
-          {% include '@components/button/button.twig' with {
-            btn_text: 'Danger',
-            btn_theme: 'danger',
-            btn_type: 'button'
-          } %}
-        </td>
-        <td><code>danger</code></td>
-      </tr>
-      <tr>
-        <td>
-          {% include '@components/button/button.twig' with {
-            btn_text: 'No Theme',
-            btn_theme: 'none',
-            btn_type: 'button'
-          } %}
-        </td>
-        <td><code>none</code></td>
+        <td><code>reset</code></td>
+        <td>Reset the contents of a form</td>
       </tr>
     </tbody>
-  </table>
+  </thead>
+</table>
 
-  <p>Applying a theme is straightforward. Below is an example of how to change the <code>btn_theme</code> to <code>primary-blue</code>:</p>
+<p>Example code for a button to download a document:</p>
 
-  <pre><code>{{ html("
-  {% include 'ul:button' with {
-    btn_text: 'Primary Blue',
-    btn_theme: 'primary-blue'
-  } %}
-  ")}}</code></pre>
-  
-  <h3>Type</h3>
+<pre><code>{{ html("
+{% include 'ul:button' with {
+  btn_text: 'Download Prospectus',
+  btn_type: 'link',
+  btn_url: '/path/to/download',
+  is_download: true
+} %}
+")}}</code></pre>
 
-  <p>The <code>btn_type</code> can either be link (the default), button, submit or reset. Its type will not alter its appearance but will alter the underlying markup used.</p>
+<h3>Icons</h3>
 
-  <p>Recommended use cases for each are outlined below:</p>
+<p>Icons should serve as a visual shortcut or hint as to the purpose of the button.</p>
 
-  <table class="text-left">
-    <thead>
-      <tr>
-        <th><code>btn_type</code></th>
-        <th>Use Case(s)</th>
-      </tr>
-      <tbody>
-        <tr>
-          <td><code>link</code></td>
-          <td>CTA links, document downloads</td>
-        </tr>
-        <tr>
-          <td><code>button</code></td>
-          <td>Any other functionality not covered by the other types, including code execution</td>
-        </tr>
-        <tr>
-          <td><code>submit</code></td>
-          <td>Search buttons, submiting the contents of a form</td>
-        </tr>
-        <tr>
-          <td><code>reset</code></td>
-          <td>Reset the contents of a form</td>
-        </tr>
-      </tbody>
-    </thead>
-  </table>
+<h4>Icon Placement</h4>
 
-  <p>Example code for a button to download a document:</p>
+<p>Icons should generally be placed to the <strong>left</strong> of the button text. Although we allow for right-placement, icons placed to the right tend to be less visually useful, as they're scanned after the text (in left-to-right languages at least).</p>
 
-  <pre><code>{{ html("
-  {% include 'ul:button' with {
-    btn_text: 'Download Prospectus',
-    btn_type: 'link',
-    btn_url: '/path/to/download',
-    is_download: true
-  } %}
-  ")}}</code></pre>
+<p>Example button with icon:</p>
 
-  <h3>Icons</h3>
+{% include '@components/button/button.twig' with {
+  btn_text: 'Download Prospectus',
+  btn_type: 'button',
+  icon_name: 'download',
+  icon_type: 'solid',
+  icon_pos: 'left'
+} %}
 
-  <p>Icons should serve as a visual shortcut or hint as to the purpose of the button.</p>
-  
-  <h4>Icon Placement</h4>
+<p>Example code:</p>
 
-  <p>Icons should generally be placed to the <strong>left</strong> of the button text. Although we allow for right-placement, icons placed to the right tend to be less visually useful, as they're scanned after the text (in left-to-right languages at least).</p>
+<pre><code>{{ html("
+{% include 'ul:button' with {
+  btn_text: 'Download Prospectus',
+  btn_type: 'button',
+  icon_name: 'download',
+  icon_type: 'solid',
+  icon_pos: 'left'
+} %}
+")}}</code></pre>
 
-  <p>Example button with icon:</p>
+<p>Situations in which right-placement may be more acceptable would be a button linking to an external site:</p>
 
-  {% include '@components/button/button.twig' with {
-    btn_text: 'Download Prospectus',
-    btn_type: 'button',
-    icon_name: 'download',
-    icon_type: 'solid',
-    icon_pos: 'left'
-  } %}
+{% include '@components/button/button.twig' with {
+  btn_text: 'Link to External Site',
+  btn_type: 'button',
+  icon_name: 'up-right-from-square',
+  icon_type: 'solid',
+  icon_pos: 'right'
+} %}
 
-  <p>Example code:</p>
+<h4>Icon-Only Buttons</h4>
 
-  <pre><code>{{ html("
-  {% include 'ul:button' with {
-    btn_text: 'Download Prospectus',
-    btn_type: 'button',
-    icon_name: 'download',
-    icon_type: 'solid',
-    icon_pos: 'left'
-  } %}
-  ")}}</code></pre>
+<p>In some cases you might need an icon-only button, in which case the icon is wrapped in a container with a title and aria label added for accessibility (the content of which is generated from the mandatory <code>btn_text</code> property). For these kinds of buttons it can also be useful to set the <code>btn_padding</code> to equal, to remove the extra horizontal btn_padding.</p>
 
-  <p>Situations in which right-placement may be more acceptable would be a button linking to an external site:</p>
+{% include '@components/button/button.twig' with {
+  btn_padding: 'equal',
+  btn_text: 'User Profile',
+  btn_type: 'button',
+  icon_name: 'user',
+  icon_type: 'solid',
+  is_icon_only: true,
+} %}
 
-  {% include '@components/button/button.twig' with {
-    btn_text: 'Link to External Site',
-    btn_type: 'button',
-    icon_name: 'up-right-from-square',
-    icon_type: 'solid',
-    icon_pos: 'right'
-  } %}
+<p>Example code:</p>
 
-  <h4>Icon-Only Buttons</h4>
+<pre><code>{{ html("
+{% include 'ul:button' with {
+  btn_padding: 'equal',
+  btn_text: 'Icon Only',
+  btn_type: 'button',
+  icon_name: 'user',
+  icon_type: 'solid',
+  is_icon_only: true,
+} %}
+")}}</code></pre>
 
-  <p>In some cases you might need an icon-only button, in which case the icon is wrapped in a container with a title and aria label added for accessibility (the content of which is generated from the mandatory <code>btn_text</code> property). For these kinds of buttons it can also be useful to set the <code>btn_padding</code> to equal, to remove the extra horizontal btn_padding.</p>
+<h3>Size and Width</h3>
+
+<p>Buttons come in three sizes: <strong>small</strong>, <strong>medium</strong> (the default) and <strong>large</strong>. The size can be set using the <code>btn_size</code> property.</p>
+
+<div class="flex flex-col gap-y-2">
 
   {% include '@components/button/button.twig' with {
-    btn_padding: 'equal',
-    btn_text: 'User Profile',
-    btn_type: 'button',
-    icon_name: 'user',
-    icon_type: 'solid',
-    is_icon_only: true,
-  } %}
-
-  <p>Example code:</p>
-
-  <pre><code>{{ html("
-  {% include 'ul:button' with {
-    btn_padding: 'equal',
-    btn_text: 'Icon Only',
-    btn_type: 'button',
-    icon_name: 'user',
-    icon_type: 'solid',
-    is_icon_only: true,
-  } %}
-  ")}}</code></pre>
-
-  <h3>Size and Width</h3>
-
-  <p>Buttons come in three sizes: <strong>small</strong>, <strong>medium</strong> (the default) and <strong>large</strong>. The size can be set using the <code>btn_size</code> property.</p>
-
-  <div class="flex flex-col gap-y-2">
-
-    {% include '@components/button/button.twig' with {
-      btn_text: 'Button (S)',
-      btn_type: 'button',
-      btn_size: 'small'
-    } %}
-  
-    {% include '@components/button/button.twig' with {
-      btn_text: 'Button (M)',
-      btn_type: 'button',
-      btn_size: 'medium'
-    } %}
-  
-    {% include '@components/button/button.twig' with {
-      btn_text: 'Button (L)',
-      btn_type: 'button',
-      btn_size: 'large'
-    } %}
-  
-  </div>
-
-  <p>Example code:</p>
-
-  <pre><code>{{ html("
-  {% include 'ul:button' with {
     btn_text: 'Button (S)',
     btn_type: 'button',
     btn_size: 'small'
   } %}
-  ")}}</code></pre>
-  
-  <p>By default, a button will fit its content (including padding), but a button can also stretch to fill its container by setting <code>btn_width</code> to <strong>full</strong> (the value being <strong>fit</strong> by default).</p>
 
   {% include '@components/button/button.twig' with {
-    btn_text: 'Large Full-Width Button',
+    btn_text: 'Button (M)',
     btn_type: 'button',
-    btn_size: 'large',
-    btn_width: 'full'
+    btn_size: 'medium'
   } %}
-
-  <p>Example code:</p>
-
-  <pre><code>{{ html("
-  {% include 'ul:button' with {
-    btn_text: 'Large Full-Width Button',
-    btn_type: 'button',
-    btn_size: 'large',
-    btn_width: 'full'
-  } %}
-  ")}}</code></pre>
-
-  <h3>Other Properties</h3>
-
-  <p>The final two properties not covered above are <code>is_disabled</code> and <code>btn_modifiers</code>; they are covered last as they should be the least likely to be used.
-
-  <h4>Disabling a Button</h4>
-
-  <p>The <code>is_disabled</code> property is set to false by default. Setting it to true will add the <strong>disabled</strong> attribute to the button and modify its styling and cursor behaviour, and if the button is a link, the <code>btn_url</code> will be overridden.</p>
 
   {% include '@components/button/button.twig' with {
-    btn_text: 'Disabled Button',
+    btn_text: 'Button (L)',
     btn_type: 'button',
-    is_disabled: true
+    btn_size: 'large'
   } %}
-
-  <p>Example code:</p>
-
-  <pre><code>{{ html("
-  {% include 'ul:button' with {
-    btn_text: 'Disabled Button',
-    btn_type: 'button',
-    is_disabled: true
-  } %}
-  ")}}</code></pre>
-
-  <h4>Custom Styling</h4>
-
-  <p>In what should only be exceptional circumstances, the five pre-defined button themes may not satisfy requirements (a different colour may be requested for example). In this case the <code>btn_theme</code> should be set to <strong>none</strong>, and new classes can be injected using the <code>btn_modifiers</code> property.</p>
-
-  {% include '@components/button/button.twig' with {
-    btn_modifiers: 'border-salmon text-salmon fill-salmon hover:bg-salmon hover:text-white hover:fill-white',
-    btn_text: 'Custom Button',
-    btn_type: 'button',
-    btn_theme: 'none',
-    icon_name: 'atom-simple',
-    icon_type: 'regular',
-    icon_size: 'w-5'
-  } %}
-
-  <p>Example code:</p>
-
-  <pre><code>{{ html("
-  {% include 'ul:button' with {
-    btn_modifiers: 'border-salmon text-salmon fill-salmon hover:bg-salmon hover:text-white hover:fill-white',
-    btn_text: 'Custom Button',
-    btn_type: 'button',
-    btn_theme: 'none',
-    icon_name: 'atom-simple',
-    icon_type: 'regular',
-    icon_size: 'w-5'
-  } %}
-  ")}}</code></pre>
-
-  <h2>Source Code</h2>
-
-  <p>The source code below can be found below, and at <code>inc/components/button/</code> in the design system repository.</p>
-
-  <h3>Twig</h3>
-
-  <pre class="max-h-80"><code class="">{{ html(get_file("inc/components/button/button.twig")) }}</code></pre>
-
-  <h3>YML</h3>
-
-  <pre class="max-h-80"><code class="language-yaml">{{ html(get_file("inc/components/button/button.component.yml")) }}</code></pre>
 
 </div>
+
+<p>Example code:</p>
+
+<pre><code>{{ html("
+{% include 'ul:button' with {
+  btn_text: 'Button (S)',
+  btn_type: 'button',
+  btn_size: 'small'
+} %}
+")}}</code></pre>
+
+<p>By default, a button will fit its content (including padding), but a button can also stretch to fill its container by setting <code>btn_width</code> to <strong>full</strong> (the value being <strong>fit</strong> by default).</p>
+
+{% include '@components/button/button.twig' with {
+  btn_text: 'Large Full-Width Button',
+  btn_type: 'button',
+  btn_size: 'large',
+  btn_width: 'full'
+} %}
+
+<p>Example code:</p>
+
+<pre><code>{{ html("
+{% include 'ul:button' with {
+  btn_text: 'Large Full-Width Button',
+  btn_type: 'button',
+  btn_size: 'large',
+  btn_width: 'full'
+} %}
+")}}</code></pre>
+
+<h3>Other Properties</h3>
+
+<p>The final two properties not covered above are <code>is_disabled</code> and <code>btn_modifiers</code>; they are covered last as they should be the least likely to be used.
+
+<h4>Disabling a Button</h4>
+
+<p>The <code>is_disabled</code> property is set to false by default. Setting it to true will add the <strong>disabled</strong> attribute to the button and modify its styling and cursor behaviour, and if the button is a link, the <code>btn_url</code> will be overridden.</p>
+
+{% include '@components/button/button.twig' with {
+  btn_text: 'Disabled Button',
+  btn_type: 'button',
+  is_disabled: true
+} %}
+
+<p>Example code:</p>
+
+<pre><code>{{ html("
+{% include 'ul:button' with {
+  btn_text: 'Disabled Button',
+  btn_type: 'button',
+  is_disabled: true
+} %}
+")}}</code></pre>
+
+<h4>Custom Styling</h4>
+
+<p>In what should only be exceptional circumstances, the five pre-defined button themes may not satisfy requirements (a different colour may be requested for example). In this case the <code>btn_theme</code> should be set to <strong>none</strong>, and new classes can be injected using the <code>btn_modifiers</code> property.</p>
+
+{% include '@components/button/button.twig' with {
+  btn_modifiers: 'border-salmon text-salmon fill-salmon hover:bg-salmon hover:text-white hover:fill-white',
+  btn_text: 'Custom Button',
+  btn_type: 'button',
+  btn_theme: 'none',
+  icon_name: 'atom-simple',
+  icon_type: 'regular',
+  icon_size: 'w-5'
+} %}
+
+<p>Example code:</p>
+
+<pre><code>{{ html("
+{% include 'ul:button' with {
+  btn_modifiers: 'border-salmon text-salmon fill-salmon hover:bg-salmon hover:text-white hover:fill-white',
+  btn_text: 'Custom Button',
+  btn_type: 'button',
+  btn_theme: 'none',
+  icon_name: 'atom-simple',
+  icon_type: 'regular',
+  icon_size: 'w-5'
+} %}
+")}}</code></pre>
+
+<h2>Source Code</h2>
+
+<p>The source code below can be found below, and at <code>inc/components/button/</code> in the design system repository.</p>
+
+<h3>Twig</h3>
+
+<pre class="max-h-80"><code class="">{{ html(get_file("inc/components/button/button.twig")) }}</code></pre>
+
+<h3>YML</h3>
+
+<pre class="max-h-80"><code class="language-yaml">{{ html(get_file("inc/components/button/button.component.yml")) }}</code></pre>

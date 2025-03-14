@@ -2,35 +2,36 @@
 
 <html lang="en" class="scroll-smooth">
 
-<head>
+  <head>
 
     <meta charset="UTF-8">
 
+    <meta name="generator" content="Eleventy">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/css/index.css">
 
     <script>
-        if (localStorage.getItem('dark-mode') === 'false' || !('dark-mode' in localStorage)) {
-            document.querySelector('html').classList.remove('dark');
-        } else {
-            document.querySelector('html').classList.add('dark');
-        }
+      // Check for dark mode.
+      let html = document.querySelector('html');
+      let isDarkModeActive = ('dark-mode' in localStorage) && localStorage.getItem('dark-mode') === 'true';
+      isDarkModeActive ? html.classList.add('dark') : html.classList.remove('dark');
     </script>
 
     <title>Profile Component</title>
 
-</head>
-<body class="antialiased bg-limestone-l5 dark:bg-granite-d3 text-granite-d3 dark:text-granite-l3">
+  </head>
+<body class="antialiased bg-limestone-l5 text-granite-d2 dark:bg-granite-d3 dark:text-granite-l3">
 
-    <header class="sticky top-0 w-full h-24 z-10">
+  <header class="sticky top-0 w-full h-24 z-10">
 
   <div class="
-        absolute inset-0 bg-white bg-opacity-60 border-b border-granite-l3 backdrop-blur -z-10
-        dark:bg-granite-d3 dark:border-granite-d1 dark:bg-opacity-70" aria-hidden="true">
+        absolute inset-0 bg-white/60 border-b border-granite-l3 backdrop-blur -z-10
+        dark:bg-granite-d3/70 dark:border-granite-d1" aria-hidden="true">
   </div>
 
-  <div class="container h-full flex items-center justify-between px-4 sm:px-6">
+  <div class="container h-full flex items-center justify-between px-5 sm:px-6">
 
     <a href="/"><svg version="1.1" viewBox="0 0 1480 676.28" width="148px" xmlns="http://www.w3.org/2000/svg" class="my-3">
   <title>University of Limerick</title>
@@ -79,13 +80,9 @@
 </svg>
 </a>
 
-    <!-- Dark mode toggle -->
-
-    <input type="checkbox" name="light-switch" id="light-switch" class="light-switch sr-only" />
-
     <label
-      for="light-switch"
-      class="relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1 hover:bg-opacity-5 dark:hover:bg-opacity-10" >
+      for="dark-switch"
+      class="relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1/5 dark:hover:bg-modern-l1/10" >
 
       
 
@@ -105,7 +102,7 @@
 
   <svg
     title="moon-stars"
-    class="fill-white hidden dark:d-block w-6 -mt-1 "
+    class="fill-white hidden dark:block w-6 -mt-1 "
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
     >
@@ -117,106 +114,175 @@
 
     </label>
 
+    <input type="checkbox" name="dark-switch" id="dark-switch" class="sr-only" />
+
   </div>
 
 </header>
-    <div class="flex container min-h-screen">
+  <div class="container grid grid-cols-6 min-h-screen">
 
-        <div class="hidden lg:flex basis-1/6 py-20 px-4 border-r border-granite-l3 dark:border-granite-d1">
+    <div class="hidden lg:block col-span-1 py-20 px-5 border-r border-granite-l3 dark:border-granite-d1">
 
-            <nav class="fixed">
+  <nav class="fixed">
 
-    <ul class="ml-2 text-green dark:text-modern-l1">
+    <ul class="list-none leading-none m-0 p-0 text-green dark:text-modern-l1">
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Guides</span>
+      
+      <li class="m-0 p-0">
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+        <span class="text-lg font-bold">Guides</span>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/guides/for-developers/">For Developers</a></li>
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
 
-                    
-            </ul>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-        </li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/guides/for-developers/">
+              For Developers
+            </a>
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Foundations</span>
+          </li>
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+          
+        </ul>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/breakpoints/">Breakpoints</a></li>
+      </li>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/spacing/">Spacing</a></li>
+      
+      <li class="m-0 p-0">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/layout/">Layout</a></li>
+        <span class="text-lg font-bold">Foundations</span>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/colour/">Colour</a></li>
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/foundations/iconography/">Iconography</a></li>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-                    
-            </ul>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/breakpoints/">
+              Breakpoints
+            </a>
 
-        </li>
+          </li>
 
-        
-        <li>
-            
-            <span class="text-lg font-bold">Components</span>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-            <ul class="mb-3 ml-1 text-granite-d3 dark:text-granite-l3">
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/spacing/">
+              Spacing
+            </a>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/accordion/">Accordion</a></li>
+          </li>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/button/">Button</a></li>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/icon/">Icon</a></li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/layout/">
+              Layout
+            </a>
 
-            
-                <li class="pl-3 border-l border-granite-l3 dark:border-granite-d1"><a href="/components/well/">Well</a></li>
+          </li>
 
-                    
-            </ul>
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-        </li>
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/typography">
+              Typography
+            </a>
 
-        
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/colour/">
+              Colour
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/iconography/">
+              Iconography
+            </a>
+
+          </li>
+
+          
+        </ul>
+
+      </li>
+
+      
+      <li class="m-0 p-0">
+
+        <span class="text-lg font-bold">Components</span>
+
+        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/accordion/">
+              Accordion
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/button/">
+              Button
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/icon/">
+              Icon
+            </a>
+
+          </li>
+
+          
+          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/well/">
+              Well
+            </a>
+
+          </li>
+
+          
+        </ul>
+
+      </li>
+
+      
     </ul>
 
-</nav>
-        </div>
+  </nav>
 
-        <main class="basis-full lg:basis-4/6"> 
+</div>
+    <main class="col-span-6 lg:col-span-4">
 
-            <article class="prose prose-granite dark:prose-invert md:prose-lg mx-auto px-4 sm:px-6">
+      <article class="px-5 py-16 sm:px-6 lg:p-20 xl:px-32">
 
-                
-<div class="is-prose py-20 mx-auto">
+        
+<h1 class="font-serif is-decorated">Profile Component</h1>
 
-    <h1 class="is-decorated">Profile Component</h1>
+<h2>Description</h2>
 
-    <h2>Description</h2>
+<p>
+    The profile card component is primarily for academic profiles that link to
+    the Pure research portal.
+</p>
 
-    <p>
-        The profile card component is primarily for academic profiles that link to 
-        the Pure research portal.
-    </p>
 
-    
 
 <article class="relative w-64 max-w-full overflow-hidden group not-prose transition duration-300">
 
@@ -273,36 +339,34 @@
 
 </article>
 
-    <h2>Syntax</h2>
+<h2>Syntax</h2>
 
-    <p>The profile card component has four parameters:</p>
+<p>The profile card component has four parameters:</p>
 
-    <ul>
-        <li><code>name</code>: The full name of the person.</li>
-        <li><code>title</code>: Their title(s).</li>
-        <li><code>img_src</code>: The URL of the image to use (defaults to an SVG icon if not provided).</li>
-        <li><code>profile_url</code>: The external URL to their Pure profile.</li>
-    </ul>
+<ul>
+    <li><code>name</code>: The full name of the person.</li>
+    <li><code>title</code>: Their title(s).</li>
+    <li><code>img_src</code>: The URL of the image to use (defaults to an SVG icon if not provided).</li>
+    <li><code>profile_url</code>: The external URL to their Pure profile.</li>
+</ul>
 
-    <p>Use the <code>include</code> tag to render the profile with its parameters as follows:</p>
+<p>Use the <code>include</code> tag to render the profile with its parameters as follows:</p>
 
-    <iframe frameborder="0" height="400" width="100%">
-        <h1>Hi I'm an iframe</h1>
-    </iframe>
+<iframe frameborder="0" height="400" width="100%">
+    <h1>Hi I'm an iframe</h1>
+</iframe>
 
-    <pre><code>
-        {% include &quot;@components/profile/profile.twig&quot; with {
+<pre><code>{% include &quot;@components/profile/profile.twig&quot; with {
             name: &quot;Full Name&quot;,
             title: &quot;Dr., Associate Professor&quot;,
             profile_url: &quot;/url/to/pure/profile&quot;,
             img_src: &quot;/url/to/profile/img&quot;
-        } %}
-    </code></pre>
+        } %}</code></pre>
 
-    <hr>
+<hr>
 
-    <div class="grid grid-cols-1 gap-x-5 gap-y-7 justify-items-center md:grid-cols-2 lg:grid-cols-3">
-     
+<div class="grid grid-cols-1 gap-x-5 gap-y-7 justify-items-center md:grid-cols-2 lg:grid-cols-3">
+
     
 
 <article class="relative w-64 max-w-full overflow-hidden group not-prose transition duration-300">
@@ -649,15 +713,15 @@
 
 <article class="relative w-64 max-w-full overflow-hidden group not-prose transition duration-300">
 
-  <a class="absolute top-0 left-0 w-full h-full z-10" href="#" title="Olga  Korostynska" target="_blank">
-    <span class="sr-only">Olga  Korostynska</span>
+  <a class="absolute top-0 left-0 w-full h-full z-10" href="#" title="Olga Korostynska" target="_blank">
+    <span class="sr-only">Olga Korostynska</span>
   </a>
 
   <section class="relative overflow-hidden rounded-t">
 
     <img 
       class="bl w-full h-72 object-cover object-top group-hover:scale-105 transition duration-300"
-      src="https://www.ul.ie/sites/default/files/styles/person_portrait/public/2022-10/Prof%20Olga%20Korostynska_0.jpg?h=f1e147e9&itok=CoJHGx8I" alt="Olga  Korostynska"
+      src="https://www.ul.ie/sites/default/files/styles/person_portrait/public/2022-10/Prof%20Olga%20Korostynska_0.jpg?h=f1e147e9&itok=CoJHGx8I" alt="Olga Korostynska"
     />
 
     <div class="opacity-0 group-hover:opacity-100 bg-granite-d4 bg-opacity-30 transition duration-300 absolute w-full h-full top-0 flex items-center justify-center">
@@ -686,7 +750,7 @@
 
       <div class="w-5 p-0.5 shrink-0 mr-2"></div>
 
-      <span class="font-bold">Olga  Korostynska</span>
+      <span class="font-bold">Olga Korostynska</span>
 
     </div>
 
@@ -759,13 +823,13 @@
 
 </article>
 
-    </div>
+</div>
 
-    <h2>Source Code</h2>
+<h2>Source Code</h2>
 
-    <p>The below can be found at <code>inc/components/profile/profile.twig</code>.</p>
+<p>The below can be found at <code>inc/components/profile/profile.twig</code>.</p>
 
-    <pre><code class="language-twig">{# 
+<pre><code class="language-twig">{# 
   The Profile Card Component
   ---
   Available variables:
@@ -828,35 +892,33 @@
 
   &lt;/section&gt;
 
-&lt;/article&gt;
-</code></pre>
+&lt;/article&gt;</code></pre>
+
+      </article>
+
+    </main>
+
+    <div class="hidden lg:block col-span-1 py-20 px-4">
+
+  <div class="flex justify-center">
+
+    <nav id="page-nav" class="fixed no-scrollbar"></nav>
+
+  </div>
 
 </div>
+  </div>
 
+      <footer class="
+      basis-full p-4 border-t border-granite-l3 text-center
+      dark:border-granite-d1">
 
-            </article>
+      Copyright © University of Limerick 2025
 
-        </main>
+    </footer>
+    
+    <script type="module" src="/js/index.js"></script>
 
-        <div class="hidden lg:flex basis-1/6 py-20 px-4">
-
-            <nav
-  id="page-nav"
-  class="fixed no-scrollbar">
-</nav>
-        </div>
-        
-    </div>
-
-    <footer class="
-    basis-full p-4 border-t border-granite-l3 text-center
-    dark:border-granite-d1">
-
-    Copyright © University of Limerick 2025
-
-</footer>
-    <script type="module" src="/index.js"></script>
-
-</body>
+  </body>
 
 </html>

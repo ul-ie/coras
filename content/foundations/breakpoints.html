@@ -4,152 +4,148 @@ tags: foundations
 layout: templates/page.html
 ---
 
-<div class="is-prose mx-auto py-20">
+<h1 class="font-serif is-decorated">{{ title }}</h1>
 
-  <h1 class="is-decorated">{{ title }}</h1>
+<p>
+  Breakpoints are foundational to responsive design. They are pre-defined values
+  that determine how your layout behaves and adapts to different device and viewport
+  sizes.
+</p>
 
-  <p>
-    Breakpoints are foundational to responsive design. They are pre-defined values
-    that determine how your layout behaves and adapts to different device and viewport
-    sizes.
-  </p>
+<h2>Mobile-First Design</h2>
 
-  <h2>Mobile-First Design</h2>
+<p>
+  Whether you're a developer, designer or content editor, when you are creating
+  anything for a digital audience, you should first consider how it will appear
+  and function on a mobile device, and only <em>afterwards</em> consider how it
+  will adapt to larger devices or viewports.
+</p>
 
-  <p>
-    Whether you're a developer, designer or content editor, when you are creating
-    anything for a digital audience, you should first consider how it will appear
-    and function on a mobile device, and only <em>afterwards</em> consider how it
-    will adapt to larger devices or viewports.
-  </p>
+<h2>Available Breakpoints</h2>
 
-  <h2>Available Breakpoints</h2>
+<p>
+  Our design system works with five breakpoints, defined by a series of
+  <em>minimum widths</em>. What this means in practice is that breakpoints move
+  upwards, from mobile (where no breakpoint is needed) to tablet, laptop, desktop
+  monitor, widescreen etc.
+</p>
 
-  <p>
-    Our design system works with five breakpoints, defined by a series of
-    <em>minimum widths</em>. What this means in practice is that breakpoints move
-    upwards, from mobile (where no breakpoint is needed) to tablet, laptop, desktop
-    monitor, widescreen etc.
-  </p>
+<table class="text-left">
+  <thead>
+    <tr>
+      <th>Breakpoint prefix</th>
+      <th>Minimum width</th>
+      <th>CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>sm</td>
+      <td>640px</td>
+      <td>@media (min-width: 640px) { ... }</td>
+    </tr>
+    <tr>
+      <td>md</td>
+      <td>768px</td>
+      <td>@media (min-width: 768px) { ... }</td>
+    </tr>
+    <tr>
+      <td>lg</td>
+      <td>1024px</td>
+      <td>@media (min-width: 1024px) { ... }</td>
+    </tr>
+    <tr>
+      <td>xl</td>
+      <td>1280px</td>
+      <td>@media (min-width: 1280px) { ... }</td>
+    </tr>
+    <tr>
+      <td>2xl</td>
+      <td>1536px</td>
+      <td>@media (min-width: 1536px) { ... }</td>
+    </tr>
+  </tbody>
+</table>
 
-  <table class="text-left">
-    <thead>
-      <tr>
-        <th>Breakpoint prefix</th>
-        <th>Minimum width</th>
-        <th>CSS</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>sm</td>
-        <td>640px</td>
-        <td>@media (min-width: 640px) { ... }</td>
-      </tr>
-      <tr>
-        <td>md</td>
-        <td>768px</td>
-        <td>@media (min-width: 768px) { ... }</td>
-      </tr>
-      <tr>
-        <td>lg</td>
-        <td>1024px</td>
-        <td>@media (min-width: 1024px) { ... }</td>
-      </tr>
-      <tr>
-        <td>xl</td>
-        <td>1280px</td>
-        <td>@media (min-width: 1280px) { ... }</td>
-      </tr>
-      <tr>
-        <td>2xl</td>
-        <td>1536px</td>
-        <td>@media (min-width: 1536px) { ... }</td>
-      </tr>
-    </tbody>
-  </table>
+<h2>Using Breakpoints</h2>
 
-  <h2>Using Breakpoints</h2>
+<p>
+  For designers, ensure the frame widths defined in Figma correspond to the above 
+  breakpoint values. Ideally, <a href="https://uxdesign.cc/using-figma-variables-for-breakpoints-eff321435306" target="_blank">
+  use these values as variables</a> in Figma. <a href="https://www.figma.com/community/plugin/824289601590456356" target="_blank">
+  Plugins also exist</a> which facilitate automatic responsive layouts.
+</p>
 
-  <p>
-    For designers, ensure the frame widths defined in Figma correspond to the above 
-    breakpoint values. Ideally, <a href="https://uxdesign.cc/using-figma-variables-for-breakpoints-eff321435306" target="_blank">
-    use these values as variables</a> in Figma. <a href="https://www.figma.com/community/plugin/824289601590456356" target="_blank">
-    Plugins also exist</a> which facilitate automatic responsive layouts.
-  </p>
-  
-  <p>
-    For developers, breakpoints can be used as modifiers, prefixing normal 
-    style classes. This will ensure the styles in question only become active at
-    the prefixed breakpoint(s).
-  </p>
+<p>
+  For developers, breakpoints can be used as modifiers, prefixing normal 
+  style classes. This will ensure the styles in question only become active at
+  the prefixed breakpoint(s).
+</p>
 
-  <h3>Syntax</h3>
+<h3>Syntax</h3>
 
-  <pre><code>{{ html('<element class="prefix:style-rule"></element>') }}</code></pre>
+<pre><code>{{ html('<element class="prefix:style-rule"></element>') }}</code></pre>
 
-  <h3>Examples</h3>
+<h3>Examples</h3>
 
-  <p>
-    <strong>(i)</strong> Here's how you would set different levels of padding for a <code>div</code> 
-    element at small (<code>sm</code>) and large (<code>lg</code>) breakpoints.
-  </p>
+<p>
+  <strong>(i)</strong> Here's how you would set different levels of padding for a <code>div</code> 
+  element at small (<code>sm</code>) and large (<code>lg</code>) breakpoints.
+</p>
 
-  <pre><code>{{ html('<div class="p-4 sm:p-6 lg:p-8"></div>') }}</code></pre>
+<pre><code>{{ html('<div class="p-4 sm:p-6 lg:p-8"></div>') }}</code></pre>
 
-  <p>
-    <strong>(ii)</strong> An especially common use case will be setting different column counts 
-    for mobile versus desktop. Here's one such example using CSS Grid.
-  </p>
+<p>
+  <strong>(ii)</strong> An especially common use case will be setting different column counts 
+  for mobile versus desktop. Here's one such example using CSS Grid.
+</p>
 
-  <pre><code>{{ html('
-  <div class="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-      <div>...</div>
-      <div>...</div>
-      <div>...</div>
-      <div>...</div>
-      <div>...</div>
-  </div>
-  ') }}</code></pre>
-  
-  <p>
-    <strong>(iii)</strong> It is also very useful to be able to set content visibility depending 
-    on the currently active breakpoint. Here's an example that hides a table 
-    column for mobile users and displays it only when the user is on a larger 
-    screen.
-  </p>
-
-  <pre><code>{{ html('
-  <table>
-      <thead>
-          <tr>
-              <th>Name</th>
-              <th>Size</th>
-              <th>Pixels</th>
-              <th class="hidden lg:table-cell">
-                  <span class="sr-only">Preview</span>
-              </th>
-          </tr>
-      </thead>
-      <tbody>
-          ...
-          <tr>
-              <td>0.5</td>
-              <td>0.125rem</td>
-              <td>2px</td>
-              <td class="hidden lg:table-cell">
-                  <div class="h-4 bg-modern" style="width: 0.125rem;"></div>
-              </td>
-          </tr>
-          ...
-      </tbody>
-  </table>
-  ') }}</code></pre>
-
-  <p>
-    <strong>Note:</strong> The above example is given not to advocate for the use of tables, but to 
-    address their shortcomings when it comes to UX on mobile. We generally 
-    recommend avoiding the use of tables unless absolutely necessary.
-  </p>
-
+<pre><code>{{ html('
+<div class="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
+  <div>...</div>
 </div>
+') }}</code></pre>
+
+<p>
+  <strong>(iii)</strong> It is also very useful to be able to set content visibility depending 
+  on the currently active breakpoint. Here's an example that hides a table 
+  column for mobile users and displays it only when the user is on a larger 
+  screen.
+</p>
+
+<pre><code>{{ html('
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Size</th>
+      <th>Pixels</th>
+      <th class="hidden lg:table-cell">
+          <span class="sr-only">Preview</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    ...
+    <tr>
+      <td>0.5</td>
+      <td>0.125rem</td>
+      <td>2px</td>
+      <td class="hidden lg:table-cell">
+        <div class="h-4 bg-modern" style="width: 0.125rem;"></div>
+      </td>
+    </tr>
+    ...
+  </tbody>
+</table>
+') }}</code></pre>
+
+<p>
+  <strong>Note:</strong> The above example is given not to advocate for the use of tables, but to 
+  address their shortcomings when it comes to UX on mobile. We generally 
+  recommend avoiding the use of tables unless absolutely necessary.
+</p>

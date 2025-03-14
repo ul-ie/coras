@@ -16,8 +16,8 @@
   - text: Layout
     url: /foundations/layout/
 
-  # - text: Typography
-  #   url: /foundations/typography
+  - text: Typography
+    url: /foundations/typography
 
   - text: Colour
     url: /foundations/colour/

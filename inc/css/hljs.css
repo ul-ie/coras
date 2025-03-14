@@ -1,0 +1,47 @@
+/** Styles for syntax highlighting with hljs. **/
+.hljs {
+  color: var(--color-granite-l2);
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--color-granite);
+  font-style: italic;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula,
+.hljs-literal,
+.hljs-template-variable {
+  color: color-mix(in srgb, var(--color-shannon), white 50%);
+}
+
+.hljs-name,
+.hljs-section,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: var(--color-munster-l2);
+  color: color-mix(in srgb, var(--color-munster), white 25%);
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string {
+  color: color-mix(in srgb, var(--color-modern), white 30%);
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
