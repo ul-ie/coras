@@ -1,41 +1,36 @@
 {# The Swatch Colour Component (internal only) #}
 
 <div
-  x-data="{
-    hexText: '{{ hex }}',
-    copyToClipboard() {
-      navigator.clipboard.writeText('{{ hex }}');
-      this.hexText = 'Copied!'
-      setTimeout(() => { this.hexText = '{{ hex }}'}, '2000');
-    }
-  }"
-  x-on:click="copyToClipboard()"
-  class="group relative w-full flex flex-col wrap m-1 p-1.5 border border-granite-l3 rounded cursor-pointer dark:border-granite-d1 hover:border-granite-l2 hover:dark:border-granite active:border-granite-l1">
+  class="group relative w-full flex flex-col wrap m-1 p-1.5 border border-granite-l3
+  cursor-pointer dark:border-granite-d1 hover:border-granite-l2 
+  hover:dark:border-granite active:border-granite-l1">
 
   <div
-    class="relative flex flex-col justify-end {{ height }} {{ bgColor }} p-[0.2rem] overflow-hidden"
+    class="relative flex flex-col justify-end {{ height }} {{ bgColor }} p-0.75 overflow-hidden"
     title="Click or tap to copy the hex code">
 
     <div
-      class="relative w-full h-full flex grow items-center justify-center opacity-0 bg-granite-d3 bg-opacity-50 text-granite-l5 text-sm group-hover:opacity-100 transition group-active:bg-opacity-70">
+      class="relative w-full h-full flex grow items-center justify-center opacity-0 bg-granite-d3/50
+    text-granite-l5 text-sm transition group-hover:opacity-100 group-active:bg-granite-d3/80">
 
       {% if not noIcon %}
       <div class="w-6">
 
         {% include '@components/icon/icon.twig' with {
-          icon_name: 'copy',
-          icon_fill: 'fill-white'
+          icon_fill: 'fill-white',
+          icon_name: 'copy'
         } %}
 
       </div>
       {% endif %}
 
-      <div x-text="hexText"></div>
+      <div data-hex="{{ hex }}">{{ hex }}</div>
 
     </div>
 
     <div
-      class="absolute left-1 bottom-1 w-fit px-1 py-0.25 bg-granite-d3 bg-opacity-70 text-granite-l4 text-sm opacity-100 group-hover:opacity-0 transition">
+      class="absolute left-1 bottom-1 w-fit px-1 py-0.25 bg-granite-d3/70 text-granite-l4
+      text-sm opacity-100 group-hover:opacity-0 transition">
 
       <span>{{ label }}</span>
 

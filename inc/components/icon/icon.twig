@@ -6,7 +6,7 @@
  * @see https://coras.ul.ie/components/icon/#properties for full documentation.
  */
 #}
-{% set icons_json = get_file('./node_modules/@awesome.me/kit-0dc973fac8/icons/metadata/icons.json') %}
+{% set icons_json = get_file('./inc/img/icons/icons.json') %}
 {% set icons = json_decode(icons_json) %}
 {% set icon_fill = icon_fill ?? '' %}
 {% set icon_name = icon_name ?? '' %}
