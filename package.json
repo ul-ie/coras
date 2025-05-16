@@ -7,7 +7,9 @@
     "clean": "rm -r dist",
     "start": "npm run 11ty-serve & npm run tw-watch",
     "build": "npm run clean && npm run 11ty-build && npm run tw-build",
-    "icons": "npm update '@awesome.me/kit-0dc973fac8'",
+    "icons": "npm run icons-update && npm run icons-copy",
+    "icons-copy": "cp ./node_modules/@awesome.me/kit-0dc973fac8/icons/metadata/icons.json ./inc/img/icons/icons.json",
+    "icons-update": "npm update '@awesome.me/kit-0dc973fac8'",
     "11ty-serve": "npx @11ty/eleventy --serve",
     "11ty-build": "npx @11ty/eleventy",
     "tw-watch": "npx @tailwindcss/cli -i ./inc/css/index.css -o ./dist/css/index.css --watch",
@@ -16,10 +18,10 @@
   "author": "David Matthew",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0",
-    "@tailwindcss/cli": "^4.0.4",
+    "@11ty/eleventy": "^3.1.0",
+    "@tailwindcss/cli": "^4.1.6",
     "js-yaml": "^4.1.0",
-    "tailwindcss": "^4.0.4",
+    "tailwindcss": "^4.1.6",
     "twig": "^1.17.1"
   },
   "dependencies": {
