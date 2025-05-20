@@ -647,7 +647,7 @@
  * @see https://coras.ul.ie/components/icon/#properties for full documentation.
  */
 #}
-{% set icons = json_decode(get_file(&#39;./inc/img/icons/icons.json&#39;)) %}
+{% set icons = json_decode(get_file(&#39;./data/icons.json&#39;)) %}
 {% set icon_fill = icon_fill ?? &#39;&#39; %}
 {% set icon_name = icon_name ?? &#39;&#39; %}
 {% set icon_type = icon_type in [&#39;brands&#39;, &#39;duotone&#39;, &#39;regular&#39;, &#39;solid&#39;] ? icon_type : &#39;solid&#39; %}
