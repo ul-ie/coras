@@ -4,36 +4,40 @@ tags: foundations
 layout: templates/page.html
 ---
 
-{% set icons_json = get_file('./node_modules/@awesome.me/kit-0dc973fac8/icons/metadata/icons.json') %}
-{% set icons = json_decode(icons_json) %}
+{% set json_data = get_file('./data/icons.json') %}
+{% set icons = sort_object(json_decode(json_data)) %}
+{% set icon_count = icons|length %}
 
 <h1 class="font-serif is-decorated">{{ title }}</h1>
 
+<p>We use a custom kit of FontAwesome icons covering a wide range of categories. Our kit contains a total of <strong>{{ icon_count }}</strong> icons, ordered alphabetically below. If you can't find the icon you need for your project, then please <a href="https://ul.topdesk.net/" target="_blank">let us know</a>.</p>
+
 <h2>Icon Bank</h2>
 
-<div class="grid grid-cols-3 gap-3">
+<div class="grid grid-cols-4 gap-3">
 
   {% for icon in icons %}
 
     {% set icon_name =  get_object_key(icons, loop.index0) %}
     {% set icon_fill = 'fill-green dark:fill-modern' %}
-    {% set icon_size = 'h-8 mr-2 basis-1/4' %}
+    {% set icon_size = 'h-8 mr-3 basis-1/4' %}
 
     {% for style in icon.styles %}
 
       {% set icon_type = icon.styles[loop.index0] %}
 
       {% embed "@components/well/well.twig" with {
-        well_modifiers: 'flex items-center justify-center p-2 bg-limestone-l4 dark:bg-transparent'
+        well_padding: 'p-4',
+        well_modifiers: 'flex items-center justify-center bg-granite-l4 dark:bg-transparent'
       } %}
     
         {% block well_html %}
-    
+
           {% include '@components/icon/icon.twig' %}
 
           <div class="flex flex-col basis-3/4 text-xs">
-            <span>name: <strong>{{ icon_name }}</strong></span>
-            <span>type: <strong>{{ icon_type }}</strong></span>
+            <span><strong>{{ icon_name }}</strong></span>
+            <span>{{ icon_type }}</span>
           </div>
 
         {% endblock %}
