@@ -57,6 +57,15 @@ module.exports = async function(eleventyConfig) {
     return JSON.parse(json);
   });
 
+  twig.extendFunction('sort_object', (unsorted) => {
+    const sortedArr = Object.keys(unsorted).sort();
+    const sortedObj = sortedArr.reduce((object, key) => { 
+      object[key] = unsorted[key]; 
+      return object;
+    }, {});
+    return sortedObj;
+  });
+
   twig.extendFunction('html', (str) => {
     const formattedCode = str.replace(/[&<>"']/g, ($0) => {
       const chars = { "&":"amp", "<":"lt", ">":"gt", '"':"quot", "'":"#39" }[$0];
