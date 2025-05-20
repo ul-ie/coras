@@ -8,7 +8,7 @@
     "start": "npm run 11ty-serve & npm run tw-watch",
     "build": "npm run clean && npm run 11ty-build && npm run tw-build",
     "icons": "npm run icons-update && npm run icons-copy",
-    "icons-copy": "cp ./node_modules/@awesome.me/kit-0dc973fac8/icons/metadata/icons.json ./inc/img/icons/icons.json",
+    "icons-copy": "cp ./node_modules/@awesome.me/kit-0dc973fac8/icons/metadata/icons.json ./data/icons.json",
     "icons-update": "npm update '@awesome.me/kit-0dc973fac8'",
     "11ty-serve": "npx @11ty/eleventy --serve",
     "11ty-build": "npx @11ty/eleventy",
