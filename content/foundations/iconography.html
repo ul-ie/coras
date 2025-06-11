@@ -2,40 +2,92 @@
 title: Iconography
 tags: foundations
 layout: templates/page.html
+script: iconSearch.js
 ---
 
 {% set json_data = get_file('./data/icons.json') %}
 {% set icons = sort_object(json_decode(json_data)) %}
-{% set icon_count = icons|length %}
 
 <h1 class="font-serif is-decorated">{{ title }}</h1>
 
-<p>We use a custom kit of FontAwesome icons covering a wide range of categories. Our kit contains a total of <strong>{{ icon_count }}</strong> icons, ordered alphabetically below. If you can't find the icon you need for your project, then please <a href="https://ul.topdesk.net/" target="_blank">let us know</a>.</p>
+<p>We use a custom kit of FontAwesome icons covering a wide range of categories, ordered alphabetically below. If you can't the icon by using the search feature below, then please <a href="mailto:webdev@ul.ie" target="_blank">let us know</a>.</p>
+
+
+{% include '@components/button/button.twig' with {
+  btn_text: 'Search Icons',
+  btn_type: 'link',
+  btn_url: '#icon-search',
+  icon_name: 'down',
+  icon_pos: 'right'
+} %}
+
+<h2>How to Use</h2>
+
+<div class="flex">
+
+  <p class="basis-4/5 mr-4">To use an icon, there you need to know the <strong>icon name</strong> and the <strong>icon type</strong>. In the example on the right the icon name is <strong>graduation-cap</strong> and the icon type is <strong>solid.</strong></p>
+
+  {% embed "@components/well/well.twig" with {
+        well_padding: 'p-6',
+        well_modifiers: 'flex flex-col justify-center items-center text-center bg-white dark:bg-transparent'
+  } %}
+
+    {% block well_html %}
+
+      {% include '@components/icon/icon.twig' with {
+        icon_name: 'graduation-cap',
+        icon_type: 'solid',
+        icon_fill: 'fill-green dark:fill-modern',
+        icon_size: 'h-9 mb-4'
+      }%}
+
+      <div class="flex flex-col text-xs">
+        <span><strong>graduation-cap</strong></span>
+        <span>solid</span>
+      </div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+
+</div>
 
 <h2>Icon Bank</h2>
 
-<div class="grid grid-cols-4 gap-3">
+<h3 class="text-xl">Search</h3>
+
+<section class="mb-6">
+  <label for="icon-search" class="sr-only">Search</label>
+  <input
+    type="search"
+    id="icon-search"
+    placeholder="Search icon bank..."
+    class="block w-full mt-3 border border-granite-l3 rounded-md dark:border-granite-d1 p-3 bg-white dark:bg-transparent focus:outline-2 focus:outline-modern/50">
+</section>
+
+<div id="icon-bank" class="grid grid-cols-5 gap-3">
 
   {% for icon in icons %}
 
     {% set icon_name =  get_object_key(icons, loop.index0) %}
     {% set icon_fill = 'fill-green dark:fill-modern' %}
-    {% set icon_size = 'h-8 mr-3 basis-1/4' %}
+    {% set icon_size = 'h-9 mb-4' %}
 
     {% for style in icon.styles %}
 
       {% set icon_type = icon.styles[loop.index0] %}
 
       {% embed "@components/well/well.twig" with {
-        well_padding: 'p-4',
-        well_modifiers: 'flex items-center justify-center bg-granite-l4 dark:bg-transparent'
+        well_padding: 'p-6',
+        well_modifiers: 'well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent'
       } %}
-    
+
         {% block well_html %}
 
           {% include '@components/icon/icon.twig' %}
 
-          <div class="flex flex-col basis-3/4 text-xs">
+          <div class="flex flex-col text-xs">
             <span><strong>{{ icon_name }}</strong></span>
             <span>{{ icon_type }}</span>
           </div>
@@ -49,3 +101,7 @@ layout: templates/page.html
   {% endfor %}
 
 </div>
+
+<h3>Terminology</h3>
+
+<p><strong>Note:</strong> The search terms used to index our icons are determined by FontAwesome, an American company, so some differences in terminology may be expected. For example, if nothing is coming back in your search using the term <strong>"university"</strong>, try using <strong>"college"</strong> instead.</p>

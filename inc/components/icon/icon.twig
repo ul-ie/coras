@@ -18,13 +18,19 @@
   icon_modifiers
 ]|join(' ') %}
 
+{% set search_terms = [
+  icon_type,
+  icon_name,
+  icons[icon_name].search.terms
+]|join(',')%}
+
 {% if icon_type in icons[icon_name].styles %}
   <svg
     title="{{ icon_name }}"
     class="{{ icon_classes }}"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="{{ icons[icon_name].svg[icon_type].viewBox|join(' ') }}"
-    data-tags="{{ icons[icon_name].search.terms}}"
+    data-tags="{{ search_terms }}"
     >
     {% if icon_type == 'duotone' %}
       <path opacity=".4" d="{{ icons[icon_name].svg[icon_type].path[0] }}"/>
