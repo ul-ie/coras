@@ -7,11 +7,6 @@
  */
 #}
 
-{#
-  The following variables draw upon but are not necessarily equivalent to the
-  publicly available variables defined in the .yml file. The latter is what 
-  defines the component API.
-#}
 {% set btn_modifiers = btn_modifiers ?? '' %}
 {% set btn_padding = btn_padding in ['equal', 'normal'] ? btn_padding : 'normal' %}
 {% set btn_size = btn_size in ['small', 'medium', 'large'] ? btn_size : 'medium' %}
@@ -22,7 +17,7 @@
 {% set icon_pos = icon_pos in ['left', 'right'] ? icon_pos : 'left' %}
 
 {# Define the core component styling. #}
-{% set core_classes = 'not-prose no-underline flex items-center justify-center rounded-md border-2 transition' %}
+{% set core_classes = 'no-underline flex items-center justify-center rounded-md border-2 transition' %}
 
 {# Apply modifier classes, if any. #}
 {% set modifier_classes = btn_modifiers %}
