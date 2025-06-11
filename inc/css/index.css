@@ -2,7 +2,6 @@
 @import "./fonts.css" layer(components);
 @import "./typography.css" layer(components);
 @import "./hljs.css" layer(components);
-@config "../../tailwind.config.js";
 @custom-variant dark (&:where(.dark, .dark *));
 @utility container { margin: auto }
 @theme {
