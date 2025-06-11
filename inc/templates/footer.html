@@ -8,6 +8,12 @@
     
     <script type="module" src="/js/index.js"></script>
 
+    {% block script %}
+      {% if script %}
+        <script src="/js/{{ script }}"></script>
+      {% endif %}
+    {% endblock %}
+
   </body>
 
 </html>
