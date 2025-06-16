@@ -1,4 +1,5 @@
 import pageNav from './pageNav.js';
+import scroll from './scroll.js';
 import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/core.min.js  ';
 import xml from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/languages/xml.min.js';
 import twig from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/languages/twig.min.js';
@@ -19,6 +20,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Create the dynamic sidebar links.
   pageNav();
+
+  // Enable scroll behaviour.
+  scroll();
 
   // Dark mode toggle functionality.
   const darkSwitch = document.getElementById('dark-switch');
