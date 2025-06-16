@@ -7,18 +7,23 @@ script: iconSearch.js
 
 {% set json_data = get_file('./data/icons.json') %}
 {% set icons = sort_object(json_decode(json_data)) %}
+{% set icon_count = 0 %}
+{% for icon in icons %}
+  {% for style in icon.styles %}
+    {% set icon_count = icon_count + 1 %}
+  {% endfor %}
+{% endfor %}
 
 <h1 class="font-serif is-decorated">{{ title }}</h1>
 
-<p>We use a custom kit of FontAwesome icons covering a wide range of categories, ordered alphabetically below. If you can't the icon by using the search feature below, then please <a href="mailto:webdev@ul.ie" target="_blank">let us know</a>.</p>
+<p>We currently have <strong>{{ icon_count }}</strong> icons available covering a wide range of categories, ordered alphabetically below. If you can't find the icon you're looking for using the search, then please <a href="mailto:webdev@ul.ie" target="_blank">let us know</a>.</p>
 
 
 {% include '@components/button/button.twig' with {
   btn_text: 'Search Icons',
   btn_type: 'link',
   btn_url: '#icon-search',
-  icon_name: 'down',
-  icon_pos: 'right'
+  icon_name: 'magnifying-glass'
 } %}
 
 <h2>How to Use</h2>
@@ -28,8 +33,8 @@ script: iconSearch.js
   <p class="basis-4/5 mr-4">To use an icon, there you need to know the <strong>icon name</strong> and the <strong>icon type</strong>. In the example on the right the icon name is <strong>graduation-cap</strong> and the icon type is <strong>solid.</strong></p>
 
   {% embed "@components/well/well.twig" with {
-        well_padding: 'p-6',
-        well_modifiers: 'flex flex-col justify-center items-center text-center bg-white dark:bg-transparent'
+    well_padding: 'p-6',
+    well_modifiers: 'flex flex-col justify-center items-center text-center bg-white dark:bg-transparent'
   } %}
 
     {% block well_html %}
@@ -50,14 +55,13 @@ script: iconSearch.js
 
   {% endembed %}
 
-
 </div>
 
 <h2>Icon Bank</h2>
 
 <h3 class="text-xl">Search</h3>
 
-<section class="mb-6">
+<section class="mb-2">
   <label for="icon-search" class="sr-only">Search</label>
   <input
     type="search"
@@ -65,6 +69,8 @@ script: iconSearch.js
     placeholder="Search icon bank..."
     class="block w-full mt-3 border border-granite-l3 rounded-md dark:border-granite-d1 p-3 bg-white dark:bg-transparent focus:outline-2 focus:outline-modern/50">
 </section>
+
+<p class="my-2 ml-3 text-sm text-granite dark:text-granite-l1"><em>Total icons found: <span id="total-icons">{{ icon_count }}</span></em></p>
 
 <div id="icon-bank" class="grid grid-cols-5 gap-3">
 

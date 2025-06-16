@@ -16,6 +16,9 @@ searchInput.addEventListener('input', handleSearch);
  */ 
 function handleSearch(event) {
 
+  // Set up an icon count.
+  let iconsFound = 0;
+
   // Prevent the search firing too soon.
   let searchDelay = 500;
 
@@ -31,11 +34,19 @@ function handleSearch(event) {
       // Get the search tags data attribute of the svg icon.
       let searchTags = icons[i].getElementsByTagName('svg')[0].dataset.tags;
 
+      // If there's a match, update the count and remove the hidden class.
       if (searchTags.toLowerCase().includes(searchQuery)) {
         icons[i].classList.remove('hidden');
+        iconsFound += 1;
       } else {
         icons[i].classList.add('hidden');
       }
     }
+
+    document.getElementById('total-icons').innerText = iconsFound;
+
   }, searchDelay);
+
+  
+
 }
