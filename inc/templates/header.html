@@ -1,13 +1,15 @@
-<header class="sticky top-0 w-full h-24 z-10">
+<header id="top-bar" class="sticky top-0 w-full h-28 z-10 transition-all duration-700">
 
   <div class="
         absolute inset-0 bg-white/60 border-b border-granite-l3 backdrop-blur -z-10
         dark:bg-granite-d3/70 dark:border-granite-d1" aria-hidden="true">
   </div>
 
-  <div class="container h-full flex items-center justify-between px-5 sm:px-6">
+  <div class="container h-full flex items-center justify-between px-5 sm:px-6 py-4">
 
-    <a href="/">{% include '@img/logo.svg' %}</a>
+    <a id="main-logo" href="/" class="block h-full w-full transition-all">
+      {% include '@img/logo.svg' %}
+    </a>
 
     <label
       for="dark-switch"
