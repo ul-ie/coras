@@ -9,7 +9,7 @@ script: iconSearch.js
 {% set icons = sort_object(json_decode(json_data)) %}
 {% set icon_count = 0 %}
 {% for icon in icons %}
-  {% for style in icon.styles %}
+  {% for style in icon.familyStylesByLicense.pro %}
     {% set icon_count = icon_count + 1 %}
   {% endfor %}
 {% endfor %}
@@ -18,19 +18,19 @@ script: iconSearch.js
 
 <p>We currently have <strong>{{ icon_count }}</strong> icons available covering a wide range of categories, ordered alphabetically below. If you can't find the icon you're looking for using the search, then please <a href="mailto:webdev@ul.ie" target="_blank">let us know</a>.</p>
 
-
 {% include '@components/button/button.twig' with {
   btn_text: 'Search Icons',
   btn_type: 'link',
   btn_url: '#icon-search',
-  icon_name: 'magnifying-glass'
+  icon_name: 'magnifying-glass',
+  icon_type: 'solid'
 } %}
 
 <h2>How to Use</h2>
 
 <div class="flex">
 
-  <p class="basis-4/5 mr-4">To use an icon, there you need to know the <strong>icon name</strong> and the <strong>icon type</strong>. In the example on the right the icon name is <strong>graduation-cap</strong> and the icon type is <strong>solid.</strong></p>
+  <p class="basis-4/5 mr-4">To use an icon, there you need to know the <strong>icon name</strong> and the <strong>icon type</strong>. In the example on the right the icon name is <strong>graduation-cap</strong> and the icon type is <strong>line.</strong></p>
 
   {% embed "@components/well/well.twig" with {
     well_padding: 'p-6',
@@ -41,14 +41,13 @@ script: iconSearch.js
 
       {% include '@components/icon/icon.twig' with {
         icon_name: 'graduation-cap',
-        icon_type: 'solid',
         icon_fill: 'fill-green dark:fill-modern',
         icon_size: 'h-9 mb-4'
       }%}
 
       <div class="flex flex-col text-xs">
         <span><strong>graduation-cap</strong></span>
-        <span>solid</span>
+        <span>line</span>
       </div>
 
     {% endblock %}
@@ -80,10 +79,21 @@ script: iconSearch.js
     {% set icon_fill = 'fill-green dark:fill-modern' %}
     {% set icon_size = 'h-9 mb-4' %}
 
-    {% for style in icon.styles %}
+    {% for style in icon.familyStylesByLicense.pro %}
 
-      {% set icon_type = icon.styles[loop.index0] %}
+      {% set icon_family = icon.familyStylesByLicense.pro[loop.index0].family %}
+      {% set icon_style = icon.familyStylesByLicense.pro[loop.index0].style %}
 
+      {% if icon_family == 'sharp' and icon_style == 'light' %}
+        {% set icon_type = 'line' %}
+      {% elseif icon_family == 'classic' and icon_style == 'brands' %}
+        {% set icon_type = 'social' %}
+      {% elseif icon_family == 'sharp' and icon_style == 'solid' %}
+        {% set icon_type = 'solid' %}
+      {% elseif icon_family == 'sharp-duotone' and icon_style == 'solid' %}
+        {% set icon_type = 'twotone' %}
+      {% endif %}
+      
       {% embed "@components/well/well.twig" with {
         well_padding: 'p-6',
         well_modifiers: 'well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent'

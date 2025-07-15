@@ -50,7 +50,7 @@ layout: templates/page.html
 
 <p>All icon colours are defined by the <code>icon_fill</code> property, which expects a class or set of classes. Styling the stroke will have no effect; even very thin icons do not have a stroke.</p>
 
-<p><strong>Note:</strong> Duotone icons are styled by a single colour; the secondary path (the one with the lighter colour) simply has a lower opacity.</p>
+<p><strong>Note:</strong> Twotone icons are styled by a single colour; the secondary path (the one with the lighter colour) simply has a lower opacity.</p>
 
 <h4>Examples</h4>
 
@@ -73,14 +73,14 @@ layout: templates/page.html
 <p><strong>(ii)</strong> Setting the <code>icon_fill</code> to <a href="/foundations/colour/#modern-green">Shannon</a>, and using a lighter shade of the same colour on hover.</p>
 
 {% include '@components/icon/icon.twig' with {
-  icon_name: 'earth-americas',
+  icon_name: 'earth-europe',
   icon_fill: 'fill-shannon hover:fill-shannon-l1',
   icon_size: 'w-16'
 } %}
 
 <pre><code>{{ html("
 {% include 'ul:icon' with {
-  icon_name: 'earth-americas',
+  icon_name: 'earth-europe',
   icon_fill: 'fill-shannon hover:fill-shannon-l1'
 } %}
 ")}}</code></pre>
@@ -130,7 +130,7 @@ layout: templates/page.html
 
 <h3>Type</h3>
 
-<p>The <code>icon_type</code> can be set to <strong>solid</strong> (the default value), <strong>regular</strong>, <strong>dutone</strong> or <strong>brands</strong>. Below are examples of each type, with code included for the final example:</p>
+<p>The <code>icon_type</code> can be set to <strong>line</strong> (for icons with an outline, the default value), <strong>social</strong> (for social media brand icons), <strong>solid</strong> (for solid colour icons) or <strong>twotone</strong> (for icons with two shades of the same colour). Below are examples of each type, with code included for the social example:</p>
 
 <div class="flex items-end gap-2">
 
@@ -142,6 +142,44 @@ layout: templates/page.html
 
       {% include '@components/icon/icon.twig' with {
         icon_name: 'microscope',
+        icon_size: 'h-10',
+        icon_fill: 'fill-green dark:fill-modern'
+      } %}
+
+      <div class="text-xs">line</div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  {% embed "@components/well/well.twig" with {
+    well_modifiers: 'inline-flex flex-col gap-2 items-center'
+  } %}
+
+    {% block well_html %}
+
+      {% include '@components/icon/icon.twig' with {
+        icon_name: 'instagram',
+        icon_type: 'social',
+        icon_size: 'h-10',
+        icon_fill: 'fill-green dark:fill-modern'
+      } %}
+
+      <div class="text-xs">social</div>
+
+    {% endblock %}
+
+  {% endembed %}
+
+  {% embed "@components/well/well.twig" with {
+    well_modifiers: 'inline-flex flex-col gap-2 items-center'
+  } %}
+
+    {% block well_html %}
+
+      {% include '@components/icon/icon.twig' with {
+        icon_name: 'house',
+        icon_type: 'solid',
         icon_size: 'h-10',
         icon_fill: 'fill-green dark:fill-modern'
       } %}
@@ -159,51 +197,13 @@ layout: templates/page.html
     {% block well_html %}
 
       {% include '@components/icon/icon.twig' with {
-        icon_name: 'school',
-        icon_type: 'regular',
+        icon_name: 'house',
+        icon_type: 'twotone',
         icon_size: 'h-10',
         icon_fill: 'fill-green dark:fill-modern'
       } %}
 
-      <div class="text-xs">regular</div>
-
-    {% endblock %}
-
-  {% endembed %}
-
-  {% embed "@components/well/well.twig" with {
-    well_modifiers: 'inline-flex flex-col gap-2 items-center'
-  } %}
-
-    {% block well_html %}
-
-      {% include '@components/icon/icon.twig' with {
-        icon_name: 'moon-stars',
-        icon_type: 'duotone',
-        icon_size: 'h-10',
-        icon_fill: 'fill-green dark:fill-modern'
-      } %}
-
-      <div class="text-xs">duotone</div>
-
-    {% endblock %}
-
-  {% endembed %}
-
-  {% embed "@components/well/well.twig" with {
-    well_modifiers: 'inline-flex flex-col gap-2 items-center'
-  } %}
-
-    {% block well_html %}
-
-      {% include '@components/icon/icon.twig' with {
-        icon_name: 'instagram',
-        icon_type: 'brands',
-        icon_size: 'h-10',
-        icon_fill: 'fill-green dark:fill-modern'
-      } %}
-
-      <div class="text-xs">brands</div>
+      <div class="text-xs">twotone</div>
 
     {% endblock %}
 
@@ -214,7 +214,7 @@ layout: templates/page.html
 <pre><code>{{ html("
 {% include 'ul:icon' with {
   icon_name: 'instagram',
-  icon_type: 'brands',
+  icon_type: 'social',
   icon_size: 'h-10',
   icon_fill: 'fill-green dark:fill-modern'
 } %}
