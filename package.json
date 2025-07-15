@@ -8,8 +8,8 @@
     "start": "npm run 11ty-serve & npm run tw-watch",
     "build": "npm run clean && npm run 11ty-build && npm run tw-build",
     "icons": "npm run icons-update && npm run icons-copy",
-    "icons-copy": "cp ./node_modules/@awesome.me/kit-0dc973fac8/icons/metadata/icons.json ./data/icons.json",
-    "icons-update": "npm update '@awesome.me/kit-0dc973fac8'",
+    "icons-copy": "cp ./node_modules/@awesome.me/kit-c3571caea7/icons/metadata/icon-families.json ./data/icons.json",
+    "icons-update": "npm update '@awesome.me/kit-c3571caea7'",
     "11ty-serve": "npx @11ty/eleventy --serve",
     "11ty-build": "npx @11ty/eleventy",
     "tw-watch": "npx @tailwindcss/cli -i ./inc/css/index.css -o ./dist/css/index.css --watch",
@@ -25,6 +25,6 @@
     "twig": "^1.17.1"
   },
   "dependencies": {
-    "@awesome.me/kit-0dc973fac8": "^1.0.4"
+    "@awesome.me/kit-c3571caea7": "^1.0.46"
   }
 }
