@@ -16,11 +16,11 @@ props:
       type: string
       description: The type (or style) of the chosen icon. This must be correct as it determines part of the file path.
       enum:
-        - brands
-        - duotone
-        - regular
+        - line
+        - social
         - solid
-      default: solid
+        - twotone
+      default: line
     icon_size:
       title: icon_size
       type: string

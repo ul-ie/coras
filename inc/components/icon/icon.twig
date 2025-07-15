@@ -9,34 +9,46 @@
 {% set icons = json_decode(get_file('./data/icons.json')) %}
 {% set icon_fill = icon_fill ?? '' %}
 {% set icon_name = icon_name ?? '' %}
-{% set icon_type = icon_type in ['brands', 'duotone', 'regular', 'solid'] ? icon_type : 'solid' %}
 {% set icon_size = icon_size ?? 'w-4' %}
+{% set icon_type = icon_type in ['line', 'social', 'solid', 'twotone'] ? icon_type : 'line' %}
 
+{# Map the icon type to the icon family [0] and icon style [1]. #}
+{% set icon_type_map = {
+  'line': ['sharp', 'light'],
+  'social': ['classic', 'brands'],
+  'solid': ['sharp', 'solid'],
+  'twotone': ['sharp-duotone', 'solid']
+} %}
+{% set icon_family = icon_type_map[icon_type][0] %}
+{% set icon_style = icon_type_map[icon_type][1] %}
+
+{# Create a string of search terms for client-side filtering. #}
+{% set search_terms = [
+  icon_type,
+  icon_name,
+  icons[icon_name].search.terms
+]|join(',') %}
+
+{# Combine the classes. #}
 {% set icon_classes = [
   icon_fill,
   icon_size,
   icon_modifiers
 ]|join(' ') %}
 
-{% set search_terms = [
-  icon_type,
-  icon_name,
-  icons[icon_name].search.terms
-]|join(',')%}
-
-{% if icon_type in icons[icon_name].styles %}
+{% if icons[icon_name].svgs[icon_family][icon_style] %}
   <svg
     title="{{ icon_name }}"
     class="{{ icon_classes }}"
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="{{ icons[icon_name].svg[icon_type].viewBox|join(' ') }}"
+    viewBox="{{ icons[icon_name].svgs[icon_family][icon_style].viewBox|join(' ') }}"
     data-tags="{{ search_terms }}"
     >
-    {% if icon_type == 'duotone' %}
-      <path opacity=".4" d="{{ icons[icon_name].svg[icon_type].path[0] }}"/>
-      <path d="{{ icons[icon_name].svg[icon_type].path[1] }}"/>
+    {% if icon_type == 'twotone' %}
+      <path opacity=".4" d="{{ icons[icon_name].svgs[icon_family][icon_style].path[0] }}"/>
+      <path d="{{ icons[icon_name].svgs[icon_family][icon_style].path[1] }}"/>
     {% else %}
-      <path d="{{ icons[icon_name].svg[icon_type].path }}"/>
+      <path d="{{ icons[icon_name].svgs[icon_family][icon_style].path }}"/>
     {% endif %}
   </svg>
 {% else %}
