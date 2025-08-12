@@ -24,14 +24,14 @@
   </head>
 <body class="antialiased bg-limestone-l5 text-granite-d2 dark:bg-granite-d3 dark:text-granite-l3">
 
-  <header id="top-bar" class="sticky top-0 w-full h-28 z-10 transition-all duration-700">
+  <header id="top-bar" class="sticky top-0 w-full h-28 z-20 transition-all duration-700">
 
   <div class="
-        absolute inset-0 bg-white/60 border-b border-granite-l3 backdrop-blur -z-10
+        absolute inset-0 bg-white/70 border-b border-granite-l3 backdrop-blur -z-10
         dark:bg-granite-d3/70 dark:border-granite-d1" aria-hidden="true">
   </div>
 
-  <div class="container h-full flex items-center justify-between px-5 sm:px-6 py-4">
+  <div class="container h-full flex items-center justify-between px-5 sm:px-6 py-4 transition-all duration-700">
 
     <a id="main-logo" href="/" class="block h-full w-full transition-all">
       <svg version="1.1" viewBox="0 0 1480 676.28" xmlns="http://www.w3.org/2000/svg" class="h-full">
@@ -81,11 +81,14 @@
 </svg>
     </a>
 
-    <label
-      for="dark-switch"
-      class="relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1/5 dark:hover:bg-modern-l1/10" >
+    <div class="hidden lg:block">
 
       
+<label
+  for="desktop-toggle"
+  class="inline-block relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1/5 dark:hover:bg-modern-l1/10" >
+
+  
 
 
 
@@ -104,7 +107,7 @@
       <path d="M256 144a112 112 0 1 0 0 224 112 112 0 1 0 0-224z"/>
       </svg>
 
-      
+  
 
 
 
@@ -123,161 +126,374 @@
       <path d="M242.2 134.6C176.2 154.3 128 215.5 128 288c0 88.4 71.6 160 160 160c19.5 0 38.1-3.5 55.3-9.8C308.2 483.1 253.5 512 192 512C86 512 0 426 0 320S86 128 192 128c17.4 0 34.2 2.3 50.2 6.6z"/>
       </svg>
 
-      <span class="sr-only">Switch between dark and light modes</span>
+  <span class="sr-only">Switch between dark and light modes</span>
 
-    </label>
+</label>
 
-    <input type="checkbox" name="dark-switch" id="dark-switch" class="sr-only" />
+<input type="checkbox" name="mode-toggle" id="desktop-toggle" class="sr-only" />
+
+    </div>
+
+    <div id="nav-toggle" class="w-10 transition duration-350 lg:hidden">
+
+      <div class="h-1 bg-modern transition duration-350"></div>
+
+      <div class="h-1 bg-modern ml-2 my-[10px] transition duration-350"></div>
+
+      <div class="h-1 bg-modern transition duration-350"></div>
+
+    </div>
 
   </div>
 
 </header>
+  
+
   <div class="container grid grid-cols-6 min-h-screen">
 
-    <div class="hidden lg:block col-span-1 py-20 px-5 border-r border-granite-l3 dark:border-granite-d1">
+    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-screen z-10 -translate-x-full transition-transform pt-32 px-5  bg-limestone-l5/95 lg:hidden dark:bg-granite-d3/95">
 
-  <nav class="fixed">
+  <nav class="h-screen overflow-scroll pb-48">
 
     <ul class="list-none leading-none m-0 p-0 text-green dark:text-modern-l1">
 
-      
-      <li class="m-0 p-0">
+  
+  <li class="m-0 p-0">
 
-        <span class="text-lg font-bold">Guides</span>
+    <span class="text-lg font-bold">Guides</span>
 
-        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
-
-          
-          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
-
-            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/guides/for-developers/">
-              For Developers
-            </a>
-
-          </li>
-
-          
-        </ul>
-
-      </li>
+    <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
 
       
-      <li class="m-0 p-0">
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
-        <span class="text-lg font-bold">Foundations</span>
-
-        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
-
-          
-          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
-
-            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/breakpoints/">
-              Breakpoints
-            </a>
-
-          </li>
-
-          
-          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
-
-            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/spacing/">
-              Spacing
-            </a>
-
-          </li>
-
-          
-          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
-
-            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/layout/">
-              Layout
-            </a>
-
-          </li>
-
-          
-          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
-
-            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/typography">
-              Typography
-            </a>
-
-          </li>
-
-          
-          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
-
-            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/colour/">
-              Colour
-            </a>
-
-          </li>
-
-          
-          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
-
-            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/iconography/">
-              Iconography
-            </a>
-
-          </li>
-
-          
-        </ul>
-
-      </li>
-
-      
-      <li class="m-0 p-0">
-
-        <span class="text-lg font-bold">Components</span>
-
-        <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
-
-          
-          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
-
-            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/accordion/">
-              Accordion
-            </a>
-
-          </li>
-
-          
-          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
-
-            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/button/">
-              Button
-            </a>
-
-          </li>
-
-          
-          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
-
-            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/icon/">
-              Icon
-            </a>
-
-          </li>
-
-          
-          <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
-
-            <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/well/">
-              Well
-            </a>
-
-          </li>
-
-          
-        </ul>
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/guides/for-developers/">
+          For Developers
+        </a>
 
       </li>
 
       
     </ul>
 
+  </li>
+
+  
+  <li class="m-0 p-0">
+
+    <span class="text-lg font-bold">Foundations</span>
+
+    <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/breakpoints/">
+          Breakpoints
+        </a>
+
+      </li>
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/spacing/">
+          Spacing
+        </a>
+
+      </li>
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/layout/">
+          Layout
+        </a>
+
+      </li>
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/typography">
+          Typography
+        </a>
+
+      </li>
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/colour/">
+          Colour
+        </a>
+
+      </li>
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/iconography/">
+          Iconography
+        </a>
+
+      </li>
+
+      
+    </ul>
+
+  </li>
+
+  
+  <li class="m-0 p-0">
+
+    <span class="text-lg font-bold">Components</span>
+
+    <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/accordion/">
+          Accordion
+        </a>
+
+      </li>
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/button/">
+          Button
+        </a>
+
+      </li>
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/icon/">
+          Icon
+        </a>
+
+      </li>
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/well/">
+          Well
+        </a>
+
+      </li>
+
+      
+    </ul>
+
+  </li>
+
+  
+</ul>
+  </nav>
+
+  <div class="fixed w-full bottom-0 left-0 flex items-center px-3 py-1 bg-limestone-l5 border-t border-granite-l3 dark:bg-granite-d3 dark:border-granite-d1">
+  
+    
+<label
+  for="mobile-toggle"
+  class="inline-block relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1/5 dark:hover:bg-modern-l1/10" >
+
+  
+
+
+
+
+
+
+
+  <svg
+    title="sun-bright"
+    class="fill-green dark:hidden w-6 "
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 512 512"
+    data-tags="twotone,sun-bright,brightness,sky,summer"
+    >
+          <path opacity=".4" d="M0 232l0 48 24 0 64 0 24 0 0-48-24 0-64 0L0 232zM58 92l17 17 45.3 45.3 17 17 33.9-33.9-17-17L108.9 75 92 58 58 92zM58 420L92 454l17-17 45.3-45.3 17-17-33.9-33.9-17 17L75 403.1 58 420zM232 0l0 24 0 64 0 24 48 0 0-24 0-64 0-24L232 0zm0 400l0 24 0 64 0 24 48 0 0-24 0-64 0-24-48 0zM340.9 137.2l33.9 33.9 17-17L437 108.9l17-17L420 58l-17 17-45.3 45.3-17 17zm0 237.6l17 17L403.1 437l17 17L454 420l-17-17-45.3-45.3-17-17-33.9 33.9zM400 232l0 48 24 0 64 0 24 0 0-48-24 0-64 0-24 0z"/>
+      <path d="M256 144a112 112 0 1 0 0 224 112 112 0 1 0 0-224z"/>
+      </svg>
+
+  
+
+
+
+
+
+
+
+  <svg
+    title="moon-stars"
+    class="fill-white hidden dark:block w-6 -mt-1 "
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 512 512"
+    data-tags="twotone,moon-stars,clear,crescent,lunar,space,star"
+    >
+          <path opacity=".4" d="M240 80l48 16 16 48 16-48 48-16L320 64 304 16 288 64 240 80zm80 144l72 24 24 72 24-72 72-24-72-24-24-72-24 72-72 24z"/>
+      <path d="M242.2 134.6C176.2 154.3 128 215.5 128 288c0 88.4 71.6 160 160 160c19.5 0 38.1-3.5 55.3-9.8C308.2 483.1 253.5 512 192 512C86 512 0 426 0 320S86 128 192 128c17.4 0 34.2 2.3 50.2 6.6z"/>
+      </svg>
+
+  <span class="sr-only">Switch between dark and light modes</span>
+
+</label>
+
+<input type="checkbox" name="mode-toggle" id="mobile-toggle" class="sr-only" />
+  
+  </div>
+
+</div>
+
+<div class="hidden relative col-span-1 pt-20 border-r border-granite-l3 dark:border-granite-d1 lg:block">
+
+  <nav class="sticky top-48">
+
+    <ul class="list-none leading-none m-0 p-0 text-green dark:text-modern-l1">
+
+  
+  <li class="m-0 p-0">
+
+    <span class="text-lg font-bold">Guides</span>
+
+    <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/guides/for-developers/">
+          For Developers
+        </a>
+
+      </li>
+
+      
+    </ul>
+
+  </li>
+
+  
+  <li class="m-0 p-0">
+
+    <span class="text-lg font-bold">Foundations</span>
+
+    <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/breakpoints/">
+          Breakpoints
+        </a>
+
+      </li>
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/spacing/">
+          Spacing
+        </a>
+
+      </li>
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/layout/">
+          Layout
+        </a>
+
+      </li>
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/typography">
+          Typography
+        </a>
+
+      </li>
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/colour/">
+          Colour
+        </a>
+
+      </li>
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/foundations/iconography/">
+          Iconography
+        </a>
+
+      </li>
+
+      
+    </ul>
+
+  </li>
+
+  
+  <li class="m-0 p-0">
+
+    <span class="text-lg font-bold">Components</span>
+
+    <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/accordion/">
+          Accordion
+        </a>
+
+      </li>
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/button/">
+          Button
+        </a>
+
+      </li>
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/icon/">
+          Icon
+        </a>
+
+      </li>
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/well/">
+          Well
+        </a>
+
+      </li>
+
+      
+    </ul>
+
+  </li>
+
+  
+</ul>
   </nav>
 
 </div>
@@ -286,10 +502,10 @@
       <article class="px-5 py-16 sm:px-6 lg:p-20 xl:px-32">
 
         
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 <h1 class="font-serif is-decorated">Iconography</h1>
 
-<p>We currently have <strong>196</strong> icons available covering a wide range of categories, ordered alphabetically below. If you can't find the icon you're looking for using the search, then please <a href="mailto:webdev@ul.ie" target="_blank">let us know</a>.</p>
+<p>We currently have <strong>198</strong> icons available covering a wide range of categories, ordered alphabetically below. If you can't find the icon you're looking for using the search, then please <a href="mailto:webdev@ul.ie" target="_blank">let us know</a>.</p>
 
 
 
@@ -344,7 +560,7 @@
 
 <div class="flex">
 
-  <p class="basis-4/5 mr-4">To use an icon, there you need to know the <strong>icon name</strong> and the <strong>icon type</strong>. In the example on the right the icon name is <strong>graduation-cap</strong> and the icon type is <strong>line.</strong></p>
+  <p class="basis-4/5 mr-4">To use an icon, you need to know the <strong>icon name</strong> and the <strong>icon type</strong>. In the example on the right the icon name is <strong>graduation-cap</strong> and the icon type is <strong>line.</strong></p>
 
   
 
@@ -353,7 +569,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-3 md:p-6 flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
       
@@ -396,9 +612,9 @@
     class="block w-full mt-3 border border-granite-l3 rounded-md dark:border-granite-d1 p-3 bg-white dark:bg-transparent focus:outline-2 focus:outline-modern/50">
 </section>
 
-<p class="my-2 ml-3 text-sm text-granite dark:text-granite-l1"><em>Total icons found: <span id="total-icons">196</span></em></p>
+<p class="my-2 ml-3 text-sm text-granite dark:text-granite-l1"><em>Total icons found: <span id="total-icons">198</span></em></p>
 
-<div id="icon-bank" class="grid grid-cols-5 gap-3">
+<div id="icon-bank" class="grid grid-cols-3 gap-2 md:grid-cols-4 2xl:grid-cols-5 md:gap-3">
 
   
             
@@ -412,7 +628,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -453,7 +669,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -494,7 +710,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -535,7 +751,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -576,7 +792,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -617,7 +833,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -658,7 +874,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -699,7 +915,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -740,7 +956,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -781,7 +997,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -822,7 +1038,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -863,7 +1079,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -904,7 +1120,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -945,7 +1161,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -986,7 +1202,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1027,7 +1243,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1068,7 +1284,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1109,7 +1325,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1150,7 +1366,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1191,7 +1407,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1232,7 +1448,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1273,7 +1489,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1314,7 +1530,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1355,7 +1571,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1396,7 +1612,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1437,7 +1653,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1478,7 +1694,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1519,7 +1735,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1560,7 +1776,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1601,7 +1817,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1642,7 +1858,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1683,7 +1899,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1724,7 +1940,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1765,7 +1981,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1806,7 +2022,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1847,7 +2063,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1888,7 +2104,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1929,7 +2145,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -1970,7 +2186,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2011,7 +2227,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2049,7 +2265,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2091,7 +2307,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2132,7 +2348,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2173,7 +2389,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2214,7 +2430,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2255,7 +2471,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2296,7 +2512,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2337,7 +2553,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2378,7 +2594,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2419,7 +2635,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2460,7 +2676,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2501,7 +2717,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2542,7 +2758,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2583,7 +2799,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2624,7 +2840,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2665,7 +2881,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2706,7 +2922,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2747,7 +2963,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2788,7 +3004,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2829,7 +3045,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2870,7 +3086,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2911,7 +3127,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2952,7 +3168,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -2993,7 +3209,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3034,7 +3250,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3075,7 +3291,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3116,7 +3332,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3157,7 +3373,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3198,7 +3414,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3239,7 +3455,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3280,7 +3496,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3321,7 +3537,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3362,7 +3578,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3403,7 +3619,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3444,7 +3660,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3485,7 +3701,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3526,7 +3742,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3567,7 +3783,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3608,7 +3824,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3649,7 +3865,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3690,7 +3906,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3731,7 +3947,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3769,7 +3985,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3810,7 +4026,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3851,7 +4067,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3892,7 +4108,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3933,7 +4149,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -3974,7 +4190,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4015,7 +4231,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4056,7 +4272,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4097,7 +4313,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4138,7 +4354,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4176,7 +4392,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4214,7 +4430,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4256,7 +4472,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4297,7 +4513,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4338,7 +4554,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4379,7 +4595,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4420,7 +4636,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4461,7 +4677,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4502,7 +4718,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4543,7 +4759,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4584,7 +4800,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4622,7 +4838,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4664,7 +4880,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4705,7 +4921,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4746,7 +4962,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4787,7 +5003,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4828,7 +5044,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4869,7 +5085,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4910,7 +5126,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4951,7 +5167,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -4992,7 +5208,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5033,7 +5249,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5074,7 +5290,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5115,7 +5331,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5156,7 +5372,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5197,7 +5413,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5238,7 +5454,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5276,7 +5492,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5317,7 +5533,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5358,7 +5574,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5399,7 +5615,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5440,7 +5656,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5481,7 +5697,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5522,7 +5738,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5563,7 +5779,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5601,7 +5817,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5643,7 +5859,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5684,7 +5900,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5725,7 +5941,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5766,7 +5982,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5807,7 +6023,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5848,7 +6064,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5889,7 +6105,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5930,7 +6146,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -5971,7 +6187,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6009,7 +6225,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6051,7 +6267,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6092,7 +6308,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6133,7 +6349,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6174,7 +6390,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6215,7 +6431,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6256,7 +6472,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6297,7 +6513,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6338,7 +6554,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6379,7 +6595,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6420,7 +6636,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6461,7 +6677,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6502,7 +6718,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6543,7 +6759,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6584,7 +6800,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6625,7 +6841,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6666,7 +6882,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6707,7 +6923,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6748,7 +6964,87 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+
+  
+          
+
+
+
+
+
+
+
+  <svg
+    title="sidebar-flip"
+    class="fill-green dark:fill-modern h-9 mb-4 "
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 512 512"
+    data-tags="line,sidebar-flip,browser,ui,window"
+    >
+          <path d="M32 64l0 384 256 0 0-384L32 64zm448 0L320 64l0 384 160 0 0-384zm0-32l32 0 0 32 0 384 0 32-32 0L32 480 0 480l0-32L0 64 0 32l32 0 448 0zM352 96l96 0 0 32-96 0 0-32zm96 64l0 32-96 0 0-32 96 0zm-96 64l96 0 0 32-96 0 0-32z"/>
+      </svg>
+
+          <div class="flex flex-col text-xs">
+            <span><strong>sidebar-flip</strong></span>
+            <span>line</span>
+          </div>
+
+        
+</div>
+    
+            
+                          
+      
+
+
+
+
+
+
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+
+  
+          
+
+
+
+
+
+
+
+  <svg
+    title="sidebar-flip"
+    class="fill-green dark:fill-modern h-9 mb-4 "
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 512 512"
+    data-tags="twotone,sidebar-flip,browser,ui,window"
+    >
+          <path opacity=".4" d="M0 32l288 0 0 448L0 480 0 32z"/>
+      <path d="M288 32l224 0 0 448-224 0 0-448zm64 64l0 48 96 0 0-48-96 0zm96 96l-96 0 0 48 96 0 0-48zm-96 96l0 48 96 0 0-48-96 0z"/>
+      </svg>
+
+          <div class="flex flex-col text-xs">
+            <span><strong>sidebar-flip</strong></span>
+            <span>twotone</span>
+          </div>
+
+        
+</div>
+    
+  
+            
+    
+            
+                          
+      
+
+
+
+
+
+
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6789,7 +7085,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6830,7 +7126,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6871,7 +7167,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6912,7 +7208,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6953,7 +7249,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -6994,7 +7290,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7035,7 +7331,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7076,7 +7372,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7117,7 +7413,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7158,7 +7454,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7199,7 +7495,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7241,7 +7537,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7282,7 +7578,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7323,7 +7619,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7364,7 +7660,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7405,7 +7701,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7446,7 +7742,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7487,7 +7783,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7528,7 +7824,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7569,7 +7865,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7610,7 +7906,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7651,7 +7947,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7689,7 +7985,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7730,7 +8026,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7768,7 +8064,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7809,7 +8105,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7847,7 +8143,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7888,7 +8184,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7929,7 +8225,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -7967,7 +8263,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -8008,7 +8304,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -8049,7 +8345,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -8090,7 +8386,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -8131,7 +8427,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -8172,7 +8468,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -8213,7 +8509,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -8254,7 +8550,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -8295,7 +8591,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -8336,7 +8632,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -8377,7 +8673,7 @@
 
 
 
-<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-4 md:p-6 well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent">
 
   
           
@@ -8420,11 +8716,7 @@
 
     <div class="hidden lg:block col-span-1 py-20 px-4">
 
-  <div class="flex justify-center">
-
-    <nav id="page-nav" class="fixed no-scrollbar"></nav>
-
-  </div>
+  <nav id="page-nav" class="sticky top-48 no-scrollbar"></nav>
 
 </div>
   </div>

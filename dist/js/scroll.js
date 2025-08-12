@@ -9,9 +9,9 @@ export default function scroll() {
 
   window.addEventListener('scroll', () => {
 
-    let thresholdReached = document.documentElement.scrollTop > 500 ? true : false;
+    let topBarThreshold = document.documentElement.scrollTop > 500 ? true : false;
 
-    if (thresholdReached) {
+    if (topBarThreshold) {
       topBar.classList.remove('h-28');
       topBar.classList.add('h-16');
       container.classList.remove('py-4');
