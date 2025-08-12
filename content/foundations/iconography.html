@@ -30,10 +30,10 @@ script: iconSearch.js
 
 <div class="flex">
 
-  <p class="basis-4/5 mr-4">To use an icon, there you need to know the <strong>icon name</strong> and the <strong>icon type</strong>. In the example on the right the icon name is <strong>graduation-cap</strong> and the icon type is <strong>line.</strong></p>
+  <p class="basis-4/5 mr-4">To use an icon, you need to know the <strong>icon name</strong> and the <strong>icon type</strong>. In the example on the right the icon name is <strong>graduation-cap</strong> and the icon type is <strong>line.</strong></p>
 
   {% embed "@components/well/well.twig" with {
-    well_padding: 'p-6',
+    well_padding: 'p-3 md:p-6',
     well_modifiers: 'flex flex-col justify-center items-center text-center bg-white dark:bg-transparent'
   } %}
 
@@ -71,7 +71,7 @@ script: iconSearch.js
 
 <p class="my-2 ml-3 text-sm text-granite dark:text-granite-l1"><em>Total icons found: <span id="total-icons">{{ icon_count }}</span></em></p>
 
-<div id="icon-bank" class="grid grid-cols-5 gap-3">
+<div id="icon-bank" class="grid grid-cols-3 gap-2 md:grid-cols-4 2xl:grid-cols-5 md:gap-3">
 
   {% for icon in icons %}
 
@@ -95,7 +95,7 @@ script: iconSearch.js
       {% endif %}
       
       {% embed "@components/well/well.twig" with {
-        well_padding: 'p-6',
+        well_padding: 'p-4 md:p-6',
         well_modifiers: 'well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent'
       } %}
 
