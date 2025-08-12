@@ -45,7 +45,6 @@ p, ul, ol {
   line-height: 1.6;
   margin-top: 1.25em;
   margin-bottom: 1.25em;
-  hyphens: auto;
   overflow-wrap: break-word;
 }
 
@@ -187,6 +186,9 @@ ul ul, ol ul {
 }
 
 table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
   text-align: left;
   width: 100%;
   table-layout: auto;
