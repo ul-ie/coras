@@ -22,7 +22,7 @@ export default function pageNav() {
     // Add styling and text.
     pageNav.classList.add('text-granite-d3', 'dark:text-granite-l2');
     list.classList.add('ml-1', 'my-0', 'px-0', 'list-none', 'leading-none');
-    listHeading.classList.add('text-base', 'mb-1');
+    listHeading.classList.add('text-base', 'mt-0', 'mb-1');
     listHeadingLink.classList.add('font-bold', 'no-underline', 'text-green', 'dark:text-modern-l1', 'visited:text-green', 'dark:visited:text-modern-l1');
     listHeadingLink.innerText = 'On this page';
     

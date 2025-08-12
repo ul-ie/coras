@@ -1,3 +1,5 @@
+import menuToggle from './menuToggle.js';
+import modeToggle from './modeToggle.js';
 import pageNav from './pageNav.js';
 import scroll from './scroll.js';
 import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/core.min.js  ';
@@ -8,7 +10,7 @@ import yaml from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es
 /**
  * Execute only on page load.
  */
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
 
   // Languages to highlight.
   hljs.registerLanguage('xml', xml);
@@ -18,23 +20,16 @@ document.addEventListener('DOMContentLoaded', function () {
   // Get highlight.js started.
   hljs.highlightAll();
 
-  // Create the dynamic sidebar links.
+  // Enable the menu toggle animations.
+  menuToggle();
+
+  // Enable the dark/light mode toggle functionality.
+  modeToggle();
+
+  // Create the page navigation links.
   pageNav();
 
-  // Enable scroll behaviour.
+  // Enable scroll-related behaviour.
   scroll();
 
-  // Dark mode toggle functionality.
-  const darkSwitch = document.getElementById('dark-switch');
-  if (localStorage.getItem('dark-mode') === 'true') darkSwitch.checked = true;
-
-  darkSwitch.addEventListener('change', () => {
-    if (darkSwitch.checked) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('dark-mode', true);
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('dark-mode', false);
-    }
-  });
 }, false);
