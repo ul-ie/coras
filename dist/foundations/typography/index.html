@@ -153,7 +153,7 @@
 
     <div id="mobile-menu" class="fixed top-0 left-0 w-full h-screen z-10 -translate-x-full transition-transform pt-32 px-5  bg-limestone-l5/95 lg:hidden dark:bg-granite-d3/95">
 
-  <nav class="h-screen overflow-scroll pb-48">
+  <nav class="h-screen overflow-scroll pb-60">
 
     <ul class="list-none leading-none m-0 p-0 text-green dark:text-modern-l1">
 
@@ -296,7 +296,7 @@
 </ul>
   </nav>
 
-  <div class="fixed w-full bottom-0 left-0 flex items-center px-3 py-1 bg-limestone-l5 border-t border-granite-l3 dark:bg-granite-d3 dark:border-granite-d1">
+  <div class="fixed w-14 h-14 bottom-12 left-5 rounded-full flex items-center justify-center bg-limestone-l5 border border-granite-l3 dark:bg-granite-d3 dark:border-granite-d1">
   
     
 <label
@@ -507,7 +507,8 @@
 
   <h1 class="font-serif is-decorated">Typography</h1>
 
-  <p>Our typography plays an important role in ensuring our digital communication is accessible, optimised for readability and reinforces our brand.</p>
+  <p>Our typography plays an important role in ensuring our digital communication is accessible, optimised for
+    readability and reinforces our brand.</p>
 
   <h2>Fonts</h2>
 
@@ -550,7 +551,9 @@
 
   <h3>Weights</h3>
 
-  <p>We use a range of weights for <strong>Inter</strong> and a more restricted range for <strong>Saol</strong> and <strong>Formula Condensed</strong>.</p>
+  <p>We use a range of weights for <strong>Inter</strong> and a more restricted range for <strong>Saol</strong> and
+    <strong>Formula Condensed</strong>.
+  </p>
 
   <table>
     <thead>
@@ -603,9 +606,14 @@
 
   <h2>Headings</h2>
 
-  <p>We use heading levels from <code>h1</code> down to <code>h4</code> and discourage use of anything more granular than that. The heading font sizes are set in <code>rem</code> units, and related properties like <code>margin-top</code> and <code>margin-bottom</code> are set in <code>em</code> units, to stay proportionate to the headings.</p>
+  <p>We use heading levels from <code>h1</code> down to <code>h4</code> and discourage use of anything more granular
+    than that. The heading font sizes are set in <code>rem</code> units, and related properties like
+    <code>margin-top</code> and <code>margin-bottom</code> are set in <code>em</code> units, to stay proportionate to
+    the headings.
+  </p>
 
-  <p>A preview of the heading sizes are below, including their margins (shaded area) and their initial (mobile) size and their maximum (desktop) size.</p>
+  <p>A preview of the heading sizes are below, including their margins (shaded area) and their initial (mobile) size and
+    their maximum (desktop) size.</p>
 
   <div class="bg-slate-l4 dark:bg-granite-d4">
 
@@ -617,20 +625,20 @@
     </h1>
 
     <hr class="border-t-slate-l2 border-dashed mb-0">
-  
+
   </div>
 
   <div class="bg-slate-l4 dark:bg-granite-d4">
 
     <hr class="border-t-slate-l2 border-dashed">
-  
+
     <h2 data-page-nav="false" class="bg-limestone-l5 dark:bg-granite-d3">
       Heading 2
       <em class="text-xs font-normal">(1.5rem/24px ... 2.25rem/36px)</em>
     </h2>
 
     <hr class="border-t-slate-l2 border-dashed mb-0">
-  
+
   </div>
 
   <div class="bg-slate-l4 dark:bg-granite-d4">
@@ -643,7 +651,7 @@
     </h3>
 
     <hr class="border-t-slate-l2 border-dashed mb-0">
-  
+
   </div>
 
   <div class="bg-slate-l4 dark:bg-granite-d4">
@@ -660,7 +668,8 @@
 
   <h3>Stacked Headings</h3>
 
-  <p>Sometimes headings may directly follow one another without intervening content, in which case the margins need to be adjusted to prevent a build-up of unnecessary white space. Here's an example using a h3 and h4:</p>
+  <p>Sometimes headings may directly follow one another without intervening content, in which case the margins need to
+    be adjusted to prevent a build-up of unnecessary white space. Here's an example using a h3 and h4:</p>
 
   <div class="bg-slate-l4 dark:bg-granite-d4">
 
@@ -673,22 +682,31 @@
     <h4 data-page-nav="false" class="bg-limestone-l5 dark:bg-granite-d3">
       Heading 4
     </h4>
-    
+
     <hr class="border-t-slate-l2 border-dashed">
-  
+
   </div>
 
   <h2>Paragraphs</h2>
 
-  <p class="lead mb-0">This is a lead paragraph. It has a slightly enlarged font size, ranging from <strong>1.125rem</strong> (18px) to <strong>1.25rem</strong> (20px). It uses the <code>.lead</code> class.</p>
+  <p class="lead mb-0">This is a lead paragraph. It has a slightly enlarged font size, ranging from
+    <strong>1.125rem</strong> (18px) to <strong>1.25rem</strong> (20px). It uses the <code>.lead</code> class.
+  </p>
 
-  <p class="mb-0">This is a standard paragraph with normal font sizing, ranging from <strong>1rem</strong> (16px) to <strong>1.125rem</strong> (18px). We use a line-height of <strong>1.6</strong> on mobile, growing to <strong>1.75</strong> on larger screens.</p>
+  <p class="mb-0">This is a standard paragraph with normal font sizing, ranging from <strong>1rem</strong> (16px) to
+    <strong>1.125rem</strong> (18px). We use a line-height of <strong>1.6</strong> on mobile, growing to
+    <strong>1.75</strong> on larger screens.
+  </p>
 
   <div class="bg-slate-l4 dark:bg-granite-d4">
 
     <hr class="border-t-slate-l2 border-dashed">
 
-    <p class="bg-limestone-l5 dark:bg-granite-d3">This is another paragraph with normal font sizing, but with the bounding box highlighted to demonstrate the vertical margins and maximum width. For legibility best practices, the <code>max-width</code> of a paragraph is set to <code>65ch</code>, which means that it will never exceed <strong>65 characters</strong> in width.</p>
+    <p class="bg-limestone-l5 dark:bg-granite-d3">This is another paragraph with normal font sizing, but with the
+      bounding box highlighted to demonstrate the vertical margins and maximum width. For legibility best practices, the
+      <code>max-width</code> of a paragraph is set to <code>65ch</code>, which means that it will never exceed
+      <strong>65 characters</strong> in width.
+    </p>
 
     <hr class="border-t-slate-l2 border-dashed">
 
@@ -707,19 +725,26 @@
 
   <h3>Breaking/Truncating Text</h3>
 
-  <p>Sometimes it's necessary to break very long words onto a separate line rather than have them overflow their containing element. We have set the <code>overflow-wrap</code> CSS property to <code>break-word</code> to accommmodate this.</p>
+  <p>Sometimes it's necessary to break very long words onto a separate line rather than have them overflow their
+    containing element. We have set the <code>overflow-wrap</code> CSS property to <code>break-word</code> to
+    accommmodate this.</p>
 
   <div class="max-w-96 bg-slate-l4 dark:bg-granite-d4 px-8 border-r border-l border-slate-l1 border-dashed">
 
-    <p class="bg-limestone-l5 dark:bg-granite-d3">Here's an example with what is considered the longest word in most standard English dictionaries: <strong>pneumonoultramicroscopicsilicovolcanoconiosis</strong>, which clocks in at 45 letters.</p>
+    <p class="bg-limestone-l5 dark:bg-granite-d3">Here's an example with what is considered the longest word in most
+      standard English dictionaries: <strong>pneumonoultramicroscopicsilicovolcanoconiosis</strong>, which clocks in at
+      45 letters.</p>
 
   </div>
 
-  <p>Using the <code>line-clamp-[number]</code> class, it's possible to truncate text to a given number of lines. Here's the above example again clamped to two lines using <code>line-clamp-2</code>:</p>
+  <p>Using the <code>line-clamp-[number]</code> class, it's possible to truncate text to a given number of lines. Here's
+    the above example again clamped to two lines using <code>line-clamp-2</code>:</p>
 
   <div class="max-w-96 bg-slate-l4 dark:bg-granite-d4 px-8 border-r border-l border-slate-l1 border-dashed">
 
-    <p class="bg-limestone-l5 dark:bg-granite-d3 line-clamp-2">Here's an example with what is considered the longest word in most standard English dictionaries: <strong>pneumonoultramicroscopicsilicovolcanoconiosis</strong>, which clocks in at 45 letters.</p>
+    <p class="bg-limestone-l5 dark:bg-granite-d3 line-clamp-2">Here's an example with what is considered the longest
+      word in most standard English dictionaries: <strong>pneumonoultramicroscopicsilicovolcanoconiosis</strong>, which
+      clocks in at 45 letters.</p>
 
   </div>
 
@@ -787,13 +812,17 @@
 
   <h2>Quotes and Captions</h2>
 
-  <p>The <code>&lt;blockquote&gt;</code> element (not to be confused with the more full-featured Quote component) is great for pull-quotes in blog posts and news articles.</p>
+  <p>The <code>&lt;blockquote&gt;</code> element (not to be confused with the more full-featured Quote component) is
+    great for pull-quotes in blog posts and news articles.</p>
 
   <blockquote>
     <p>Most of us know how to say nothing; few of us know when.</p>
   </blockquote>
 
-  <p>Here's an example broken up into two <code>&lt;p&gt;</code>elements. The top and bottom margins are adjusted so that lines can flow as normal without adding extra unnecessary space to the containing <code>&lt;blockquote&gt;</code> element.</p>
+  <p>Here's an example broken up into two <code>&lt;p&gt;</code>elements. The top and bottom margins are adjusted so
+    that lines can flow as normal without adding extra unnecessary space to the containing
+    <code>&lt;blockquote&gt;</code> element.
+  </p>
 
   <blockquote>
     <p>Beware of the half truth.</p>
@@ -810,7 +839,9 @@
   <p>Here's a more realistic example:</p>
 
   <figure>
-    <img src="https://www.ul.ie/sites/default/files/styles/max_content/public/2023-12/University%20of%20Limerick%20campus%20aerial%20NEW.JPG.webp?itok=hKVaqNMG" alt="UL Living Bridge">
+    <img
+      src="https://www.ul.ie/sites/default/files/styles/max_content/public/2023-12/University%20of%20Limerick%20campus%20aerial%20NEW.JPG.webp?itok=hKVaqNMG"
+      alt="UL Living Bridge">
     <figcaption>The Living Bridge (An Droichead Beo), connects the UL campus across two counties.</figcaption>
   </figure>
 
@@ -818,7 +849,9 @@
 
   <p>Acronyms are widely used in UL, but they are usually not spelled out or made accessible to the uninitiated.</p>
 
-  <p>This is where the <code>&lt;abbr&gt;</code> element can help. It can render acronyms like <abbr title="Arts, Humanities and the Social Sciences">AHSS</abbr> intelligible to the casual reader via pop-over functionality (or for visually impaired users, the title can be read aloud).</p>
+  <p>This is where the <code>&lt;abbr&gt;</code> element can help. It can render acronyms like <abbr
+      title="Arts, Humanities and the Social Sciences">AHSS</abbr> intelligible to the casual reader via pop-over
+    functionality (or for visually impaired users, the title can be read aloud).</p>
 
   <pre><code class="language-xml">&lt;abbr title=&quot;Arts, Humanities and the Social Sciences&quot;&gt;AHSS&lt;/abbr&gt;</code></pre>
 
@@ -831,7 +864,8 @@
   <ul>
     <li>Here's the first item.</li>
     <li>Here's the second item.</li>
-    <li>Here's the third item, and it might be an idea to test how it looks when the list item breaks onto a separate line, like this.</li>
+    <li>Here's the third item, and it might be an idea to test how it looks when the list item breaks onto a separate
+      line, like this.</li>
     <li>Here's the last item.</li>
   </ul>
 
@@ -840,7 +874,8 @@
   <ol>
     <li>Here's the first item.</li>
     <li>Here's the second item.</li>
-    <li>Here's the third item, and it might be an idea to test how it looks when the list item breaks onto a separate line, like this.</li>
+    <li>Here's the third item, and it might be an idea to test how it looks when the list item breaks onto a separate
+      line, like this.</li>
     <li>Here's the last item.</li>
   </ol>
 
@@ -853,7 +888,8 @@
       <ul>
         <li>Here's the first nested item.</li>
         <li>Here's the second nested item.</li>
-        <li>Here's the third nested item, and it might be an idea to test how it looks when the list item breaks onto a separate line, like this.</li>
+        <li>Here's the third nested item, and it might be an idea to test how it looks when the list item breaks onto a
+          separate line, like this.</li>
       </ul>
     </li>
     <li>Here's the second item.</li>
@@ -861,7 +897,8 @@
       <ol>
         <li>Here's the first item.</li>
         <li>Here's the second item.</li>
-        <li>Here's the third item, and it might be an idea to test how it looks when the list item breaks onto a separate line, like this.</li>
+        <li>Here's the third item, and it might be an idea to test how it looks when the list item breaks onto a
+          separate line, like this.</li>
         <li>Here's the last item.</li>
       </ol>
     </li>
@@ -870,9 +907,98 @@
 
   <h2>Tables</h2>
 
-  <p>There are several examples of tables in use above, so with the following table we'll just use sample data and highlight some of the margins and padded areas.</p>
-
   <p>Tables are for <strong>structured data</strong> and should <strong>never be used for layout</strong>.</p>
+
+  <p><span class="font-bold mr-1 text-modern">✓</span>This is an example appropriate tabular data:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Course Name</th>
+        <th>Duration</th>
+        <th>Award</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Computer Science</td>
+        <td>4 Years</td>
+        <td>Bachelor of Science</td>
+      </tr>
+      <tr>
+        <td>Music and Dance</td>
+        <td>1 Year</td>
+        <td>Higher Certificate</td>
+      </tr>
+      <tr>
+        <td>Philosophy</td>
+        <td>3 Years</td>
+        <td>Bachelor of Arts</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="mt-14"><span class="font-bold mr-2 text-munster">x</span>The below is an example of a table being used for layout, with content not appropiate for tabular display (page headings, paragraphs and lists) being used within the cells. Do <strong>not</strong> do this:</p>
+
+  <table>
+    <tbody>
+      <tr>
+        <td><strong>Autumn Semester</strong></td>
+        <td><strong>Spring Semester</strong></td>
+        <td><strong>Summer Semester</strong></td>
+      </tr>
+      <tr>
+        <td>
+          <h4>Core Modules</h4>
+          <ul>
+            <li>Applied Linguistics</li>
+            <li>Research Methodologies</li>
+            <li><span>Approaches to Discourse Analysis</span></li>
+          </ul>
+          <h4>Electives - Choose 2 from the following:</h4>
+          <ul>
+            <li><span>Language for Equality, Diversity &amp; Inclusion in Organisations​</span></li>
+            <li><span>Theories and Applications in Translation Studies</span></li>
+            <li><span>Varieties in English</span></li>
+            <li><span>Education and Applied Linguistics (eg. SLA Theories and Classroom Applications&nbsp;in
+                Organisations; Professional Language Use for Language Teachers</span></li>
+            <li><span>Academic Literacies for International Postgraduate Studies</span></li>
+          </ul>
+        </td>
+        <td>
+          <h4>Core Modules</h4>
+          <ul>
+            <li>Applied Linguistics II</li>
+            <li><span>Emerging and Established Technologies in Language Studies</span></li>
+          </ul>
+          <p><strong>or</strong></p>
+          <ul>
+            <li><span>External Academic Placement&nbsp;</span></li>
+          </ul>
+          <h4>Electives - Choose 2 from the following:</h4>
+          <ul>
+            <li>Pragmatics and Applied Linguistics</li>
+            <li>Contemporary Approaches in Translation Theory and Practice&nbsp;</li>
+            <li>Education and Applied Linguistics (eg. Language Systems 2; Professional Language Use for Language
+              Teachers 2; Language Pedagogy for ELT)</li>
+            <li>Media and Language Studies (eg. Critical Economic and Media studies)&nbsp;</li>
+            <li><span>Academic Literacies for&nbsp;International Postgraduate Students</span></li>
+          </ul>
+        </td>
+        <td>
+          <p>Research Dissertation in the area of<br>Applied Linguistics<br>(15,000-20,000 words) for<br>students taking
+            the MA</p>
+          <p><strong>or&nbsp;</strong></p>
+          <p>Applied Linguistics (International) Praxis</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h3>Margins and Padding</h3>
+
+  <p>This is the same table as the first example above, but with the margins and padded areas highlighted.</p>
 
   <div class="bg-slate-l4 dark:bg-granite-d4">
     <hr class="border-t-slate-l2 border-dashed">
@@ -907,7 +1033,8 @@
 
   <h2>Input and Output</h2>
 
-  <p>This section covers code formatting, and lesser used elements for representing keyboard input, computer program output and mathematical variables.</p>
+  <p>This section covers code formatting, and lesser used elements for representing keyboard input, computer program
+    output and mathematical variables.</p>
 
   <h3>Inline Elements</h3>
 
@@ -938,14 +1065,18 @@
       <tr>
         <td><code>&lt;var&gt;</code></td>
         <td>Defines a variable used in mathematical expression.</td>
-        <td>The area of a triangle is (<var>b</var> x <var>h</var>) / 2, where <var>b</var> is the base, and <var>h</var> is the vertical height.</td>
+        <td>The area of a triangle is (<var>b</var> x <var>h</var>) / 2, where <var>b</var> is the base, and
+          <var>h</var> is the vertical height.
+        </td>
       </tr>
     </tbody>
   </table>
 
   <h3>Code Blocks</h3>
 
-  <p>The main use for code blocks is this design system, but they can also be used for technical blogging. Code blocks are defined using the <code>&lt;code&gt;</code> element wrapped in a <code>&lt;pre&gt;</code> element (for pre-formatted text) to maintain its spacing and indentation.</p>
+  <p>The main use for code blocks is this design system, but they can also be used for technical blogging. Code blocks
+    are defined using the <code>&lt;code&gt;</code> element wrapped in a <code>&lt;pre&gt;</code> element (for
+    pre-formatted text) to maintain its spacing and indentation.</p>
 
   <pre><code class="language-xml">&lt;pre&gt;
   &lt;code&gt;
@@ -956,7 +1087,8 @@
 
   <p>Here's an example of the <code>twig</code> file for the Accordion component:</p>
 
-  <pre class="max-h-96"><code class="language-twig">{#
+  <pre
+    class="max-h-96"><code class="language-twig">{#
 /**
  * @file
  * Accordion component.
@@ -1009,7 +1141,7 @@
 
 &lt;/details&gt;</code></pre>
 
-
+  
 
       </article>
 
