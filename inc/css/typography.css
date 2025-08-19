@@ -186,12 +186,12 @@ ul ul, ol ul {
 }
 
 table {
+  position: relative;
   display: block;
   overflow-x: auto;
   white-space: nowrap;
   text-align: left;
   width: 100%;
-  table-layout: auto;
   margin-top: 2em;
   margin-bottom: 2em;
 }
@@ -204,33 +204,33 @@ thead {
   border-bottom-color: var(--color-granite-d1);
 }
 
-thead th {
+th {
   color: var(--color-green);
   font-weight: bold;
   padding: 0 0.75em 0.75em;
 }
 
-.dark thead th {
-  color: var(--color-granite-l3);
-}
-
-thead th:first-child {
+th:first-child {
   padding-left: 0;
 }
 
-tbody tr {
+.dark th {
+  color: var(--color-granite-l3);
+}
+
+tr {
   border-bottom: 1px solid var(--color-granite-l3);
 }
 
-.dark tbody tr {
+.dark tr {
   border-bottom-color: var(--color-granite-d2);
 }
 
-tbody td {
+td {
   padding: 0.75em;
 }
 
-tbody td:first-child {
+td:first-child {
   padding-left: 0;
 }
 
@@ -329,9 +329,6 @@ h1 + *, h2 + *, h3 + *, h4 + * {
 
   p, ul, ol {
     font-size: var(--text-lg);
-  }
-
-  p, ul, ol {
     line-height: 1.75;
     margin-top: calc(2em / 1.5);
     margin-bottom: calc(2em / 1.5);
@@ -347,6 +344,12 @@ h1 + *, h2 + *, h3 + *, h4 + * {
 
   h1 + *, h2 + *, h3 + *, h4 + * {
     margin-top: 0;
+  }
+
+  table {
+    display: table;
+    table-layout: auto;
+    white-space: normal;
   }
 }
 
