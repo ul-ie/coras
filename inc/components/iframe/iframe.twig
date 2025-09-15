@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * iFrame component.
+ * 
+ * For internal use in Coras only, for components that overflow the content area.
+ */
+#}
+
+{% set ifr_zoom = ifr_zoom ?? 0.5 %}
+{% set ifr_height = ifr_height ?? 300 %}
+{% set ifr_folder = ifr_folder ?? '' %}
+{% set ifr_file = ifr_file ?? '' %}
+{% set ifr_src = '../../iframes/' ~ ifr_folder ~ '/' ~ ifr_folder ~ '-' ~ ifr_file ~ '/index.html' %}
+
+{% embed '@components/well/well.twig' with { well_padding: 'p-2' } %}
+
+  {% block well_html %}
+
+    <iframe
+      class="w-full"
+      {{ 'style="zoom: ' ~ ifr_zoom ~ '; height: ' ~ ifr_height / ifr_zoom ~ 'px"'}}
+      src="{{ ifr_src }}" frameborder="0">
+    </iframe>
+
+    <a class="flex mt-2 leading-none justify-end items-center text-sm text-granite-d1 no-underline dark:text-granite-l1" href="{{ ifr_src }}" target="_blank">
+      <span>Open in new window</span>
+      {% include '@components/icon/icon.twig' with {
+        icon_name: 'arrow-up-right-from-square',
+        icon_fill: 'fill-granite-d1 dark:fill-granite-l1',
+        icon_modifiers: 'inline ml-1',
+        icon_type: 'solid',
+        icon_size: 'w-3'
+      } %}
+    </a>
+
+  {% endblock %}
+
+{% endembed %}

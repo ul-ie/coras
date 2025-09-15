@@ -1,0 +1,19 @@
+---
+layout: templates/page-iframe.html
+---
+
+{% set img_array = [
+  'colourful-girl.jpg',
+  'dance-class.jpg',
+  'four-new-ul-students.jpg',
+  'girl-with-ul-shirt-and-glasses.jpg',
+  'limerick-city-shannon-river.jpg',
+  'memorial-garden.jpg'
+] %}
+
+{% include '@components/hero-banner/hero-banner.twig' with {
+  hero_heading: 'Where will your curiosity take you?',
+  hero_img_url: '/img/samples/' ~ img_array[3]
+} %}
+
+<div style="height: 1000px"></div>
