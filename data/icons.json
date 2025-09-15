@@ -8192,6 +8192,64 @@
     "unicode": "f1c4",
     "voted": false
   },
+  "chevron-down": {
+    "aliases": {
+      "unicodes": {
+        "secondary": [
+          "10f078"
+        ]
+      }
+    },
+    "changes": [
+      "1.0.0",
+      "5.0.0",
+      "6.0.0-beta1",
+      "6.2.0",
+      "6.3.0",
+      "6.4.0",
+      "6.5.0",
+      "6.6.0",
+      "6.7.0"
+    ],
+    "familyStylesByLicense": {
+      "free": [],
+      "pro": [
+        {
+          "family": "sharp",
+          "style": "solid"
+        }
+      ]
+    },
+    "label": "Chevron Down",
+    "ligatures": [],
+    "search": {
+      "terms": [
+        "arrow",
+        "download",
+        "expand",
+        "insert"
+      ]
+    },
+    "svgs": {
+      "sharp": {
+        "solid": {
+          "height": 512,
+          "lastModified": 1717165340,
+          "path": "M256 429.3l22.6-22.6 192-192L493.3 192 448 146.7l-22.6 22.6L256 338.7 86.6 169.4 64 146.7 18.7 192l22.6 22.6 192 192L256 429.3z",
+          "raw": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><path d=\"M256 429.3l22.6-22.6 192-192L493.3 192 448 146.7l-22.6 22.6L256 338.7 86.6 169.4 64 146.7 18.7 192l22.6 22.6 192 192L256 429.3z\"/></svg>",
+          "viewBox": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "width": 512
+        }
+      }
+    },
+    "unicode": "f078",
+    "voted": false
+  },
   "tiktok": {
     "changes": [
       "5.13.1",
@@ -10485,6 +10543,72 @@
     "unicode": "f5db",
     "voted": false
   },
+  "arrow-up-right-from-square": {
+    "aliases": {
+      "names": [
+        "external-link"
+      ],
+      "unicodes": {
+        "secondary": [
+          "10f08e"
+        ]
+      }
+    },
+    "changes": [
+      "1.0.0",
+      "5.0.0",
+      "5.11.0",
+      "6.0.0-beta1",
+      "6.1.0",
+      "6.2.0",
+      "6.2.1",
+      "6.3.0",
+      "6.4.0",
+      "6.4.1",
+      "6.5.0",
+      "6.6.0",
+      "6.7.0"
+    ],
+    "familyStylesByLicense": {
+      "free": [],
+      "pro": [
+        {
+          "family": "sharp",
+          "style": "solid"
+        }
+      ]
+    },
+    "label": "Arrow Up Right From Square",
+    "ligatures": [],
+    "search": {
+      "terms": [
+        "new",
+        "open",
+        "send",
+        "share",
+        "upgrade"
+      ]
+    },
+    "svgs": {
+      "sharp": {
+        "solid": {
+          "height": 512,
+          "lastModified": 1717165341,
+          "path": "M320 0L288 0l0 64 32 0 82.7 0L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3l0 82.7 0 32 64 0 0-32 0-160 0-32L480 0 320 0zM32 32L0 32 0 64 0 480l0 32 32 0 424 0 32 0 0-32 0-128 0-32-64 0 0 32 0 96L64 448 64 96l96 0 32 0 0-64-32 0L32 32z",
+          "raw": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><path d=\"M320 0L288 0l0 64 32 0 82.7 0L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3l0 82.7 0 32 64 0 0-32 0-160 0-32L480 0 320 0zM32 32L0 32 0 64 0 480l0 32 32 0 424 0 32 0 0-32 0-128 0-32-64 0 0 32 0 96L64 448 64 96l96 0 32 0 0-64-32 0L32 32z\"/></svg>",
+          "viewBox": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "width": 512
+        }
+      }
+    },
+    "unicode": "f08e",
+    "voted": false
+  },
   "compass": {
     "aliases": {
       "unicodes": {
@@ -11228,6 +11352,10 @@
       "pro": [
         {
           "family": "sharp",
+          "style": "solid"
+        },
+        {
+          "family": "sharp",
           "style": "light"
         }
       ]
@@ -11257,6 +11385,19 @@
           "lastModified": 1717172774,
           "path": "M0 64l448 0 0 32L0 96 0 64zM0 224l448 0 0 32L0 256l0-32zM448 384l0 32L0 416l0-32 448 0z",
           "raw": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\"><path d=\"M0 64l448 0 0 32L0 96 0 64zM0 224l448 0 0 32L0 256l0-32zM448 384l0 32L0 416l0-32 448 0z\"/></svg>",
+          "viewBox": [
+            0,
+            0,
+            448,
+            512
+          ],
+          "width": 448
+        },
+        "solid": {
+          "height": 512,
+          "lastModified": 1717172774,
+          "path": "M0 64l448 0 0 64L0 128 0 64zM0 224l448 0 0 64L0 288l0-64zM448 384l0 64L0 448l0-64 448 0z",
+          "raw": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 448 512\"><path d=\"M0 64l448 0 0 64L0 128 0 64zM0 224l448 0 0 64L0 288l0-64zM448 384l0 64L0 448l0-64 448 0z\"/></svg>",
           "viewBox": [
             0,
             0,
