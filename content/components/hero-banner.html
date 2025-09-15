@@ -1,0 +1,17 @@
+---
+title: Hero Banner
+layout: templates/page.html
+---
+
+<h1 class="font-serif is-decorated">{{ title }}</h1>
+
+<p><strong>Note:</strong> this page is a work in progress.</p> 
+
+<h2>First Variation</h2>
+
+{% include '@components/iframe/iframe.twig' with {
+  ifr_folder: 'hero-banner',
+  ifr_file: 'example-01',
+  ifr_height: 360,
+  ifr_zoom: 0.4
+} %}

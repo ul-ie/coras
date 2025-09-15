@@ -1,0 +1,87 @@
+{#
+/**
+ * @file
+ * Hero Banner component.
+ *
+ * @see https://coras.ul.ie/components/banner/#properties for full documentation.
+ */
+#}
+
+{% set is_video = is_video ?? false %}
+{% set bg_gradient = 'bg-gradient-to-b from-heritage to-green bg-cover bg-fixed bg-center' %}
+
+<div class="flex flex-col xl:flex-row relative overflow-hidden">
+
+  {# Content container #}
+  <div class="relative w-full min-h-60 md:min-h-96 p-10 pb-24 flex flex-col justify-center order-2 md:p-16 xl:w-1/4 xl:p-0 xl:order-1 {{ bg_gradient }}">
+
+    {# Top-left polygon graphic #}
+    <div
+      class="absolute top-0 left-0 w-8 md:w-10 xl:w-16 h-8 md:h-10 xl:h-16 bg-modern animate-fade-in-left"
+      style="clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 50% 50%, 50% 100%, 0% 100%); ">
+    </div>
+
+    {# Content box #}
+    <div
+      class="relative pb-10 z-30 {{ bg_gradient }} xl:absolute xl:left-3/12 xl:p-20"
+      style="clip-path: polygon(0% 0%, 95% 0%, 95% 10%, 100% 10%, 100% 100%, 0% 100%)"
+      >
+
+      <h1 class="font-display text-white m-0 w-5/6 xl:w-lg animate-fade-in-right">
+        {{ hero_heading }}
+      </h1>
+
+      <div class="bg-shannon w-10 lg:w-16 h-1.5 lg:h-2 mt-2 animate-fade-in-left"></div>
+
+      {# <div class="mt-8 animate-fade-in-up" >
+        {% include '@components/button/button.twig' with {
+          btn_text: 'Find out more'
+        } %}
+      </div> #}
+
+    </div>
+
+    {# Pattern graphic behind content box #}
+    <div
+      data-parallax data-speed="0.2"
+      class="hidden w-72 h-72 absolute top-1/2 left-0 mt-6 bg-center animate-fade-in-left xl:block xl:left-[5%]"
+      style="background-image: url(/img/patterns/pattern-02a-modern.svg); background-size: 105%; ">
+    </div>
+
+  </div>
+
+  {# Media container #}
+  <div class="w-full order-1 bg-granite-l4 overflow-hidden z-10 xl:order-2 xl:w-[70%]">
+
+    {% if is_video %}
+
+      <video preload="none" class="w-full h-full object-cover" poster="https://ak.picdn.net/shutterstock/videos/172/thumb/1.jpg">
+        <source src="https://ak.picdn.net/shutterstock/videos/172/preview/stock-footage-furnace-chimney.mp4" type="video/mp4">
+      </video>
+
+    {% else %}
+      
+      <img data-parallax data-speed="0.3" class="w-full h-full object-cover animate-slow-zoom" src="{{ hero_img_url }}" alt="{{ hero_alt }}">
+
+    {% endif %}
+
+  </div>
+
+  {# Framing element #}
+  <div class="hidden w-[5%] {{ bg_gradient }} order-3 xl:block"></div>
+
+  {# Bottom right pattern graphic on mobile #}
+  <div
+    class="w-40 h-40 absolute bottom-0 right-0 bg-no-repeat bg-top z-20 animate-fade-in-up xl:hidden"
+    style="background-image: url(/img/patterns/pattern-02a-modern.svg); background-size: 105%; ">
+  </div>
+
+  {# Bottom right pattern graphic on desktop #}
+  <div
+    data-parallax data-speed="0.1"
+    class="hidden w-48 h-60 absolute -bottom-6 right-0 bg-no-repeat bg-top z-30 animate-fade-in-right xl:block"
+    style="background-image: url(/img/patterns/pattern-01a-white.svg); background-size: 150%; ">
+  </div>
+
+</div>
+
