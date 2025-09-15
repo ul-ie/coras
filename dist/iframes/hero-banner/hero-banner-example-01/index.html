@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en" class="scroll-smooth">
+
+  <head>
+
+    <meta charset="UTF-8">
+
+    <meta name="generator" content="Eleventy">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/index.css">
+
+    <script>
+      // Check for dark mode.
+      let html = document.querySelector('html');
+      let isDarkModeActive = ('dark-mode' in localStorage) && localStorage.getItem('dark-mode') === 'true';
+      isDarkModeActive ? html.classList.add('dark') : html.classList.remove('dark');
+    </script>
+
+    <title></title>
+
+  </head>
+<body>
+
+  
+
+
+
+
+<div class="flex flex-col xl:flex-row relative overflow-hidden">
+
+  
+  <div class="relative w-full min-h-60 md:min-h-96 p-10 pb-24 flex flex-col justify-center order-2 md:p-16 xl:w-1/4 xl:p-0 xl:order-1 bg-gradient-to-b from-heritage to-green bg-cover bg-fixed bg-center">
+
+    
+    <div
+      class="absolute top-0 left-0 w-8 md:w-10 xl:w-16 h-8 md:h-10 xl:h-16 bg-modern animate-fade-in-left"
+      style="clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 50% 50%, 50% 100%, 0% 100%); ">
+    </div>
+
+    
+    <div
+      class="relative pb-10 z-30 bg-gradient-to-b from-heritage to-green bg-cover bg-fixed bg-center xl:absolute xl:left-3/12 xl:p-20"
+      style="clip-path: polygon(0% 0%, 95% 0%, 95% 10%, 100% 10%, 100% 100%, 0% 100%)"
+      >
+
+      <h1 class="font-display text-white m-0 w-5/6 xl:w-lg animate-fade-in-right">
+        Where will your curiosity take you?
+      </h1>
+
+      <div class="bg-shannon w-10 lg:w-16 h-1.5 lg:h-2 mt-2 animate-fade-in-left"></div>
+
+      
+
+    </div>
+
+    
+    <div
+      data-parallax data-speed="0.2"
+      class="hidden w-72 h-72 absolute top-1/2 left-0 mt-6 bg-center animate-fade-in-left xl:block xl:left-[5%]"
+      style="background-image: url(/img/patterns/pattern-02a-modern.svg); background-size: 105%; ">
+    </div>
+
+  </div>
+
+  
+  <div class="w-full order-1 bg-granite-l4 overflow-hidden z-10 xl:order-2 xl:w-[70%]">
+
+          
+      <img data-parallax data-speed="0.3" class="w-full h-full object-cover animate-slow-zoom" src="/img/samples/girl-with-ul-shirt-and-glasses.jpg" alt="">
+
+    
+  </div>
+
+  
+  <div class="hidden w-[5%] bg-gradient-to-b from-heritage to-green bg-cover bg-fixed bg-center order-3 xl:block"></div>
+
+  
+  <div
+    class="w-40 h-40 absolute bottom-0 right-0 bg-no-repeat bg-top z-20 animate-fade-in-up xl:hidden"
+    style="background-image: url(/img/patterns/pattern-02a-modern.svg); background-size: 105%; ">
+  </div>
+
+  
+  <div
+    data-parallax data-speed="0.1"
+    class="hidden w-48 h-60 absolute -bottom-6 right-0 bg-no-repeat bg-top z-30 animate-fade-in-right xl:block"
+    style="background-image: url(/img/patterns/pattern-01a-white.svg); background-size: 150%; ">
+  </div>
+
+</div>
+
+
+<div style="height: 1000px"></div>
+
+
+  <script type="module" src="/js/index.js"></script>
+
+</body>
+
+<html>
