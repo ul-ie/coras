@@ -5,6 +5,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @utility container { margin: auto }
 @theme {
+  /* Colours */
   --color-*: initial;
   --color-black: #000;
   --color-white: #fff;
@@ -123,6 +124,8 @@
   --color-slate-d3: #1F2937;
   --color-slate-d4: #111827;
   --color-slate-d5: #030712;
+
+  /* Fonts and font-sizes */
   --font-sans: Inter, Helvetica, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: Saol, "Cormorant Garamond", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -141,5 +144,68 @@
   --text-8xl: 3.5rem;
   --text-9xl: 4rem;
   --text-10xl: 5rem;
+
+  /* Transitions and animations */
   --default-transition-duration: 250ms;
+  --animation-duration: 800ms;
+  --animation-curve: ease-in-out;
+
+  --animate-fade-in-up: fade-in-up var(--animation-duration) var(--animation-curve) both;
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 100px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  --animate-fade-in-down: fade-in-down var(--animation-duration) var(--animation-curve);
+  @keyframes fade-in-down {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -100px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  --animate-fade-in-left: fade-in-left var(--animation-duration) var(--animation-curve);
+  @keyframes fade-in-left {
+    from {
+      opacity: 0;
+      transform: translate3d(-100px, 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  --animate-fade-in-right: fade-in-right var(--animation-duration) var(--animation-curve);
+  @keyframes fade-in-right {
+    from {
+      opacity: 0;
+      transform: translate3d(100px, 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  --animate-slow-zoom: slow-zoom 7s ease-out 1 both;
+  @keyframes slow-zoom {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+    to {
+      transform: scale3d(1.15, 1.15, 1.15);
+    }
+  }
+
 }
