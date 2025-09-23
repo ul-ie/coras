@@ -1,0 +1,47 @@
+---
+title: Header
+layout: templates/page.html
+---
+
+<h1 class="font-serif is-decorated">{{ title }}</h1>
+
+<p><strong>Note:</strong> this page is a work in progress.</p>
+
+<h2>Examples</h2>
+
+<p>The following examples will attempt to cover the most relevant states and variations that define the header behaviour.</p>
+
+<h3>Scroll Behaviour</h3>
+
+<p>This example is populated with sample content so that you can scroll up and down the page. When the user <strong>scrolls down</strong>, the header disappears. When the user <strong>scrolls back up</strong>, it appears again. The distance from the top of the page is also monitored to alter the size of the header.</p>
+
+{% include '@components/iframe/iframe.twig' with {
+  ifr_folder: 'header',
+  ifr_file: 'example-01',
+  ifr_height: 140,
+  ifr_zoom: 0.7
+} %}
+
+
+<h3>Space Above</h3>
+
+<p>The header is not <code>fixed</code> but has a <code>sticky</code> position that ensures it does not obscure any elements above it (e.g. contextual menus when logged in).</p>
+
+{% include '@components/iframe/iframe.twig' with {
+  ifr_folder: 'header',
+  ifr_file: 'example-02',
+  ifr_height: 140,
+  ifr_zoom: 0.7
+} %}
+
+<h2>Source Code</h2>
+
+<p><strong>Note: </strong>This code is a work-in-progress and several components are being re-worked, so please take what is useful from the below in order to integrate this functionality on the redesign server. </p>
+
+<h3>Twig</h3>
+
+<pre class="max-h-80"><code class="language-twig">{{ html(get_file("inc/components/header/header.twig")) }}</code></pre>
+
+<h3>JavaScript</h3>
+
+<pre class="max-h-80"><code class="">{{ html(get_file("inc/js/scroll.js")) }}</code></pre>

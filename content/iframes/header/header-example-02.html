@@ -1,0 +1,20 @@
+---
+layout: templates/page-iframe.html
+---
+
+{% embed '@components/well/well.twig' with { 
+  well_padding: 'p-3',
+  well_modifiers: 'flex justify-center m-2'
+} %}
+
+  {% block well_html %}
+
+    <p class="m-0 text-base">Example Spacing Above</p>
+
+  {% endblock %}
+
+{% endembed %}
+
+{% include '@components/header/header.twig' %}
+
+<div style="height: 2000px"></div>
