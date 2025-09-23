@@ -34,6 +34,9 @@
   - text: Button
     url: /components/button/
 
+  - text: Header
+    url: /components/header/
+
   - text: Hero Banner
     url: /components/hero-banner/
 

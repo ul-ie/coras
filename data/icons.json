@@ -4252,6 +4252,65 @@
     "unicode": "f0eb",
     "voted": false
   },
+  "circle-arrow-right": {
+    "aliases": {
+      "names": [
+        "arrow-circle-right"
+      ],
+      "unicodes": {
+        "secondary": [
+          "10f0a9"
+        ]
+      }
+    },
+    "changes": [
+      "2.0.0",
+      "5.0.0",
+      "6.0.0-beta1",
+      "6.2.0",
+      "6.3.0",
+      "6.4.0",
+      "6.5.0",
+      "6.6.0",
+      "6.7.0"
+    ],
+    "familyStylesByLicense": {
+      "free": [],
+      "pro": [
+        {
+          "family": "sharp",
+          "style": "light"
+        }
+      ]
+    },
+    "label": "Circle Arrow Right",
+    "ligatures": [],
+    "search": {
+      "terms": [
+        "forward",
+        "next"
+      ]
+    },
+    "svgs": {
+      "sharp": {
+        "light": {
+          "height": 512,
+          "lastModified": 1717165342,
+          "path": "M480 256A224 224 0 1 1 32 256a224 224 0 1 1 448 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zm379.3 11.3L390.6 256l-11.3-11.3-96-96L272 137.4 249.4 160l11.3 11.3L329.4 240 144 240l-16 0 0 32 16 0 185.4 0-68.7 68.7L249.4 352 272 374.6l11.3-11.3 96-96z",
+          "raw": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><path d=\"M480 256A224 224 0 1 1 32 256a224 224 0 1 1 448 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zm379.3 11.3L390.6 256l-11.3-11.3-96-96L272 137.4 249.4 160l11.3 11.3L329.4 240 144 240l-16 0 0 32 16 0 185.4 0-68.7 68.7L249.4 352 272 374.6l11.3-11.3 96-96z\"/></svg>",
+          "viewBox": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "width": 512
+        }
+      }
+    },
+    "unicode": "f0a9",
+    "voted": false
+  },
   "mars-and-venus": {
     "aliases": {
       "unicodes": {
@@ -7331,6 +7390,98 @@
       }
     },
     "unicode": "f358",
+    "voted": false
+  },
+  "xmark": {
+    "aliases": {
+      "names": [
+        "close",
+        "multiply",
+        "remove",
+        "times"
+      ],
+      "unicodes": {
+        "composite": [
+          "1f5d9",
+          "2715",
+          "2716",
+          "274c",
+          "d7"
+        ],
+        "secondary": [
+          "10f00d"
+        ]
+      }
+    },
+    "changes": [
+      "1.0.0",
+      "5.0.0",
+      "5.0.13",
+      "5.11.0",
+      "5.11.1",
+      "6.0.0-beta1",
+      "6.2.0",
+      "6.3.0",
+      "6.4.0",
+      "6.5.0",
+      "6.6.0",
+      "6.7.0"
+    ],
+    "familyStylesByLicense": {
+      "free": [],
+      "pro": [
+        {
+          "family": "sharp",
+          "style": "solid"
+        }
+      ]
+    },
+    "label": "Xmark",
+    "ligatures": [],
+    "search": {
+      "terms": [
+        "Cancellation X",
+        "Multiplication Sign",
+        "Multiplication X",
+        "cancel",
+        "close",
+        "cross",
+        "cross mark",
+        "error",
+        "exit",
+        "incorrect",
+        "mark",
+        "multiplication",
+        "multiply",
+        "notice",
+        "notification",
+        "notify",
+        "problem",
+        "sign",
+        "uncheck",
+        "wrong",
+        "x",
+        "×"
+      ]
+    },
+    "svgs": {
+      "sharp": {
+        "solid": {
+          "height": 512,
+          "lastModified": 1717164889,
+          "path": "M326.6 166.6L349.3 144 304 98.7l-22.6 22.6L192 210.7l-89.4-89.4L80 98.7 34.7 144l22.6 22.6L146.7 256 57.4 345.4 34.7 368 80 413.3l22.6-22.6L192 301.3l89.4 89.4L304 413.3 349.3 368l-22.6-22.6L237.3 256l89.4-89.4z",
+          "raw": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\"><path d=\"M326.6 166.6L349.3 144 304 98.7l-22.6 22.6L192 210.7l-89.4-89.4L80 98.7 34.7 144l22.6 22.6L146.7 256 57.4 345.4 34.7 368 80 413.3l22.6-22.6L192 301.3l89.4 89.4L304 413.3 349.3 368l-22.6-22.6L237.3 256l89.4-89.4z\"/></svg>",
+          "viewBox": [
+            0,
+            0,
+            384,
+            512
+          ],
+          "width": 384
+        }
+      }
+    },
+    "unicode": "f00d",
     "voted": false
   },
   "shapes": {
