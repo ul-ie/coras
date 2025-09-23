@@ -1,3 +1,4 @@
+import globalSearch from './globalSearch.js';
 import menuToggle from './menuToggle.js';
 import modeToggle from './modeToggle.js';
 import pageNav from './pageNav.js';
@@ -20,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Get highlight.js started.
   hljs.highlightAll();
+
+  // Enable global search interactivity.
+  globalSearch();
 
   // Enable the menu toggle animations.
   menuToggle();
