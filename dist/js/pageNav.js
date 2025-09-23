@@ -3,8 +3,8 @@
  */
 export default function pageNav() {
 
-  // Check if the page contains the required navigation element.
-  if (document.getElementById('page-nav')) {
+  // Check if the page contains the navigation element and at least one h2 element.
+  if (document.getElementById('page-nav') && document.querySelectorAll('h2').length) {
 
     // Get the main page heading and page nav area.
     const pageHeading = document.querySelector('h1');

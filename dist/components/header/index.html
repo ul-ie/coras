@@ -19,7 +19,7 @@
       isDarkModeActive ? html.classList.add('dark') : html.classList.remove('dark');
     </script>
 
-    <title>Profile Component</title>
+    <title>Header</title>
 
   </head>
 <body class="antialiased bg-limestone-l5 text-granite-d2 dark:bg-granite-d3 dark:text-granite-l3">
@@ -536,626 +536,239 @@
       <article class="px-5 py-16 sm:px-6 lg:p-20 xl:px-32">
 
         
-<h1 class="font-serif is-decorated">Profile Component</h1>
+<h1 class="font-serif is-decorated">Header</h1>
 
-<h2>Description</h2>
+<p><strong>Note:</strong> this page is a work in progress.</p>
 
-<p>
-    The profile card component is primarily for academic profiles that link to
-    the Pure research portal.
-</p>
+<h2>Examples</h2>
 
+<p>The following examples will attempt to cover the most relevant states and variations that define the header behaviour.</p>
 
+<h3>Scroll Behaviour</h3>
 
-<article class="relative w-64 max-w-full overflow-hidden group not-prose transition duration-300">
+<p>This example is populated with sample content so that you can scroll up and down the page. When the user <strong>scrolls down</strong>, the header disappears. When the user <strong>scrolls back up</strong>, it appears again. The distance from the top of the page is also monitored to alter the size of the header.</p>
 
-  <a class="absolute top-0 left-0 w-full h-full z-10" href="#" title="Name" target="_blank">
-    <span class="sr-only">Name</span>
-  </a>
 
-  <section class="relative overflow-hidden rounded-t">
 
-    <img 
-      class="bl w-full h-72 object-cover object-top group-hover:scale-105 transition duration-300"
-      src="/img/profiles/profile-example-good.svg" alt="Name"
-    />
 
-    <div class="opacity-0 group-hover:opacity-100 bg-granite-d4 bg-opacity-30 transition duration-300 absolute w-full h-full top-0 flex items-center justify-center">
 
-      <div class="opacity-50 absolute right-4 top-4">
 
-        <div class="w-10"></div>
 
-      </div>
 
-      <div class="absolute bottom-0 bg-autumnal bg-opacity-80 w-full flex items-center justify-center py-3 border-t-2 border-white text-center transition-all translate-y-8 group-hover:translate-y-0">
 
-        <div class="w-4 mr-2"></div>
 
-        <div class="text-sm text-white">Research Profile</div>
 
-      </div>
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-2 ">
 
-    </div>
+  
+    <iframe
+      class="w-full"
+      style="zoom: 0.7; height: 200px"
+      src="../../iframes/header/header-example-01/index.html" frameborder="0">
+    </iframe>
 
-  </section>
+    <a class="flex mt-2 leading-none justify-end items-center text-sm text-granite-d1 no-underline dark:text-granite-l1" href="../../iframes/header/header-example-01/index.html" target="_blank">
+      <span>Open in new window</span>
+      
 
-  <section class="py-3 text-green leading-6 border-t-4 border-t-modern group-hover:border-t-modern-l2 dark:text-granite-l5">
 
-    <div class="flex items-center mb-1">
 
-      <div class="w-5 p-0.5 shrink-0 mr-2"></div>
 
-      <span class="font-bold">Name</span>
 
-    </div>
 
-    <div class="flex items-center">
 
-    <div class="w-5 shrink-0 mr-2"></div>
+  <svg
+    title="arrow-up-right-from-square"
+    class="fill-granite-d1 dark:fill-granite-l1 w-3 inline ml-1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 512 512"
+    data-tags="solid,arrow-up-right-from-square,new,open,send,share,upgrade"
+    >
+          <path d="M320 0L288 0l0 64 32 0 82.7 0L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3l0 82.7 0 32 64 0 0-32 0-160 0-32L480 0 320 0zM32 32L0 32 0 64 0 480l0 32 32 0 424 0 32 0 0-32 0-128 0-32-64 0 0 32 0 96L64 448 64 96l96 0 32 0 0-64-32 0L32 32z"/>
+      </svg>
+    </a>
 
-      <div class="text-sm">Title(s)</div>
-
-    </div>
-
-  </section>
-
-</article>
-
-<h2>Syntax</h2>
-
-<p>The profile card component has four parameters:</p>
-
-<ul>
-    <li><code>name</code>: The full name of the person.</li>
-    <li><code>title</code>: Their title(s).</li>
-    <li><code>img_src</code>: The URL of the image to use (defaults to an SVG icon if not provided).</li>
-    <li><code>profile_url</code>: The external URL to their Pure profile.</li>
-</ul>
-
-<p>Use the <code>include</code> tag to render the profile with its parameters as follows:</p>
-
-<iframe frameborder="0" height="400" width="100%">
-    <h1>Hi I'm an iframe</h1>
-</iframe>
-
-<pre><code>{% include &quot;@components/profile/profile.twig&quot; with {
-            name: &quot;Full Name&quot;,
-            title: &quot;Dr., Associate Professor&quot;,
-            profile_url: &quot;/url/to/pure/profile&quot;,
-            img_src: &quot;/url/to/profile/img&quot;
-        } %}</code></pre>
-
-<hr>
-
-<div class="grid grid-cols-1 gap-x-5 gap-y-7 justify-items-center md:grid-cols-2 lg:grid-cols-3">
-
-    
-
-<article class="relative w-64 max-w-full overflow-hidden group not-prose transition duration-300">
-
-  <a class="absolute top-0 left-0 w-full h-full z-10" href="#" title="Gerard Coffey" target="_blank">
-    <span class="sr-only">Gerard Coffey</span>
-  </a>
-
-  <section class="relative overflow-hidden rounded-t">
-
-    <img 
-      class="bl w-full h-72 object-cover object-top group-hover:scale-105 transition duration-300"
-      src="https://www.ul.ie/sites/default/files/styles/portrait/public/media/images/profile_images/1005977.jpeg" alt="Gerard Coffey"
-    />
-
-    <div class="opacity-0 group-hover:opacity-100 bg-granite-d4 bg-opacity-30 transition duration-300 absolute w-full h-full top-0 flex items-center justify-center">
-
-      <div class="opacity-50 absolute right-4 top-4">
-
-        <div class="w-10"></div>
-
-      </div>
-
-      <div class="absolute bottom-0 bg-autumnal bg-opacity-80 w-full flex items-center justify-center py-3 border-t-2 border-white text-center transition-all translate-y-8 group-hover:translate-y-0">
-
-        <div class="w-4 mr-2"></div>
-
-        <div class="text-sm text-white">Research Profile</div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="py-3 text-green leading-6 border-t-4 border-t-modern group-hover:border-t-modern-l2 dark:text-granite-l5">
-
-    <div class="flex items-center mb-1">
-
-      <div class="w-5 p-0.5 shrink-0 mr-2"></div>
-
-      <span class="font-bold">Gerard Coffey</span>
-
-    </div>
-
-    <div class="flex items-center">
-
-    <div class="w-5 shrink-0 mr-2"></div>
-
-      <div class="text-sm">Dr., Associate Professor</div>
-
-    </div>
-
-  </section>
-
-</article>
-
-    
-
-<article class="relative w-64 max-w-full overflow-hidden group not-prose transition duration-300">
-
-  <a class="absolute top-0 left-0 w-full h-full z-10" href="#" title="Placeholder" target="_blank">
-    <span class="sr-only">Placeholder</span>
-  </a>
-
-  <section class="relative overflow-hidden rounded-t">
-
-    <img 
-      class="bl w-full h-72 object-cover object-top group-hover:scale-105 transition duration-300"
-      src="/img/profiles/profile-no-img.svg" alt="Placeholder"
-    />
-
-    <div class="opacity-0 group-hover:opacity-100 bg-granite-d4 bg-opacity-30 transition duration-300 absolute w-full h-full top-0 flex items-center justify-center">
-
-      <div class="opacity-50 absolute right-4 top-4">
-
-        <div class="w-10"></div>
-
-      </div>
-
-      <div class="absolute bottom-0 bg-autumnal bg-opacity-80 w-full flex items-center justify-center py-3 border-t-2 border-white text-center transition-all translate-y-8 group-hover:translate-y-0">
-
-        <div class="w-4 mr-2"></div>
-
-        <div class="text-sm text-white">Research Profile</div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="py-3 text-green leading-6 border-t-4 border-t-modern group-hover:border-t-modern-l2 dark:text-granite-l5">
-
-    <div class="flex items-center mb-1">
-
-      <div class="w-5 p-0.5 shrink-0 mr-2"></div>
-
-      <span class="font-bold">Placeholder</span>
-
-    </div>
-
-    <div class="flex items-center">
-
-    <div class="w-5 shrink-0 mr-2"></div>
-
-      <div class="text-sm">Guy Incognito</div>
-
-    </div>
-
-  </section>
-
-</article>
-
-    
-
-<article class="relative w-64 max-w-full overflow-hidden group not-prose transition duration-300">
-
-  <a class="absolute top-0 left-0 w-full h-full z-10" href="#" title="Colin Fitzpatrick" target="_blank">
-    <span class="sr-only">Colin Fitzpatrick</span>
-  </a>
-
-  <section class="relative overflow-hidden rounded-t">
-
-    <img 
-      class="bl w-full h-72 object-cover object-top group-hover:scale-105 transition duration-300"
-      src="https://www.ul.ie/sites/default/files/styles/person_portrait/public/scieng/dr-colin-fitzpatrick--o8zfr99je0fpmai66lk3p4zmfsm8vyk99bcx3msvo8.jpg" alt="Colin Fitzpatrick"
-    />
-
-    <div class="opacity-0 group-hover:opacity-100 bg-granite-d4 bg-opacity-30 transition duration-300 absolute w-full h-full top-0 flex items-center justify-center">
-
-      <div class="opacity-50 absolute right-4 top-4">
-
-        <div class="w-10"></div>
-
-      </div>
-
-      <div class="absolute bottom-0 bg-autumnal bg-opacity-80 w-full flex items-center justify-center py-3 border-t-2 border-white text-center transition-all translate-y-8 group-hover:translate-y-0">
-
-        <div class="w-4 mr-2"></div>
-
-        <div class="text-sm text-white">Research Profile</div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="py-3 text-green leading-6 border-t-4 border-t-modern group-hover:border-t-modern-l2 dark:text-granite-l5">
-
-    <div class="flex items-center mb-1">
-
-      <div class="w-5 p-0.5 shrink-0 mr-2"></div>
-
-      <span class="font-bold">Colin Fitzpatrick</span>
-
-    </div>
-
-    <div class="flex items-center">
-
-    <div class="w-5 shrink-0 mr-2"></div>
-
-      <div class="text-sm">Dr., Professor</div>
-
-    </div>
-
-  </section>
-
-</article>
-
-    
-
-<article class="relative w-64 max-w-full overflow-hidden group not-prose transition duration-300">
-
-  <a class="absolute top-0 left-0 w-full h-full z-10" href="#" title="Regina Kelly" target="_blank">
-    <span class="sr-only">Regina Kelly</span>
-  </a>
-
-  <section class="relative overflow-hidden rounded-t">
-
-    <img 
-      class="bl w-full h-72 object-cover object-top group-hover:scale-105 transition duration-300"
-      src="https://www.ul.ie/sites/default/files/styles/portrait/public/media/images/profile_images/1617348.jpeg?itok=ukiE2_W7" alt="Regina Kelly"
-    />
-
-    <div class="opacity-0 group-hover:opacity-100 bg-granite-d4 bg-opacity-30 transition duration-300 absolute w-full h-full top-0 flex items-center justify-center">
-
-      <div class="opacity-50 absolute right-4 top-4">
-
-        <div class="w-10"></div>
-
-      </div>
-
-      <div class="absolute bottom-0 bg-autumnal bg-opacity-80 w-full flex items-center justify-center py-3 border-t-2 border-white text-center transition-all translate-y-8 group-hover:translate-y-0">
-
-        <div class="w-4 mr-2"></div>
-
-        <div class="text-sm text-white">Research Profile</div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="py-3 text-green leading-6 border-t-4 border-t-modern group-hover:border-t-modern-l2 dark:text-granite-l5">
-
-    <div class="flex items-center mb-1">
-
-      <div class="w-5 p-0.5 shrink-0 mr-2"></div>
-
-      <span class="font-bold">Regina Kelly</span>
-
-    </div>
-
-    <div class="flex items-center">
-
-    <div class="w-5 shrink-0 mr-2"></div>
-
-      <div class="text-sm">Dr., Associate Professor</div>
-
-    </div>
-
-  </section>
-
-</article>
-
-    
-
-<article class="relative w-64 max-w-full overflow-hidden group not-prose transition duration-300">
-
-  <a class="absolute top-0 left-0 w-full h-full z-10" href="#" title="Edin Omerdic" target="_blank">
-    <span class="sr-only">Edin Omerdic</span>
-  </a>
-
-  <section class="relative overflow-hidden rounded-t">
-
-    <img 
-      class="bl w-full h-72 object-cover object-top group-hover:scale-105 transition duration-300"
-      src="https://www.ul.ie/sites/default/files/styles/person_portrait/public/scieng/Dr%20Edin%20Omerdic%20edin.omerdic%40ul.ie%20C0-045%20Ext%202104.JPG" alt="Edin Omerdic"
-    />
-
-    <div class="opacity-0 group-hover:opacity-100 bg-granite-d4 bg-opacity-30 transition duration-300 absolute w-full h-full top-0 flex items-center justify-center">
-
-      <div class="opacity-50 absolute right-4 top-4">
-
-        <div class="w-10"></div>
-
-      </div>
-
-      <div class="absolute bottom-0 bg-autumnal bg-opacity-80 w-full flex items-center justify-center py-3 border-t-2 border-white text-center transition-all translate-y-8 group-hover:translate-y-0">
-
-        <div class="w-4 mr-2"></div>
-
-        <div class="text-sm text-white">Research Profile</div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="py-3 text-green leading-6 border-t-4 border-t-modern group-hover:border-t-modern-l2 dark:text-granite-l5">
-
-    <div class="flex items-center mb-1">
-
-      <div class="w-5 p-0.5 shrink-0 mr-2"></div>
-
-      <span class="font-bold">Edin Omerdic</span>
-
-    </div>
-
-    <div class="flex items-center">
-
-    <div class="w-5 shrink-0 mr-2"></div>
-
-      <div class="text-sm">Dr.</div>
-
-    </div>
-
-  </section>
-
-</article>
-
-    
-
-<article class="relative w-64 max-w-full overflow-hidden group not-prose transition duration-300">
-
-  <a class="absolute top-0 left-0 w-full h-full z-10" href="#" title="Sanober Farheen Memon" target="_blank">
-    <span class="sr-only">Sanober Farheen Memon</span>
-  </a>
-
-  <section class="relative overflow-hidden rounded-t">
-
-    <img 
-      class="bl w-full h-72 object-cover object-top group-hover:scale-105 transition duration-300"
-      src="https://www.ul.ie/sites/default/files/styles/person_portrait/public/2023-11/Dr%20Sanober%20Farheen%20Sanober.Farheen%20%40ul.ie%20C2-051.jpg" alt="Sanober Farheen Memon"
-    />
-
-    <div class="opacity-0 group-hover:opacity-100 bg-granite-d4 bg-opacity-30 transition duration-300 absolute w-full h-full top-0 flex items-center justify-center">
-
-      <div class="opacity-50 absolute right-4 top-4">
-
-        <div class="w-10"></div>
-
-      </div>
-
-      <div class="absolute bottom-0 bg-autumnal bg-opacity-80 w-full flex items-center justify-center py-3 border-t-2 border-white text-center transition-all translate-y-8 group-hover:translate-y-0">
-
-        <div class="w-4 mr-2"></div>
-
-        <div class="text-sm text-white">Research Profile</div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="py-3 text-green leading-6 border-t-4 border-t-modern group-hover:border-t-modern-l2 dark:text-granite-l5">
-
-    <div class="flex items-center mb-1">
-
-      <div class="w-5 p-0.5 shrink-0 mr-2"></div>
-
-      <span class="font-bold">Sanober Farheen Memon</span>
-
-    </div>
-
-    <div class="flex items-center">
-
-    <div class="w-5 shrink-0 mr-2"></div>
-
-      <div class="text-sm">Dr.</div>
-
-    </div>
-
-  </section>
-
-</article>
-
-    
-
-<article class="relative w-64 max-w-full overflow-hidden group not-prose transition duration-300">
-
-  <a class="absolute top-0 left-0 w-full h-full z-10" href="#" title="Olga Korostynska" target="_blank">
-    <span class="sr-only">Olga Korostynska</span>
-  </a>
-
-  <section class="relative overflow-hidden rounded-t">
-
-    <img 
-      class="bl w-full h-72 object-cover object-top group-hover:scale-105 transition duration-300"
-      src="https://www.ul.ie/sites/default/files/styles/person_portrait/public/2022-10/Prof%20Olga%20Korostynska_0.jpg?h=f1e147e9&itok=CoJHGx8I" alt="Olga Korostynska"
-    />
-
-    <div class="opacity-0 group-hover:opacity-100 bg-granite-d4 bg-opacity-30 transition duration-300 absolute w-full h-full top-0 flex items-center justify-center">
-
-      <div class="opacity-50 absolute right-4 top-4">
-
-        <div class="w-10"></div>
-
-      </div>
-
-      <div class="absolute bottom-0 bg-autumnal bg-opacity-80 w-full flex items-center justify-center py-3 border-t-2 border-white text-center transition-all translate-y-8 group-hover:translate-y-0">
-
-        <div class="w-4 mr-2"></div>
-
-        <div class="text-sm text-white">Research Profile</div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="py-3 text-green leading-6 border-t-4 border-t-modern group-hover:border-t-modern-l2 dark:text-granite-l5">
-
-    <div class="flex items-center mb-1">
-
-      <div class="w-5 p-0.5 shrink-0 mr-2"></div>
-
-      <span class="font-bold">Olga Korostynska</span>
-
-    </div>
-
-    <div class="flex items-center">
-
-    <div class="w-5 shrink-0 mr-2"></div>
-
-      <div class="text-sm">Dr., Adjunct Professor</div>
-
-    </div>
-
-  </section>
-
-</article>
-
-    
-
-<article class="relative w-64 max-w-full overflow-hidden group not-prose transition duration-300">
-
-  <a class="absolute top-0 left-0 w-full h-full z-10" href="#" title="Abhishek Kumar Awasthi" target="_blank">
-    <span class="sr-only">Abhishek Kumar Awasthi</span>
-  </a>
-
-  <section class="relative overflow-hidden rounded-t">
-
-    <img 
-      class="bl w-full h-72 object-cover object-top group-hover:scale-105 transition duration-300"
-      src="https://www.ul.ie/sites/default/files/styles/person_portrait/public/2024-01/Dr%20Abhishek%20Kumar%20Awasthi%20abhishek.awasthi%40ul.ie%20D2-020.jpeg" alt="Abhishek Kumar Awasthi"
-    />
-
-    <div class="opacity-0 group-hover:opacity-100 bg-granite-d4 bg-opacity-30 transition duration-300 absolute w-full h-full top-0 flex items-center justify-center">
-
-      <div class="opacity-50 absolute right-4 top-4">
-
-        <div class="w-10"></div>
-
-      </div>
-
-      <div class="absolute bottom-0 bg-autumnal bg-opacity-80 w-full flex items-center justify-center py-3 border-t-2 border-white text-center transition-all translate-y-8 group-hover:translate-y-0">
-
-        <div class="w-4 mr-2"></div>
-
-        <div class="text-sm text-white">Research Profile</div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="py-3 text-green leading-6 border-t-4 border-t-modern group-hover:border-t-modern-l2 dark:text-granite-l5">
-
-    <div class="flex items-center mb-1">
-
-      <div class="w-5 p-0.5 shrink-0 mr-2"></div>
-
-      <span class="font-bold">Abhishek Kumar Awasthi</span>
-
-    </div>
-
-    <div class="flex items-center">
-
-    <div class="w-5 shrink-0 mr-2"></div>
-
-      <div class="text-sm">Dr.</div>
-
-    </div>
-
-  </section>
-
-</article>
-
+  
 </div>
 
+<h3>Space Above</h3>
+
+<p>The header is not <code>fixed</code> but has a <code>sticky</code> position that ensures it does not obscure any elements above it (e.g. contextual menus when logged in).</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="border border-granite-l3 rounded-md dark:border-granite-d1 p-2 ">
+
+  
+    <iframe
+      class="w-full"
+      style="zoom: 0.7; height: 200px"
+      src="../../iframes/header/header-example-02/index.html" frameborder="0">
+    </iframe>
+
+    <a class="flex mt-2 leading-none justify-end items-center text-sm text-granite-d1 no-underline dark:text-granite-l1" href="../../iframes/header/header-example-02/index.html" target="_blank">
+      <span>Open in new window</span>
+      
+
+
+
+
+
+
+
+  <svg
+    title="arrow-up-right-from-square"
+    class="fill-granite-d1 dark:fill-granite-l1 w-3 inline ml-1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 512 512"
+    data-tags="solid,arrow-up-right-from-square,new,open,send,share,upgrade"
+    >
+          <path d="M320 0L288 0l0 64 32 0 82.7 0L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3l0 82.7 0 32 64 0 0-32 0-160 0-32L480 0 320 0zM32 32L0 32 0 64 0 480l0 32 32 0 424 0 32 0 0-32 0-128 0-32-64 0 0 32 0 96L64 448 64 96l96 0 32 0 0-64-32 0L32 32z"/>
+      </svg>
+    </a>
+
+  
+</div>
 <h2>Source Code</h2>
 
-<p>The below can be found at <code>inc/components/profile/profile.twig</code>.</p>
+<p><strong>Note: </strong>This code is a work-in-progress and several components are being re-worked, so please take what is useful from the below in order to integrate this functionality on the redesign server. </p>
 
-<pre><code class="language-twig">{# 
-  The Profile Card Component
-  ---
-  Available variables:
-  - name
-  - title
-  - img_src
-  - profile_url
-#}
+<h3>Twig</h3>
 
-&lt;article class=&quot;relative w-64 max-w-full overflow-hidden group not-prose transition duration-300&quot;&gt;
+<pre class="max-h-80"><code class="language-twig">{% set btn_classes = &#39;flex text-white items-center py-3 px-2 md:px-4 hover:bg-black/30 transition-colors cursor-pointer&#39; %}
 
-  &lt;a class=&quot;absolute top-0 left-0 w-full h-full z-10&quot; href=&quot;{{ profile_url }}&quot; title=&quot;{{ name }}&quot; target=&quot;_blank&quot;&gt;
-    &lt;span class=&quot;sr-only&quot;&gt;{{ name }}&lt;/span&gt;
-  &lt;/a&gt;
+&lt;header id=&quot;main-header&quot; class=&quot;sticky top-0 left-0 z-20 bg-heritage overflow-hidden will-transform transition-all duration-500&quot;&gt;
 
-  &lt;section class=&quot;relative overflow-hidden rounded-t&quot;&gt;
+  &lt;div class=&quot;container px-5 md:px-0 py-2 md:py-4 flex justify-between&quot;&gt;
 
-    &lt;img 
-      class=&quot;bl w-full h-72 object-cover object-top group-hover:scale-105 transition duration-300&quot;
-      src=&quot;{{ img_src ?? &#39;/img/profiles/profile-no-img.svg&#39; }}&quot; alt=&quot;{{ name }}&quot;
-    /&gt;
+    &lt;a href=&quot;/&quot;&gt;
 
-    &lt;div class=&quot;opacity-0 group-hover:opacity-100 bg-granite-d4 bg-opacity-30 transition duration-300 absolute w-full h-full top-0 flex items-center justify-center&quot;&gt;
+      {% include &#39;@components/logo/logo.twig&#39; with {
+        logo_overrides: &#39;h-12 md:h-20 transition-all duration-700&#39;,
+        logo_graphic_fill: &#39;fill-white&#39;,
+        logo_text_fill: &#39;fill-white&#39;,
+        logo_text_modifiers: &#39;hidden md:block transition-opacity duration-700&#39;
+      } %}
 
-      &lt;div class=&quot;opacity-50 absolute right-4 top-4&quot;&gt;
-
-        &lt;div class=&quot;w-10&quot;&gt;{# {% include &#39;@assets/icons/external-link.svg&#39; with { classes: &#39;fill-white stroke-white&#39; } %} #}&lt;/div&gt;
-
-      &lt;/div&gt;
-
-      &lt;div class=&quot;absolute bottom-0 bg-autumnal bg-opacity-80 w-full flex items-center justify-center py-3 border-t-2 border-white text-center transition-all translate-y-8 group-hover:translate-y-0&quot;&gt;
-
-        &lt;div class=&quot;w-4 mr-2&quot;&gt;{# {% include &#39;@assets/icons/book-open.svg&#39; with { classes: &#39;fill-white stroke-white&#39; } %} #}&lt;/div&gt;
-
-        &lt;div class=&quot;text-sm text-white&quot;&gt;Research Profile&lt;/div&gt;
-
-      &lt;/div&gt;
-
-    &lt;/div&gt;
-
-  &lt;/section&gt;
-
-  &lt;section class=&quot;py-3 text-green leading-6 border-t-4 border-t-modern group-hover:border-t-modern-l2 dark:text-granite-l5&quot;&gt;
-
-    &lt;div class=&quot;flex items-center mb-1&quot;&gt;
-
-      &lt;div class=&quot;w-5 p-0.5 shrink-0 mr-2&quot;&gt;{# {% include &#39;@assets/icons/user-2.svg&#39; with { classes: &#39;fill-green stroke-green dark:fill-modern dark:stroke-modern&#39; } %} #}&lt;/div&gt;
-
-      &lt;span class=&quot;font-bold&quot;&gt;{{ name }}&lt;/span&gt;
-
-    &lt;/div&gt;
+    &lt;/a&gt;
 
     &lt;div class=&quot;flex items-center&quot;&gt;
 
-    &lt;div class=&quot;w-5 shrink-0 mr-2&quot;&gt;{# {% include &#39;@assets/icons/academic-cap-2.svg&#39; with { classes: &#39;fill-green stroke-green dark:fill-modern dark:stroke-modern&#39; } %} #}&lt;/div&gt;
+      &lt;div class=&quot;flex md:bg-pebble-d3/70 rounded-lg h-fit overflow-hidden&quot;&gt;
 
-      &lt;div class=&quot;text-sm&quot;&gt;{{ title }}&lt;/div&gt;
+        &lt;button id=&quot;global-search-trigger&quot; class=&quot;{{ btn_classes }} md:border-r-2 border-r-white&quot;&gt;
+
+          {% include &#39;@components/icon/icon.twig&#39; with {
+            icon_name: &#39;magnifying-glass&#39;,
+            icon_fill: &#39;fill-white&#39;,
+            icon_type: &#39;solid&#39;,
+            icon_size: &#39;w-6 md:w-5 mr-2&#39;
+          } %}
+
+          &lt;span class=&quot;hidden md:inline&quot;&gt;Search&lt;/span&gt;
+
+        &lt;/button&gt;
+
+        &lt;button class=&quot;{{ btn_classes }}&quot;&gt;
+
+          {% include &#39;@components/icon/icon.twig&#39; with {
+            icon_name: &#39;bars&#39;,
+            icon_fill: &#39;fill-white&#39;,
+            icon_type: &#39;solid&#39;,
+            icon_size: &#39;w-5 md:w-4 md:mr-3&#39;
+          } %}
+
+          &lt;span class=&quot;hidden md:inline&quot;&gt;Menu&lt;/span&gt;
+
+        &lt;/button&gt;
+
+      &lt;/div&gt;
 
     &lt;/div&gt;
 
-  &lt;/section&gt;
+  &lt;/div&gt;
 
-&lt;/article&gt;</code></pre>
+  &lt;div id=&quot;global-search&quot; class=&quot;absolute top-0 left-0 p-3 md:left-auto md:right-0 flex w-full md:w-xl xl:w-3xl h-full bg-heritage transition-all duration-400 translate-x-full opacity-0 overflow-hidden&quot;&gt;
+
+    &lt;div class=&quot;flex justify-between items-center w-full&quot;&gt;
+
+      &lt;label class=&quot;sr-only&quot; for=&quot;global-search&quot;&gt;Search University of Limerick&lt;/label&gt;
+
+      &lt;input class=&quot;block w-full bg-transparent md:bg-white text-white md:text-granite-d3 md:py-3 md:px-4 md:mr-2 rounded-sm md:text-lg focus:outline-0 md:focus:outline-3 md:focus:outline-modern&quot; type=&quot;search&quot; name=&quot;global-search-input&quot; id=&quot;global-search-input&quot; placeholder=&quot;Search&quot;&gt;
+
+      &lt;button id=&quot;global-search-go&quot; class=&quot;{{ btn_classes }}&quot; title=&quot;Search&quot;&gt;
+
+        {% include &#39;@components/icon/icon.twig&#39; with {
+          icon_name: &#39;magnifying-glass&#39;,
+          icon_fill: &#39;fill-white&#39;,
+          icon_type: &#39;solid&#39;,
+          icon_size: &#39;h-6 md:h-8&#39;
+        } %}
+
+      &lt;/button&gt;
+
+      &lt;button id=&quot;global-search-dismiss&quot; class=&quot;{{ btn_classes }}&quot; title=&quot;Dismiss&quot;&gt;
+
+        {% include &#39;@components/icon/icon.twig&#39; with {
+          icon_name: &#39;xmark&#39;,
+          icon_fill: &#39;fill-white&#39;,
+          icon_type: &#39;solid&#39;,
+          icon_size: &#39;h-6 md:h-8&#39;,
+          icon_modifiers: &#39;transition-transform origin-center duration-700&#39;
+        } %}
+
+      &lt;/button&gt;
+
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+&lt;/header&gt;</code></pre>
+
+<h3>JavaScript</h3>
+
+<pre class="max-h-80"><code class="">/**
+ * This function handles all scroll-related behaviours.
+ */
+export default function scroll() {
+  let previousScroll;
+  let mainHeader = document.getElementById(&#39;main-header&#39;);
+  let headerLogo = document.querySelector(&#39;header [data-logo]&#39;)
+  let headerLogoText = document.querySelector(&#39;header [data-logo-text]&#39;);
+  window.addEventListener(&quot;scroll&quot;, () =&gt; {
+
+    if (mainHeader) {
+      let currentScroll = window.pageYOffset;
+      let isScrollingDown = currentScroll - previousScroll &gt; 0;
+      let scrollThresholdReached = currentScroll &gt; 200;
+
+      if (isScrollingDown) {
+        mainHeader.style.transform = &#39;translateY(-110%)&#39;;
+      } else {
+        mainHeader.style.transform = &#39;translateY(0)&#39;;
+      }
+
+      if (scrollThresholdReached) {
+        headerLogo.style.height = &#39;48px&#39;;
+        headerLogoText.style.opacity = &#39;0&#39;
+      } else {
+        headerLogoText.style.opacity = &#39;1&#39;
+        headerLogo.style.height = &#39;&#39;;
+      }
+
+      // Update the scroll position.
+      previousScroll = currentScroll;
+    }
+  });
+}</code></pre>
 
       </article>
 

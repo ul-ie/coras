@@ -1,32 +1,34 @@
 /**
- * Alter the top menu bar and logo on scroll.
+ * This function handles all scroll-related behaviours.
  */
 export default function scroll() {
+  let previousScroll;
+  let mainHeader = document.getElementById('main-header');
+  let headerLogo = document.querySelector('header [data-logo]')
+  let headerLogoText = document.querySelector('header [data-logo-text]');
+  window.addEventListener("scroll", () => {
 
-  const topBar = document.getElementById('top-bar');
-  const container = document.querySelector('#top-bar .container');
-  const logoText = document.querySelector('#main-logo svg #logo-text');
+    if (mainHeader) {
+      let currentScroll = window.pageYOffset;
+      let isScrollingDown = currentScroll - previousScroll > 0;
+      let scrollThresholdReached = currentScroll > 200;
 
-  window.addEventListener('scroll', () => {
-
-    if (topBar) {
-      let topBarThreshold = document.documentElement.scrollTop > 500 ? true : false;
-
-      if (topBarThreshold) {
-        topBar.classList.remove('h-28');
-        topBar.classList.add('h-16');
-        container.classList.remove('py-4');
-        container.classList.add('py-2');
-        logoText.classList.remove('opacity-100');
-        logoText.classList.add('opacity-0');
+      if (isScrollingDown) {
+        mainHeader.style.transform = 'translateY(-110%)';
       } else {
-        topBar.classList.remove('h-16');
-        topBar.classList.add('h-28');
-        container.classList.remove('py-2');
-        container.classList.add('py-4');
-        logoText.classList.remove('opacity-0');
-        logoText.classList.add('opacity-100');
+        mainHeader.style.transform = 'translateY(0)';
       }
+
+      if (scrollThresholdReached) {
+        headerLogo.style.height = '48px';
+        headerLogoText.style.opacity = '0'
+      } else {
+        headerLogoText.style.opacity = '1'
+        headerLogo.style.height = '';
+      }
+
+      // Update the scroll position.
+      previousScroll = currentScroll;
     }
   });
 }
