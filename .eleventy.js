@@ -8,6 +8,7 @@ module.exports = async function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ 'inc/img': '/img' });
   eleventyConfig.addPassthroughCopy({ 'inc/fonts': '/fonts' });
   eleventyConfig.addPassthroughCopy({ 'inc/js': '/js' });
+  eleventyConfig.addPassthroughCopy({ 'inc/video': '/video' });
 
   eleventyConfig.addDataExtension('yml', (contents) => {
     return yaml.load(contents);
