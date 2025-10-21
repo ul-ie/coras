@@ -1,0 +1,28 @@
+---
+layout: templates/page-iframe.html
+---
+
+{% set img_array = [
+  'colourful-girl.jpg',
+  'dance-class.jpg',
+  'four-new-ul-students.jpg',
+  'girl-with-ul-shirt-and-glasses.jpg',
+  'limerick-city-shannon-river.jpg',
+  'memorial-garden.jpg',
+  'basketball-scholar.jpg'
+] %}
+
+{# <div class="relative z-30 bg-white p-5 text-center">Example Spacing Above</div> #}
+
+{% include "@components/header/header.twig" with {
+  bg_colour: 'bg-transparent'
+}%}
+
+{% include '@components/hero-banner/hero-banner.twig' with {
+  hero_variation: 'fullscreen',
+  hero_heading: 'Championing environmental sustainability',
+  hero_img_url: '/img/samples/' ~ img_array[5],
+  is_video: true
+} %}
+
+<div class="relative overflow-hidden bg-white" style="height: 1000px;"></div>
