@@ -645,14 +645,14 @@
 
 <pre class="max-h-80"><code class="language-twig">{% set btn_classes = &#39;flex text-white items-center py-3 px-2 md:px-4 hover:bg-black/30 transition-colors cursor-pointer&#39; %}
 
-&lt;header id=&quot;main-header&quot; class=&quot;sticky top-0 left-0 z-20 bg-heritage overflow-hidden will-transform transition-all duration-500&quot;&gt;
+&lt;header id=&quot;main-header&quot; class=&quot;sticky top-0 left-0 z-40 bg-heritage overflow-hidden will-transform transition-all duration-500 shadow-lg&quot;&gt;
 
   &lt;div class=&quot;container px-5 md:px-0 py-2 md:py-4 flex justify-between&quot;&gt;
 
     &lt;a href=&quot;/&quot;&gt;
 
       {% include &#39;@components/logo/logo.twig&#39; with {
-        logo_overrides: &#39;h-12 md:h-20 transition-all duration-700&#39;,
+        logo_overrides: &#39;h-12 md:h-18 transition-all duration-700&#39;,
         logo_graphic_fill: &#39;fill-white&#39;,
         logo_text_fill: &#39;fill-white&#39;,
         logo_text_modifiers: &#39;hidden md:block transition-opacity duration-700&#39;
@@ -662,7 +662,7 @@
 
     &lt;div class=&quot;flex items-center&quot;&gt;
 
-      &lt;div class=&quot;flex md:bg-pebble-d3/70 rounded-lg h-fit overflow-hidden&quot;&gt;
+      &lt;div id=&quot;search-and-menu&quot; class=&quot;flex md:bg-pebble-d3/70 rounded-lg h-fit overflow-hidden transition-opacity duration-500&quot;&gt;
 
         &lt;button id=&quot;global-search-trigger&quot; class=&quot;{{ btn_classes }} md:border-r-2 border-r-white&quot;&gt;
 
@@ -696,7 +696,7 @@
 
   &lt;/div&gt;
 
-  &lt;div id=&quot;global-search&quot; class=&quot;absolute top-0 left-0 p-3 md:left-auto md:right-0 flex w-full md:w-xl xl:w-3xl h-full bg-heritage transition-all duration-400 translate-x-full opacity-0 overflow-hidden&quot;&gt;
+  &lt;div id=&quot;global-search&quot; class=&quot;absolute top-0 left-0 py-3 px-5 md:px-10 md:left-auto md:right-0 flex w-full md:w-xl xl:w-3xl h-full bg-heritage md:bg-transparent transition-all duration-400 translate-x-full opacity-0 overflow-hidden&quot;&gt;
 
     &lt;div class=&quot;flex justify-between items-center w-full&quot;&gt;
 
@@ -736,13 +736,18 @@
 <h3>JavaScript</h3>
 
 <pre class="max-h-80"><code class="">/**
- * This function handles all scroll-related behaviours.
+ * This function handles all header-related behaviours.
  */
-export default function scroll() {
+export default function header() {
   let previousScroll;
   let mainHeader = document.getElementById(&#39;main-header&#39;);
   let headerLogo = document.querySelector(&#39;header [data-logo]&#39;)
   let headerLogoText = document.querySelector(&#39;header [data-logo-text]&#39;);
+  let hasFsBanner = document.querySelector(&#39;[data-is-fullscreen&#39;);
+  if (mainHeader &amp;&amp; hasFsBanner) {
+    mainHeader.style.backgroundColor = &#39;transparent&#39;;
+    mainHeader.classList.remove(&#39;shadow-lg&#39;);
+  }
   window.addEventListener(&quot;scroll&quot;, () =&gt; {
 
     if (mainHeader) {
@@ -751,17 +756,23 @@ export default function scroll() {
       let scrollThresholdReached = currentScroll &gt; 200;
 
       if (isScrollingDown) {
-        mainHeader.style.transform = &#39;translateY(-110%)&#39;;
+        mainHeader.style.transform = &#39;translateY(-125%)&#39;;
       } else {
         mainHeader.style.transform = &#39;translateY(0)&#39;;
       }
 
       if (scrollThresholdReached) {
+        mainHeader.style.backgroundColor = &#39;&#39;;
+        mainHeader.classList.add(&#39;shadow-lg&#39;);
         headerLogo.style.height = &#39;48px&#39;;
-        headerLogoText.style.opacity = &#39;0&#39;
+        headerLogoText.style.opacity = &#39;0&#39;;
       } else {
         headerLogoText.style.opacity = &#39;1&#39;
         headerLogo.style.height = &#39;&#39;;
+        if (hasFsBanner) {
+          mainHeader.style.backgroundColor = &#39;transparent&#39;;
+          mainHeader.classList.remove(&#39;shadow-lg&#39;);
+        }
       }
 
       // Update the scroll position.
