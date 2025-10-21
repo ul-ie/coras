@@ -12,12 +12,14 @@ export default function globalSearch() {
     const searchElement = document.getElementById('global-search');
     const searchInput = document.getElementById('global-search-input');
     const searchGo = document.getElementById('global-search-go');
+    const searchMenu = document.getElementById('search-and-menu');
 
     // Run the rotate transform while invisible to avoid sluggishness on first trigger.
     searchDismissIcon.style.transform = 'rotate(360deg)';
 
     // Show and focus the global search input.
     searchTrigger.addEventListener('click', ()=> {
+      searchMenu.classList.add('opacity-0');
       searchElement.classList.remove('translate-x-full');
       searchElement.classList.remove('opacity-0');
       searchDismissIcon.style.transform = 'rotate(-360deg)';
@@ -35,6 +37,7 @@ export default function globalSearch() {
     searchDismiss.addEventListener('pointerdown', ()=> {
       searchDismissIcon.style.transform = 'rotate(360deg)';
       setTimeout(()=> {
+        searchMenu.classList.remove('opacity-0');
         searchElement.classList.add('translate-x-full');
         searchElement.classList.add('opacity-0');
         searchInput.value = '';

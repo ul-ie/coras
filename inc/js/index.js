@@ -1,29 +1,28 @@
 import globalSearch from './globalSearch.js';
+import header from './header.js';
 import menuToggle from './menuToggle.js';
 import modeToggle from './modeToggle.js';
 import pageNav from './pageNav.js';
-import scroll from './scroll.js';
 import intersection from './intersection.js';
 import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/core.min.js  ';
 import xml from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/languages/xml.min.js';
 import twig from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/languages/twig.min.js';
 import yaml from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/languages/yaml.min.js';
+import javascript from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/languages/javascript.min.js';
 
 /**
  * Execute only on page load.
  */
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Languages to highlight.
-  hljs.registerLanguage('xml', xml);
-  hljs.registerLanguage('twig', twig);
-  hljs.registerLanguage('yaml', yaml);
+  // Enable header-related behaviour.
+  header();
 
-  // Get highlight.js started.
-  hljs.highlightAll();
+  // Create the page navigation links.
+  pageNav();
 
-  // Enable global search interactivity.
-  globalSearch();
+  // Start the Observer API for any elements in viewport.
+  intersection();
 
   // Enable the menu toggle animations.
   menuToggle();
@@ -31,13 +30,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Enable the dark/light mode toggle functionality.
   modeToggle();
 
-  // Create the page navigation links.
-  pageNav();
+  // Enable global search interactivity.
+  globalSearch();
 
-  // Enable scroll-related behaviour.
-  scroll();
+  // Languages to highlight.
+  hljs.registerLanguage('xml', xml);
+  hljs.registerLanguage('twig', twig);
+  hljs.registerLanguage('yaml', yaml);
+  hljs.registerLanguage('js', javascript);
 
-  // Start the Observer API for any elements in viewport.
-  intersection();
+  // Get highlight.js started.
+  hljs.highlightAll();
 
 }, false);
