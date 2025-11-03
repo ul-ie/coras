@@ -16,9 +16,9 @@ layout: templates/page.html
   {% block well_html %}
 
     {% include '@components/icon/icon.twig' with {
-      icon_name: 'user',
-      icon_size: 'w-10',
-      icon_fill: 'fill-green dark:fill-modern'
+      ic_name: 'user',
+      ic_size: 'w-10',
+      ic_fill: 'fill-green dark:fill-modern'
     } %}
 
   {% endblock %}
@@ -38,7 +38,7 @@ layout: templates/page.html
 
 <h3>Properties</h3>
 
-<p>An icon has one mandatory and four optional properties.</p>
+<p>An icon has one mandatory and seven optional properties.</p>
 
 {% include '@templates/component-props.html' %}
 
@@ -48,81 +48,80 @@ layout: templates/page.html
 
 <h3>Colour</h3>
 
-<p>All icon colours are defined by the <code>icon_fill</code> property, which expects a class or set of classes. Styling the stroke will have no effect; even very thin icons do not have a stroke.</p>
+<p>All icon colours are defined by the <code>ic_fill</code> property, which expects a class or set of classes. Styling the stroke will have no effect; even very thin icons do not have a stroke.</p>
 
 <p><strong>Note:</strong> Twotone icons are styled by a single colour; the secondary path (the one with the lighter colour) simply has a lower opacity.</p>
 
 <h4>Examples</h4>
 
-<p><strong>(i)</strong> Setting the <code>icon_fill</code> of a graduation cap to <a href="/foundations/colour/#ul-green">UL Green</a> and, if dark mode is supported, to <a href="/foundations/colour/#modern-green">Modern Green</a>:</p>
+<p><strong>(i)</strong> Setting the <code>ic_fill</code> of a graduation cap to <a href="/foundations/colour/#ul-green">UL Green</a> and, if dark mode is supported, to <a href="/foundations/colour/#modern-green">Modern Green</a>:</p>
 
 {% include '@components/icon/icon.twig' with {
-  icon_name: 'graduation-cap',
-  icon_fill: 'fill-green dark:fill-modern',
-  icon_size: 'w-20'
+  ic_name: 'graduation-cap',
+  ic_fill: 'fill-green dark:fill-modern',
+  ic_size: 'w-20'
 } %}
 
 <pre><code>{{ html("
 {% include 'ul:icon' with {
-  icon_name: 'graduation-cap',
-  icon_fill: 'fill-green dark:fill-modern'
+  ic_name: 'graduation-cap',
+  ic_fill: 'fill-green dark:fill-modern'
 } %}
 ")}}</code></pre>
 
 
-<p><strong>(ii)</strong> Setting the <code>icon_fill</code> to <a href="/foundations/colour/#modern-green">Shannon</a>, and using a lighter shade of the same colour on hover.</p>
+<p><strong>(ii)</strong> Setting the <code>ic_fill</code> to <a href="/foundations/colour/#modern-green">Shannon</a>, and using a lighter shade of the same colour on hover.</p>
 
 {% include '@components/icon/icon.twig' with {
-  icon_name: 'earth-europe',
-  icon_fill: 'fill-shannon hover:fill-shannon-l1',
-  icon_size: 'w-16'
+  ic_name: 'earth-europe',
+  ic_fill: 'fill-shannon hover:fill-shannon-l1',
+  ic_size: 'w-16'
 } %}
 
 <pre><code>{{ html("
 {% include 'ul:icon' with {
-  icon_name: 'earth-europe',
-  icon_fill: 'fill-shannon hover:fill-shannon-l1'
+  ic_name: 'earth-europe',
+  ic_fill: 'fill-shannon hover:fill-shannon-l1'
 } %}
 ")}}</code></pre>
-
 
 
 <h3>Size</h3>
 
-<p>The <code>icon_size</code> will default to <code>w-4</code> (1 rem) if left unset. Below are some examples of increasing this size to <code>w-6</code>, <code>w-8</code> and <code>w-10</code> respectively. For brevity, only the code for the last example is shown.</p>
+<p>The <code>ic_size</code> will default to <code>w-4</code> (1 rem) if left unset. Below are some examples of increasing this size to <code>w-6</code>, <code>w-8</code> and <code>w-10</code> respectively. For brevity, only the code for the last example is shown.</p>
 
 <div class="flex items-end gap-2">
 
   {% include '@components/icon/icon.twig' with {
-    icon_name: 'user',
-    icon_fill: 'fill-golden'
+    ic_name: 'user',
+    ic_fill: 'fill-golden'
   } %}
 
   {% include '@components/icon/icon.twig' with {
-    icon_name: 'user',
-    icon_fill: 'fill-golden',
-    icon_size: 'w-6'
+    ic_name: 'user',
+    ic_fill: 'fill-golden',
+    ic_size: 'w-6'
   } %}
 
   {% include '@components/icon/icon.twig' with {
-    icon_name: 'user',
-    icon_fill: 'fill-golden',
-    icon_size: 'w-8'
+    ic_name: 'user',
+    ic_fill: 'fill-golden',
+    ic_size: 'w-8'
   } %}
 
   {% include '@components/icon/icon.twig' with {
-    icon_name: 'user',
-    icon_fill: 'fill-golden',
-    icon_size: 'w-10'
+    ic_name: 'user',
+    ic_fill: 'fill-golden',
+    ic_size: 'w-10'
   } %}
 
 </div>
 
 <pre><code>{{ html("
   {% include 'ul:icon' with {
-    icon_name: 'user',
-    icon_fill: 'fill-golden',
-    icon_size: 'w-10'
+    ic_name: 'user',
+    ic_fill: 'fill-golden',
+    ic_size: 'w-10'
   } %}
 ")}}</code></pre>
 
@@ -130,7 +129,7 @@ layout: templates/page.html
 
 <h3>Type</h3>
 
-<p>The <code>icon_type</code> can be set to <strong>line</strong> (for icons with an outline, the default value), <strong>social</strong> (for social media brand icons), <strong>solid</strong> (for solid colour icons) or <strong>twotone</strong> (for icons with two shades of the same colour). Below are examples of each type, with code included for the social example:</p>
+<p>The <code>ic_type</code> can be set to <strong>line</strong> (for icons with an outline, the default value), <strong>social</strong> (for social media brand icons), <strong>solid</strong> (for solid colour icons) or <strong>twotone</strong> (for icons with two shades of the same colour). Below are examples of each type, with code included for the social example:</p>
 
 <div class="flex items-end gap-2">
 
@@ -141,9 +140,9 @@ layout: templates/page.html
     {% block well_html %}
 
       {% include '@components/icon/icon.twig' with {
-        icon_name: 'microscope',
-        icon_size: 'h-10',
-        icon_fill: 'fill-green dark:fill-modern'
+        ic_name: 'microscope',
+        ic_size: 'h-10',
+        ic_fill: 'fill-green dark:fill-modern'
       } %}
 
       <div class="text-xs">line</div>
@@ -159,10 +158,10 @@ layout: templates/page.html
     {% block well_html %}
 
       {% include '@components/icon/icon.twig' with {
-        icon_name: 'instagram',
-        icon_type: 'social',
-        icon_size: 'h-10',
-        icon_fill: 'fill-green dark:fill-modern'
+        ic_name: 'instagram',
+        ic_type: 'social',
+        ic_size: 'h-10',
+        ic_fill: 'fill-green dark:fill-modern'
       } %}
 
       <div class="text-xs">social</div>
@@ -178,10 +177,10 @@ layout: templates/page.html
     {% block well_html %}
 
       {% include '@components/icon/icon.twig' with {
-        icon_name: 'house',
-        icon_type: 'solid',
-        icon_size: 'h-10',
-        icon_fill: 'fill-green dark:fill-modern'
+        ic_name: 'house',
+        ic_type: 'solid',
+        ic_size: 'h-10',
+        ic_fill: 'fill-green dark:fill-modern'
       } %}
 
       <div class="text-xs">solid</div>
@@ -197,10 +196,10 @@ layout: templates/page.html
     {% block well_html %}
 
       {% include '@components/icon/icon.twig' with {
-        icon_name: 'house',
-        icon_type: 'twotone',
-        icon_size: 'h-10',
-        icon_fill: 'fill-green dark:fill-modern'
+        ic_name: 'house',
+        ic_type: 'twotone',
+        ic_size: 'h-10',
+        ic_fill: 'fill-green dark:fill-modern'
       } %}
 
       <div class="text-xs">twotone</div>
@@ -213,10 +212,10 @@ layout: templates/page.html
 
 <pre><code>{{ html("
 {% include 'ul:icon' with {
-  icon_name: 'instagram',
-  icon_type: 'social',
-  icon_size: 'h-10',
-  icon_fill: 'fill-green dark:fill-modern'
+  ic_name: 'instagram',
+  ic_type: 'social',
+  ic_size: 'h-10',
+  ic_fill: 'fill-green dark:fill-modern'
 } %}
 ")}}</code></pre>
 

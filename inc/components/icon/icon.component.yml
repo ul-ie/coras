@@ -4,15 +4,15 @@ version: 1.0
 props:
   type: object
   required:
-    - icon_name
+    - ic_name
   properties:
-    icon_name:
-      title: icon_name
+    ic_name:
+      title: ic_name
       type: string
       description: The icon file name, without the extension. E.g. in the case of 'icon-path/solid/user.svg' the icon name would be <strong>user</strong>.
       default: none
-    icon_type:
-      title: icon_type
+    ic_type:
+      title: ic_type
       type: string
       description: The type (or style) of the chosen icon. This must be correct as it determines part of the file path.
       enum:
@@ -21,18 +21,39 @@ props:
         - solid
         - twotone
       default: line
-    icon_size:
-      title: icon_size
+    ic_size:
+      title: ic_size
       type: string
       description: The size of the icon, which is defined by a width utility class. 
       default: w-4
-    icon_fill:
-      title: icon_fill
+    ic_fill:
+      title: ic_fill
       type: string
       description: The icon's fill colour. Inherits by default, so can be applied via a container element.
       default: none
-    icon_modifiers:
-      title: icon_modifiers
+    ic_aria_hide:
+      title: ic_aria_hide
+      type: boolean
+      description: Boolean to control whether to hide the icon from screen readers.
+      enum:
+        - true
+        - false
+      default: false
+    ic_data_tags:
+      title: ic_data_tags
+      type: boolean
+      description: Controls whether or not icon search meta-data is injected into the markup.
+      enum:
+        - true
+        - false
+      default: false
+    ic_modifiers:
+      title: ic_modifiers
       type: string
-      description: Optional modifier classes in case further customisation is needed.
+      description: Add-on modifier classes in case further customisation is needed.
+      default: none
+    ic_overrides:
+      title: ic_overrides
+      type: string
+      description: Allows a full take-over of the component classes if modifiers are not enough.
       default: none

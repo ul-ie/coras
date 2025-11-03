@@ -5,17 +5,19 @@
   class="inline-block relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1/5 dark:hover:bg-modern-l1/10" >
 
   {% include '@components/icon/icon.twig' with {
-    icon_name: 'sun-bright',
-    icon_type: 'twotone',
-    icon_size: 'w-6',
-    icon_fill: 'fill-green dark:hidden'
+    ic_name: 'sun-bright',
+    ic_type: 'twotone',
+    ic_size: 'w-6',
+    ic_fill: 'fill-green dark:hidden',
+    ic_aria_hide: true
   } %}
 
   {% include '@components/icon/icon.twig' with {
-    icon_name: 'moon-stars',
-    icon_type: 'twotone',
-    icon_size: 'w-6 -mt-1',
-    icon_fill: 'fill-white hidden dark:block'
+    ic_name: 'moon-stars',
+    ic_type: 'twotone',
+    ic_size: 'w-6 -mt-1',
+    ic_fill: 'fill-white hidden dark:block',
+    ic_aria_hide: true
   } %}
 
   <span class="sr-only">Switch between dark and light modes</span>

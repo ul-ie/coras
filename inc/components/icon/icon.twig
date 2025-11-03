@@ -7,48 +7,53 @@
  */
 #}
 {% set icons = json_decode(get_file('./data/icons.json')) %}
-{% set icon_fill = icon_fill ?? '' %}
-{% set icon_name = icon_name ?? '' %}
-{% set icon_size = icon_size ?? 'w-4' %}
-{% set icon_type = icon_type in ['line', 'social', 'solid', 'twotone'] ? icon_type : 'line' %}
+{% set ic_fill = ic_fill ?? '' %}
+{% set ic_name = ic_name ?? '' %}
+{% set ic_size = ic_size ?? 'w-4' %}
+{% set ic_type = ic_type in ['line', 'social', 'solid', 'twotone'] ? ic_type : 'line' %}
+{% set ic_aria_hide = ic_aria_hide ?? 'false' %}
+{% set ic_data_tags = ic_data_tags ?? 'false' %}
 
 {# Map the icon type to the icon family [0] and icon style [1]. #}
-{% set icon_type_map = {
+{% set ic_type_map = {
   'line': ['sharp', 'light'],
   'social': ['classic', 'brands'],
   'solid': ['sharp', 'solid'],
   'twotone': ['sharp-duotone', 'solid']
 } %}
-{% set icon_family = icon_type_map[icon_type][0] %}
-{% set icon_style = icon_type_map[icon_type][1] %}
+{% set ic_family = ic_type_map[ic_type][0] %}
+{% set ic_style = ic_type_map[ic_type][1] %}
 
 {# Create a string of search terms for client-side filtering. #}
 {% set search_terms = [
-  icon_type,
-  icon_name,
-  icons[icon_name].search.terms
+  ic_type,
+  ic_name,
+  icons[ic_name].search.terms
 ]|join(',') %}
 
 {# Combine the classes. #}
-{% set icon_classes = [
-  icon_fill,
-  icon_size,
-  icon_modifiers
-]|join(' ') %}
+{% set ic_classes %}
+  {% if ic_overrides is not empty %}
+    {{ ic_overrides }}
+  {% else %}
+    {{ [ic_fill, ic_size, ic_modifiers]|join(' ') }}
+  {% endif %}
+{% endset %}
 
-{% if icons[icon_name].svgs[icon_family][icon_style] %}
+{% if icons[ic_name].svgs[ic_family][ic_style] %}
   <svg
-    title="{{ icon_name }}"
-    class="{{ icon_classes }}"
+    title="{{ ic_name }}"
+    class="{{ ic_classes|trim }}"
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="{{ icons[icon_name].svgs[icon_family][icon_style].viewBox|join(' ') }}"
-    data-tags="{{ search_terms }}"
+    aria-hidden="{{ ic_aria_hide }}"
+    viewBox="{{ icons[ic_name].svgs[ic_family][ic_style].viewBox|join(' ') }}"
+    {% if ic_data_tags == 'true' %}{{ 'data-tags="' ~ search_terms ~ '"'}}{% endif %}
     >
-    {% if icon_type == 'twotone' %}
-      <path opacity=".4" d="{{ icons[icon_name].svgs[icon_family][icon_style].path[0] }}"/>
-      <path d="{{ icons[icon_name].svgs[icon_family][icon_style].path[1] }}"/>
+    {% if ic_type == 'twotone' %}
+      <path opacity=".4" d="{{ icons[ic_name].svgs[ic_family][ic_style].path[0] }}"/>
+      <path d="{{ icons[ic_name].svgs[ic_family][ic_style].path[1] }}"/>
     {% else %}
-      <path d="{{ icons[icon_name].svgs[icon_family][icon_style].path }}"/>
+      <path d="{{ icons[ic_name].svgs[ic_family][ic_style].path }}"/>
     {% endif %}
   </svg>
 {% else %}

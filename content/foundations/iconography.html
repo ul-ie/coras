@@ -40,9 +40,10 @@ script: iconSearch.js
     {% block well_html %}
 
       {% include '@components/icon/icon.twig' with {
-        icon_name: 'graduation-cap',
-        icon_fill: 'fill-green dark:fill-modern',
-        icon_size: 'h-9 mb-4'
+        ic_name: 'graduation-cap',
+        ic_fill: 'fill-green dark:fill-modern',
+        ic_size: 'h-9',
+        ic_modifiers: 'mb-4'
       }%}
 
       <div class="flex flex-col text-xs">
@@ -75,9 +76,9 @@ script: iconSearch.js
 
   {% for icon in icons %}
 
-    {% set icon_name =  get_object_key(icons, loop.index0) %}
-    {% set icon_fill = 'fill-green dark:fill-modern' %}
-    {% set icon_size = 'h-9 mb-4' %}
+    {% set ic_name =  get_object_key(icons, loop.index0) %}
+    {% set ic_fill = 'fill-green dark:fill-modern' %}
+    {% set ic_size = 'h-9 mb-4' %}
 
     {% for style in icon.familyStylesByLicense.pro %}
 
@@ -85,13 +86,13 @@ script: iconSearch.js
       {% set icon_style = icon.familyStylesByLicense.pro[loop.index0].style %}
 
       {% if icon_family == 'sharp' and icon_style == 'light' %}
-        {% set icon_type = 'line' %}
+        {% set ic_type = 'line' %}
       {% elseif icon_family == 'classic' and icon_style == 'brands' %}
-        {% set icon_type = 'social' %}
+        {% set ic_type = 'social' %}
       {% elseif icon_family == 'sharp' and icon_style == 'solid' %}
-        {% set icon_type = 'solid' %}
+        {% set ic_type = 'solid' %}
       {% elseif icon_family == 'sharp-duotone' and icon_style == 'solid' %}
-        {% set icon_type = 'twotone' %}
+        {% set ic_type = 'twotone' %}
       {% endif %}
       
       {% embed "@components/well/well.twig" with {
@@ -104,8 +105,8 @@ script: iconSearch.js
           {% include '@components/icon/icon.twig' %}
 
           <div class="flex flex-col text-xs">
-            <span><strong>{{ icon_name }}</strong></span>
-            <span>{{ icon_type }}</span>
+            <span><strong>{{ ic_name }}</strong></span>
+            <span>{{ ic_type }}</span>
           </div>
 
         {% endblock %}
