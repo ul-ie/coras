@@ -31,8 +31,8 @@ props:
       type: string
       description: The icon's fill colour. Inherits by default, so can be applied via a container element.
       default: none
-    ic_aria_hide:
-      title: ic_aria_hide
+    ic_aria_hidden:
+      title: ic_aria_hidden
       type: boolean
       description: Boolean to control whether to hide the icon from screen readers.
       enum:
