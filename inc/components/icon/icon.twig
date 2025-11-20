@@ -11,8 +11,8 @@
 {% set ic_name = ic_name ?? '' %}
 {% set ic_size = ic_size ?? 'w-4' %}
 {% set ic_type = ic_type in ['line', 'social', 'solid', 'twotone'] ? ic_type : 'line' %}
-{% set ic_aria_hidden = ic_aria_hidden ?? 'false' %}
-{% set ic_data_tags = ic_data_tags ?? 'false' %}
+{% set ic_aria_hidden = ic_aria_hidden ?? false %}
+{% set ic_data_tags = ic_data_tags ?? false %}
 
 {# Map the icon type to the icon family [0] and icon style [1]. #}
 {% set ic_type_map = {
@@ -25,11 +25,7 @@
 {% set ic_style = ic_type_map[ic_type][1] %}
 
 {# Create a string of search terms for client-side filtering. #}
-{% set search_terms = [
-  ic_type,
-  ic_name,
-  icons[ic_name].search.terms
-]|join(',') %}
+{% set search_terms = [ic_type, ic_name, icons[ic_name].search.terms|join(',')]|join(',') %}
 
 {# Combine the classes. #}
 {% set ic_classes %}
@@ -45,9 +41,9 @@
     title="{{ ic_name }}"
     class="{{ ic_classes|trim }}"
     xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="{{ ic_aria_hidden }}"
-    viewBox="{{ icons[ic_name].svgs[ic_family][ic_style].viewBox|join(' ') }}"
-    {% if ic_data_tags == 'true' %}{{ 'data-tags="' ~ search_terms ~ '"'}}{% endif %}
+    viewbox="{{ icons[ic_name].svgs[ic_family][ic_style].viewBox|join(' ') }}"
+    {% if ic_aria_hiddden %} aria-hidden="true" {% endif %}
+    {% if ic_data_tags %} data-tags="{{ search_terms }}" {% endif %}
     >
     {% if ic_type == 'twotone' %}
       <path opacity=".4" d="{{ icons[ic_name].svgs[ic_family][ic_style].path[0] }}"/>
@@ -57,5 +53,5 @@
     {% endif %}
   </svg>
 {% else %}
-  <small class="text-xs mx-1" title="Invalid icon">!</small>
+  <small class="text-sm font-bold mx-1" title="{{ ic_name }} not found">!</small>
 {% endif %}
