@@ -6,7 +6,7 @@ export default function header() {
   let mainHeader = document.getElementById('main-header');
   let headerLogo = document.querySelector('header [data-logo]')
   let headerLogoText = document.querySelector('header [data-logo-text]');
-  let hasFsBanner = document.querySelector('[data-is-fullscreen');
+  let hasFsBanner = document.querySelector('[data-is-fullscreen]');
   if (mainHeader && hasFsBanner) {
     mainHeader.style.backgroundColor = 'transparent';
     mainHeader.classList.remove('shadow-lg');
@@ -18,7 +18,7 @@ export default function header() {
       let isScrollingDown = currentScroll - previousScroll > 0;
       let scrollThresholdReached = currentScroll > 200;
 
-      if (isScrollingDown) {
+      if (isScrollingDown  && scrollThresholdReached) {
         mainHeader.style.transform = 'translateY(-125%)';
       } else {
         mainHeader.style.transform = 'translateY(0)';
