@@ -26,9 +26,6 @@
 
   
 
-
-
-
 <header id="main-header"
   class="sticky top-0 left-0 z-40 bg-heritage overflow-hidden will-transform transition-all duration-500 shadow-lg">
 
@@ -211,12 +208,18 @@
 
 
 
-<div class="relative flex flex-col justify-center overflow-hidden -mt-28 h-[calc(100vh+3rem)] lg:h-[calc(100vh+1rem)]" data-is-fullscreen>
+<div class="relative flex flex-col justify-center overflow-hidden -mt-28 h-[calc(100dvh+3rem)] lg:h-[calc(100dvh+1rem)]" data-is-fullscreen>
 
   
-    <video autoplay loop muted class="absolute top-0 left-0 w-full h-full object-cover">
+    <video
+      class="absolute top-0 left-0 w-full h-full object-cover"
+      poster="/img/samples/ul-drone-footage-frame.jpg"
+      loop muted autoplay
+      >
 
       <source src="/video/ul-drone-footage.webm" type="video/webm">
+
+      <source src="/video/ul-drone-footage.mp4" type="video/mp4">
 
     </video>
 
@@ -229,7 +232,7 @@
   <div class="lg:container">
 
     <div
-      class="absolute lg:relative w-full lg:w-1/2 z-20 bottom-0 left-0 bg-heritage/80 px-5 md:px-10 lg:px-16 py-10 md:py-16 lg:py-20 border-modern border-l-8 animate-fade-in-up overflow-visible"
+      class="absolute lg:relative w-full lg:w-1/2 z-30 bottom-0 left-0 bg-heritage/80 px-5 md:px-10 lg:px-16 py-10 md:py-16 lg:py-20 border-modern border-l-8 animate-fade-in-up overflow-visible"
       style="clip-path: polygon(0% 0%, 80% 0%, 80% 10%, 100% 10%, 100% 100%, 0% 100%)"
       >
 
