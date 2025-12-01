@@ -387,10 +387,10 @@ layout: templates/page.html
 <p>Result:</p>
 
 {% embed "@components/well/well.twig" with { 
-  "well_padding": "p-4" 
-} %}
+  "padding": "p-4" 
+} only %}
 
-  {% block well_html %}
+  {% block html %}
 
     <div class="text-center block w-full border border-dashed border-modern"><code>p-4</code></div>
 
@@ -408,10 +408,10 @@ layout: templates/page.html
 <p>Result:</p>
 
 {% embed "@components/well/well.twig" with { 
-  "well_padding": "px-8" 
-} %}
+  "padding": "px-8" 
+} only %}
 
-  {% block well_html %}
+  {% block html %}
 
     <div class="text-center block w-full border border-dashed border-modern"><code>px-8</code></div>
 
@@ -429,10 +429,10 @@ layout: templates/page.html
 <p>Result:</p>
 
 {% embed "@components/well/well.twig" with { 
-  "well_padding": "py-8" 
-} %}
+  "padding": "py-8" 
+} only %}
 
-  {% block well_html %}
+  {% block html %}
 
     <div class="text-center block w-full border border-dashed border-modern"><code>py-8</code></div>
 
@@ -450,10 +450,10 @@ layout: templates/page.html
 <p>Result:</p>
 
 {% embed "@components/well/well.twig" with { 
-  "well_padding": "pt-0.5 pr-1 pb-1.5 pl-2" 
-} %}
+  "padding": "pt-0.5 pr-1 pb-1.5 pl-2" 
+} only %}
 
-  {% block well_html %}
+  {% block html %}
 
     <div class="text-center block w-full border border-dashed border-modern"><code>pt-0.5 pr-1 pb-1.5 pl-2</code></div>
 

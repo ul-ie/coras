@@ -1,22 +1,20 @@
 name: Well
-status: stable
-version: 1.0
 props:
   type: object
   required:
-    - well_html
+    - html
   properties:
-    well_html:
-      title: well_html
+    html:
+      title: html
       type: block
       description: The block of content to insert into the well.
       default: none
-    well_padding:
-      title: well_padding
+    padding:
+      title: padding
       type: string
       description: The padding to apply to the well.
       default: p-6
-    well_modifiers:
-      title: well_modifiers
+    modifiers:
+      title: modifiers
       type: string
       description: Optional utility classes to apply to the well to further modify its appearance.

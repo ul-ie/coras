@@ -452,11 +452,11 @@ layout: templates/page.html
 ') }}</code></pre>
 
 {% embed '@components/well/well.twig' with {
-  well_modifiers: 'relative',
-  well_padding: 'p-8'
+  modifiers: 'relative',
+  padding: 'p-8'
 } %}
 
-  {% block well_html %}
+  {% block html %}
 
     <div class="absolute w-24 h-8 bottom-1 right-1 {{ grid_styles }}"></div>
 
@@ -562,11 +562,11 @@ layout: templates/page.html
 <p>In the below example, flex items are positioned using <code>justify-center</code>.</p>
 
 {% embed '@components/well/well.twig' with {
-  well_padding: 'p-2',
-  well_modifiers: 'flex justify-center'
+  padding: 'p-2',
+  modifiers: 'flex justify-center'
 } %}
 
-  {% block well_html %}
+  {% block html %}
 
     {% for i in 1..4 %}
 
@@ -590,11 +590,11 @@ layout: templates/page.html
 <p>In the below example, flex items are positioned using <code>justify-between</code>.</p>
 
 {% embed '@components/well/well.twig' with {
-  well_padding: 'p-2',
-  well_modifiers: 'flex justify-between'
+  padding: 'p-2',
+  modifiers: 'flex justify-between'
 } %}
 
-  {% block well_html %}
+  {% block html %}
 
     {% for i in 1..4 %}
 
@@ -650,11 +650,11 @@ layout: templates/page.html
   within their cell.</p>
 
 {% embed '@components/well/well.twig' with {
-  well_padding: 'p-2',
-  well_modifiers: 'grid grid-cols-3 justify-items-center'
+  padding: 'p-2',
+  modifiers: 'grid grid-cols-3 justify-items-center'
 } %}
 
-  {% block well_html %}
+  {% block html %}
 
     {% for i in 1..3 %}
 
@@ -716,11 +716,11 @@ layout: templates/page.html
 <p>In the below example, the flex items are positioned along the centre of the container's cross axis.</p>
 
 {% embed '@components/well/well.twig' with {
-  well_padding: 'p-2',
-  well_modifiers: 'flex h-48 items-center'
+  padding: 'p-2',
+  modifiers: 'flex h-48 items-center'
 } %}
 
-  {% block well_html %}
+  {% block html %}
 
     {% for i in 1..3 %}
 
@@ -744,11 +744,11 @@ layout: templates/page.html
 <p>As a final example, here's how you might justify and align flex items at the same time.</p>
 
 {% embed '@components/well/well.twig' with {
-  well_padding: 'py-6 px-12',
-  well_modifiers: 'flex flex-wrap items-center justify-center'
+  padding: 'py-6 px-12',
+  modifiers: 'flex flex-wrap items-center justify-center'
 } %}
 
-  {% block well_html %}
+  {% block html %}
 
     {% for i in 1..5 %}
 

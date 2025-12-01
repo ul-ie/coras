@@ -6,8 +6,8 @@
  * @see https://coras.ul.ie/components/well/#properties for full documentation.
  */
 #}
-{% set well_padding = well_padding ?? 'p-6' %}
-{% set well_modifiers = well_modifiers ?? '' %}
+{# Set variable defaults. #}
+{% set padding = padding ?? 'p-6' %}
 
 {# Define the core component styling. #}
 {% set core_classes = 'border border-granite-l3 rounded-md dark:border-granite-d1' %}
@@ -15,13 +15,13 @@
 {# Combine our classes. #}
 {% set classes = [
   core_classes,
-  well_padding,
-  well_modifiers
+  padding,
+  modifiers
 ]|join(' ') %}
 
 {# The component markup. #}
 <div class="{{ classes }}">
 
-  {% block well_html %}{% endblock %}
+  {% block html %}{% endblock %}
 
 </div>

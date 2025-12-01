@@ -14,17 +14,24 @@ script: iconSearch.js
   {% endfor %}
 {% endfor %}
 
+{{ icon('twotone', 'books', { classes: 'w-24 fill-green', id: 'user', aria_hidden: true }) }}
+
 <h1 class="font-serif is-decorated">{{ title }}</h1>
 
 <p>We currently have <strong>{{ icon_count }}</strong> icons available covering a wide range of categories, ordered alphabetically below. If you can't find the icon you're looking for using the search, then please <a href="mailto:webdev@ul.ie" target="_blank">let us know</a>.</p>
+
+{% set icon_name = 'magnifying-glass' %}
 
 {% include '@components/button/button.twig' with {
   btn_text: 'Search Icons',
   btn_type: 'link',
   btn_url: '#icon-search',
-  icon_name: 'magnifying-glass',
-  icon_type: 'solid'
-} %}
+} only %}
+
+{% include '@components/button/button.twig' with {
+  btn_text: 'Search Icons',
+  
+} only %}
 
 <h2>How to Use</h2>
 
