@@ -7,94 +7,63 @@
  */
 #}
 
-{% set btn_modifiers = btn_modifiers ?? '' %}
-{% set btn_padding = btn_padding in ['equal', 'normal'] ? btn_padding : 'normal' %}
-{% set btn_size = btn_size in ['small', 'medium', 'large'] ? btn_size : 'medium' %}
-{% set btn_theme = btn_theme ?? 'primary-green' %}
-{% set btn_type = btn_type in ['button', 'link', 'submit', 'reset'] ? btn_type : 'link' %}
-{% set btn_url = btn_url ?? '#' %}
-{% set btn_width = btn_width in ['fit', 'full'] ? btn_width : 'fit' %}
-{% set icon_pos = icon_pos in ['left', 'right'] ? icon_pos : 'left' %}
+{# Set variable defaults #}
+{% set type = type in ['button', 'link', 'submit', 'reset'] ? type : 'link' %}
+{% set themes = ['solid-green', 'solid-blue', 'outline-green', 'outline-blue', 'transparent'] %}
+{% set theme = theme in themes ? theme : 'solid-green' %}
+{% set padding = padding ?? 'px-6 py-2' %}
+{% set id = id ? 'id="' ~ id ~ '"' : '' %}
+{% set is_disabled = is_disabled ?? false %}
+{% set is_download = is_download ?? false %}
+{% set is_new_tab = is_new_tab ?? false %}
+{% set aria_controls = aria_controls ? 'aria-controls="' ~ aria_controls ~ '"' : '' %}
+{% set aria_expanded = aria_expanded ? 'aria-expanded="' ~ aria_expanded ~ '"' : '' %}
+{% set cursor_classes = is_disabled ? 'cursor-not-allowed opacity-80' : 'cursor-pointer' %}
+{% set text_classes = text_classes ?? 'text-lg' %}
 
-{# Define the core component styling. #}
-{% set core_classes = 'no-underline flex items-center justify-center rounded-md border-2 transition' %}
+{# Component core classes. #}
+{% set core_classes = 'flex items-center justify-center w-fit border-2 rounded-md transition no-underline' %}
 
-{# Apply modifier classes, if any. #}
-{% set modifier_classes = btn_modifiers %}
-
-{# Define the button width classes. #}
-{% set width_classes = btn_width == 'full' ? 'w-full' : 'w-fit' %}
-
-{# Define the button size classes. #}
-{% set size_classes %}
-  {%- if btn_size == 'small' -%}
-    {{ btn_padding == 'equal' ? 'p-1.5 text-base' : 'px-3 py-1 text-base' }}
-  {%- elseif btn_size == 'medium' -%}
-    {{ btn_padding == 'equal' ? 'p-3 text-lg' : 'px-6 py-2 text-lg' }}
-  {%- elseif btn_size == 'large' -%}
-    {{ btn_padding == 'equal' ? 'p-5 text-xl' : 'px-9 py-3 text-xl' }}
-  {% endif %}
-{% endset %}
-
-{# Set up button theme classes as an object, to handle all the different permutations. #}
+{# Set up button theme classes as an object. #}
 {% set theme_classes = {
 
-  'primary-green': 'bg-green border-green text-white fill-white hover:bg-green-d1 hover:border-green-d1 active:bg-green-d2 active:border-green-d2',
+  'solid-green': 'bg-green border-green text-white hover:bg-green-d1 hover:border-green-d1 active:bg-green-d2 active:border-green-d2',
 
-  'primary-blue': 'bg-stone border-stone text-white fill-white hover:bg-stone-d1 hover:border-stone-d1 active:bg-stone-d2 active:border-green-d2',
+  'solid-blue': 'bg-stone border-stone text-white hover:bg-stone-d1 hover:border-stone-d1 active:bg-stone-d2 active:border-green-d2',
 
-  'secondary-green': 'bg-white border-green text-green fill-green hover:bg-green hover:text-white hover:fill-white active:bg-green-d1',
+  'outline-green': 'bg-white border-green text-green hover:bg-green hover:text-white active:bg-green-d1',
 
-  'secondary-blue': 'bg-white border-stone text-stone fill-stone hover:bg-stone hover:text-white hover:fill-white active:bg-stone-d1',
+  'outline-blue': 'bg-white border-stone text-stone hover:bg-stone hover:text-white active:bg-stone-d1',
 
-  'danger': 'bg-munster border-munster text-white fill-white hover:bg-munster-d1 hover:border-munster-d1 active:bg-munster-d2 active:border-munster-d2',
-
-  'none': ''
+  'transparent': 'bg-transparent border-white text-white hover:bg-black/30 active:bg-black/50'
 
 } %}
 
 {# Re-combine our classes into a single string to pass to the component. #}
-{% set btn_classes = [
-  core_classes,
-  modifier_classes,
-  size_classes,
-  theme_classes[btn_theme],
-  width_classes,
-  is_disabled ? 'cursor-not-allowed opacity-80' : ''
-]|join(' ') %}
-
-{# Set up the icon markup in advance, to avoid repeating it. #}
-{% set icon %}
-  {% if icon_name is not empty %}
-    {% include '@components/icon/icon.twig' with {
-      ic_name: icon_name,
-      ic_type: icon_type
-    } %}
+{% set classes %}
+  {% if overrides is not empty %}
+    {{ overrides }}
+  {% else %}
+    {{ [core_classes, cursor_classes, theme_classes[theme], padding, modifiers]|join(' ') }}
   {% endif %}
 {% endset %}
 
-{# Define the button content. #}
+{# Define the button content, including optional blocks. #}
 {% set btn_content %}
-  {% if icon_name is empty %}
-    {{ btn_text }}
-  {% elseif is_icon_only %}
-    <span title="{{ btn_text }}" aria-label="{{ btn_text }}">
-      {{ icon }}
-    </span>
-  {% else %}
-    {{ icon_pos == 'left' ? icon : '' }}
-    <span class="{{ icon_pos == 'right' ? 'mr-3' : 'ml-3' }}">
-      {{ btn_text }}
-    </span>
-    {{ icon_pos == 'right' ? icon : '' }}
-  {% endif %}
+  {% block html_left %}{% endblock %}
+  <span class="{{ text_classes }}">
+    {{ text }}
+  </span>
+  {% block html_right %}{% endblock %}
 {% endset %}
 
 {# The component markup #}
-{% if btn_type == 'link' %}
+{% if type == 'link' %}
   <a
-    href="{{ is_disabled ? '#' : btn_url }}"
-    class="{{- btn_classes -}}"
+    {{ id }}
+    href="{{ is_disabled ? '#' : url }}"
+    class="{{ classes|trim }}"
+    title="{{ text }}"
     {{ is_download ? 'download' : '' }}
     {{ is_new_tab ? 'target="_blank"' : '' }}
     >
@@ -102,8 +71,12 @@
   </a>
 {% else %}
   <button
-    type="{{ btn_type }}"
-    class="{{- btn_classes -}}"
+    {{ id }}
+    {{ aria_controls }}
+    {{ aria_expanded }}
+    type="{{ type }}"
+    class="{{ classes|trim }}"
+    title="{{ text }}"
     {{ is_disabled ? 'disabled' : '' }}
     >
     {{ btn_content }}

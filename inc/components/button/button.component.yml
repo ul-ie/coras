@@ -1,71 +1,29 @@
 name: Button
-status: experimental
-version: 1.0
 props:
   type: object
   required:
-    - btn_text
+    - text
   properties:
-    btn_text:
-      title: btn_text
+    aria_controls:
+      title: aria_controls
       type: string
-      description: The text for the button. Required, even if it is an icon-only button (in which case it will be used to describe the button's action).
-    btn_theme:
-      title: btn_theme
+      description: Identifies the element the button controls.
+    aria_expanded:
+      title: aria_expanded
       type: string
-      description: The theme to apply to the button. This should be consistent with the button's purpose and/or function.
-      enum:
-        - primary-green
-        - primary-blue
-        - secondary-green
-        - secondary-blue
-        - danger
-        - none
-      default: primary-green
-    btn_type:
-      title: btn_type
+      description: Indicates if the controlled element is expaneded/collapsed.
+    html_left:
+      title: html_left
       type: string
-      description: The button type.
-      enum:
-        - button
-        - link
-        - submit
-        - reset
-      default: link
-    btn_url:
-      title: btn_url
+      description: Content to inject to the left of the main text content.
+    html_right:
+      title: html_right
       type: string
-      description: The url for buttons of type link.
-      default: '#'
-    btn_size:
-      title: btn_size
+      description: Content to inject to the right of the main text content.
+    id:
+      title: id
       type: string
-      description: The size of the button.
-      enum:
-        - small
-        - medium
-        - large
-      default: medium
-    btn_width:
-      title: btn_width
-      type: string
-      description: The button width. Should it stretch to the full width of the container, or fit the content.
-      enum:
-        - fit
-        - full
-      default: fit
-    btn_padding:
-      title: btn_padding
-      type: string
-      description: Whether the button padding is the same on all sides (equal), or has more horizontal padding (normal).
-      enum:
-        - equal
-        - normal
-      default: normal
-    btn_modifiers:
-      title: btn_modifiers
-      type: string
-      description: Optional utility classes to further modify appearance. Particularly useful if no btn_theme is applied.
+      description: The button's id.
     is_disabled:
       title: is_disabled
       type: boolean
@@ -90,38 +48,51 @@ props:
         - true
         - false
       default: false
-    icon_name:
-      title: icon_name
+    modifiers:
+      title: modifiers
       type: string
-      description: The name of the svg icon, if any.
-    icon_only:
-      title: icon_only
-      type: boolean
-      description: Is the button just an icon or is it an icon with text.
+      description: Extra classes to apply to the button.
+    overrides:
+      title: overrides
+      type: string
+      description: Override all core and theme button styles, allowing for full customisation.
+    padding:
+      title: padding
+      type: string
+      description: The horizontal and vertical padding to apply to the button.
+      default: 'px-6 py-2'
+    text:
+      title: text
+      type: string
+      description: The text for the button. Required, even if it is an icon-only button (it is also used for the button title if the title is not set).
+    text_classes:
+      title: text_classes
+      type: string
+      description: Classes to specifically target the text.
+      default: 'text-lg'
+    theme:
+      title: theme
+      type: string
+      description: The theme to apply to the button. Will be overriden if `overrides` classes exist.
       enum:
-        - true
-        - false
-      default: false
-    icon_pos:
-      title: icon_pos
+        - solid-green
+        - solid-blue
+        - outline-green
+        - outline-blue
+        - transparent
+      default:
+        - solid-green
+    type:
+      title: type
       type: string
-      description: The icon's position.
+      description: The button type.
       enum:
-        - left
-        - right
-      default: left
-    icon_size:
-      title: icon_size
+        - button
+        - link
+        - submit
+        - reset
+      default: link
+    url:
+      title: url
       type: string
-      description: The size of the icon, which is defined by a width utility class. 
-      default: w-4
-    icon_type:
-      title: icon_type
-      type: string
-      description: The type (or style) of the chosen icon. This must be correct as it determines the file path.
-      enum:
-        - brand
-        - duotone
-        - regular
-        - solid
-      default: solid
+      description: The url for buttons of type link.
