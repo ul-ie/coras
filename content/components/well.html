@@ -11,7 +11,7 @@ layout: templates/page.html
 
 {% embed '@components/well/well.twig' %}
 
-  {% block well_html %}
+  {% block html %}
 
     <div class="text-center"><code>div</code> content inside a well.</div>
 
@@ -21,13 +21,13 @@ layout: templates/page.html
 
 <h3>Syntax</h3>
 
-<p>A well is to be used with the <code>embed</code> tag, as it is a container for other content. To place content inside the well, use the <code>block</code> placeholder named <code>well_html</code> as follows:</p>
+<p>A well is to be used with the <code>embed</code> tag, as it is a container for other content. To place content inside the well, use the <code>block</code> placeholder named <code>html</code> as follows:</p>
 
 <pre><code>{{ html("
-{% embed 'THEME_NAME:well' with {
+{% embed 'ul:well' with {
   property: 'value' } %}
 
-  {% block well_html %}
+  {% block html %}
 
     <!-- Your content or components here -->
 
@@ -38,13 +38,13 @@ layout: templates/page.html
 
 <h3>Properties</h3>
 
-<p>In addition to the <code>well_html</code> block a well has two properties, both optional.</p>
+<p>In addition to the <code>html</code> block a well has two properties, both optional.</p>
 
 {% include '@templates/component-props.html' %}
 
 <h2>Variants</h2>
 
-<p>The padding can be customized per instance using the optional <code>well_padding</code> variable. In the following examples the padding is indicated with a dashed outline.</p>
+<p>The padding can be customized per instance using the optional <code>padding</code> variable. In the following examples the padding is indicated with a dashed outline.</p>
 
 <h3>Custom Padding</h3>
 
@@ -52,9 +52,9 @@ layout: templates/page.html
   make it smaller:</p>
 
 <pre><code>{{ html("
-{% embed 'ul:well' with { well_padding: 'p-2' } %}
+{% embed 'ul:well' with { padding: 'p-2' } %}
 
-  {% block well_html %}
+  {% block html %}
 
     <!-- Your content or components here -->
 
@@ -65,9 +65,9 @@ layout: templates/page.html
 
 <p>This would result in the following output:</p>
 
-{% embed '@components/well/well.twig' with { well_padding: 'p-2' } %}
+{% embed '@components/well/well.twig' with { padding: 'p-2' } %}
 
-  {% block well_html %}
+  {% block html %}
 
     <div class="text-center outline-1 outline-modern outline-dashed dark:outline-modern-d2">A well with less padding.</div>
 
@@ -82,10 +82,10 @@ layout: templates/page.html
 
 <pre><code>{{ html("
 {% embed 'ul:well' with { 
-  well_padding: 'p-3 md:p-5 lg:p-8' 
+  padding: 'p-3 md:p-5 lg:p-8' 
 } %}
 
-  {% block well_html %}
+  {% block html %}
 
     <!-- Your content or components here -->
 
@@ -95,10 +95,10 @@ layout: templates/page.html
 ")}}</code></pre>
 
 {% embed '@components/well/well.twig' with {
-  well_padding: 'p-3 md:p-5 lg:p-8'
+  padding: 'p-3 md:p-5 lg:p-8'
 } %}
 
-  {% block well_html %}
+  {% block html %}
 
   <div class="text-center outline-1 outline-modern outline-dashed dark:outline-modern-d2">Responsive padding.</div>
 
@@ -108,15 +108,15 @@ layout: templates/page.html
 
 <h3>Modifier Classes</h3>
 
-<p>Using the <code>well_modifiers</code> property, you can further adjust the appearance of the well. For example, if
+<p>Using the <code>modifiers</code> property, you can further adjust the appearance of the well. For example, if
   you wanted it to appear as an inline block rather than the default block, you could use the following code:</p>
 
 <pre><code>{{ html("
 {% embed 'ul:well' with { 
-  well_modifiers: 'inline-block' 
+  modifiers: 'inline-block' 
 } %}
 
-  {% block well_html %}
+  {% block html %}
 
     <!-- Your content or components here -->
 
@@ -126,10 +126,10 @@ layout: templates/page.html
 ")}}</code></pre>
 
 {% embed '@components/well/well.twig' with {
-  well_modifiers: 'inline-block'
+  modifiers: 'inline-block'
 } %}
 
-  {% block well_html %}
+  {% block html %}
 
     <div class="text-center">A well styled as an inline block.</div>
 
