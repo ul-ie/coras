@@ -5,10 +5,10 @@ const fs = require('fs');
 
 module.exports = async function(eleventyConfig) {
 
-  eleventyConfig.addPassthroughCopy({ 'inc/img': '/img' });
-  eleventyConfig.addPassthroughCopy({ 'inc/fonts': '/fonts' });
+  eleventyConfig.addPassthroughCopy({ 'inc/assets/img': '/img' });
+  eleventyConfig.addPassthroughCopy({ 'inc/assets/fonts': '/fonts' });
+  eleventyConfig.addPassthroughCopy({ 'inc/assets/video': '/video' });
   eleventyConfig.addPassthroughCopy({ 'inc/js': '/js' });
-  eleventyConfig.addPassthroughCopy({ 'inc/video': '/video' });
 
   eleventyConfig.addDataExtension('yml', (contents) => {
     return yaml.load(contents);
@@ -22,10 +22,9 @@ module.exports = async function(eleventyConfig) {
         data: inputContent,
         path: `./${inputPath}`,
         namespaces: {
-          img: './inc/img',
+          img: './inc/assets/img',
           templates: './inc/templates',
-          components: './inc/components',
-          icons: './node_modules/@awesome.me/kit-0dc973fac8/icons'
+          components: './inc/components'
         },
       });
       return async (data) => {
@@ -52,6 +51,45 @@ module.exports = async function(eleventyConfig) {
   twig.extendFunction('get_yml', (filePath) => {
     const file = fs.readFileSync(path.resolve(__dirname, filePath), 'utf8');
     return yaml.load(file);
+  });
+
+  /**
+   * An icon function to mirror the Drupal icon API.
+   */
+  twig.extendFunction('icon', (type, name, settings = { id: '', classes: 'w-5', aria_hidden: false }) => {
+    // Map the icon types.
+    const iconTypes = {
+      line: 'sharp-light',
+      social: 'brands',
+      solid: 'sharp-solid',
+      twotone: 'sharp-duotone-solid'
+    }
+
+    // Create the attributes to inject into the SVG.
+    const classes = `class="${settings.classes}"`;
+    const id = settings.id ? `id="${settings.id}"` : '';
+    const ariaHidden = settings.aria_hidden ? 'aria-hidden="true"' : '';
+    const svgAttributes = [classes, id, ariaHidden].join(' ');
+
+    // Get the requested file based on name and type.
+    const filePath = `inc/assets/icons/${iconTypes[type]}/${name}.svg`;
+    const file = path.resolve(__dirname, filePath);
+
+    // Attempt to read the SVG file. Return error otherwise.
+    let svg;
+    try {
+      svg = fs.readFileSync(file, { encoding: 'utf8', flag: 'r' });
+    } catch (error) {
+      return `<small title="${error}">Icon not found</small>`;
+    }
+
+    // Remove the colour defaults, comments and inject the attributes.
+    svg = svg.replace(/fill="(.*?)"/gs, '');
+    svg = svg.replace(/<!--(.*)-->/s, '');
+    svg = svg.replace(/<svg([^>]*)>/, `<svg$1 ${svgAttributes}>`);
+
+    // Return the modified SVG.
+    return svg;
   });
 
   twig.extendFunction('json_decode', (json) => {
