@@ -6,52 +6,23 @@
  * @see https://coras.ul.ie/components/icon/#properties for full documentation.
  */
 #}
-{% set icons = json_decode(get_file('./data/icons.json')) %}
-{% set ic_fill = ic_fill ?? '' %}
-{% set ic_name = ic_name ?? '' %}
-{% set ic_size = ic_size ?? 'w-4' %}
-{% set ic_type = ic_type in ['line', 'social', 'solid', 'twotone'] ? ic_type : 'line' %}
-{% set ic_aria_hidden = ic_aria_hidden ?? false %}
-{% set ic_data_tags = ic_data_tags ?? false %}
 
-{# Map the icon type to the icon family [0] and icon style [1]. #}
-{% set ic_type_map = {
-  'line': ['sharp', 'light'],
-  'social': ['classic', 'brands'],
-  'solid': ['sharp', 'solid'],
-  'twotone': ['sharp-duotone', 'solid']
-} %}
-{% set ic_family = ic_type_map[ic_type][0] %}
-{% set ic_style = ic_type_map[ic_type][1] %}
-
-{# Create a string of search terms for client-side filtering. #}
-{% set search_terms = [ic_type, ic_name, icons[ic_name].search.terms|join(',')]|join(',') %}
+{# Set variable defaults. #}
+{% set size = size ?? 'w-5' %}
+{% set type = type in ['line', 'social', 'solid', 'twotone'] ? type : 'line' %}
 
 {# Combine the classes. #}
-{% set ic_classes %}
-  {% if ic_overrides is not empty %}
-    {{ ic_overrides }}
+{% set classes %}
+  {% if overrides is not empty %}
+    {{ overrides }}
   {% else %}
-    {{ [ic_fill, ic_size, ic_modifiers]|join(' ') }}
+    {{ [fill, size, modifiers]|join(' ') }}
   {% endif %}
 {% endset %}
 
-{% if icons[ic_name].svgs[ic_family][ic_style] %}
-  <svg
-    title="{{ ic_name }}"
-    class="{{ ic_classes|trim }}"
-    xmlns="http://www.w3.org/2000/svg"
-    viewbox="{{ icons[ic_name].svgs[ic_family][ic_style].viewBox|join(' ') }}"
-    {% if ic_aria_hiddden %} aria-hidden="true" {% endif %}
-    {% if ic_data_tags %} data-tags="{{ search_terms }}" {% endif %}
-    >
-    {% if ic_type == 'twotone' %}
-      <path opacity=".4" d="{{ icons[ic_name].svgs[ic_family][ic_style].path[0] }}"/>
-      <path d="{{ icons[ic_name].svgs[ic_family][ic_style].path[1] }}"/>
-    {% else %}
-      <path d="{{ icons[ic_name].svgs[ic_family][ic_style].path }}"/>
-    {% endif %}
-  </svg>
-{% else %}
-  <small class="text-sm font-bold mx-1" title="{{ ic_name }} not found">!</small>
-{% endif %}
+{# Call the icon API function. #}
+{{ icon(type, name, {
+  id: id,
+  classes: classes|trim,
+  aria_hidden: aria_hidden ?? false
+}) }}
