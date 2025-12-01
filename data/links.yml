@@ -1,8 +1,8 @@
-- section: Guides
-  entries:
+# - section: Guides
+#   entries:
   
-  - text: For Developers
-    url: /guides/for-developers/
+#   - text: For Developers
+#     url: /guides/for-developers/
 
 - section: Foundations
   entries:
