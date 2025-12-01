@@ -4,6 +4,7 @@ import menuToggle from './menuToggle.js';
 import modeToggle from './modeToggle.js';
 import pageNav from './pageNav.js';
 import intersection from './intersection.js';
+import swatch from './swatch.js';
 import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/core.min.js  ';
 import xml from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/languages/xml.min.js';
 import twig from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/languages/twig.min.js';
@@ -32,6 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Enable global search interactivity.
   globalSearch();
+
+  // Add the colour swatch event listeners (if they exist).
+  swatch();
 
   // Languages to highlight.
   hljs.registerLanguage('xml', xml);

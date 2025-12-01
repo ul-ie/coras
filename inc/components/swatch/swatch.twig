@@ -1,9 +1,9 @@
 {# The Swatch Colour Component (internal only) #}
 
 <div
-  class="group relative w-full flex flex-col wrap m-1 p-1.5 border border-granite-l3
-  cursor-pointer dark:border-granite-d1 hover:border-granite-l2 
-  hover:dark:border-granite active:border-granite-l1">
+  data-hex="{{ hex }}"
+  class="group relative w-full flex flex-col wrap m-1 p-1.5 border border-granite-l3 cursor-pointer dark:border-granite-d1 hover:border-granite-l2 hover:dark:border-granite active:border-granite-l1"
+  >
 
   <div
     class="relative flex flex-col justify-end {{ height }} {{ bgColor }} p-0.75 overflow-hidden"
@@ -17,14 +17,15 @@
       <div class="w-6">
 
         {% include '@components/icon/icon.twig' with {
-          icon_fill: 'fill-white',
-          icon_name: 'copy'
+          fill: 'fill-white',
+          name: 'copy',
+          size: 'w-4'
         } %}
 
       </div>
       {% endif %}
 
-      <div data-hex="{{ hex }}">{{ hex }}</div>
+      <div data-hex-text>{{ hex }}</div>
 
     </div>
 
