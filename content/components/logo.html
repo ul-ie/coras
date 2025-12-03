@@ -1,0 +1,49 @@
+---
+title: Logo
+layout: templates/page.html
+---
+
+<h1 class="font-serif is-decorated">{{ title }}</h1>
+
+<h2>Description</h2>
+
+<p>The master logo is University of Limerick's corporate identity and a brand which unifies the University, representing it to its many audiences in the most compelling and consistent manner.</p>
+
+{% include '@components/logo/logo.twig' with {
+  size: 'w-64'
+} %}
+
+<h3>Syntax</h3>
+
+<p>Use the <code>include</code> tag to inject the logo, and the <code>only</code> keyword to protect it from outside scope.</p>
+
+<pre><code>{{ html("
+{% include 'ul:logo' with {
+  property: 'value'
+  ...
+} only %}
+")}}</code></pre>
+
+<h3>Properties</h3>
+
+<p>Eight properties are available, but the logo can be included in templates without any properties as none are required.</p>
+
+{% include '@templates/component-props.html' %}
+
+<h2>Variants</h2>
+
+<h3>Colour and Size</h3>
+
+<h3>Customisation</h3>
+
+<h2>Source Code</h2>
+
+<p>The source code below can be found below, and at <code>inc/components/logo/</code> in the design system repository.</p>
+
+<h3>Twig</h3>
+
+<pre class="max-h-80"><code class="">{{ html(get_file("inc/components/logo/logo.twig")) }}</code></pre>
+
+<h3>YML</h3>
+
+<pre class="max-h-80"><code class="language-yaml">{{ html(get_file("inc/components/logo/logo.component.yml")) }}</code></pre>

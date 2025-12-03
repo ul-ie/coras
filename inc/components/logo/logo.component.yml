@@ -1,0 +1,39 @@
+name: Logo
+props:
+  type: object
+  properties:
+    id:
+      title: id
+      type: string
+      description: The logo id.
+    modifiers:
+      title: modifiers
+      type: string
+      description: Extra classes to apply to the logo.
+    overrides:
+      title: overrides
+      type: string
+      description: Use to override all default logo classes.
+    size:
+      title: size
+      type: string
+      description: The size of the logo, using width and/or height classes.
+      default: 'w-full h-full'
+    symbol_fill:
+      title: symbol_fill
+      type: string
+      description: The fill colour of the logo's symbol.
+      default: 'fill-modern'
+    symbol_modifiers:
+      title: symbol_modifiers
+      type: string
+      description: Extra classes to target the logo's symbol.
+    text_fill:
+      title: text_fill
+      type: string
+      description: The fill colour of the logo's text.
+      default: 'fill-green'
+    text_modifiers:
+      title: text_modifiers
+      type: string
+      description: Extra classes to target the logo's text.
