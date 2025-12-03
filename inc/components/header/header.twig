@@ -1,18 +1,30 @@
+{#
+/**
+ * @file
+ * Header component.
+ * 
+ * @see https://coras.ul.ie/components/logo/#properties for full documentation.
+ */
+#}
+
+{% set id = id ? 'id="' ~ id ~ '"' : '' %}
+
 {% set btn_classes = 'flex text-white items-center py-3 px-2 md:px-4 hover:bg-black/30 transition-colors cursor-pointer'
 %}
 
-<header id="main-header"
-  class="sticky top-0 left-0 z-40 bg-heritage overflow-hidden will-transform transition-all duration-500 shadow-lg">
+<header
+  data-header
+  class="sticky top-0 left-0 z-40 bg-heritage overflow-hidden transition-all duration-500 shadow-lg">
 
   <div class="container px-5 md:px-0 py-2 md:py-4 flex justify-between">
 
     <a href="/">
 
       {% include '@components/logo/logo.twig' with {
-        logo_overrides: 'h-12 md:h-18 transition-all duration-700',
-        logo_graphic_fill: 'fill-white',
-        logo_text_fill: 'fill-white',
-        logo_text_modifiers: 'hidden md:block transition-opacity duration-700'
+        overrides: 'h-12 md:h-18 transition-all duration-700',
+        graphic_fill: 'fill-white',
+        text_fill: 'fill-white',
+        text_modifiers: 'hidden md:block transition-opacity duration-700'
       } %}
 
     </a>
@@ -25,10 +37,10 @@
         <button id="global-search-trigger" class="{{ btn_classes }} md:border-r-2 border-r-white">
 
           {% include '@components/icon/icon.twig' with {
-            ic_name: 'magnifying-glass',
-            ic_fill: 'fill-white',
-            ic_type: 'solid',
-            ic_size: 'w-6 md:w-5 mr-2'
+            name: 'magnifying-glass',
+            fill: 'fill-white',
+            type: 'solid',
+            size: 'w-6 md:w-5 mr-2'
           } %}
 
           <span class="hidden md:inline">Search</span>
@@ -38,10 +50,10 @@
         <button class="{{ btn_classes }}">
 
           {% include '@components/icon/icon.twig' with {
-            ic_name: 'bars',
-            ic_fill: 'fill-white',
-            ic_type: 'solid',
-            ic_size: 'w-5 md:w-4 md:mr-3'
+            name: 'bars',
+            fill: 'fill-white',
+            type: 'solid',
+            size: 'w-5 md:w-4 md:mr-3'
           } %}
 
           <span class="hidden md:inline">Menu</span>
@@ -68,10 +80,10 @@
       <button id="global-search-go" class="{{ btn_classes }}" title="Search">
 
         {% include '@components/icon/icon.twig' with {
-          ic_name: 'magnifying-glass',
-          ic_fill: 'fill-white',
-          ic_type: 'solid',
-          ic_size: 'h-6 md:h-8'
+          name: 'magnifying-glass',
+          fill: 'fill-white',
+          type: 'solid',
+          size: 'h-6 md:h-8'
         } %}
 
       </button>
@@ -79,11 +91,11 @@
       <button id="global-search-dismiss" class="{{ btn_classes }}" title="Dismiss">
 
         {% include '@components/icon/icon.twig' with {
-          ic_name: 'xmark',
-          ic_fill: 'fill-white',
-          ic_type: 'solid',
-          ic_size: 'h-6 md:h-8',
-          ic_modifiers: 'transition-transform origin-center duration-700'
+          name: 'xmark',
+          fill: 'fill-white',
+          type: 'solid',
+          size: 'h-6 md:h-8',
+          modifiers: 'transition-transform origin-center duration-700'
         } %}
 
       </button>

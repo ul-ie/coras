@@ -1,0 +1,16 @@
+name: Header
+props:
+  type: object
+  properties:
+    html_left:
+      title: html_left
+      type: string
+      description: Content to inject into the left area of the header.
+    html_right:
+      title: html_right
+      type: string
+      description: Content to inject into the right area of the header.
+    id:
+      title: id
+      type: string
+      description: The header id.
