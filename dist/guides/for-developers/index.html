@@ -138,6 +138,27 @@
   
   <li class="m-0 p-0">
 
+    <span class="text-lg font-bold">Guides</span>
+
+    <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/guides/for-developers/">
+          For Developers
+        </a>
+
+      </li>
+
+      
+    </ul>
+
+  </li>
+
+  
+  <li class="m-0 p-0">
+
     <span class="text-lg font-bold">Foundations</span>
 
     <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
@@ -249,6 +270,15 @@
 
         <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/icon/">
           Icon
+        </a>
+
+      </li>
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/logo/">
+          Logo
         </a>
 
       </li>
@@ -315,6 +345,27 @@
   
   <li class="m-0 p-0">
 
+    <span class="text-lg font-bold">Guides</span>
+
+    <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/guides/for-developers/">
+          For Developers
+        </a>
+
+      </li>
+
+      
+    </ul>
+
+  </li>
+
+  
+  <li class="m-0 p-0">
+
     <span class="text-lg font-bold">Foundations</span>
 
     <ul class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3">
@@ -433,6 +484,15 @@
       
       <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
 
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/logo/">
+          Logo
+        </a>
+
+      </li>
+
+      
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
         <a class="font-normal no-underline text-inherit visited:text-inherit" href="/components/well/">
           Well
         </a>
@@ -483,53 +543,165 @@
 
 <p>The overall development process can be summed up as follows:</p>
 
-<ul>
+<ol>
   <li>Designers hand over completed <a href="https://www.figma.com/design/s8JOhBszxWjPLOCtUJwOtx/Redesign-Library-%F0%9F%93%97?node-id=1501-2600&node-type=canvas&t=w3JOaMM1niH7qO1a-0" target="_blank">Figma components</a> and page designs to developers.</li>
   <li>These are developed as components and/or templates in the new UL Drupal theme.</li>
   <li>Functionality and visual fidelity are reviewed by the design and development team in a deployed development environment.</li>
-  <li>Code is reviewed to ensure it follows design system standards.</li>
-  <li>Completed components can be integrated into design system and documented.</li>
-</ul>
+  <li>Code is reviewed to ensure it follows design system standards, and if approved it can be integrated into Córas and documented.</li>
+</ol>
 
-<p><strong>Note</strong>: At a later point (post re-design) we will look at making the components in the design system directly importable to the Drupal theme. If we attempt this too soon, it could become an unnecessary development bottleneck.</p>
+<h2>Guidelines</h2>
 
-<h3>Figma Designs</h3>
+<p>We want to ensure consistency from the outset. To that end, we have some guidelines and example components already built.</p>
 
-<p>Our visual design team manages the <a href="https://www.figma.com/design/s8JOhBszxWjPLOCtUJwOtx/Redesign-Library-%F0%9F%93%97?node-id=1501-2600&node-type=canvas&t=w3JOaMM1niH7qO1a-0" target="_blank">Figma component library</a> and individual page wireframes (which can be forwarded on to the development team as/when needed).</p>
-
-<p>Care has been taken to include variants (e.g. colour, size), states (e.g. hover, active), and mobile/desktop views to eliminate for the need for developer guesswork. However, if you do encounter any gaps in the design of our components or wireframes, <strong>please bring them to the design team</strong> rather than make design decisions yourself to address these gaps.</p>
-
-<h3>Local Development</h3>
-
-<p>Local development environments should use:</p>
+<p>Here's a high-level summary of our guidelines, with more details below:</p>
 
 <ul>
-  <li>DDEV</li>
-  <li>Browsersync (for DDEV)</li>
-  <li>Tailwind</li>
+  <li>Avoid utility classes that cascade down to other components. In particular, please try to avoid <code>has-[.*]</code> and nesting <code>[&_*]</code> classes. <a href="#component-scoping">Details below</a>.</li>
+  <li>Components should be <a href="#component-structure">structured consistently</a>.</li>
+  <li>If your component contains a cascade of <code>if</code> statements or <a href="#code-repetition">repeated code</a>, it's a good indication that it doesn't have a well defined interface.</li>
+  <li>Keep class strings to a <a href="#class-management">reasonable length</a> and ensure correct syntax.</li>
+  <li>Document as you code. Use clear comments and define <a href="#yml-files">the component's API</a> in a YML file.</li>
 </ul>
 
-<p>An example repository can be provided with the above already installed and configured, including custom DDEV commands.</p>
+<h3>Component Scoping</h3>
 
-<h4>Theme Development</h3>
+<p>Keep classes scoped to the current component as much as possible. Avoid using <code>has-[.*]</code> and nesting <code>[&_*]</code> classes in particular as they can make styling unpredictable and inconsistent.</p>
 
-<p>As previously mentioned, the new UL Drupal theme is to be split into a components directory and a templates directory. Some component-related functions will rely on a custom module (details below).</p>
+<p><span class="font-bold mr-2 text-munster">x</span>Don't do this:</p>
 
-<h4>Module Development</h3>
+<pre><code class="language-twig">&lt;div class=&quot;[&amp;_img]:w-full&quot;&gt;...&lt;/div&gt;</code></pre>
 
-<p>In the example repository/reference theme, a custom module called <strong>UL Twig Tweaks</strong> is provided to replicate some of the JavaScript functions used in Córas for pulling in and parsing the icon JSON data.</p>
+<p><span class="font-bold mr-1 text-modern">✓</span>Pass properties to the components instead (or create more targeted templates):</p>
 
-<p>Certain features, such as the integration of a new search system, may require dedicated custom module development and/or integration of an external API.</p>
+<pre><code class="language-twig">&lt;div&gt;
+  {% include &quot;ul:image&quot; with {
+    width: &quot;w-full&quot;
+  } only %}
+&lt;/div&gt;</code></pre>
 
-<p>It may also be necessary to update code in existing custom modules to ensure compatibility with the new theme.</p>
+<p>Also note the use of the <code>only</code> keyword, which protects the component from outside scope.</p>
 
-<h3>Remote Environments</h3>
+<p>The use of the <code>has-[.*]</code> class can also ripple down and have unexpected consequences that are hard to undo.</p>
 
-<p>An always-available and performant development environment should be provided to the design and development teams to inspect and test work in progress.</p>
+<p><span class="font-bold mr-2 text-munster">x</span>Don't do this:</p>
 
-<h2>Component Development</h2>
+<pre><code class="language-twig">&lt;div class=&quot;has-[.text]:bg-green&quot;&gt;...&lt;/div&gt;</code></pre>
 
-<p>Because Single Directory Components are a new feature of Drupal, even experienced Drupal developers may need some guidance in this area. We also want to ensure consistency from the outset. To that end, we have some guidelines and example components already built.</p>
+<p>Developers that later uses a class of <code>text</code> may have no knowledge of the knock-on effect to the parent container's background colour (nor should they need to worry about this). This kind of code doesn't scale well and can be hard maintain and debug.</p>
+
+<h3>Component Structure</h3>
+
+<p>Components should expose the most meaningful properties that allow the consumer to use and customise the component without needing to know the internals (much like an API).</p>
+
+<h4>Default Properties</h4>
+
+<p>In addition to their own unique properties, all components should have the following properties in common:</p>
+
+<ul>
+  <li><code>id</code>: An optional id to specifically identify the component.</li>
+  <li><code>modifiers</code>: A property that allows you to add extra classes to the default ones.</li>
+  <li><code>overrides</code>: A property that allows you to completely override all defaults.</li>
+</ul>
+
+<h3>Code Repetition</h3>
+
+<p>If a component's styling is characterised by a cascade of <code>if</code> statements or code repetition, it is an indication that the component isn't structurally sound or maintainable.</p>
+
+<p><span class="font-bold mr-2 text-munster">x</span>Don't do this:</p>
+
+<pre><code class="language-twig">{% if btn_primary %}
+  {% set theme_classes = &quot;w-full md:w-auto text-center bg-green border-green py-2 px-6 text-white hover:bg-[var(--color-green-d1)] hover:border-[var(--color-green-d1)] active:bg-[var(--color-green-d2)] active:border-[var(--color-green-d2)] rounded no-underline&quot; %}
+{% endif %}
+
+{% if btn_secondary %}
+  {% set theme_classes = &quot;w-full md:w-auto text-center bg-stone border-stone py-2 px-6 text-white hover:bg-[var(--color-stone-d1)] hover:border-[var(--color-stone-d1)] active:bg-[var(--color-stone-d2)] active:border-[var(--color-stone-d2)] rounded no-underline&quot; %}
+{% endif %}
+
+{% if btn_primary_ghost %}
+  {% set theme_classes = &quot;w-full md:w-auto text-center bg-transparent hover:bg-[var(--color-green-l2)] text-[var(--color-green)] hover:text-[var(--color-green)] py-2 px-6 border border-[var(--color-green)] hover:border-[var(--color-stone)] active:bg-[var(--color-green-l1)] rounded no-underline&quot; %}
+{% endif %}
+
+{% if btn_secondary_ghost %}
+  {% set theme_classes = &quot;w-full md:w-auto text-center bg-transparent border border-stone py-2 px-6 text-stone hover:bg-[var(--color-stone-l2)] hover:border-[var(--color-stone)] active:bg-[var(--color-stone-l1)] rounded no-underline&quot; %}
+{% endif %}
+
+{% if btn_primary_white %}
+  {% set theme_classes = &quot;w-full md:w-auto text-center bg-transparent border-white border py-2 px-6 text-white hover:bg-[var(--color-green-d1)] active:bg-[var(--color-green-d2)] active:bg-[var(--color-green-d2)] rounded no-underline&quot; %}
+{% endif %}
+
+... etc</code></pre>
+
+<p><span class="font-bold mr-1 text-modern">✓</span>Instead, provide a clear set of properties and keep your code <abbr title="Don't Repeat Yourself">DRY</abbr>.</p>
+
+<pre><code class="language-twig">{# Set variable defaults #}
+{% set type = type in [&#39;button&#39;, &#39;link&#39;, &#39;submit&#39;, &#39;reset&#39;] ? type : &#39;link&#39; %}
+{% set themes = [&#39;solid-green&#39;, &#39;solid-blue&#39;, &#39;outline-green&#39;, &#39;outline-blue&#39;, &#39;transparent&#39;] %}
+{% set theme = theme in themes ? theme : &#39;solid-green&#39; %}
+{% set padding = padding ?? &#39;px-6 py-2&#39; %}
+{% set cursor_classes = is_disabled ? &#39;cursor-not-allowed opacity-80&#39; : &#39;cursor-pointer&#39; %}
+{% set text_classes = text_classes ?? &#39;text-lg&#39; %}
+... etc
+
+{# Component core classes. #}
+{% set core_classes = &#39;flex items-center justify-center w-fit border-2 rounded-md transition no-underline&#39; %}
+
+{# Set up button theme classes as an object. #}
+{% set theme_classes = {
+
+  &#39;solid-green&#39;: &#39;bg-green border-green text-white hover:bg-green-d1 hover:border-green-d1 active:bg-green-d2 active:border-green-d2&#39;,
+
+  &#39;solid-blue&#39;: &#39;bg-stone border-stone text-white hover:bg-stone-d1 hover:border-stone-d1 active:bg-stone-d2 active:border-green-d2&#39;,
+
+  &#39;outline-green&#39;: &#39;bg-white border-green text-green hover:bg-green hover:text-white active:bg-green-d1&#39;,
+
+  ... etc</code></pre>
+
+<h3>Class Management</h3>
+
+<p>If Tailwind classes are not well-managed, i.e. if they are all dumped together indiscriminately without first organising them, they can become unwieldly.</p>
+
+<p><span class="font-bold mr-2 text-munster">x</span>Don't do this:</p>
+
+<pre><code class="language-twig">&lt;button
+  class=&quot;huge-long-list-of-classes-that-keeps-going-and-going-and-going
+  and-going-and-going-and-going-and-going-and-going-and-going-and-going
+  and-going-and-going-and-going-and-going-and-going-and-going-and-going
+  ah-here-seriously-will-this-ever-end&quot;
+  type=&quot;{{ type }}&quot;
+  {{ is_disabled ? &quot;disabled&quot; : &quot;&quot; }}
+  &gt;
+  Example Component
+&lt;/button&gt;</code></pre>
+
+<p>We recommend that classes are grouped logically and then merged afterwards. This makes styling easier to maintain and keeps the component markup as clean and as readable as possible.</p>
+
+<p><span class="font-bold mr-1 text-modern">✓</span>Do this instead:</p>
+
+<pre><code class="language-twig">{% set core_classes = &quot;manageable-list-of-classes-grouped-sensibly&quot; %}
+{% set modifiers = &quot;another-manageable-list-of-classes&quot; %}
+
+{% set classes = [
+  core_classes,
+  modifiers,
+  ... etc
+]|join(&quot; &quot;) %}
+
+&lt;button
+  class=&quot;{{ classes }}&quot;
+  type=&quot;{{ type }}&quot;
+  {{ is_disabled ? &quot;disabled&quot; : &quot;&quot; }}
+  &gt;
+  Example Button
+&lt;/button&gt;</code></pre>
+
+<h4>Correct Syntax</h4>
+
+<p>Take care to use valid Tailwind syntax. As of v4, Tailwind uses native CSS variables under the hood, but that does not invalid the usual class syntax for references theme variabes. For example:</p>
+
+<p><span class="font-bold mr-2 text-munster">x</span>Invalid: <code>bg-[var(--color-green-d1)]</code></p>
+
+<p><span class="font-bold mr-1 text-modern">✓</span>Valid: <code>bg-green-d1</code></p>
 
 <h3>YML Files</h3>
 
@@ -540,8 +712,6 @@
 <p>The yml file essentially describes the API of the component, i.e. the publicly available properties that a template or other component can call/consume.</p>
 
 <pre class="max-h-80"><code class="language-yaml">name: Icon
-status: stable
-version: 1.0
 props:
   type: object
   required:
@@ -591,68 +761,6 @@ props:
         - twotone
       default: line</code></pre>
 
-<h3>Namespacing</h3>
-
-<p>When naming properties, use either the full component name as a prefix (e.g. <code>icon_*</code>), or an abbreviation of the component name (e.g. <code>btn_*</code>). This essentially namespaces the component properties, protecting them from unintentional modification when included in templates with their own set of variables.</p>
-
-<h3>Validation</h3>
-
-<p>Although the yml component files can be set up to validate properties, it is recommended to include additional validation in the twig template. For examples, here's how the <code>icon_type</code> property should be coded to ensure the enumerated values in the yml file are adhered to:</p>
-
-<p>The yml property:</p>
-<pre><code class="language-yaml">
-icon_type:
-  title: icon_type
-  type: string
-  description: The type (or style) of the chosen icon. This must be correct as it determines part of the file path.
-  enum:
-    - brands
-    - duotone
-    - regular
-    - solid
-  default: solid
-</code></pre>
-
-<p>The equivalent twig variable:</p>
-<pre><code class="language-twig">{% set icon_type = icon_type in [&#39;brands&#39;, &#39;duotone&#39;, &#39;regular&#39;, &#39;solid&#39;] ? icon_type : &#39;solid&#39; %}</code></pre>
-
-<h3>Styling</h3>
-
-<p>As previously mentioned, we use Tailwind to style our components, which should eliminate the need for writing additional CSS files for both components and templates.</p>
-
-<p>However if Tailwind classes are not well managed, i.e. if they are all dumped together indiscriminately without first organising them, they can in some cases become unwieldly. We therefore recommend that classes are grouped logically and then merged in the actual component. This makes styling easier to maintain and keeps the component markup as clean and as readable as possible.</p>
-
-<p><span class="font-bold mr-2 text-munster">x</span>Don't do this:</p>
-
-<pre><code class="language-twig">&lt;button
-  class=&quot;huge-long-list-of-classes-that-keeps-going-and-going-and-going
-  and-going-and-going-and-going-and-going-and-going-and-going-and-going
-  and-going-and-going-and-going-and-going-and-going-and-going-and-going
-  ah-here-seriously-will-this-ever-end&quot;
-  type=&quot;{{ btn_type }}&quot;
-  {{ is_disabled ? &quot;disabled&quot; : &quot;&quot; }}
-  &gt;
-  Example Component
-&lt;/button&gt;</code></pre>
-
-<p><span class="font-bold mr-1 text-modern">✓</span>Do this instead:</p>
-
-<pre><code class="language-twig">{% set core_classes = &quot;manageable-list-of-classes-grouped-sensibly&quot; %}
-{% set size_classes = &quot;another-manageable-list-of-classes&quot; %}
-
-{% set btn_classes = [
-  core_classes,
-  size_classes,
-  ... etc
-]|join(&quot; &quot;) %}
-
-&lt;button
-  class=&quot;{{ btn_classes }}&quot;
-  type=&quot;{{ btn_type }}&quot;
-  {{ is_disabled ? &quot;disabled&quot; : &quot;&quot; }}
-  &gt;
-  Example Button
-&lt;/button&gt;</code></pre>
 
       </article>
 
