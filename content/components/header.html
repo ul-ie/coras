@@ -5,7 +5,11 @@ layout: templates/page.html
 
 <h1 class="font-serif is-decorated">{{ title }}</h1>
 
-<p><strong>Note:</strong> this page is a work in progress.</p>
+<h2>Description</h2>
+
+<h3>Properties</h3>
+
+{% include '@templates/component-props.html' %}
 
 <h2>Examples</h2>
 
@@ -16,10 +20,10 @@ layout: templates/page.html
 <p>This example is populated with sample content so that you can scroll up and down the page. When the user <strong>scrolls down</strong>, the header disappears. When the user <strong>scrolls back up</strong>, it appears again. The distance from the top of the page is also monitored to alter the size of the header.</p>
 
 {% include '@components/iframe/iframe.twig' with {
-  ifr_folder: 'header',
-  ifr_file: 'example-01',
-  ifr_height: 140,
-  ifr_zoom: 0.7
+  folder: 'header',
+  file: 'example-01',
+  height: 140,
+  zoom: 0.7
 } %}
 
 
@@ -28,10 +32,10 @@ layout: templates/page.html
 <p>The header is not <code>fixed</code> but has a <code>sticky</code> position that ensures it does not obscure any elements above it (e.g. contextual menus when logged in).</p>
 
 {% include '@components/iframe/iframe.twig' with {
-  ifr_folder: 'header',
-  ifr_file: 'example-02',
-  ifr_height: 140,
-  ifr_zoom: 0.7
+  folder: 'header',
+  file: 'example-02',
+  height: 140,
+  zoom: 0.7
 } %}
 
 <h2>Source Code</h2>
