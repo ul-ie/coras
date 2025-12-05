@@ -23,15 +23,21 @@
       src="{{ src }}" frameborder="0">
     </iframe>
 
-    <a class="flex mt-2 leading-none justify-end items-center text-sm text-granite-d1 no-underline dark:text-granite-l1" href="{{ src }}" target="_blank">
+    <a
+      href="{{ src }}" target="_blank"
+      class="flex mt-2 leading-none justify-end items-center text-sm text-granite-d1 no-underline dark:text-granite-l1"
+      >
+
       <span>Open in new window</span>
+
       {% include '@components/icon/icon.twig' with {
         name: 'arrow-up-right-from-square',
         fill: 'fill-granite-d1 dark:fill-granite-l1',
-        modifiers: 'inline ml-1',
         type: 'solid',
-        size: 'w-3'
+        size: 'w-3',
+        modifiers: 'inline ml-1'
       } %}
+
     </a>
 
   {% endblock %}
