@@ -99,6 +99,18 @@ layout: templates/page.html
   <li><code>overrides</code>: A property that allows you to completely override all defaults.</li>
 </ul>
 
+<p>The overrides property should be checked before injecting standard classes into a component. One way to structure this would be as follows:</p>
+
+<pre><code class="language-twig">{{ html('
+{# Combine classes into a single string to pass to the component. #}
+{% set classes = [core_classes, other_classes, modifiers]|join(" ") %}
+
+{# The component markup #}
+<div class="{{ overrides is empty ? classes : overrides }}">
+  ... etc
+</div>
+')}}</code></pre>
+
 <h3>Code Repetition</h3>
 
 <p>If a component's styling is characterised by a cascade of <code>if</code> statements or code repetition, it is an indication that the component isn't structurally sound or maintainable.</p>
@@ -183,14 +195,11 @@ layout: templates/page.html
 {% set core_classes = "manageable-list-of-classes-grouped-sensibly" %}
 {% set modifiers = "another-manageable-list-of-classes" %}
 
-{% set classes = [
-  core_classes,
-  modifiers,
-  ... etc
-]|join(" ") %}
+{# Re-combine our classes into a single string to pass to the component. #}
+{% set classes = [core_classes, theme_classes[theme], modifiers]|join(" ") %}
 
 <button
-  class="{{ classes }}"
+  class="{{ {{ overrides is empty ? classes|trim : overrides }} }}"
   type="{{ type }}"
   {{ is_disabled ? "disabled" : "" }}
   >
@@ -200,7 +209,7 @@ layout: templates/page.html
 
 <h4>Correct Syntax</h4>
 
-<p>Take care to use valid Tailwind syntax. As of v4, Tailwind uses native CSS variables under the hood, but that does not invalid the usual class syntax for references theme variabes. For example:</p>
+<p>Take care to use valid Tailwind syntax. As of v4, Tailwind uses native CSS variables under the hood, but that does not invalidate the usual class syntax for references theme variabes. For example:</p>
 
 <p><span class="font-bold mr-2 text-munster">x</span>Invalid: <code>bg-[var(--color-green-d1)]</code></p>
 
