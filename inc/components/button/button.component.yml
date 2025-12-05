@@ -1,4 +1,5 @@
 name: Button
+status: stable
 props:
   type: object
   required:
