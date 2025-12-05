@@ -516,6 +516,9 @@
         
 <h1 class="font-serif is-decorated">Button</h1>
 
+
+
+
 <h2>Description</h2>
 
 <p>Buttons represent an action to be performed (such as visiting a link, downloading a document or submitting/resetting form data). The button's text should clearly convey its semantic intent.</p>
@@ -1412,14 +1415,8 @@
 
 } %}
 
-{# Re-combine our classes into a single string to pass to the component. #}
-{% set classes %}
-  {% if overrides is not empty %}
-    {{ overrides }}
-  {% else %}
-    {{ [core_classes, cursor_classes, theme_classes[theme], padding, modifiers]|join(&#39; &#39;) }}
-  {% endif %}
-{% endset %}
+{# Combine classes into a single string to pass to the component. #}
+{% set classes = [core_classes, cursor_classes, theme_classes[theme], padding, modifiers]|join(&#39; &#39;) %}
 
 {# Define the button content, including optional blocks. #}
 {% set btn_content %}
@@ -1435,7 +1432,7 @@
   &lt;a
     {{ id }}
     href=&quot;{{ is_disabled ? &#39;#&#39; : url }}&quot;
-    class=&quot;{{ classes|trim }}&quot;
+    class=&quot;{{ overrides is empty ? classes|trim : overrides }}&quot;
     title=&quot;{{ text }}&quot;
     {{ is_download ? &#39;download&#39; : &#39;&#39; }}
     {{ is_new_tab ? &#39;target=&quot;_blank&quot;&#39; : &#39;&#39; }}
@@ -1448,7 +1445,7 @@
     {{ aria_controls }}
     {{ aria_expanded }}
     type=&quot;{{ type }}&quot;
-    class=&quot;{{ classes|trim }}&quot;
+    class=&quot;{{ overrides is empty ? classes|trim : overrides }}&quot;
     title=&quot;{{ text }}&quot;
     {{ is_disabled ? &#39;disabled&#39; : &#39;&#39; }}
     &gt;
@@ -1459,6 +1456,7 @@
 <h3>YML</h3>
 
 <pre class="max-h-80"><code class="language-yaml">name: Button
+status: stable
 props:
   type: object
   required:
