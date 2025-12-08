@@ -568,7 +568,7 @@
 
 <p>Keep classes scoped to the current component as much as possible. Avoid using <code>has-[.*]</code> and nesting <code>[&_*]</code> classes in particular as they can make styling unpredictable and inconsistent.</p>
 
-<p><span class="font-bold mr-2 text-munster">x</span>Don't do this:</p>
+<p><span class="font-bold mr-2 text-munster">x</span>Try to avoid this:</p>
 
 <pre><code class="language-twig">&lt;div class=&quot;[&amp;_img]:w-full&quot;&gt;...&lt;/div&gt;</code></pre>
 
@@ -584,7 +584,7 @@
 
 <p>The use of the <code>has-[.*]</code> class can also ripple down and have unexpected consequences that are hard to undo.</p>
 
-<p><span class="font-bold mr-2 text-munster">x</span>Don't do this:</p>
+<p><span class="font-bold mr-2 text-munster">x</span>Try to avoid this:</p>
 
 <pre><code class="language-twig">&lt;div class=&quot;has-[.text]:bg-green&quot;&gt;...&lt;/div&gt;</code></pre>
 
@@ -618,7 +618,7 @@
 
 <p>If a component's styling is characterised by a cascade of <code>if</code> statements or code repetition, it is an indication that the component isn't structurally sound or maintainable.</p>
 
-<p><span class="font-bold mr-2 text-munster">x</span>Don't do this:</p>
+<p><span class="font-bold mr-2 text-munster">x</span>Try to avoid this:</p>
 
 <pre><code class="language-twig">{% if btn_primary %}
   {% set theme_classes = &quot;w-full md:w-auto text-center bg-green border-green py-2 px-6 text-white hover:bg-[var(--color-green-d1)] hover:border-[var(--color-green-d1)] active:bg-[var(--color-green-d2)] active:border-[var(--color-green-d2)] rounded no-underline&quot; %}
@@ -671,7 +671,7 @@
 
 <p>If Tailwind classes are not well-managed, i.e. if they are all dumped together indiscriminately without first organising them, they can become unwieldly.</p>
 
-<p><span class="font-bold mr-2 text-munster">x</span>Don't do this:</p>
+<p><span class="font-bold mr-2 text-munster">x</span>Try to avoid this:</p>
 
 <pre><code class="language-twig">&lt;button
   class=&quot;huge-long-list-of-classes-that-keeps-going-and-going-and-going

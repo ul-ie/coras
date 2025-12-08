@@ -14,43 +14,49 @@ script: iconSearch.js
   {% endfor %}
 {% endfor %}
 
-{{ icon('twotone', 'books', { classes: 'w-24 fill-green', id: 'user', aria_hidden: true }) }}
-
 <h1 class="font-serif is-decorated">{{ title }}</h1>
 
 <p>We currently have <strong>{{ icon_count }}</strong> icons available covering a wide range of categories, ordered alphabetically below. If you can't find the icon you're looking for using the search, then please <a href="mailto:webdev@ul.ie" target="_blank">let us know</a>.</p>
 
-{% set icon_name = 'magnifying-glass' %}
+{% embed '@components/button/button.twig' with {
+  text: 'Search Icons',
+  type: 'link',
+  url: '#icon-search'
+} %}
 
-{% include '@components/button/button.twig' with {
-  btn_text: 'Search Icons',
-  btn_type: 'link',
-  btn_url: '#icon-search',
-} only %}
+  {% block html_left %}
 
-{% include '@components/button/button.twig' with {
-  btn_text: 'Search Icons',
-  
-} only %}
+    {% include '@components/icon/icon.twig' with {
+      name: 'magnifying-glass',
+      type: 'solid',
+      fill: 'fill-white',
+      size: 'w-5',
+      modifiers: 'mr-2',
+      aria_hidden: true
+    } only %}
+
+  {% endblock %}
+
+{% endembed %}
 
 <h2>How to Use</h2>
 
 <div class="flex">
 
-  <p class="basis-4/5 mr-4">To use an icon, you need to know the <strong>icon name</strong> and the <strong>icon type</strong>. In the example on the right the icon name is <strong>graduation-cap</strong> and the icon type is <strong>line.</strong></p>
+  <p class="basis-4/5 mr-4">To use an icon, you need to know the icon <strong>name</strong> and the icon <strong>type</strong>. In the example on the right the icon name is <strong>graduation-cap</strong> and the icon type is <strong>line.</strong></p>
 
   {% embed "@components/well/well.twig" with {
-    well_padding: 'p-3 md:p-6',
-    well_modifiers: 'flex flex-col justify-center items-center text-center bg-white dark:bg-transparent'
+    padding: 'p-3 md:p-6',
+    modifiers: 'flex flex-col justify-center items-center text-center bg-white dark:bg-transparent'
   } %}
 
-    {% block well_html %}
+    {% block html %}
 
       {% include '@components/icon/icon.twig' with {
-        ic_name: 'graduation-cap',
-        ic_fill: 'fill-green dark:fill-modern',
-        ic_size: 'h-9',
-        ic_modifiers: 'mb-4'
+        name: 'graduation-cap',
+        fill: 'fill-green dark:fill-modern',
+        size: 'w-9',
+        modifiers: 'mb-4'
       }%}
 
       <div class="flex flex-col text-xs">
@@ -83,9 +89,9 @@ script: iconSearch.js
 
   {% for icon in icons %}
 
-    {% set ic_name =  get_object_key(icons, loop.index0) %}
-    {% set ic_fill = 'fill-green dark:fill-modern' %}
-    {% set ic_size = 'h-9 mb-4' %}
+    {% set name =  get_object_key(icons, loop.index0) %}
+    {% set fill = 'fill-green dark:fill-modern' %}
+    {% set size = 'h-10 mb-4' %}
 
     {% for style in icon.familyStylesByLicense.pro %}
 
@@ -93,27 +99,27 @@ script: iconSearch.js
       {% set icon_style = icon.familyStylesByLicense.pro[loop.index0].style %}
 
       {% if icon_family == 'sharp' and icon_style == 'light' %}
-        {% set ic_type = 'line' %}
+        {% set type = 'line' %}
       {% elseif icon_family == 'classic' and icon_style == 'brands' %}
-        {% set ic_type = 'social' %}
+        {% set type = 'social' %}
       {% elseif icon_family == 'sharp' and icon_style == 'solid' %}
-        {% set ic_type = 'solid' %}
+        {% set type = 'solid' %}
       {% elseif icon_family == 'sharp-duotone' and icon_style == 'solid' %}
-        {% set ic_type = 'twotone' %}
+        {% set type = 'twotone' %}
       {% endif %}
       
       {% embed "@components/well/well.twig" with {
-        well_padding: 'p-4 md:p-6',
-        well_modifiers: 'well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent'
+        padding: 'p-4 md:p-6',
+        modifiers: 'well flex flex-col justify-center items-center text-center bg-white dark:bg-transparent'
       } %}
 
-        {% block well_html %}
+        {% block html %}
 
           {% include '@components/icon/icon.twig' %}
 
           <div class="flex flex-col text-xs">
-            <span><strong>{{ ic_name }}</strong></span>
-            <span>{{ ic_type }}</span>
+            <span><strong>{{ name }}</strong></span>
+            <span>{{ type }}</span>
           </div>
 
         {% endblock %}

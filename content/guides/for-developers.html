@@ -57,7 +57,7 @@ layout: templates/page.html
 
 <p>Keep classes scoped to the current component as much as possible. Avoid using <code>has-[.*]</code> and nesting <code>[&_*]</code> classes in particular as they can make styling unpredictable and inconsistent.</p>
 
-<p><span class="font-bold mr-2 text-munster">x</span>Don't do this:</p>
+<p><span class="font-bold mr-2 text-munster">x</span>Try to avoid this:</p>
 
 <pre><code class="language-twig">{{ html('
 <div class="[&_img]:w-full">...</div>
@@ -77,7 +77,7 @@ layout: templates/page.html
 
 <p>The use of the <code>has-[.*]</code> class can also ripple down and have unexpected consequences that are hard to undo.</p>
 
-<p><span class="font-bold mr-2 text-munster">x</span>Don't do this:</p>
+<p><span class="font-bold mr-2 text-munster">x</span>Try to avoid this:</p>
 
 <pre><code class="language-twig">{{ html('
 <div class="has-[.text]:bg-green">...</div>
@@ -115,7 +115,7 @@ layout: templates/page.html
 
 <p>If a component's styling is characterised by a cascade of <code>if</code> statements or code repetition, it is an indication that the component isn't structurally sound or maintainable.</p>
 
-<p><span class="font-bold mr-2 text-munster">x</span>Don't do this:</p>
+<p><span class="font-bold mr-2 text-munster">x</span>Try to avoid this:</p>
 
 <pre><code class="language-twig">{{ html('
 {% if btn_primary %}
@@ -172,7 +172,7 @@ layout: templates/page.html
 
 <p>If Tailwind classes are not well-managed, i.e. if they are all dumped together indiscriminately without first organising them, they can become unwieldly.</p>
 
-<p><span class="font-bold mr-2 text-munster">x</span>Don't do this:</p>
+<p><span class="font-bold mr-2 text-munster">x</span>Try to avoid this:</p>
 
 <pre><code class="language-twig">{{ html('
 <button
