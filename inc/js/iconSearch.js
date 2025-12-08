@@ -31,22 +31,22 @@ function handleSearch(event) {
     // Loop through all the icon containers.
     for (let i = 0; i < icons.length; i += 1) {
 
-      // Get the search tags data attribute of the svg icon.
-      let searchTags = icons[i].getElementsByTagName('svg')[0].dataset.tags;
+      // If the icon container has terms, search through them.
+      if (icons[i].getElementsByClassName('terms')[0]) {
+        let searchTerms = icons[i].getElementsByClassName('terms')[0].dataset.terms;
 
-      // If there's a match, update the count and remove the hidden class.
-      if (searchTags.toLowerCase().includes(searchQuery)) {
-        icons[i].classList.remove('hidden');
-        iconsFound += 1;
-      } else {
-        icons[i].classList.add('hidden');
+        // If there's a match, update the count and remove the hidden class.
+        if (searchTerms.toLowerCase().includes(searchQuery)) {
+          icons[i].classList.remove('hidden');
+          iconsFound += 1;
+        } else {
+          icons[i].classList.add('hidden');
+        }
       }
     }
 
+    // Update the count.
     document.getElementById('total-icons').innerText = iconsFound;
 
   }, searchDelay);
-
-  
-
 }

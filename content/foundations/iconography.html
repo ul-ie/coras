@@ -89,23 +89,22 @@ script: iconSearch.js
 
   {% for icon in icons %}
 
-    {% set name =  get_object_key(icons, loop.index0) %}
-    {% set fill = 'fill-green dark:fill-modern' %}
-    {% set size = 'h-10 mb-4' %}
+    {% set icon_name =  get_object_key(icons, loop.index0) %}
+    {% set icon_terms = [icon.search.terms, icon_name].join(',') %}
 
-    {% for style in icon.familyStylesByLicense.pro %}
+    {% for familyStyle in icon.familyStylesByLicense.pro %}
 
       {% set icon_family = icon.familyStylesByLicense.pro[loop.index0].family %}
       {% set icon_style = icon.familyStylesByLicense.pro[loop.index0].style %}
 
       {% if icon_family == 'sharp' and icon_style == 'light' %}
-        {% set type = 'line' %}
+        {% set icon_type = 'line' %}
       {% elseif icon_family == 'classic' and icon_style == 'brands' %}
-        {% set type = 'social' %}
+        {% set icon_type = 'social' %}
       {% elseif icon_family == 'sharp' and icon_style == 'solid' %}
-        {% set type = 'solid' %}
+        {% set icon_type = 'solid' %}
       {% elseif icon_family == 'sharp-duotone' and icon_style == 'solid' %}
-        {% set type = 'twotone' %}
+        {% set icon_type = 'twotone' %}
       {% endif %}
       
       {% embed "@components/well/well.twig" with {
@@ -115,11 +114,19 @@ script: iconSearch.js
 
         {% block html %}
 
-          {% include '@components/icon/icon.twig' %}
+          {% include '@components/icon/icon.twig' with {
+            name: icon_name,
+            type: icon_type,
+            fill: 'fill-green dark:fill-modern',
+            size: 'h-10 mb-4'
+          } only %}
 
-          <div class="flex flex-col text-xs">
-            <span><strong>{{ name }}</strong></span>
-            <span>{{ type }}</span>
+          <div
+            class="terms flex flex-col text-xs"
+            data-terms="{{ icon_terms }}"
+            >
+            <span><strong>{{ icon_name }}</strong></span>
+            <span>{{ icon_type }}</span>
           </div>
 
         {% endblock %}
