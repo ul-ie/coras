@@ -1,0 +1,46 @@
+<ul class="site-nav-links list-none leading-none m-0 p-0 text-green dark:text-modern-l1">
+
+  {% for link in links %}
+
+  <li class="m-0 p-0">
+
+    <div
+      data-nav-section="{{ loop.index }}"
+      class="text-lg font-bold flex items-center cursor-pointer"
+      >
+      
+      <span class="mr-1">{{ link.section }}</span>
+
+      {% include "@components/icon/icon.twig" with {
+        name: 'chevron-down',
+        fill: 'fill-green dark:fill-modern',
+        type: 'solid',
+        size: 'w-3'
+      } only %}
+
+    </div>
+
+    <ul
+      data-nav-entry="{{ loop.index }}"
+      class="list-none leading-none ml-1 mt-0 mr-0 mb-3 p-0 text-granite-d3 dark:text-granite-l3"
+      >
+
+      {% for entry in link.entries %}
+
+      <li class="pl-3 m-0 text-base border-l border-granite-l3 dark:border-granite-d1">
+
+        <a class="font-normal no-underline text-inherit visited:text-inherit" href="{{ entry.url }}">
+          {{ entry.text }}
+        </a>
+
+      </li>
+
+      {% endfor %}
+
+    </ul>
+
+  </li>
+
+  {% endfor %}
+
+</ul>

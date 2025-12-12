@@ -9,7 +9,7 @@ export default function header() {
   let hasFsBanner = document.querySelector('[data-is-fullscreen]');
   if (mainHeader && hasFsBanner) {
     mainHeader.style.backgroundColor = 'transparent';
-    mainHeader.classList.remove('shadow-lg');
+     // mainHeader.classList.remove('shadow-lg');
   }
   window.addEventListener("scroll", () => {
 
@@ -19,14 +19,14 @@ export default function header() {
       let scrollThresholdReached = currentScroll > 200;
 
       if (isScrollingDown  && scrollThresholdReached) {
-        mainHeader.style.transform = 'translateY(-125%)';
+        mainHeader.style.transform = 'translateY(-100%)';
       } else {
         mainHeader.style.transform = 'translateY(0)';
       }
 
       if (scrollThresholdReached) {
         mainHeader.style.backgroundColor = '';
-        mainHeader.classList.add('shadow-lg');
+        // mainHeader.classList.add('shadow-lg');
         headerLogo.style.height = '48px';
         headerLogoText.style.opacity = '0';
       } else {
@@ -34,7 +34,7 @@ export default function header() {
         headerLogo.style.height = '';
         if (hasFsBanner) {
           mainHeader.style.backgroundColor = 'transparent';
-          mainHeader.classList.remove('shadow-lg');
+          // mainHeader.classList.remove('shadow-lg');
         }
       }
 

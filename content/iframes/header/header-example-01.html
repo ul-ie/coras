@@ -1,8 +1,39 @@
 ---
-layout: templates/page-iframe.html
+layout: layouts/page-iframe.html
 ---
 
-{% include '@components/header/header.twig' %}
+{% embed "@components/header/header.twig" with {
+  modifiers: 'shadow-lg'
+}%}
+
+  {% block html_left %}
+
+    <a href="/">
+
+      {% include '@components/logo/logo.twig' with {
+        overrides: 'h-12 md:h-18 transition-all duration-700',
+        symbol_fill: 'fill-white',
+        text_fill: 'fill-white',
+        text_modifiers: 'hidden md:block transition-opacity duration-700'
+      } only %}
+
+    </a>
+
+  {% endblock %}
+
+  {% block html_right %}
+
+    {% include "@components/search-menu/search-menu.twig" %}
+
+  {% endblock %}
+
+  {% block html_outer %}
+
+    {% include "@components/global-search/global-search.twig" %}
+
+  {% endblock %}
+
+{% endembed %}
 
 <div>
   <div class="py-40 px-5 max-w-3xl mx-auto">

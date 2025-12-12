@@ -1,7 +1,7 @@
-{% set mode_toggle_id = mode_toggle_id ?? random() %}
+{% set id = id ?? random() %}
 
 <label
-  for="{{ mode_toggle_id }}"
+  for="{{ id }}"
   class="inline-block relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1/5 dark:hover:bg-modern-l1/10" >
 
   {% include '@components/icon/icon.twig' with {
@@ -10,7 +10,7 @@
     size: 'w-6',
     fill: 'fill-green dark:hidden',
     aria_hidden: true
-  } %}
+  } only %}
 
   {% include '@components/icon/icon.twig' with {
     name: 'moon-stars',
@@ -18,10 +18,10 @@
     size: 'w-6 -mt-1',
     fill: 'fill-white hidden dark:block',
     aria_hidden: true
-  } %}
+  } only %}
 
   <span class="sr-only">Switch between dark and light modes</span>
 
 </label>
 
-<input type="checkbox" name="mode-toggle" id="{{ mode_toggle_id }}" class="sr-only" />
+<input type="checkbox" name="mode-toggle" id="{{ id }}" class="sr-only" />

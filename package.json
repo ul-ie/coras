@@ -5,27 +5,29 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -r dist",
-    "start": "npm run 11ty-serve & npm run tw-watch",
-    "build": "npm run clean && npm run 11ty-build && npm run tw-build",
+    "start": "npm run 11ty-serve & npm run tw-watch & npm run es-watch",
+    "build": "npm run clean && npm run 11ty-build && npm run tw-build && npm run es-build",
     "icons": "npm run icons-update && npm run icons-copy-svgs && npm run icons-copy-json",
     "icons-copy-json": "cp ./node_modules/@awesome.me/kit-c3571caea7/icons/metadata/icon-families.json ./data/icons.json",
     "icons-copy-svgs": "cp -r ./node_modules/@awesome.me/kit-c3571caea7/icons/svgs/* ./inc/assets/icons",
     "icons-update": "npm update '@awesome.me/kit-c3571caea7'",
-    "11ty-serve": "npx @11ty/eleventy --serve",
+    "11ty-serve": "npx @11ty/eleventy --serve --quiet",
     "11ty-build": "npx @11ty/eleventy",
     "tw-watch": "npx @tailwindcss/cli -i ./inc/css/index.css -o ./dist/css/index.css --watch",
-    "tw-build": "npx @tailwindcss/cli -i ./inc/css/index.css -o ./dist/css/index.css --minify"
+    "tw-build": "npx @tailwindcss/cli -i ./inc/css/index.css -o ./dist/css/index.css --minify",
+    "es-watch": "esbuild ./inc/js/index.js --bundle --watch --outfile=./dist/js/index.js",
+    "es-build": "esbuild ./inc/js/index.js --bundle --minify --outfile=./dist/js/index.js"
   },
   "author": "David Matthew",
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
+    "@awesome.me/kit-c3571caea7": "^1.0.101",
     "@tailwindcss/cli": "^4.1.17",
+    "esbuild": "^0.27.1",
+    "highlight.js": "^11.11.1",
     "js-yaml": "^4.1.1",
     "tailwindcss": "^4.1.17",
     "twig": "^1.17.1"
-  },
-  "dependencies": {
-    "@awesome.me/kit-c3571caea7": "^1.0.94"
   }
 }

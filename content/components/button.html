@@ -1,6 +1,6 @@
 ---
 title: Button
-layout: templates/page.html
+layout: layouts/page.html
 ---
 
 <h1 class="font-serif is-decorated">{{ title }}</h1>
@@ -30,7 +30,7 @@ layout: templates/page.html
 
 <p>Use the <code>include</code> tag to create a button, or the <code>embed</code> tag if you want to inject extra content (such as an icon). Use with the <code>only</code> keyword if you need to protect it from variables in the parent scope.</p>
 
-<pre><code>{{ html("
+<pre><code class="language-twig">{{ html("
 {% include 'ul:button' with {
   property: 'value'
   ...
@@ -41,7 +41,7 @@ layout: templates/page.html
 
 <p>A button has one mandatory property and sixteen optional properties.</p>
 
-{% include '@templates/component-props.html' %}
+{% include "@layouts/component-props.html" %}
 
 <h2>Variants</h2>
 
@@ -74,7 +74,7 @@ layout: templates/page.html
 
 <p>Example code:</p>
 
-<pre><code>{{ html("
+<pre><code class="language-twig">{{ html("
 {% include 'ul:button' with {
   text: 'Download Prospectus'
 } %}
@@ -117,7 +117,7 @@ layout: templates/page.html
 
 <p>Example code for a button to download a document:</p>
 
-<pre><code>{{ html("
+<pre><code class="language-twig">{{ html("
 {% include 'ul:button' with {
   text: 'Download Prospectus',
   type: 'link',
@@ -200,7 +200,7 @@ layout: templates/page.html
 
 <p>Applying a theme is straightforward. Below is an example of how to change the <code>theme</code> to <code>solid-blue</code>:</p>
 
-<pre><code>{{ html("
+<pre><code class="language-twig">{{ html("
 {% include 'ul:button' with {
   text: 'Solid Blue',
   theme: 'solid-blue'
@@ -222,7 +222,7 @@ layout: templates/page.html
 
 <p>Example code:</p>
 
-<pre><code>{{ html("
+<pre><code class="language-twig">{{ html("
 {% include 'ul:button' with {
   overrides: 'w-full px-4 py-2 border-2 border-salmon text-salmon fill-salmon hover:bg-salmon hover:text-white hover:fill-white transition cursor-pointer',
   text_classes: 'text-xl',
@@ -263,7 +263,7 @@ layout: templates/page.html
 
 <p>Example code:</p>
 
-<pre><code>{{ html("
+<pre><code class="language-twig">{{ html("
 {% embed 'ul:button' with {
   text: 'Download Prospectus',
   type: 'button'
@@ -310,7 +310,7 @@ layout: templates/page.html
 
 <p>Example code:</p>
 
-<pre><code>{{ html("
+<pre><code class="language-twig">{{ html("
 {% embed 'ul:button' with {
   text: 'Link to External Site',
   is_new_tab: true,
@@ -363,7 +363,7 @@ layout: templates/page.html
 
 <p>Example code:</p>
 
-<pre><code>{{ html("
+<pre><code class="language-twig">{{ html("
 {% embed 'ul:button' with {
   text: 'User',
   type: 'button',
@@ -398,7 +398,7 @@ layout: templates/page.html
 
 <p>Example code:</p>
 
-<pre><code>{{ html("
+<pre><code class="language-twig">{{ html("
 {% include 'ul:button' with {
   text: 'Disabled Button',
   type: 'button',
@@ -412,7 +412,7 @@ layout: templates/page.html
 
 <h3>Twig</h3>
 
-<pre class="max-h-80"><code class="">{{ html(get_file("inc/components/button/button.twig")) }}</code></pre>
+<pre class="max-h-80"><code class="language-twig">{{ html(get_file("inc/components/button/button.twig")) }}</code></pre>
 
 <h3>YML</h3>
 

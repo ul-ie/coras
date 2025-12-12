@@ -8,7 +8,6 @@ module.exports = async function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ 'inc/assets/img': '/img' });
   eleventyConfig.addPassthroughCopy({ 'inc/assets/fonts': '/fonts' });
   eleventyConfig.addPassthroughCopy({ 'inc/assets/video': '/video' });
-  eleventyConfig.addPassthroughCopy({ 'inc/js': '/js' });
 
   eleventyConfig.addDataExtension('yml', (contents) => {
     return yaml.load(contents);
@@ -23,7 +22,7 @@ module.exports = async function(eleventyConfig) {
         path: `./${inputPath}`,
         namespaces: {
           img: './inc/assets/img',
-          templates: './inc/templates',
+          layouts: './inc/layouts',
           components: './inc/components'
         },
       });

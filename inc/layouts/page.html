@@ -1,0 +1,23 @@
+---
+layout: layouts/body.html
+---
+
+<div class="container grid grid-cols-6 min-h-screen">
+
+  {% include "site-nav.html" %}
+
+  <main class="col-span-6 lg:col-span-4">
+
+    <article class="px-5 py-16 sm:px-6 lg:p-20 xl:px-32">
+
+      {{ content }}
+
+    </article>
+
+  </main>
+
+  {% include "page-nav.html" %}
+
+</div>
+
+  

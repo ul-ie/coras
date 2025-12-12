@@ -1,0 +1,54 @@
+<div class="flex items-center">
+
+  <div
+    id="search-and-menu"
+    class="flex md:bg-pebble-d3/70 rounded-lg h-fit overflow-hidden transition-opacity duration-500"
+    >
+
+      {% embed "@components/button/button.twig" with {
+        id: 'global-search-trigger',
+        type: 'button',
+        text: 'Search',
+        text_classes: 'hidden md:inline',
+        overrides: 'flex text-white items-center py-3 px-2 md:px-4 hover:bg-black/30 transition-colors cursor-pointer md:border-r-2 border-r-white'
+      } only %}
+
+        {% block html_left %}
+
+          {% include "@components/icon/icon.twig" with {
+            name: 'magnifying-glass',
+            fill: 'fill-white',
+            type: 'solid',
+            size: 'w-6 md:w-5 mr-2'
+          } only %}
+        
+        {% endblock %}
+
+      {% endembed %}
+
+      {% embed "@components/button/button.twig" with {
+        id: 'global-search-trigger',
+        type: 'button',
+        text: 'Menu',
+        text_classes: 'hidden md:inline',
+        overrides: 'flex text-white items-center py-3 px-2 md:px-4 hover:bg-black/30 transition-colors cursor-pointer'
+      } only %}
+
+        {% block html_left %}
+
+          {% include "@components/icon/icon.twig" with {
+            name: 'bars',
+            fill: 'fill-white',
+            type: 'solid',
+            size: 'w-5 md:w-4 md:mr-3'
+          } only %}
+        
+        {% endblock %}
+
+      {% endembed %}
+
+    </div>
+
+  </div>
+
+</div>

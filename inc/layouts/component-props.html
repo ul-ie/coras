@@ -2,6 +2,7 @@
 {% set yml_file = './inc/components/' ~ component_path ~ '.component.yml' %}
 {% set component = get_yml(yml_file) %}
 {% set properties = component.props.properties %}
+{% set slots = component.slots %}
 
 <table>
   <thead>
@@ -31,6 +32,15 @@
         ]</em>
       </td>
       <td>{{ key.enum|join(', ') ?? 'n/a' }}</td>
+    </tr>
+  {% endfor %}
+  {% for slot in slots %}
+    {% set key = slots[get_object_key(slots, loop.index0)] %}
+    <tr>
+      <td><code>{{ key.title }}</code></td>
+      <td>slot</td>
+      <td>{{ key.description }}</td>
+      <td>n/a</td>
     </tr>
   {% endfor %}
   </tbody>

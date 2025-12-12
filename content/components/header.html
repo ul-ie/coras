@@ -1,6 +1,6 @@
 ---
 title: Header
-layout: templates/page.html
+layout: layouts/page.html
 ---
 
 <h1 class="font-serif is-decorated">{{ title }}</h1>
@@ -9,7 +9,7 @@ layout: templates/page.html
 
 <h3>Properties</h3>
 
-{% include '@templates/component-props.html' %}
+{% include "@layouts/component-props.html" %}
 
 <h2>Examples</h2>
 
@@ -48,4 +48,4 @@ layout: templates/page.html
 
 <h3>JavaScript</h3>
 
-<pre class="max-h-80"><code class="">{{ html(get_file("inc/js/header.js")) }}</code></pre>
+<pre class="max-h-80"><code class="">{{ html(get_file("inc/components/header/header.js")) }}</code></pre>

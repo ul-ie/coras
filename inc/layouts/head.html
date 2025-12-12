@@ -1,0 +1,26 @@
+---
+layout: layouts/html.html
+---
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="generator" content="{{ eleventy.generator }}">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/css/index.css">
+
+  <script>
+    // Check for dark mode.
+    let html = document.querySelector('html');
+    let isDarkModeActive = ('dark-mode' in localStorage) && localStorage.getItem('dark-mode') === 'true';
+    isDarkModeActive ? html.classList.add('dark') : html.classList.remove('dark');
+  </script>
+
+  <title>{{ title }}</title>
+
+</head>
+
+{{ content }}

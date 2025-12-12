@@ -6,101 +6,28 @@
  * @see https://coras.ul.ie/components/logo/#properties for full documentation.
  */
 #}
+{% set position = position ?? 'sticky' %}
+{% set bg_colour = bg_colour ?? 'bg-heritage' %}
+{% set core_classes = 'top-0 left-0 z-40 overflow-hidden' %}
+{% set hide_on_scroll = hide_on_scroll ? true %}
 
-{% set id = id ? 'id="' ~ id ~ '"' : '' %}
-
-{% set btn_classes = 'flex text-white items-center py-3 px-2 md:px-4 hover:bg-black/30 transition-colors cursor-pointer'
-%}
+{# Combine classes into a single string to pass to the component. #}
+{% set classes = [core_classes, position, bg_colour, modifiers]|join(' ') %}
 
 <header
   data-header
-  class="sticky top-0 left-0 z-40 bg-heritage overflow-hidden transition-all duration-500 shadow-lg">
+  {{ hide_on_scroll ? ' data-hide-on-scroll ' : '' }}
+  {{ id ? 'id="' ~ id ~ '"' : '' }}
+  class="{{ overrides is empty ? classes|trim : overrides }}"
+  >
 
-  <div class="container px-5 md:px-0 py-2 md:py-4 flex justify-between">
+  {% block html_outer %}{% endblock %}
 
-    <a href="/">
+  <div class="container px-5 md:px-0 py-2 md:py-3 flex justify-between items-center">
 
-      {% include '@components/logo/logo.twig' with {
-        overrides: 'h-12 md:h-18 transition-all duration-700',
-        graphic_fill: 'fill-white',
-        text_fill: 'fill-white',
-        text_modifiers: 'hidden md:block transition-opacity duration-700'
-      } %}
+    {% block html_left %}{% endblock %}
 
-    </a>
-
-    <div class="flex items-center">
-
-      <div id="search-and-menu"
-        class="flex md:bg-pebble-d3/70 rounded-lg h-fit overflow-hidden transition-opacity duration-500">
-
-        <button id="global-search-trigger" class="{{ btn_classes }} md:border-r-2 border-r-white">
-
-          {% include '@components/icon/icon.twig' with {
-            name: 'magnifying-glass',
-            fill: 'fill-white',
-            type: 'solid',
-            size: 'w-6 md:w-5 mr-2'
-          } %}
-
-          <span class="hidden md:inline">Search</span>
-
-        </button>
-
-        <button class="{{ btn_classes }}">
-
-          {% include '@components/icon/icon.twig' with {
-            name: 'bars',
-            fill: 'fill-white',
-            type: 'solid',
-            size: 'w-5 md:w-4 md:mr-3'
-          } %}
-
-          <span class="hidden md:inline">Menu</span>
-
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <div id="global-search"
-    class="absolute top-0 left-0 py-3 px-5 md:px-10 md:left-auto md:right-0 flex w-full md:w-xl xl:w-3xl h-full bg-heritage md:bg-transparent transition-all duration-400 translate-x-full opacity-0 overflow-hidden">
-
-    <div class="flex justify-between items-center w-full">
-
-      <label class="sr-only" for="global-search">Search University of Limerick</label>
-
-      <input
-        class="block w-full bg-transparent md:bg-white text-white md:text-granite-d3 md:py-3 md:px-4 md:mr-2 rounded-sm md:text-lg focus:outline-0 md:focus:outline-3 md:focus:outline-modern"
-        type="search" name="global-search-input" id="global-search-input" placeholder="Search">
-
-      <button id="global-search-go" class="{{ btn_classes }}" title="Search">
-
-        {% include '@components/icon/icon.twig' with {
-          name: 'magnifying-glass',
-          fill: 'fill-white',
-          type: 'solid',
-          size: 'h-6 md:h-8'
-        } %}
-
-      </button>
-
-      <button id="global-search-dismiss" class="{{ btn_classes }}" title="Dismiss">
-
-        {% include '@components/icon/icon.twig' with {
-          name: 'xmark',
-          fill: 'fill-white',
-          type: 'solid',
-          size: 'h-6 md:h-8',
-          modifiers: 'transition-transform origin-center duration-700'
-        } %}
-
-      </button>
-
-    </div>
+    {% block html_right %}{% endblock %}
 
   </div>
 

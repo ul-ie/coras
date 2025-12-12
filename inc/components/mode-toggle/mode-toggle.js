@@ -18,6 +18,5 @@ export default function modeToggle() {
         localStorage.setItem('dark-mode', false);
       };
     });
-
   });
 }

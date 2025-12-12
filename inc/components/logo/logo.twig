@@ -6,19 +6,16 @@
  * @see https://coras.ul.ie/components/logo/#properties for full documentation.
  */
 #}
-
-{# Set variable defaults #}
-{% set id = id ? 'id="' ~ id ~ '"' : '' %}
 {% set size = size ?? 'w-full h-full' %}
 {% set symbol_fill = symbol_fill ?? 'fill-modern' %}
 {% set text_fill = text_fill ?? 'fill-green' %}
 {% set classes = overrides is empty ? [size, modifiers]|join(' ') : overrides %}
 
 <svg
-  {{ id }}
   version="1.1"
   viewBox="0 0 1480 676.28"
   xmlns="http://www.w3.org/2000/svg"
+  {{ id ? 'id="' ~ id ~ '"' : '' }}
   class="{{ classes|trim }}"
   data-logo
   >
