@@ -7,18 +7,11 @@ props:
       type: string
       description: The header background colour.
       default: 'bg-heritage'
-    hide_on_scroll:
-      title: hide_on_scroll
-      type: boolean
-      description: Whether to hide the header when the user scrolls down the page.
-      default: true
-      enum:
-        - true
-        - false
     id:
       title: id
       type: string
       description: The header id.
+      default: 'main-header'
     modifiers:
       title: modifiers
       type: string
@@ -27,11 +20,6 @@ props:
       title: overrides
       type: string
       description: Override all core header styling, allowing for full customisation.
-    position:
-      title: position
-      type: string
-      description: The header position.
-      default: 'sticky'
 slots:
   html_left:
     title: html_left

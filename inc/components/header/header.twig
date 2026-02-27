@@ -1,29 +1,24 @@
-{#
-/**
- * @file
- * Header component.
- * 
- * @see https://coras.ul.ie/components/logo/#properties for full documentation.
- */
-#}
-{% set position = position ?? 'sticky' %}
+{# The header component. #}
+
+{# @docs https://coras.netlify.app/components/header/ #}
+
+{# Default values and core classes. #}
 {% set bg_colour = bg_colour ?? 'bg-heritage' %}
-{% set core_classes = 'top-0 left-0 z-40 overflow-hidden' %}
-{% set hide_on_scroll = hide_on_scroll ? true %}
+{% set core_classes = 'sticky top-0 left-0 h-16 md:h-24 flex items-center z-40 overflow-hidden transition-all duration-500' %}
+{% set id = id ?? 'main-header' %}
 
 {# Combine classes into a single string to pass to the component. #}
-{% set classes = [core_classes, position, bg_colour, modifiers]|join(' ') %}
+{% set classes = [bg_colour, core_classes, modifiers]|join(' ') %}
 
+{# The component markup. #}
 <header
-  data-header
-  {{ hide_on_scroll ? ' data-hide-on-scroll ' : '' }}
-  {{ id ? 'id="' ~ id ~ '"' : '' }}
+  id="{{ id }}"
   class="{{ overrides is empty ? classes|trim : overrides }}"
   >
 
   {% block html_outer %}{% endblock %}
 
-  <div class="container px-5 md:px-0 py-2 md:py-3 flex justify-between items-center">
+  <div class="container max-h-full px-5 md:px-0 flex justify-between items-center">
 
     {% block html_left %}{% endblock %}
 
@@ -32,3 +27,6 @@
   </div>
 
 </header>
+
+{# Create a target element for the intersection oberserver. #}
+<div id="intersection-target" class="absolute left-0 top-64 h-px w-px"></div>

@@ -1,0 +1,79 @@
+<div class="flex items-center" id="header-actions">
+
+  <div class="flex md:bg-pebble-d3/70 rounded-lg h-fit transition-opacity duration-500">
+
+    {% embed "@components/button/button.twig" with {
+      id: "header-search-display",
+      type: "button",
+      text: "Search",
+      text_classes: "hidden md:inline",
+      overrides: "flex text-white items-center py-3 px-2 rounded-s-lg md:px-4 hover:bg-black/30 transition-all cursor-pointer"
+    } only %}
+
+      {% block html_left %}
+
+        {% include "@components/icon/icon.twig" with {
+          name: "magnifying-glass",
+          fill: "fill-white",
+          type: "solid",
+          size: "w-6 md:w-5 mr-2"
+        } only %}
+      
+      {% endblock %}
+
+    {% endembed %}
+
+    {% embed "@components/button/button.twig" with {
+      id: "header-menu-display",
+      type: "button",
+      text: "Menu",
+      text_classes: "hidden md:inline",
+      overrides: "flex text-white items-center py-3 px-2 rounded-e-lg md:px-4 hover:bg-black/30 transition-all cursor-pointer md:border-l-white md:border-l-2"
+    } only %}
+
+      {% block html_left %}
+
+        {% include "@components/icon/icon.twig" with {
+          name: "bars",
+          fill: "fill-white",
+          type: "solid",
+          size: "w-5 md:w-4 md:mr-3"
+        } only %}
+      
+      {% endblock %}
+
+    {% endembed %}
+
+    {% embed "@components/button/button.twig" with {
+      id: "saved-courses",
+      type: "button",
+      text: "Saved Courses",
+      text_classes: "hidden",
+      overrides: "hidden relative flex text-white items-center py-3 px-2 rounded-e-lg md:px-4 ml-2 md:ml-0 hover:bg-black/30 transition-all cursor-pointer md:border-l-white md:border-l-2"
+    } only %}
+
+      {% block html_left %}
+
+        {% include "@components/icon/icon.twig" with {
+          name: "heart",
+          fill: "fill-modern",
+          type: "solid",
+          size: "w-6",
+          modifiers: "md:mr-1 animate-quick-pulse"
+        } only %}
+
+        {% include "@components/icon/icon.twig" with {
+          name: "graduation-cap",
+          fill: "fill-white",
+          type: "solid",
+          size: "w-4",
+          modifiers: "absolute block bottom-2.5 right-0.5 md:right-3"
+        } only %}
+      
+      {% endblock %}
+
+    {% endembed %}
+
+  </div>
+
+</div>
