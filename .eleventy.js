@@ -52,6 +52,9 @@ module.exports = async function(eleventyConfig) {
     return yaml.load(file);
   });
 
+  // A compatibility function for Drupal's t filter.
+  twig.extendFilter('t', string => string);
+
   /**
    * An icon function to mirror the Drupal icon API.
    */
