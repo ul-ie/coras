@@ -3,18 +3,19 @@ layout: layouts/page-iframe.html
 ---
 
 {% embed "@components/header/header.twig" with {
-  modifiers: 'shadow-lg'
+  modifiers: "shadow-lg"
 }%}
 
   {% block html_left %}
 
     <a href="/">
 
-      {% include '@components/logo/logo.twig' with {
-        overrides: 'h-12 md:h-18 transition-all duration-700',
-        symbol_fill: 'fill-white',
-        text_fill: 'fill-white',
-        text_modifiers: 'hidden md:block transition-opacity duration-700'
+      {% include "@components/logo/logo.twig" with {
+        id: "header-logo",
+        overrides: "h-12 md:h-18 transition-all duration-500",
+        symbol_fill: "fill-white",
+        text_fill: "fill-white",
+        text_modifiers: "hidden md:block transition-opacity duration-500"
       } only %}
 
     </a>
@@ -23,21 +24,14 @@ layout: layouts/page-iframe.html
 
   {% block html_right %}
 
-    {% include "@components/search-menu/search-menu.twig" %}
+    {% include "@components/header-actions/header-actions.twig" %}
 
   {% endblock %}
 
   {% block html_outer %}
 
-    {% include "@components/global-search/global-search.twig" %}
+    {% include "@components/header-search/header-search.twig" %}
 
   {% endblock %}
 
 {% endembed %}
-
-<div>
-  <div class="py-40 px-5 max-w-3xl mx-auto">
-    <h1 class="font-serif is-decorated">Example Content</h1>
-    {% include '../../foundations/typography.html' %}
-  </div>
-</div>

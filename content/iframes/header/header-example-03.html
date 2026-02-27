@@ -1,0 +1,86 @@
+---
+layout: layouts/page-iframe.html
+---
+
+{% embed "@components/header/header.twig" with {
+  modifiers: "shadow-lg"
+}%}
+
+  {% block html_left %}
+
+    <a href="/">
+
+      {% include "@components/logo/logo.twig" with {
+        id: "header-logo",
+        overrides: "h-12 md:h-18 transition-all duration-500",
+        symbol_fill: "fill-white",
+        text_fill: "fill-white",
+        text_modifiers: "hidden md:block transition-opacity duration-500"
+      } only %}
+
+    </a>
+
+  {% endblock %}
+
+  {% block html_right %}
+
+    {% include "@components/header-actions/header-actions.twig" %}
+
+  {% endblock %}
+
+  {% block html_outer %}
+
+    {% include "@components/header-search/header-search.twig" %}
+
+  {% endblock %}
+
+{% endembed %}
+
+<div class="flex justify-center mt-24">
+
+  <p class="mr-4">Example button for saving a course:</p>
+
+  {% embed "@components/button/button.twig" with {
+    text: "Save",
+    type: "button",
+    theme: "outline-green",
+    modifiers: "save-course-btn"
+  } only %}
+
+    {% block html_left %}
+
+      {% include "@components/icon/icon.twig" with {
+        name: "heart",
+        type: "solid",
+        fill: "fill-[color-mix(in_oklch,theme(colors.green)_50%,white)]",
+        size: "w-4",
+        modifiers: "mr-2.5 stroke-1 stroke-green",
+        aria_hidden: true
+      } only %}
+
+    {% endblock %}
+
+  {% endembed %}
+
+</div>
+
+<script>
+  let isSaved = false;
+  const saveCourse = document.getElementsByClassName('save-course-btn');
+  const savedCourses = document.getElementById('saved-courses');
+
+  saveCourse[0].addEventListener('click', (event) => {
+    if (!isSaved) {
+      savedCourses.style.display = 'flex';
+      event.currentTarget.querySelector('span').innerText = 'Saved';
+      event.currentTarget.querySelector('svg').style.fill = 'var(--color-modern)';
+    } else {
+      savedCourses.style.removeProperty('display');
+      event.currentTarget.querySelector('span').innerText = 'Save';
+      event.currentTarget.querySelector('svg').style.removeProperty('fill');
+    }
+
+    isSaved = !isSaved;
+    
+  });
+</script>

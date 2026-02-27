@@ -2,6 +2,8 @@
 layout: layouts/page-iframe.html
 ---
 
+<div class="text-center py-8 bg-granite-l3 text-granite-d2"><small>Space Above</small></div>
+
 {% embed "@components/header/header.twig" with {
   modifiers: "shadow-lg"
 }%}
@@ -36,11 +38,4 @@ layout: layouts/page-iframe.html
 
 {% endembed %}
 
-{% set dummyContent %}
-  {% include "../../foundations/typography.html" %}
-{% endset %}
-
-<div class="px-5 py-24 mx-auto max-w-5xl">
-  <h1 class="is-decorated font-serif">Dummy Content</h1>
-  {{ dummyContent|slice(120, 5000) }}
-</div>
+<div style="height: 1500px"></div>

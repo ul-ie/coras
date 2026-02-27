@@ -7,6 +7,15 @@ layout: layouts/page.html
 
 <h2>Description</h2>
 
+<p>The header component sits at the top of every page and includes a branded homepage link, buttons to trigger global search and the main menu, a hidden saved courses button that only appears once you save a course.</p>
+
+{% include '@components/iframe/iframe.twig' with {
+  folder: 'header',
+  file: 'example-01',
+  height: 100,
+  zoom: 1
+} %}
+
 <h3>Properties</h3>
 
 {% include "@layouts/component-props.html" %}
@@ -17,15 +26,25 @@ layout: layouts/page.html
 
 <h3>Scroll Behaviour</h3>
 
-<p>This example is populated with sample content so that you can scroll up and down the page. When the user <strong>scrolls down</strong>, the header disappears. When the user <strong>scrolls back up</strong>, it appears again. The distance from the top of the page is also monitored to alter the size of the header.</p>
+<p>This example is populated with sample content so that you can scroll up and down the page. The height of the header is minimized when the user <strong>scrolls down</strong> (on mobile there is no effect as it is already minimized).</p>
 
 {% include '@components/iframe/iframe.twig' with {
   folder: 'header',
-  file: 'example-01',
-  height: 140,
+  file: 'example-02',
+  height: 220,
   zoom: 0.7
 } %}
 
+<h3>Saving Courses</h3>
+
+<p>When saving a course on the site for later comparison, an icon appears in the header actions section, embedded along with the search and menu buttons. Here's how it appears, simulated via a save button.</p>
+
+{% include '@components/iframe/iframe.twig' with {
+  folder: 'header',
+  file: 'example-03',
+  height: 240,
+  zoom: 0.7
+} %}
 
 <h3>Space Above</h3>
 
@@ -33,14 +52,14 @@ layout: layouts/page.html
 
 {% include '@components/iframe/iframe.twig' with {
   folder: 'header',
-  file: 'example-02',
+  file: 'example-04',
   height: 140,
   zoom: 0.7
 } %}
 
 <h2>Source Code</h2>
 
-<p><strong>Note: </strong>This code is a work-in-progress and several components are being re-worked, so please take what is useful from the below in order to integrate this functionality on the redesign server. </p>
+<p>The source code below can be found below, and at <code>inc/components/header/</code> in the design system repository.</p>
 
 <h3>Twig</h3>
 
@@ -48,4 +67,8 @@ layout: layouts/page.html
 
 <h3>JavaScript</h3>
 
-<pre class="max-h-80"><code class="">{{ html(get_file("inc/components/header/header.js")) }}</code></pre>
+<pre class="max-h-80"><code class="language-js">{{ html(get_file("inc/components/header/header.js")) }}</code></pre>
+
+<h3>YAML</h3>
+
+<pre class="max-h-80"><code class="language-yaml">{{ html(get_file("inc/components/header/header.component.yml")) }}</code></pre>
