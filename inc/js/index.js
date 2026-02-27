@@ -1,9 +1,9 @@
 // Global js.
 import menuToggle from './menuToggle.js';
-import pageNav from './page-nav.js';
+import pageNav from './pageNav.js';
 
 // Components.
-import globalSearch from '../components/global-search/globalSearch.js';
+import headerSearch from '../components/header-search/headerSearch.js';
 import header from '../components/header/header.js';
 import modeToggle from '../components/mode-toggle/mode-toggle.js';
 import swatch from '../components/swatch/swatch.js';
@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Enable header-related behaviour.
   header();
 
+  // Enable header search interactivity.
+  headerSearch();
+
   // Enable the menu toggle animations.
   menuToggle();
 
@@ -37,9 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Create the page navigation links.
   pageNav();
-
-  // Enable global search interactivity.
-  globalSearch();
 
   // Add the colour swatch event listeners.
   swatch();
