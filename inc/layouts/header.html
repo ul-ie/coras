@@ -1,18 +1,18 @@
 {% embed "@components/header/header.twig" with {
-  id: 'main-header',
+  id: 'coras-header',
   bg_colour: 'bg-white/70 dark:bg-granite-d3/70',
-  modifiers: 'border-b border-granite-l3 dark:border-granite-d1 transition-transform duration-500'
+  overrides: 'h-16 md:h-24 flex items-center z-40 overflow-hidden border-b border-granite-l3 dark:border-granite-d1'
 } %}
 
   {% block html_left %}
 
-    <a href="/">
+    <a href="/" class="h-full">
 
       {% include '@components/logo/logo.twig' with {
-        overrides: 'h-12 md:h-18 transition-all duration-700',
+        overrides: 'h-18 transition-all duration-500',
         symbol_fill: 'fill-modern dark:fill-white',
         text_fill: 'fill-green dark:fill-white',
-        text_modifiers: 'hidden md:block transition-opacity duration-700'
+        text_modifiers: 'hidden md:block transition-opacity duration-500'
       } only %}
 
     </a>
@@ -41,49 +41,4 @@
 
   {% endblock %}
 
-  {% block html_outer %}
-
-    <div
-      aria-hidden="true"
-      class="absolute inset-0 backdrop-blur -z-10">
-    </div>
-
-  {% endblock %}
-
 {% endembed %}
-
-
-{# <header id="top-bar" class="sticky top-0 w-full h-28 z-20 transition-all duration-700">
-
-  <div class="
-        absolute inset-0 bg-white/70 border-b border-granite-l3 backdrop-blur -z-10
-        dark:bg-granite-d3/70 dark:border-granite-d1" aria-hidden="true">
-  </div>
-
-  <div class="container h-full flex items-center justify-between px-5 sm:px-6 py-4 transition-all duration-700">
-
-    <a id="main-logo" href="/" class="block h-full w-full transition-all">
-      {% include '@img/logo.svg' %}
-    </a>
-
-    <div class="hidden lg:block">
-
-      {% include 'mode-toggle.html' with {
-        id: 'desktop-toggle'
-      } only %}
-
-    </div>
-
-    <div id="nav-toggle" class="w-10 transition duration-350 lg:hidden">
-
-      <div class="h-1 bg-modern transition duration-350"></div>
-
-      <div class="h-1 bg-modern ml-2 my-2.5 transition duration-350"></div>
-
-      <div class="h-1 bg-modern transition duration-350"></div>
-
-    </div>
-
-  </div>
-
-</header> #}
