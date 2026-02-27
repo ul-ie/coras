@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./base.css" layer(base);
 @import "./fonts.css" layer(components);
 @import "./typography.css" layer(components);
 @import "./hljs.css" layer(components);
@@ -205,6 +206,16 @@
     }
     to {
       transform: scale3d(1.15, 1.15, 1.15);
+    }
+  }
+
+  --animate-quick-pulse: quick-pulse 1s ease-out 0.25s both;
+  @keyframes quick-pulse {
+    0%, 50%, 100% {
+      opacity: 1;
+    }
+    25%, 75% {
+      opacity: 0.4;
     }
   }
 
