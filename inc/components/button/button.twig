@@ -1,12 +1,3 @@
-{#
-/**
- * @file
- * Button component.
- * 
- * @see https://coras.ul.ie/components/button/#properties for full documentation.
- */
-#}
-
 {# Set variable defaults #}
 {% set type = type in ['button', 'link', 'submit', 'reset'] ? type : 'link' %}
 {% set themes = ['solid-green', 'solid-blue', 'outline-green', 'outline-blue', 'transparent'] %}
@@ -22,7 +13,7 @@
 {% set text_classes = text_classes ?? 'text-lg' %}
 
 {# Component core classes. #}
-{% set core_classes = 'flex items-center justify-center w-fit border-2 rounded-md transition no-underline' %}
+{% set core_classes = 'flex items-center justify-center self-center w-fit border-2 rounded-md transition no-underline' %}
 
 {# Set up button theme classes as an object. #}
 {% set theme_classes = {
@@ -31,9 +22,9 @@
 
   'solid-blue': 'bg-stone border-stone text-white hover:bg-stone-d1 hover:border-stone-d1 active:bg-stone-d2 active:border-green-d2',
 
-  'outline-green': 'bg-white border-green text-green hover:bg-green hover:text-white active:bg-green-d1',
+  'outline-green': 'bg-white border-green text-green hover:border-heritage hover:text-heritage hover:bg-[color-mix(in_oklch,theme(colors.modern.l2)_10%,white)] active:border-heritage active:text-heritage active:bg-[color-mix(in_oklch,theme(colors.modern.l2)_25%,white)]',
 
-  'outline-blue': 'bg-white border-stone text-stone hover:bg-stone hover:text-white active:bg-stone-d1',
+  'outline-blue': 'bg-white border-stone text-stone hover:border-stone-d2 hover:text-stone-d2 hover:bg-[color-mix(in_oklch,theme(colors.shannon.l2)_15%,white)] active:border-stone-d2 active:text-stone-d2 active:bg-[color-mix(in_oklch,theme(colors.shannon.l2)_30%,white)]',
 
   'transparent': 'bg-transparent border-white text-white hover:bg-black/30 active:bg-black/50'
 
