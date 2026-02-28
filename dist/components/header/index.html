@@ -38,7 +38,7 @@
 
 <header
   id="coras-header"
-  class="h-16 md:h-24 flex items-center z-40 overflow-hidden border-b border-granite-l3 dark:border-granite-d1"
+  class="relative h-16 md:h-24 flex items-center z-40 overflow-hidden border-b border-granite-l3 dark:border-granite-d1"
   >
 
   
@@ -54,7 +54,7 @@
   viewBox="0 0 1480 676.28"
   xmlns="http://www.w3.org/2000/svg"
   
-  class="h-18 transition-all duration-500"
+  class="h-12 md:h-18 transition-all duration-500"
   >
   <title>University of Limerick</title>
   <g class="logo-symbol fill-modern dark:fill-white ">
@@ -154,14 +154,14 @@
 </header>
 
 
-<div id="intersection-target" class="absolute left-0 top-64 h-px w-px"></div>
+<div id="intersection-target" class="absolute left-0 top-48 h-px w-px"></div>
 
   
 <div class="container grid grid-cols-6 min-h-screen">
 
-  <div id="mobile-menu" class="fixed top-0 left-0 w-full h-screen z-10 -translate-x-full transition-transform pt-32 px-5  bg-limestone-l5 lg:hidden dark:bg-granite-d3">
+  <div id="mobile-menu" class="fixed top-0 left-0 w-full z-10 -translate-x-full transition-transform pt-24 px-5  bg-limestone-l5 lg:hidden dark:bg-granite-d3">
 
-  <nav class="h-screen overflow-scroll pb-60">
+  <nav class="h-screen overflow-scroll">
 
     <ul class="site-nav-links list-none leading-none m-0 p-0 text-green dark:text-modern-l1">
 
@@ -392,7 +392,7 @@
 
     
 <label
-  for="1089307251"
+  for="1743327602"
   class="inline-block relative cursor-pointer p-3 rounded-full transition hover:bg-modern-l1/5 dark:hover:bg-modern-l1/10" >
 
   
@@ -417,7 +417,7 @@
 
 </label>
 
-<input type="checkbox" name="mode-toggle" id="1089307251" class="sr-only" />
+<input type="checkbox" name="mode-toggle" id="1743327602" class="sr-only" />
 
   </div>
 
@@ -925,7 +925,7 @@
 
 {# Default values and core classes. #}
 {% set bg_colour = bg_colour ?? &#39;bg-heritage&#39; %}
-{% set core_classes = &#39;sticky top-0 left-0 h-16 md:h-24 flex items-center z-40 overflow-hidden transition-all duration-500&#39; %}
+{% set core_classes = &#39;sticky top-0 left-0 h-16 md:h-25 flex items-center z-40 overflow-hidden transition-all duration-500 shadow-lg&#39; %}
 {% set id = id ?? &#39;main-header&#39; %}
 
 {# Combine classes into a single string to pass to the component. #}
@@ -950,7 +950,7 @@
 &lt;/header&gt;
 
 {# Create a target element for the intersection oberserver. #}
-&lt;div id=&quot;intersection-target&quot; class=&quot;absolute left-0 top-64 h-px w-px&quot;&gt;&lt;/div&gt;</code></pre>
+&lt;div id=&quot;intersection-target&quot; class=&quot;absolute left-0 top-48 h-px w-px&quot;&gt;&lt;/div&gt;</code></pre>
 
 <h3>JavaScript</h3>
 
@@ -972,68 +972,34 @@ export default function header() {
   const savedCourses = document.getElementById(&#39;saved-courses&#39;);
   const headerActionButtons = [searchDisplay, menuDisplay, savedCourses];
 
+  // Check for a fullscreen hero banner. If found, remove the shadow.
+  const hasHeroBanner = document.getElementById(&#39;hero-banner&#39;) ? true : false;
+  if (hasHeroBanner) header.classList.remove(&#39;shadow-lg&#39;);
+
   // Use an intersection observer to alter the header.
   const observer = new IntersectionObserver(elements =&gt; {
     elements.forEach(element =&gt; {
       if (!element.isIntersecting) {
         header.style.height = &#39;64px&#39;;
+        header.style.backgroundColor = &#39;var(--color-heritage)&#39;;
         headerLogo.style.height = &#39;48px&#39;;
         headerLogoText.style.opacity = &#39;0&#39;;
         headerActionButtons.forEach(button =&gt; { button.style.paddingBlock = &#39;8px&#39; });
+        if (hasHeroBanner) header.classList.add(&#39;shadow-lg&#39;);
       } else {
         header.style.removeProperty(&#39;height&#39;);
+        header.style.removeProperty(&#39;background-color&#39;);
         headerLogo.style.removeProperty(&#39;height&#39;);
         headerLogoText.style.removeProperty(&#39;opacity&#39;);
         headerActionButtons.forEach(button =&gt; { button.style.removeProperty(&#39;padding-block&#39;)});
+        if (hasHeroBanner) header.classList.remove(&#39;shadow-lg&#39;);
       }
     });
   });
 
   observer.observe(intersectionTarget);
 
-}
-  // let previousScroll;
-  // let mainHeader = document.getElementById(&#39;main-header&#39;);
-  // let headerLogo = document.querySelector(&#39;header [data-logo]&#39;)
-  // let headerLogoText = document.querySelector(&#39;header [data-logo-text]&#39;);
-  // let hasFsBanner = document.querySelector(&#39;[data-is-fullscreen]&#39;);
-  // if (mainHeader &amp;&amp; hasFsBanner) {
-  //   mainHeader.style.backgroundColor = &#39;transparent&#39;;
-  //   mainHeader.classList.remove(&#39;shadow-lg&#39;);
-  // }
-  // window.addEventListener(&quot;scroll&quot;, () =&gt; {
-
-  //   if (mainHeader) {
-
-  //     let currentScroll = window.pageYOffset;
-  //     let scrollThresholdReached = currentScroll &gt; 200;
-      
-      // let isScrollingDown = currentScroll - previousScroll &gt; 0;
-      // if (isScrollingDown  &amp;&amp; scrollThresholdReached) {
-      //   mainHeader.style.transform = &#39;translateY(-100%)&#39;;
-      // } else {
-      //   mainHeader.style.transform = &#39;translateY(0)&#39;;
-      // }
-
-      // if (scrollThresholdReached) {
-      //   mainHeader.style.backgroundColor = &#39;&#39;;
-      //   mainHeader.classList.add(&#39;shadow-lg&#39;);
-      //   headerLogo.style.height = &#39;48px&#39;;
-      //   headerLogoText.style.opacity = &#39;0&#39;;
-      // } else {
-      //   headerLogoText.style.opacity = &#39;1&#39;
-      //   headerLogo.style.height = &#39;&#39;;
-      //   if (hasFsBanner) {
-      //     mainHeader.style.backgroundColor = &#39;transparent&#39;;
-      //     // mainHeader.classList.remove(&#39;shadow-lg&#39;);
-      //   }
-      // }
-
-      // Update the scroll position.
-      // previousScroll = currentScroll;
-    // }
-  // });
-// }</code></pre>
+}</code></pre>
 
 <h3>YAML</h3>
 
