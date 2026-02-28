@@ -1,7 +1,7 @@
 {% embed "@components/header/header.twig" with {
   id: 'coras-header',
   bg_colour: 'bg-white/70 dark:bg-granite-d3/70',
-  overrides: 'h-16 md:h-24 flex items-center z-40 overflow-hidden border-b border-granite-l3 dark:border-granite-d1'
+  overrides: 'relative h-16 md:h-24 flex items-center z-40 overflow-hidden border-b border-granite-l3 dark:border-granite-d1'
 } %}
 
   {% block html_left %}
@@ -9,7 +9,7 @@
     <a href="/" class="h-full">
 
       {% include '@components/logo/logo.twig' with {
-        overrides: 'h-18 transition-all duration-500',
+        overrides: 'h-12 md:h-18 transition-all duration-500',
         symbol_fill: 'fill-modern dark:fill-white',
         text_fill: 'fill-green dark:fill-white',
         text_modifiers: 'hidden md:block transition-opacity duration-500'

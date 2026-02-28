@@ -1,21 +1,22 @@
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-granite-d2);
+  }
 
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-  background-color: var(--color-granite-d2);
-}
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-granite);
+    border-radius: var(--radius-md);
+  }
 
-::-webkit-scrollbar-thumb {
-  background-color: var(--color-granite);
-  border-radius: var(--radius-md);
-}
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-granite-l1);
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-granite-l1);
-}
-
-::-webkit-scrollbar-corner {
-  background-color: var(--color-granite-d2);
+  ::-webkit-scrollbar-corner {
+    background-color: var(--color-granite-d2);
+  }
 }
 
 figure img {
