@@ -16,19 +16,27 @@ export default function header() {
   const savedCourses = document.getElementById('saved-courses');
   const headerActionButtons = [searchDisplay, menuDisplay, savedCourses];
 
+  // Check for a fullscreen hero banner. If found, remove the shadow.
+  const hasHeroBanner = document.getElementById('hero-banner') ? true : false;
+  if (hasHeroBanner) header.classList.remove('shadow-lg');
+
   // Use an intersection observer to alter the header.
   const observer = new IntersectionObserver(elements => {
     elements.forEach(element => {
       if (!element.isIntersecting) {
         header.style.height = '64px';
+        header.style.backgroundColor = 'var(--color-heritage)';
         headerLogo.style.height = '48px';
         headerLogoText.style.opacity = '0';
         headerActionButtons.forEach(button => { button.style.paddingBlock = '8px' });
+        if (hasHeroBanner) header.classList.add('shadow-lg');
       } else {
         header.style.removeProperty('height');
+        header.style.removeProperty('background-color');
         headerLogo.style.removeProperty('height');
         headerLogoText.style.removeProperty('opacity');
         headerActionButtons.forEach(button => { button.style.removeProperty('padding-block')});
+        if (hasHeroBanner) header.classList.remove('shadow-lg');
       }
     });
   });
@@ -36,45 +44,3 @@ export default function header() {
   observer.observe(intersectionTarget);
 
 }
-  // let previousScroll;
-  // let mainHeader = document.getElementById('main-header');
-  // let headerLogo = document.querySelector('header [data-logo]')
-  // let headerLogoText = document.querySelector('header [data-logo-text]');
-  // let hasFsBanner = document.querySelector('[data-is-fullscreen]');
-  // if (mainHeader && hasFsBanner) {
-  //   mainHeader.style.backgroundColor = 'transparent';
-  //   mainHeader.classList.remove('shadow-lg');
-  // }
-  // window.addEventListener("scroll", () => {
-
-  //   if (mainHeader) {
-
-  //     let currentScroll = window.pageYOffset;
-  //     let scrollThresholdReached = currentScroll > 200;
-      
-      // let isScrollingDown = currentScroll - previousScroll > 0;
-      // if (isScrollingDown  && scrollThresholdReached) {
-      //   mainHeader.style.transform = 'translateY(-100%)';
-      // } else {
-      //   mainHeader.style.transform = 'translateY(0)';
-      // }
-
-      // if (scrollThresholdReached) {
-      //   mainHeader.style.backgroundColor = '';
-      //   mainHeader.classList.add('shadow-lg');
-      //   headerLogo.style.height = '48px';
-      //   headerLogoText.style.opacity = '0';
-      // } else {
-      //   headerLogoText.style.opacity = '1'
-      //   headerLogo.style.height = '';
-      //   if (hasFsBanner) {
-      //     mainHeader.style.backgroundColor = 'transparent';
-      //     // mainHeader.classList.remove('shadow-lg');
-      //   }
-      // }
-
-      // Update the scroll position.
-      // previousScroll = currentScroll;
-    // }
-  // });
-// }
