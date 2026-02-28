@@ -2,17 +2,47 @@
 layout: layouts/page-iframe.html
 ---
 
-{% include "@components/header/header.twig" with {
+{% embed "@components/header/header.twig" with {
   bg_colour: 'bg-transparent'
 }%}
 
-{% include '@components/hero-banner/hero-banner.twig' with {
-  hero_variation: 'fullscreen',
+  {% block html_left %}
+
+    <a href="/">
+
+      {% include "@components/logo/logo.twig" with {
+        id: "header-logo",
+        overrides: "h-12 md:h-18 transition-all duration-500",
+        symbol_fill: "fill-white",
+        text_fill: "fill-white",
+        text_modifiers: "hidden md:block transition-opacity duration-500"
+      } only %}
+
+    </a>
+
+  {% endblock %}
+
+  {% block html_right %}
+
+    {% include "@components/header-actions/header-actions.twig" %}
+
+  {% endblock %}
+
+  {% block html_outer %}
+
+    {% include "@components/header-search/header-search.twig" %}
+
+  {% endblock %}
+
+{% endembed %}
+
+{% include "@components/hero-banner/hero-banner.twig" with {
+  hero_variation: "fullscreen",
   is_video: true,
-  hero_video_webm: '/video/ul-drone-footage.webm',
-  hero_video_mp4: '/video/ul-drone-footage.mp4',
-  hero_img_url: '/img/samples/ul-drone-footage-frame.jpg',
-  hero_heading: 'Championing environmental sustainability',
+  hero_video_webm: "/video/ul-drone-footage.webm",
+  hero_video_mp4: "/video/ul-drone-footage.mp4",
+  hero_img_url: "/img/samples/ul-drone-footage-frame.jpg",
+  hero_heading: "Championing environmental sustainability",
 } %}
 
 <div class="relative overflow-hidden bg-white" style="height: 1000px;"></div>
