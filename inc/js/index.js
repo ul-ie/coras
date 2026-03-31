@@ -3,8 +3,9 @@ import menuToggle from './menuToggle.js';
 import pageNav from './pageNav.js';
 
 // Components.
-import headerSearch from '../components/header-search/headerSearch.js';
+import headerSearch from '../components/header-search/header-search.js';
 import header from '../components/header/header.js';
+import heroBanner from '../components/hero-banner/hero-banner.js';
 import modeToggle from '../components/mode-toggle/mode-toggle.js';
 import swatch from '../components/swatch/swatch.js';
 
@@ -25,26 +26,12 @@ hljs.registerLanguage('yaml', yaml);
  * Execute only on page load.
  */
 document.addEventListener('DOMContentLoaded', () => {
-
-  // Enable header-related behaviour.
   header();
-
-  // Enable header search interactivity.
   headerSearch();
-
-  // Enable the menu toggle animations.
+  heroBanner();
   menuToggle();
-
-  // Enable the dark/light mode toggle functionality.
   modeToggle();
-
-  // Create the page navigation links.
   pageNav();
-
-  // Add the colour swatch event listeners.
   swatch();
-
-  // Get highlight.js started.
   hljs.highlightAll();
-
 }, false);

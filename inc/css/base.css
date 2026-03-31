@@ -1,22 +1,9 @@
-@media (min-width: 768px) {
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-    background-color: var(--color-granite-d2);
-  }
+*:focus-visible {
+  outline: 2px solid var(--color-modern);
+}
 
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--color-granite);
-    border-radius: var(--radius-md);
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--color-granite-l1);
-  }
-
-  ::-webkit-scrollbar-corner {
-    background-color: var(--color-granite-d2);
-  }
+:target {
+  scroll-margin-top: --spacing(32);
 }
 
 figure img {
@@ -82,7 +69,29 @@ hr {
   border-color: var(--color-granite-d1);
 }
 
-:target {
-  scroll-margin-top: --spacing(32);
-}
+@media (width >= 48rem) {
+  table {
+    display: table;
+    table-layout: auto;
+    white-space: normal;
+  }
 
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-granite-d2);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-granite);
+    border-radius: var(--radius-md);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-granite-l1);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background-color: var(--color-granite-d2);
+  }
+}

@@ -8,6 +8,7 @@
 #}
 
 {# Set variable defaults. #}
+{% set core_classes = 'overflow-visible' %}
 {% set size = size ?? 'w-5' %}
 {% set type = type in ['line', 'social', 'solid', 'twotone'] ? type : 'line' %}
 
@@ -16,7 +17,7 @@
   {% if overrides is not empty %}
     {{ overrides }}
   {% else %}
-    {{ [fill, size, modifiers]|join(' ') }}
+    {{ [core_classes, fill, size, modifiers]|join(' ') }}
   {% endif %}
 {% endset %}
 

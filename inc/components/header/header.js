@@ -24,12 +24,14 @@ export default function header() {
   const observer = new IntersectionObserver(elements => {
     elements.forEach(element => {
       if (!element.isIntersecting) {
-        header.style.height = '64px';
         header.style.backgroundColor = 'var(--color-heritage)';
-        headerLogo.style.height = '48px';
         headerLogoText.style.opacity = '0';
+        header.style.height = '64px';
+        headerLogo.style.height = '48px';
         headerActionButtons.forEach(button => { button.style.paddingBlock = '8px' });
         if (hasHeroBanner) header.classList.add('shadow-lg');
+        // Once transitions are done, offset the target to prevent flicker.
+        intersectionTarget.style.transform = 'translateY(-3rem)';
       } else {
         header.style.removeProperty('height');
         header.style.removeProperty('background-color');
@@ -37,6 +39,7 @@ export default function header() {
         headerLogoText.style.removeProperty('opacity');
         headerActionButtons.forEach(button => { button.style.removeProperty('padding-block')});
         if (hasHeroBanner) header.classList.remove('shadow-lg');
+        intersectionTarget.style.removeProperty('transform');
       }
     });
   });

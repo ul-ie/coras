@@ -1,9 +1,13 @@
+{% set search_btn_id = search_btn_id ?? "header-search-show" %}
+{% set menu_btn_id = menu_btn_id ?? "header-menu-show" %}
+{% set courses_btn_id = courses_btn_id ?? "saved-courses" %}
+
 <div class="flex items-center" id="header-actions">
 
   <div class="flex md:bg-pebble-d3/70 rounded-lg h-fit transition-opacity duration-500">
 
     {% embed "@components/button/button.twig" with {
-      id: "header-search-display",
+      id: search_btn_id,
       type: "button",
       text: "Search",
       text_classes: "hidden md:inline",
@@ -24,7 +28,7 @@
     {% endembed %}
 
     {% embed "@components/button/button.twig" with {
-      id: "header-menu-display",
+      id: menu_btn_id,
       type: "button",
       text: "Menu",
       text_classes: "hidden md:inline",
@@ -45,7 +49,7 @@
     {% endembed %}
 
     {% embed "@components/button/button.twig" with {
-      id: "saved-courses",
+      id: courses_btn_id,
       type: "button",
       text: "Saved Courses",
       text_classes: "hidden",

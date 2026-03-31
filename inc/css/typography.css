@@ -247,10 +247,6 @@ h1 + *, h2 + *, h3 + *, h4 + * {
   margin-top: 0;
 }
 
-*:focus-visible {
-  outline: 2px solid var(--color-modern);
-}
-
 @media (width >= 48rem) {
   h1.font-display {
     font-size: var(--text-9xl)
@@ -291,22 +287,12 @@ h1 + *, h2 + *, h3 + *, h4 + * {
     margin-top: 0;
   }
 
-  table {
-    display: table;
-    table-layout: auto;
-    white-space: normal;
-  }
-
   pre {
     padding: --spacing(8);
   }
 }
 
 @media (width >= 80rem) {
-  /* h1 {
-    font-size: var(--text-9xl);
-  } */
-
   pre {
     padding: --spacing(10);
   }
