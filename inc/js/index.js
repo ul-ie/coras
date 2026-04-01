@@ -1,6 +1,7 @@
 // Global js.
 import menuToggle from './menuToggle.js';
 import pageNav from './pageNav.js';
+import iconSearch from './iconSearch.js';
 
 // Components.
 import headerSearch from '../components/header-search/header-search.js';
@@ -33,5 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
   modeToggle();
   pageNav();
   swatch();
+  iconSearch();
   hljs.highlightAll();
 }, false);
