@@ -1,0 +1,43 @@
+name: Pattern
+props:
+  type: object
+  required:
+    - name
+  properties:
+    clip_path:
+      title: clip_path
+      type: string
+      description: Accepts any valid CSS clip-path syntax.
+    fill:
+      title: fill
+      type: string
+      description: The pattern's fill colour.
+      default: bg-heritage
+    id:
+      title: id
+      type: string
+      description: An optional id for the pattern.
+    modifiers:
+      title: modifiers
+      type: string
+      description: Add-on modifier classes in case further customisation is needed.
+    name:
+      title: name
+      type: string
+      description: The pattern name. Must be one of the six defined pattern names.
+      enum:
+        - 1A
+        - 1B
+        - 1C
+        - 2A
+        - 2B
+        - 2C
+      default: 1A
+    overrides:
+      title: overrides
+      type: string
+      description: Allows a full take-over of the component classes if modifiers are not enough.
+    size:
+      title: size
+      type: string
+      description: The size of the pattern, which can be defined by size-*, h-* or w-* utility classes. 

@@ -4,6 +4,8 @@
 
 export default function iconSearch() {
 
+  if (!document.getElementById('icon-bank')) return;
+
   // Get all the on-page icons (with their containers).
   const icons = document.querySelectorAll('#icon-bank .well');
 

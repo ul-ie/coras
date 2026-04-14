@@ -1,0 +1,18 @@
+{# Set component defaults. #}
+{% set clip_path = clip_path ? 'style="clip-path: ' ~ clip_path ~ '"' : '' %}
+{% set id = id ? 'id="' ~ id ~ '"' : '' %}
+{% set fill = fill ?? 'fill-white' %}
+{% set name = name in ['1A', '1B', '1C', '2A', '2B', '2C'] ? name : '1A' %}
+{% set size = size ?? 'w-48 h-auto' %}
+
+{# Set up the component classes. #}
+{% set classes = overrides is empty ? [size, fill, modifiers]|join(' ') : overrides %}
+
+{# The component markup. #}
+<div
+  {{ id }}
+  {{ clip_path }}
+  class="{{ classes }}"
+  >
+  {% include '@patterns/0' ~ name ~ '.svg' %}
+</div>

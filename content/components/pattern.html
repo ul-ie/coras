@@ -1,0 +1,191 @@
+---
+title: Pattern
+layout: layouts/page.html
+---
+
+<h1 class="font-serif is-decorated">{{ title }}</h1>
+
+<h2>Description</h2>
+
+<p>The pattern component is a configurable container for UL's <strong>Graphic Patterns</strong>, which are inspired by the campus topography, the river Shannon and the living bridge.</p>
+
+<p>They are decorative and should be used to enhance a design but should never obscure any information. Our patterns should only ever be used in our primary or mono colours. </p>
+
+<div class="grid gap-4 grid-cols-1 md:grid-cols-3 text-center">
+
+  <figure>
+    {% include '@components/pattern/pattern.twig' with {
+      name: '1A',
+      size: 'w-full',
+      fill: 'fill-heritage dark:fill-modern'
+    } %}
+    <figcaption>Pattern 1A</figcaption>
+  </figure>
+
+  <figure>
+    {% include '@components/pattern/pattern.twig' with {
+      name: '1B',
+      size: 'w-full',
+      fill: 'fill-heritage dark:fill-modern'
+    } %}
+    <figcaption>Pattern 1B</figcaption>
+  </figure>
+
+  <figure>
+    {% include '@components/pattern/pattern.twig' with {
+      name: '1C',
+      size: 'w-full',
+      fill: 'fill-heritage dark:fill-modern'
+    } %}
+    <figcaption>Pattern 1C</figcaption>
+  </figure>
+
+  <figure>
+    {% include '@components/pattern/pattern.twig' with {
+      name: '2A',
+      size: 'w-full',
+      fill: 'fill-heritage dark:fill-modern'
+    } %}
+    <figcaption>Pattern 2A</figcaption>
+  </figure>
+
+  <figure>
+    {% include '@components/pattern/pattern.twig' with {
+      name: '2B',
+      size: 'w-full',
+      fill: 'fill-heritage dark:fill-modern'
+    } %}
+    <figcaption>Pattern 2B</figcaption>
+  </figure>
+
+  <figure>
+    {% include '@components/pattern/pattern.twig' with {
+      name: '2C',
+      size: 'w-full',
+      fill: 'fill-heritage dark:fill-modern'
+    } %}
+    <figcaption>Pattern 2C</figcaption>
+  </figure>
+
+</div>
+
+<h3>Syntax</h3>
+
+<p>Use the <code>include</code> tag to inject a pattern, and the <code>only</code> keyword if it needs to be protected from outside scope.</p>
+
+<pre><code>{{ html("
+{% include 'ul:pattern' with {
+  property: 'value'
+  ...
+} only %}
+")}}</code></pre>
+
+<h3>Properties</h3>
+
+<p>A pattern has one mandatory and six optional properties.</p>
+
+{% include '@layouts/component-props.html' %}
+
+<h2>Examples</h2>
+
+<p>Below are some examples of how to customise the colour, size, add a clip-path and inject further modifier classes where needed.</p>
+
+<h3>Fill and Size</h3>
+
+<p>The default fill of a pattern is <code>fill-white</code> and the default size is <code>w-48 h-auto</code> (192px in width with automatic height).</p>
+
+<p>In the below example, the fill and size are modified for each pattern.</p>
+
+<div class="flex gap-4 items-end">
+
+  {% include '@components/pattern/pattern.twig' with {
+    name: '2C',
+    size: 'w-36 h-auto',
+    fill: 'fill-heritage'
+  } only %}
+
+  {% include '@components/pattern/pattern.twig' with {
+    name: '2B',
+    size: 'w-48 h-auto',
+    fill: 'fill-modern'
+  } only %}
+
+  {% include '@components/pattern/pattern.twig' with {
+    name: '2A',
+    size: 'w-64 h-auto',
+    fill: 'fill-green'
+  } only %}
+
+</div>
+
+<pre><code>{{ html("
+{% include 'ul:pattern' with {
+  name: '2C',
+  size: 'w-36 h-auto',
+  fill: 'fill-heritage'
+} only %}
+
+{% include 'ul:pattern' with {
+  name: '2B',
+  size: 'w-48 h-auto',
+  fill: 'fill-modern'
+} only %}
+
+{% include 'ul:pattern' with {
+  name: '2A',
+  size: 'w-64 h-auto',
+  fill: 'fill-green'
+} only %}
+")}}</code></pre>
+
+<h3>Clip-path</h3>
+
+<p>Pattern components also support custom clipping, via <code>clip-path</code> syntax. In the following example a polygon shape is used to clip the top right portion of the pattern:</p>
+
+{% include '@components/pattern/pattern.twig' with {
+  name: '1C',
+  fill: 'fill-heritage',
+  clip_path: 'polygon(0% 0%, 80% 0%, 80% 30%, 100% 30%, 100% 100%, 0% 100%)'
+} only %}
+
+<pre><code>{{ html("
+{% include 'ul:pattern' with {
+  name: '1C',
+  fill: 'fill-heritage',
+  clip_path: 'polygon(0% 0%, 80% 0%, 80% 30%, 100% 30%, 100% 100%, 0% 100%)'
+} only %}
+")}}</code></pre>
+
+<h3>Customisation</h3>
+
+<p>Further customisation can be done via the <code>modifiers</code> property. In the below example the pattern is placed behind another partially-transparent <code>div</code>.</p>
+
+<div class="relative bg-green p-14">
+  {% include '@components/pattern/pattern.twig' with {
+    name: '1A',
+    modifiers: 'absolute top-7 left-7'
+  } only %}
+  <div class="relative z-10 h-64 bg-heritage/70"></div>
+</div>
+
+<pre><code>{{ html("
+<div class='relative bg-green p-14'>
+  {% include 'ul:pattern' with {
+    name: '1A',
+    modifiers: 'absolute top-7 left-7'
+  } only %}
+  <div class='relative z-10 h-64 bg-heritage/70'></div>
+</div>
+")}}</code></pre>
+
+<h2>Source Code</h2>
+
+<p>The source code below can be found below, and at <code>inc/components/pattern/</code> in the design system repository.</p>
+
+<h3>Twig</h3>
+
+<pre class="max-h-80"><code class="">{{ html(get_file("inc/components/pattern/pattern.twig")) }}</code></pre>
+
+<h3>YML</h3>
+
+<pre class="max-h-80"><code class="language-yaml">{{ html(get_file("inc/components/pattern/pattern.component.yml")) }}</code></pre>

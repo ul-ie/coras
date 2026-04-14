@@ -6,7 +6,6 @@ import iconSearch from './iconSearch.js';
 // Components.
 import headerSearch from '../components/header-search/header-search.js';
 import header from '../components/header/header.js';
-import heroBanner from '../components/hero-banner/hero-banner.js';
 import modeToggle from '../components/mode-toggle/mode-toggle.js';
 import swatch from '../components/swatch/swatch.js';
 
@@ -29,7 +28,6 @@ hljs.registerLanguage('yaml', yaml);
 document.addEventListener('DOMContentLoaded', () => {
   header();
   headerSearch();
-  heroBanner();
   menuToggle();
   modeToggle();
   pageNav();

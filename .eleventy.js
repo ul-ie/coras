@@ -22,6 +22,7 @@ module.exports = async function(eleventyConfig) {
         path: `./${inputPath}`,
         namespaces: {
           img: './inc/assets/img',
+          patterns: './inc/assets/img/patterns',
           layouts: './inc/layouts',
           components: './inc/components'
         },
